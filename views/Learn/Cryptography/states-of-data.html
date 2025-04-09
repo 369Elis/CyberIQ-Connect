@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the Three States of Data</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding the Three States of Data</h1>
+    </header>
+    
+    <section>
+        <p>Digital information exists in different forms, but all data falls into three primary states:</p>
+        <ul>
+            <li>Data at Rest</li>
+            <li>Data in Motion</li>
+            <li>Data in Use</li>
+        </ul>
+        <p>These categories define how data is stored, transferred, or processed at any given moment. Since data can shift between states rapidly, knowing how to secure each type effectively is crucial.</p>
+    </section>
+    
+    <section>
+        <h2>Exploring Each Data State</h2>
+        
+        <h3>What Is Data at Rest?</h3>
+        <p>Data at rest refers to information that is stored and not actively being transferred or processed. It resides on devices such as hard drives, personal computers, and databases.</p>
+        <p>Because it is not in transit, this data is generally more secure. However, since critical and valuable information is often stored in this state, it remains a target for cybercriminals.</p>
+        
+        <h3>What Is Data in Motion?</h3>
+        <p>Data in motion, also known as data in transit, is information being transferred between devices or networks. This includes emails, instant messages, and file-sharing platforms.</p>
+        <p>Since this data moves across systems, it is particularly vulnerable to interception attacks. Strong encryption is essential to protect data while it travels.</p>
+        
+        <h3>What Is Data in Use?</h3>
+        <p>Data in use is actively being accessed, modified, or processed by applications or users. Since this data is open for immediate access, it presents a higher risk of exposure to unauthorized individuals or errors that could compromise its security.</p>
+        <p>While software often includes encryption measures, extra precautions are necessary to prevent unauthorized access and accidental data leaks.</p>
+    </section>
+    
+    <section>
+        <h2>How to Secure Data in All States</h2>
+        <p>Ensuring the safety of digital information requires tailored security measures for each state. Data in use and in transit pose higher security risks than data at rest, making proactive protection strategies essential.</p>
+        <p>Before diving into specific security measures, consider these two key points:</p>
+        <ul>
+            <li><strong>Preventative Security Is More Effective:</strong> Once data is compromised, the focus shifts to damage control. A proactive approach minimizes risks before threats materialize.</li>
+            <li><strong>Classify Data for Better Protection:</strong> Understanding the sensitivity of different data sets allows organizations to apply the appropriate security protocols based on the level of risk in each state.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Securing Data in Motion</h2>
+        <ul>
+            <li><strong>Use Firewalls and Authentication Measures:</strong> These essential security tools help block malicious access and prevent unauthorized breaches.</li>
+            <li><strong>Automate Security Controls:</strong> Modern security solutions use automation to detect and encrypt sensitive files while in transit, reducing exposure risks.</li>
+            <li><strong>Implement Email Encryption:</strong> Encrypting emails ensures messages and attachments remain protected from unauthorized access.</li>
+            <li><strong>Deploy Data Loss Prevention (DLP) Solutions:</strong> DLP tools help prevent unauthorized sharing of sensitive data by monitoring and restricting transmissions based on pre-set security policies.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Protecting Data in Use</h2>
+        <ul>
+            <li><strong>Apply Security Controls Before Access:</strong> Implement protective measures before granting access to sensitive files.</li>
+            <li><strong>Strengthen Identity Verification:</strong> Identity theft is a growing threat. Using authentication mechanisms ensures that only legitimate users can access critical data.</li>
+            <li><strong>Manage Access Privileges:</strong> Restrict user actions through digital rights management (DRM) and role-based access controls (RBAC) to minimize unauthorized interactions.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Safeguarding Data at Rest</h2>
+        <ul>
+            <li><strong>Use Full Disk Encryption:</strong> Encrypting entire storage devices ensures that lost or stolen hardware does not expose sensitive data.</li>
+            <li><strong>Implement DLP for Stored Data:</strong> Data Loss Prevention solutions can scan and secure critical files on networks and devices.</li>
+            <li><strong>Extend Security to Cloud Storage:</strong> Cloud Access Security Brokers (CASBs) enforce encryption policies on cloud-based data storage and sharing platforms.</li>
+            <li><strong>Secure Mobile Devices:</strong> Mobile Device Management (MDM) tools restrict access to corporate data, encrypt stored files, and block unauthorized device usage.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "states of data";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/cryptography-use-cases.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+
+</body>
+</html>

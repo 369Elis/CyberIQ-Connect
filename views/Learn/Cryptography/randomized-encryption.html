@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomized Encryption Techniques</title>
+</head>
+<body>
+    <header>
+        <h1>Randomized Encryption Techniques</h1>
+    </header>
+    
+    <section>
+        <h2>Introduction</h2>
+        <p>Randomized encryption strengthens cryptographic security by introducing randomness into the encryption process. Unlike traditional deterministic encryption methods, randomized encryption selects a different ciphertext for the same plaintext each time it is encrypted, making it more resilient against attacks such as chosen plaintext attacks and statistical analysis.</p>
+    </section>
+    
+    <section>
+        <h2>Why Use Randomized Encryption?</h2>
+        <p>Cybersecurity threats continue to evolve, and encryption methods must adapt to mitigate vulnerabilities. Randomized encryption achieves enhanced security by:</p>
+        <ul>
+            <li>Disrupting statistical attacks by varying ciphertext outputs.</li>
+            <li>Preventing chosen plaintext attacks, as encryption results are non-reproducible.</li>
+            <li>Expanding the apparent message space, making brute-force and dictionary attacks more complex.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Core Concepts of Randomized Encryption</h2>
+        <p>A randomized encryption system operates by introducing a nondeterministic function into the encryption process. This means that for a given plaintext and key, multiple ciphertexts can be generated, chosen randomly from a defined set. The decryption process remains deterministic, ensuring that each ciphertext corresponds to a single plaintext when decrypted correctly.</p>
+        <p>Randomized encryption requires an entropy source, typically provided by hardware-based random number generators or cryptographically secure pseudorandom generators. Effective implementation ensures unpredictability, crucial for security.</p>
+    </section>
+    
+    <section>
+        <h2>Popular Randomized Encryption Techniques</h2>
+        <h3>Randomized Block Ciphers</h3>
+        <ul>
+            <li>A message is combined with a randomly generated sequence before encryption.</li>
+            <li>Prevents chosen plaintext attacks and smooths out input distribution.</li>
+            <li>Examples include methods where random padding is introduced before encryption.</li>
+        </ul>
+        
+        <h3>Randomized Stream Ciphers</h3>
+        <ul>
+            <li>Uses nondeterministic state transitions to vary encryption outputs.</li>
+            <li>Can intersperse null characters within plaintext to obscure patterns.</li>
+            <li>Often applied in scenarios requiring continuous encryption, such as secure communications.</li>
+        </ul>
+        
+        <h3>Hybrid Methods</h3>
+        <ul>
+            <li>Some encryption schemes combine deterministic and randomized encryption methods.</li>
+            <li>This approach provides flexibility, balancing performance and security.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Real-World Applications of Randomized Encryption</h2>
+        <ul>
+            <li><strong>Digital Signatures & Authentication:</strong> Secure signing mechanisms, such as Rabin’s variation of RSA, employ randomization to improve signature security.</li>
+            <li><strong>Password Security:</strong> Unix-style password encryption uses randomization to increase the effective search space for attackers.</li>
+            <li><strong>Secure Communication Channels:</strong> Techniques such as wire-tap channel encryption leverage randomness to obscure transmissions from eavesdroppers.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Limitations and Considerations</h2>
+        <p>Despite its security benefits, randomized encryption has trade-offs:</p>
+        <ul>
+            <li><strong>Increased Bandwidth Usage:</strong> Expanding the message space requires additional transmission bandwidth.</li>
+            <li><strong>Entropy Source Reliability:</strong> Secure implementations require high-quality randomness.</li>
+            <li><strong>Computational Overhead:</strong> Additional encryption complexity may impact performance in resource-constrained environments.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>  
+        const MODULE_NAME = "randomized encryption";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/obfuscation.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Identity Governance & Administration (IGA)</title>
+</head>
+<body>
+    <h1>Understanding Identity Governance & Administration (IGA)</h1>
+    
+    <h2>What Is Identity Governance & Administration?</h2>
+    <p>Identity Governance and Administration (IGA) is a framework that helps organizations efficiently manage user access and IT privileges across applications, systems, and resources. It provides a centralized approach to provisioning user accounts, enforcing role-based access controls, and streamlining audit processes.</p>
+    
+    <p>By implementing an IGA solution, businesses can:</p>
+    <ul>
+        <li>✔ Automate user provisioning and deprovisioning</li>
+        <li>✔ Ensure employees have appropriate access based on their roles</li>
+        <li>✔ Enhance compliance with security regulations</li>
+        <li>✔ Reduce the risk of unauthorized access and insider threats</li>
+    </ul>
+    
+    <h2>Why Is IGA Important?</h2>
+    <p>With the increasing reliance on cloud-based services and remote work, traditional IT security boundaries have disappeared. Instead of securing a single internal network, organizations must now manage and secure user identities across multiple cloud platforms and SaaS applications.</p>
+    
+    <h2>Challenges Without IGA</h2>
+    <ul>
+        <li>❌ Manually managing access is inefficient.</li>
+        <li>❌ Overprivileged accounts increase security risks.</li>
+        <li>❌ Lack of visibility leads to compliance issues.</li>
+    </ul>
+    
+    <h2>How Is IGA Different from IAM?</h2>
+    <p>IGA is a subfield of Identity & Access Management (IAM), which is a broader category that encompasses various identity security solutions.</p>
+    
+    <h2>Core Features of IGA Solutions</h2>
+    <ul>
+        <li>🔹 Role-Based Access Control (RBAC)</li>
+        <li>🔹 User Lifecycle Management</li>
+        <li>🔹 Self-Service Access Requests</li>
+        <li>🔹 Approval Workflows</li>
+        <li>🔹 User Access Reviews & Audits</li>
+    </ul>
+    
+    <h2>Choosing the Right IGA Solution</h2>
+    <ul>
+        <li>✔ Does the solution meet my organization’s needs?</li>
+        <li>✔ Does it support role-based access controls and automation?</li>
+        <li>✔ Can it scale with my business as we grow?</li>
+    </ul>
+    
+    <h2>Legacy IGA vs. Modern IGA</h2>
+    <ul>
+        <li>❌ Slow Deployment vs. ✅ Quick Deployment</li>
+        <li>❌ High Complexity vs. ✅ Pre-Built Integrations</li>
+        <li>❌ Expensive Maintenance vs. ✅ No-Code Configuration</li>
+        <li>❌ Poor User Experience vs. ✅ User-Friendly Interface</li>
+    </ul>
+    
+    <h2>Final Thoughts: The Future of Identity Governance & Administration</h2>
+    <p>Organizations that rely on manual access management face increased security risks, inefficiencies, and compliance challenges. Implementing an IGA solution helps businesses stay ahead of threats by automating access controls and streamlining audits.</p>
+    
+    <h2>Why Choose a Modern IGA Solution?</h2>
+    <ul>
+        <li>🔹 Fast Implementation</li>
+        <li>🔹 Automation-Driven</li>
+        <li>🔹 User-Friendly</li>
+        <li>🔹 Scalable & Cost-Effective</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "identity governance & administration";
+        const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/zero-trust-architecture.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

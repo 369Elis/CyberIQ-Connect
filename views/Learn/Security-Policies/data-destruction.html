@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Wiping vs. Data Destruction</title>
+</head>
+<body>
+    <h1>Data Wiping vs. Data Destruction: Making the Right Choice for Secure Data Disposal</h1>
+    <p>In today’s digital world, ensuring that sensitive information is properly erased before disposing of a device is critical. Whether you’re a business looking to comply with data protection laws or an individual safeguarding personal information, choosing the right method for data disposal is key.</p>
+    
+    <p>The two main approaches—data wiping and data destruction—may seem similar, but they serve very different purposes. Data wiping erases information from a storage device while keeping it functional, whereas data destruction ensures that both the data and the device itself are permanently destroyed.</p>
+    
+    <h2>What is Data Wiping?</h2>
+    <p>Data wiping is a secure method of erasing information without physically damaging the storage device. Unlike simply deleting files, which leaves traces that can be recovered, data wiping overwrites the existing data with random patterns, making it irretrievable.</p>
+    
+    <h3>Common Data Wiping Methods</h3>
+    <ul>
+        <li><strong>Single-Pass Overwriting:</strong> Replaces data with a single round of zeros, ones, or random characters.</li>
+        <li><strong>Multi-Pass Overwriting:</strong> Uses multiple overwrites with secure algorithms like DoD 5220.22-M.</li>
+        <li><strong>Degaussing:</strong> Disrupts the magnetic field of a hard drive, making data unreadable and the device unusable.</li>
+        <li><strong>Cryptographic Erasure:</strong> Deletes the encryption key, rendering encrypted data inaccessible.</li>
+    </ul>
+    
+    <h2>What is Data Destruction?</h2>
+    <p>While data wiping erases information, data destruction ensures that neither the data nor the storage device can ever be used again. This approach is often used in industries where absolute security is required.</p>
+    
+    <h3>How Data Destruction Works</h3>
+    <ul>
+        <li><strong>Physical Shredding:</strong> Hard drives, USBs, and SD cards are mechanically shredded.</li>
+        <li><strong>Incineration:</strong> Storage devices are burned at extremely high temperatures.</li>
+        <li><strong>Chemical Dismantling:</strong> A chemical process breaks down storage materials.</li>
+        <li><strong>Pulverizing:</strong> Devices are ground into fine dust to prevent data recovery.</li>
+    </ul>
+    
+    <h2>Which Method Should You Choose?</h2>
+    <h3>When to Use Data Wiping:</h3>
+    <ul>
+        <li>You plan to reuse, sell, or donate the device.</li>
+        <li>You need to securely erase confidential data while keeping the hardware functional.</li>
+        <li>You are following compliance regulations that allow for data wiping.</li>
+        <li>Your organization needs a cost-effective solution for data disposal.</li>
+    </ul>
+    
+    <h3>When to Use Data Destruction:</h3>
+    <ul>
+        <li>The device contains highly classified or top-secret data.</li>
+        <li>The hardware is too old, damaged, or no longer needed.</li>
+        <li>Compliance laws require complete destruction of sensitive information.</li>
+        <li>Your industry mandates physical destruction for security reasons.</li>
+    </ul>
+    
+    <p>For example, if a company is refreshing its laptops and wants to resell them, data wiping is the best solution. However, if a government agency is retiring old servers, they will likely shred or incinerate the drives to eliminate any possibility of data recovery.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "data destruction";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+      
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is PCI DSS?</title>
+</head>
+<body>
+    <h1>What is PCI DSS?</h1>
+    <p>The Payment Card Industry Data Security Standard (PCI DSS) is a global framework designed to protect cardholder data and prevent fraud. It applies to all organizations that process, store, or transmit payment card information. Compliance with PCI DSS helps businesses secure transactions, maintain customer trust, and meet regulatory requirements.</p>
+    
+    <h2>Key PCI DSS Goals & Requirements</h2>
+    <p>PCI DSS consists of 12 core security requirements structured around six main objectives:</p>
+    
+    <h3>Build & Maintain a Secure Network</h3>
+    <ul>
+        <li>Install and configure firewalls to protect cardholder data.</li>
+        <li>Avoid using default passwords and security settings.</li>
+    </ul>
+    
+    <h3>Protect Cardholder Data</h3>
+    <ul>
+        <li>Encrypt stored payment data.</li>
+        <li>Secure transmission of cardholder information across networks.</li>
+    </ul>
+    
+    <h3>Maintain a Strong Vulnerability Management Program</h3>
+    <ul>
+        <li>Deploy anti-virus and anti-malware tools to protect systems.</li>
+        <li>Regularly update and patch security systems and applications.</li>
+    </ul>
+    
+    <h3>Implement Strong Access Control Measures</h3>
+    <ul>
+        <li>Restrict data access based on business need-to-know.</li>
+        <li>Use multi-factor authentication for system access.</li>
+        <li>Limit physical access to stored cardholder data.</li>
+    </ul>
+    
+    <h3>Regularly Monitor & Test Networks</h3>
+    <ul>
+        <li>Track and monitor all access to cardholder data and network resources.</li>
+        <li>Perform regular security testing, including vulnerability scans and penetration testing.</li>
+    </ul>
+    
+    <h3>Maintain an Information Security Policy</h3>
+    <ul>
+        <li>Develop and enforce security policies for all employees handling payment data.</li>
+    </ul>
+    
+    <h2>How to Achieve PCI DSS Compliance</h2>
+    <p>Compliance involves three ongoing steps:</p>
+    <ul>
+        <li><strong>Assess:</strong> Identify where cardholder data is stored, processed, or transmitted and analyze vulnerabilities.</li>
+        <li><strong>Remediate:</strong> Address security gaps, update processes, and remove unnecessary data storage.</li>
+        <li><strong>Report:</strong> Document security measures and submit compliance reports to relevant payment networks.</li>
+    </ul>
+    
+    <h2>Who Enforces PCI DSS?</h2>
+    <p>The PCI Security Standards Council (PCI SSC) manages PCI DSS, but enforcement is handled by credit card brands like Visa, MasterCard, and American Express. Businesses must validate compliance based on transaction volume and risk level.</p>
+    
+    <h2>Why PCI DSS Matters</h2>
+    <p>Failure to comply can lead to data breaches, financial penalties, and loss of customer trust. By implementing PCI DSS, businesses safeguard sensitive data, reduce fraud risks, and strengthen their cybersecurity posture.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "pdi dss";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

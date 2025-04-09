@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Zero Trust Architecture (ZTA)</title>
+</head>
+<body>
+    <h1>Understanding Zero Trust Architecture (ZTA)</h1>
+    
+    <h2>What Is Zero Trust Architecture?</h2>
+    <p>Zero Trust Architecture (ZTA) is a security framework designed to eliminate implicit trust in any entity—whether users, devices, or applications—before granting access to critical systems or data. Instead of assuming users within a network are inherently trustworthy, ZTA continuously validates and verifies access requests using strict identity controls, real-time monitoring, and robust security policies.</p>
+    
+    <h2>Key Components of Zero Trust Architecture:</h2>
+    <ul>
+        <li>✔ Identity and Access Management (IAM) – Ensures only authorized users gain access.</li>
+        <li>✔ Multi-Factor Authentication (MFA) – Adds extra layers of identity verification.</li>
+        <li>✔ Micro-Segmentation – Limits access to isolated network sections.</li>
+        <li>✔ Encryption – Protects data in transit and at rest.</li>
+        <li>✔ Continuous Monitoring – Detects anomalies and prevents breaches.</li>
+    </ul>
+    
+    <h2>Why Zero Trust Matters in Modern Security</h2>
+    <p>First introduced by John Kindervag in 2011 while working at Forrester Research, Zero Trust Architecture has gained widespread adoption due to the growing complexity of IT environments.</p>
+    
+    <h2>Core Principles of Zero Trust Architecture</h2>
+    <ol>
+        <li><strong>Continuous Monitoring & Verification</strong></li>
+        <li><strong>Least Privilege Access</strong></li>
+        <li><strong>Assume Breach Mentality</strong></li>
+    </ol>
+    
+    <h2>Benefits of Zero Trust Architecture</h2>
+    <ul>
+        <li>✔ Enhanced Security</li>
+        <li>✔ Prevents Data Breaches</li>
+        <li>✔ Real-Time Monitoring</li>
+        <li>✔ Mitigates Advanced Persistent Threats (APTs)</li>
+        <li>✔ Supports Cloud & Remote Work</li>
+        <li>✔ Strengthens Compliance</li>
+        <li>✔ Reduces Insider Threats</li>
+        <li>✔ Improves Incident Response</li>
+    </ul>
+    
+    <h2>The Five Pillars of Zero Trust (CISA Framework)</h2>
+    <ol>
+        <li>Identity</li>
+        <li>Devices</li>
+        <li>Networks</li>
+        <li>Applications & Workloads</li>
+        <li>Data</li>
+    </ol>
+    
+    <h2>Implementing Zero Trust Architecture: A Step-By-Step Guide</h2>
+    <ol>
+        <li>Identify & Classify Assets</li>
+        <li>Verify Users & Devices</li>
+        <li>Define Access Policies</li>
+        <li>Enforce Network Segmentation</li>
+        <li>Monitor, Analyze & Automate Security</li>
+    </ol>
+    
+    <h2>Zero Trust in Action: Real-World Use Cases</h2>
+    <ul>
+        <li>🔹 Data Protection & Compliance</li>
+        <li>🔹 Secure Remote Access</li>
+        <li>🔹 Insider Threat Detection</li>
+        <li>🔹 Cloud Security Enhancement</li>
+        <li>🔹 IoT & OT Security</li>
+    </ul>
+    
+    <h2>Final Thoughts: Why Zero Trust Is the Future of Cybersecurity</h2>
+    <p>Zero Trust Architecture ensures that every access request is verified, monitored, and limited to only what is necessary. By adopting continuous authentication, real-time monitoring, and least privilege access, businesses can significantly enhance cybersecurity defenses.</p>
+    
+    <h2>Key Takeaways:</h2>
+    <ul>
+        <li>✔ Zero Trust eliminates implicit trust in networks, users, and devices.</li>
+        <li>✔ It continuously verifies access and enforces least privilege policies.</li>
+        <li>✔ ZTA protects against insider threats, data breaches, and cyberattacks.</li>
+        <li>✔ Organizations should gradually implement Zero Trust to improve security.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "zero trust architecture";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

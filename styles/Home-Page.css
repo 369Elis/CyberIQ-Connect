@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0a1f44, #2e538b);
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Image */
+.background-image {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.blended-image {
+  opacity: 0.15;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main Layout Container */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header with Logo and Hero Content */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 40px;
+}
+/* Top Right Buttons Container */
+.top-right-buttons {
+  position: fixed;
+  top: 20px; /* Distance from the top of the screen */
+  right: 20px; /* Distance from the right of the screen */
+  display: flex;
+  gap: 15px; /* Space between "About Us" and "Login" */
+  z-index: 10;
+}
+
+/* Profile Container Styling */
+.profile-container {
+  display: none;
+}
+
+/* Profile Icon Styling */
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Attach directly below the profile icon */
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Hidden by default */
+  z-index: 1000;
+  width: 150px;
+  padding: 10px 0;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 10px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #333333;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Hover Effect for Menu Items */
+.dropdown-menu button:hover {
+  background: #f5f5f5;
+}
+
+/* Ensure Dropdown Stays Visible */
+.profile-container:hover .dropdown-menu {
+  display: block; /* Show dropdown when hovering over the container */
+}
+
+/* Login Button Styling - Matches Dropdown Button */
+.login-btn {
+  background-color: #00d1b2;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#login-btn {
+  display: inline-block;
+}
+
+/* Hover Effect for Login Button */
+.login-btn:hover {
+  background: linear-gradient(90deg, #04b42a, #04b42a);
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7), 0 0 15px rgba(90, 90, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.login-btn:hover {
+  background-color: #00b89b;
+  box-shadow: 0px 0px 10px rgba(0, 209, 178, 0.7);
+}
+
+.logo-container {
+  position: absolute;
+  top: -30px; /* Adjust this value to move the logo up or down */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-logo {
+  width: 250px; /* Adjust size as needed */
+  height: auto;
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  top: 210px;
+  max-width: 600px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  color: #f7f2f2;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.hero-content .highlight {
+  color: #eeafaf;
+}
+
+.hero-content p.subheading {
+  font-size: 1.2rem;
+  color: #d1d1d1;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-top: 15px;
+}
+
+/* Pyramid Button Container */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-height: calc(100vh - 400px); /* Ensures it doesn’t overflow */
+  overflow-y: auto;
+  padding: 20px 0;
+  padding-bottom: 60px;
+}
+
+/* Button Styling */
+.main-btn {
+  background-color: #00d1b2;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Pyramid Layout for Button Sizes */
+.button-container .main-btn:nth-child(1) {
+  padding: 12px 32px;
+  font-size: 1.3rem;
+  width: 160px;
+}
+
+.button-container .main-btn:nth-child(2) {
+  padding: 14px 36px;
+  font-size: 1.4rem;
+  width: 200px;
+}
+
+.button-container .main-btn:nth-child(3) {
+  padding: 16px 40px;
+  font-size: 1.5rem;
+  width: 250px;
+}
+
+.button-container .main-btn:nth-child(4) {
+  padding: 18px 44px;
+  font-size: 1.6rem;
+  width: 300px;
+}
+
+.button-container .main-btn:nth-child(5) {
+  padding: 20px 48px;
+  font-size: 1.7rem;
+  width: 350px;
+}
+
+.button-container .main-btn:nth-child(6) {
+  padding: 22px 52px;
+  font-size: 1.8rem;
+  width: 400px;
+}
+
+.main-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0px 0px 15px #00d1b2b3, 0 0 8px #dba40d;
+  background-color: #00b89b;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  text-align: center;
+  background-color: #0a1f44;
+  color: #d1d1d1;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}

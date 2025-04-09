@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Cryptographic Keys and Their Role in Encryption</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Cryptographic Keys and Their Role in Encryption</h1>
+    </header>
+    
+    <section>
+        <h2>What Is a Cryptographic Key?</h2>
+        <p>A cryptographic key is a sequence of randomly generated characters used within encryption algorithms to transform data into an unreadable format. Without the correct key, decoding the encrypted information is nearly impossible.</p>
+    </section>
+    
+    <section>
+        <h2>Early Uses of Cryptographic Keys</h2>
+        <p>Before the digital era, encryption relied on simple techniques like substitution ciphers, where letters in a message were replaced with others according to a predefined pattern. For example, shifting each letter forward by one position in the alphabet transforms "Hello" into "Ifmmp." The key for this encryption is the shift value, allowing the recipient to reverse the process by shifting letters back.</p>
+        <p>However, such basic encryption methods were vulnerable to statistical analysis, prompting the development of stronger techniques like the one-time pad. This method assigns a unique random value to each letter in the plaintext, creating ciphertext that is nearly impossible to break if used correctly.</p>
+    </section>
+    
+    <section>
+        <h2>Modern Cryptographic Keys</h2>
+        <p>Modern encryption uses far more complex keys that extend beyond simple letter shifts. Instead of modifying individual characters, cryptographic algorithms apply sophisticated mathematical functions to data at the binary level, significantly enhancing security.</p>
+        <p>A modern public key, for example, might look like a long hexadecimal string:</p>
+        <pre>04 CE D7 61 49 49 FD 4B 35 8B 1B 86 BC A3 C5 BC D8 20 6E 31 17 2D 92 8A B7 34...</pre>
+        <p>These keys are randomly generated and used within encryption algorithms to secure communications. The complexity of modern cryptographic keys makes decryption by brute-force attacks infeasible.</p>
+    </section>
+    
+    <section>
+        <h2>Types of Encryption and Key Usage</h2>
+        
+        <h3>Symmetric Encryption</h3>
+        <p>In symmetric encryption, both parties use the same key to encrypt and decrypt messages. This method is efficient and secure when key exchange is managed properly. However, if a third party intercepts the key, they can decrypt all communications.</p>
+        
+        <h3>Asymmetric Encryption (Public-Key Encryption)</h3>
+        <p>Asymmetric encryption, also called public-key cryptography, uses two separate keys: a public key for encryption and a private key for decryption. The public key is widely shared, while the private key remains confidential. This method eliminates the risks associated with key exchange in symmetric encryption.</p>
+    </section>
+    
+    <section>
+        <h2>How SSL/TLS Uses Cryptographic Keys</h2>
+        <p>Secure websites use TLS (formerly SSL) to protect communications between users and servers. Websites operating over HTTPS rely on both asymmetric and symmetric encryption.</p>
+        
+        <h3>Public and Private Key Pair</h3>
+        <p>Each website has a public key available in its SSL certificate and a private key kept securely on its server.</p>
+        
+        <h3>TLS Handshake</h3>
+        <p>When a user connects to a website, the server and client use asymmetric encryption to securely establish a session key.</p>
+        
+        <h3>Session Key for Secure Communication</h3>
+        <p>Once the connection is established, both parties switch to symmetric encryption, using the session key to encrypt and decrypt all transmitted data.</p>
+        
+        <p>This hybrid approach ensures secure communication while optimizing encryption efficiency.</p>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "crptographic keys";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/authentication-protocols.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

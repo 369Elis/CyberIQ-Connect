@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What is a Firewall?</title>
+  </head>
+  <body>
+    <h1>What is a Firewall?</h1>
+    <p>
+      A firewall is a security tool that controls network traffic, allowing or
+      blocking data based on predefined rules to protect against threats.
+    </p>
+
+    <h2>A Primer on Firewalls</h2>
+    <p>
+      A firewall separates trusted networks from untrusted ones, filtering
+      traffic to prevent unauthorized access. It can be hardware, software, or
+      cloud-based. Modern firewalls offer features like deep packet inspection,
+      intrusion prevention, and malware protection.
+    </p>
+
+    <h2>Types of Firewalls</h2>
+
+    <h3>Packet Filtering Firewall</h3>
+    <p>
+      Screens packets based on IP, ports, and protocols but lacks deep
+      inspection, making it less effective against complex attacks.
+    </p>
+
+    <h3>Proxy Firewall</h3>
+    <p>
+      Acts as an intermediary for applications, adding security but potentially
+      slowing down performance.
+    </p>
+
+    <h3>Stateful Inspection Firewall</h3>
+    <p>
+      Tracks connection states and blocks or allows traffic based on session
+      context, improving security.
+    </p>
+
+    <h3>Web Application Firewall (WAF)</h3>
+    <p>
+      Protects web applications by filtering HTTP traffic to prevent attacks
+      like SQL injection.
+    </p>
+
+    <h3>Unified Threat Management (UTM) Firewall</h3>
+    <p>
+      Combines firewall, intrusion prevention, and antivirus in a simplified,
+      cloud-managed solution.
+    </p>
+
+    <h3>Next-Generation Firewall (NGFW)</h3>
+    <p>
+      Includes advanced features like application control, intrusion prevention,
+      and threat intelligence.
+    </p>
+
+    <h3>AI-Powered Firewall</h3>
+    <p>Uses machine learning to detect and respond to threats in real-time.</p>
+
+    <h3>Virtual Firewall</h3>
+    <p>Software-based security for cloud and on-premises environments.</p>
+
+    <h3>Cloud-Native Firewall</h3>
+    <p>Scales automatically to secure cloud applications and workloads.</p>
+
+    <h2>Mechanics of Firewalls</h2>
+    <p>
+      Firewalls analyze traffic against security policies. Stateful inspection
+      tracks connections, while deep packet inspection examines data content for
+      threats. Regular rule updates are vital for security.
+    </p>
+
+    <h2>Significance of Firewalls</h2>
+    <p>
+      Firewalls prevent cyber threats, ensure regulatory compliance, and protect
+      sensitive data. Choosing the right firewall depends on security needs and
+      network size.
+    </p>
+
+    <h2>Best Practices for Firewalls</h2>
+
+    <h3>Configuring and Managing Firewall Rules</h3>
+    <p>Regularly update security rules to adapt to new threats.</p>
+
+    <h3>Regular Firewall Updates and Patches</h3>
+    <p>Ensure firewalls receive timely updates to fix vulnerabilities.</p>
+
+    <h3>Monitoring and Auditing Firewall Activity</h3>
+    <p>
+      Continuously review firewall logs and implement real-time monitoring to
+      detect threats early.
+    </p>
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "firewall";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/VPN-concentrators.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+  </body>
+</html>

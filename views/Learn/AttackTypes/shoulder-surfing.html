@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoulder Surfing Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Shoulder Surfing Attacks</h1>
+
+      <h2>What is a Shoulder Surfing Attack?</h2>
+      <p>
+        A shoulder surfing attack occurs when an individual gains unauthorized
+        access to personal information by observing someone’s screen or keypad.
+        Unlike most cyber threats, this method requires the attacker to be
+        physically near the target.
+      </p>
+
+      <p>
+        While it can be as simple as glancing over someone’s shoulder, more
+        advanced attackers might use tools like binoculars, miniature cameras,
+        or other optical devices to spy from a distance. The goal is to capture
+        sensitive data such as login credentials, personal details, or financial
+        information like credit card numbers.
+      </p>
+
+      <p>
+        Although many shoulder surfing incidents are deliberate and malicious,
+        some occur due to overly curious individuals invading privacy rather
+        than intending to steal information.
+      </p>
+
+      <h2>How Shoulder Surfing Attacks Work</h2>
+      <p>
+        The method is typically straightforward—an attacker strategically places
+        themselves to see the victim's screen and keystrokes. As the target
+        enters passwords, PINs, or sensitive information, the attacker memorizes
+        or records the details.
+      </p>
+
+      <p>
+        Less sophisticated attackers may jot down information manually, while
+        more advanced ones might employ hidden cameras or other recording
+        devices to capture details discreetly.
+      </p>
+
+      <p>
+        It’s important to note that incidents involving skimming devices (such
+        as card readers installed on ATMs) or remote access hacking don’t fall
+        under shoulder surfing, as they do not require direct visual
+        observation.
+      </p>
+
+      <h2>Examples of Shoulder Surfing in Action</h2>
+      <ul>
+        <li>
+          <strong>ATM PIN Theft:</strong> A person discreetly observes someone
+          entering their PIN at an ATM. If the victim leaves the machine without
+          confirming the session has ended, the attacker can use the obtained
+          PIN to conduct additional transactions.
+        </li>
+        <li>
+          <strong>Public Transport Risks:</strong> In crowded places, attackers
+          can easily glance at screens or overhear sensitive conversations,
+          gaining access to confidential details.
+        </li>
+        <li>
+          <strong>Unattended Devices:</strong> If a person steps away from their
+          unlocked laptop in a public setting after recently entering their
+          password, an onlooker who has memorized the login credentials can
+          access the device, potentially compromising sensitive data.
+        </li>
+      </ul>
+
+      <h2>How to Protect Yourself from Shoulder Surfing Attacks</h2>
+      <ul>
+        <li>
+          <strong>Minimize password use:</strong> The best way to prevent
+          password-based attacks is to eliminate passwords altogether by
+          adopting passwordless authentication methods.
+        </li>
+        <li>
+          <strong>Use privacy screen protectors:</strong> A privacy screen makes
+          it difficult for anyone nearby to see your display, reducing the
+          likelihood of visual eavesdropping. Some screen protectors even double
+          as glass protection for mobile devices.
+        </li>
+        <li>
+          <strong>Stay vigilant in public:</strong> Always be conscious of your
+          surroundings, especially in busy locations. Attackers tend to target
+          individuals who appear distracted and unaware.
+        </li>
+        <li>
+          <strong>Rely on biometric authentication:</strong> Using fingerprint
+          or facial recognition for authentication reduces the risk of PIN or
+          password exposure, as attackers have no visible information to steal.
+        </li>
+      </ul>
+
+      <p>
+        While most people focus on digital threats, physical security risks like
+        shoulder surfing remain a real concern. Awareness of your environment
+        and proactive security measures can help protect sensitive information
+        from prying eyes.
+      </p>
+    </div>
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "shoulder surfing";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/denial-of-service.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+  </body>
+</html>

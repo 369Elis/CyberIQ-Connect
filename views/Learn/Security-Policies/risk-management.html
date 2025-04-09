@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Risk Management</title>
+    <link rel="stylesheet" href="/styles/BusinessContracts/styles.css">
+</head>
+<body>
+    <h1>Cyber Risk Management: Understanding and Mitigating Digital Threats</h1>
+    <p>Cyber risk management is the strategic process of identifying, assessing, mitigating, and monitoring cybersecurity threats that could impact an organization’s operations, financial health, and reputation. In today's digital landscape, businesses rely heavily on technology, making them susceptible to cyberattacks, data breaches, system failures, and even natural disasters. Without a structured approach to cybersecurity risk management, companies face financial losses, regulatory penalties, and long-term reputational damage.</p>
+    
+    <p>While cybersecurity risks cannot be entirely eliminated, a well-designed risk management framework helps organizations minimize threats and reduce their impact. The goal is to prioritize the most critical risks and deploy security measures tailored to business needs, IT infrastructure, and available resources.</p>
+    
+    <h2>The Cyber Risk Management Process</h2>
+    <p>Given the evolving nature of cyber threats, risk management should not be a one-time effort. Instead, it must be an ongoing, adaptive process that evolves with emerging threats, regulatory updates, and shifts in IT environments. Organizations such as NIST (National Institute of Standards and Technology) emphasize that cybersecurity risk management should be continuous and iterative, ensuring companies stay ahead of evolving threats.</p>
+    
+    <p>Since cyber risks impact multiple areas of an organization, risk management teams typically include executive leadership (CEO, CIO, CISO), IT security experts, compliance officers, legal teams, and representatives from key business units.</p>
+    
+    <p>Companies use well-established frameworks such as the NIST Cybersecurity Framework (CSF) or NIST Risk Management Framework (RMF) to implement a structured risk management approach. While specific methodologies may vary, most follow a similar core process:</p>
+    
+    <h3>1. Risk Framing: Defining the Context</h3>
+    <p>Before identifying specific threats, companies must establish the scope of their cybersecurity risk management efforts. This stage aligns risk management with overall business objectives to ensure security measures do not interfere with operations.</p>
+    
+    <ul>
+        <li><strong>Scope Definition:</strong> Identifying which systems, networks, and digital assets will be evaluated.</li>
+        <li><strong>Asset Inventory & Prioritization:</strong> Understanding which data, software, and hardware assets are most critical to business operations.</li>
+        <li><strong>Risk Tolerance:</strong> Defining acceptable and unacceptable risk levels based on the company’s industry, regulations, and business impact.</li>
+        <li><strong>Legal & Compliance Requirements:</strong> Ensuring alignment with industry standards such as GDPR, HIPAA, PCI DSS, and other relevant regulations.</li>
+    </ul>
+    
+    <h3>2. Risk Assessment: Identifying and Evaluating Threats</h3>
+    <p>A cyber risk assessment helps organizations identify potential threats and vulnerabilities, estimate the impact of cyber incidents, and prioritize security measures accordingly.</p>
+    
+    <ul>
+        <li><strong>Threats:</strong> External and internal risks such as malware, ransomware, phishing, insider threats, and even natural disasters.</li>
+        <li><strong>Vulnerabilities:</strong> Weaknesses in IT infrastructure, security policies, and software that attackers can exploit.</li>
+        <li><strong>Potential Impact:</strong> The financial, operational, and reputational consequences of a cyber incident.</li>
+    </ul>
+    
+    <h3>3. Risk Response: Mitigating and Managing Cyber Threats</h3>
+    <p>Once risks are identified and prioritized, organizations must determine how to respond effectively. Risk responses generally fall into four categories:</p>
+    
+    <ul>
+        <li><strong>Risk Mitigation:</strong> Implementing security measures to reduce the impact of threats (e.g., firewalls, encryption, multi-factor authentication).</li>
+        <li><strong>Risk Remediation:</strong> Completely eliminating a vulnerability (e.g., patching software, replacing outdated systems).</li>
+        <li><strong>Risk Transfer:</strong> Shifting responsibility to a third party, such as purchasing cyber insurance or outsourcing security functions.</li>
+        <li><strong>Risk Acceptance:</strong> Acknowledging a low-risk issue and choosing not to take action, typically due to cost-benefit analysis.</li>
+    </ul>
+    
+    <h3>4. Continuous Monitoring and Adaptation</h3>
+    <p>Cyber risk management is not a one-time task—it requires continuous monitoring to ensure security measures remain effective. Organizations should:</p>
+    
+    <ul>
+        <li>Track new vulnerabilities and emerging cyber threats.</li>
+        <li>Assess the effectiveness of security controls.</li>
+        <li>Update risk assessments regularly based on IT infrastructure changes.</li>
+        <li>Ensure compliance with evolving regulations and industry standards.</li>
+    </ul>
+    
+    <p>Regular security audits, penetration testing, and threat intelligence analysis help organizations stay proactive against cyber threats.</p>
+    
+    <h2>Why Cyber Risk Management is Essential</h2>
+    <p>As businesses increasingly rely on digital infrastructure, their attack surface grows, making risk management a necessity rather than an option. The modern threat landscape evolves daily, with thousands of new vulnerabilities and malware variants detected each month.</p>
+    
+    <p>Without an effective cyber risk management strategy, organizations risk:</p>
+    
+    <ul>
+        <li>Financial losses from ransomware, data breaches, and regulatory fines.</li>
+        <li>Operational downtime due to cyberattacks targeting critical systems.</li>
+        <li>Loss of customer trust if sensitive data is compromised.</li>
+        <li>Regulatory penalties for non-compliance with industry security standards.</li>
+    </ul>
+    
+    <p>Cyber risk management enables companies to prioritize security investments wisely, ensuring they focus on the most pressing threats while maintaining operational efficiency.</p>
+    
+    <p>By implementing a structured, proactive approach, organizations can strengthen their cybersecurity posture and adapt to evolving cyber threats, ultimately securing their business continuity and digital assets.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "risk management";
+        const NEXT_PAGE_URL = "/Learn/Security-Policies/it-policies-procedure.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+</body>
+</html>

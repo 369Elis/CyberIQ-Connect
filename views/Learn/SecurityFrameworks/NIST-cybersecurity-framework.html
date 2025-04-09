@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the NIST Cybersecurity Framework (CSF) 2.0</title>
+</head>
+<body>
+    <h1>Understanding the NIST Cybersecurity Framework (CSF) 2.0</h1>
+    <p>The NIST Cybersecurity Framework (CSF) 2.0, released in February 2024, provides organizations with a structured approach to managing cybersecurity risks. It is designed for businesses, government agencies, and institutions of all sizes, helping them assess, prioritize, and improve their cybersecurity posture.</p>
+    
+    <h2>Key Components of CSF 2.0</h2>
+    
+    <h3>Core Functions</h3>
+    <p>The framework is built around six key functions:</p>
+    <ul>
+        <li><strong>Govern</strong> – Establish and oversee cybersecurity strategies, policies, and risk management.</li>
+        <li><strong>Identify</strong> – Recognize cybersecurity risks, assets, and vulnerabilities.</li>
+        <li><strong>Protect</strong> – Implement safeguards to mitigate security risks.</li>
+        <li><strong>Detect</strong> – Continuously monitor systems for potential threats.</li>
+        <li><strong>Respond</strong> – Take action to manage and contain incidents.</li>
+        <li><strong>Recover</strong> – Restore operations after a cybersecurity event.</li>
+    </ul>
+    
+    <h3>Profiles</h3>
+    <p>Organizations create Current and Target Profiles to assess their cybersecurity maturity and plan improvements.</p>
+    
+    <h3>Tiers</h3>
+    <p>Organizations classify their cybersecurity risk management rigor into four levels:</p>
+    <ul>
+        <li><strong>Tier 1: Partial</strong> – Ad hoc, minimal risk management.</li>
+        <li><strong>Tier 2: Risk-Informed</strong> – Awareness exists but processes are not consistently applied.</li>
+        <li><strong>Tier 3: Repeatable</strong> – Policies and practices are standardized and continuously improved.</li>
+        <li><strong>Tier 4: Adaptive</strong> – Cybersecurity is integrated into enterprise-wide risk management.</li>
+    </ul>
+    
+    <h2>Why Use CSF 2.0?</h2>
+    <ul>
+        <li><strong>Flexible & Scalable</strong> – Applicable to all industries and organizations, regardless of size.</li>
+        <li><strong>Risk-Based Approach</strong> – Helps prioritize cybersecurity investments.</li>
+        <li><strong>Alignment with Global Standards</strong> – Works alongside other cybersecurity frameworks and regulations.</li>
+        <li><strong>Improved Communication</strong> – Provides a common language for executives, security teams, and stakeholders.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "nist-framework";
+        const NEXT_PAGE_URL = "/Learn/SecurityFrameworks/cis-controls.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

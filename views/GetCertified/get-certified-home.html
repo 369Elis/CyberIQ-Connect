@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Get Certified - Cybersecurity Exam</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Example: simple styling for messages */
+      #time-up-message {
+        color: #b00;
+        font-weight: bold;
+        margin-top: 1em;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="exam-container">
+      <h1>Get Certified in Cybersecurity</h1>
+
+      <!-- Introduction Section -->
+      <div id="exam-intro">
+        <h2>Welcome to the Certification Exam</h2>
+        <p>
+          By passing this exam, you’ll receive a certification demonstrating
+          your expertise. Good luck!
+        </p>
+
+        <!-- Exam Details -->
+        <div id="exam-details">
+          <h3>Exam Details</h3>
+          <ul>
+            <li><strong>Exam Duration:</strong> 60 minutes</li>
+            <li>
+              <strong>Number of Questions:</strong>
+              <span id="question-count">--</span>
+            </li>
+            <li><strong>Passing Score:</strong> 75%</li>
+            <li>
+              <strong>User Level:</strong>
+              <span id="user-level">Loading...</span>
+            </li>
+          </ul>
+        </div>
+
+        <button id="start-exam-btn">Start Exam</button>
+      </div>
+
+      <!-- Exam Section -->
+      <div id="exam-section" class="hidden">
+        <div id="exam-info">
+          <p><strong>User Level:</strong> <span id="current-level"></span></p>
+          <p><strong>Time Left:</strong> <span id="timer">60:00</span></p>
+          <p id="time-up-message" class="hidden"></p>
+        </div>
+
+        <!-- Question Display Area -->
+        <div id="question-container">
+          <h2 id="question-text">Loading question...</h2>
+          <div id="options-container">
+            <!-- Radio buttons go here -->
+          </div>
+        </div>
+
+        <!-- Navigation & Actions -->
+        <div class="exam-controls">
+          <button id="prev-btn" disabled>Previous</button>
+          <button id="next-btn">Next</button>
+          <button id="submit-btn">Submit Exam</button>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div id="results-section" class="hidden">
+        <h2>Exam Results</h2>
+        <p id="score-text"></p>
+        <p id="pass-fail-text"></p>
+      </div>
+    </div>
+
+    <script>
+      let questions = [];
+      let userAnswers = [];
+      let currentIndex = 0;
+      let timerInterval = null;
+      let isAutoSubmitting = false;
+      let examSubmitted = false; // 🔒 allow auto-submit only if timer expires
+
+      window.addEventListener("DOMContentLoaded", async () => {
+        try {
+          const res = await fetch("/api/get-questions");
+          if (!res.ok) throw new Error("Failed to load questions.");
+
+          const data = await res.json();
+          questions = data.questions || [];
+
+          document.getElementById("user-level").textContent = data.userLevel;
+          document.getElementById("current-level").textContent = data.userLevel;
+          document.getElementById("question-count").textContent =
+            questions.length + " Questions";
+        } catch (error) {
+          console.error("Error loading exam details:", error);
+        }
+      });
+
+      document
+        .getElementById("start-exam-btn")
+        .addEventListener("click", () => {
+          const userLevel = document
+            .getElementById("user-level")
+            .textContent.trim();
+
+          if (userLevel === "certified") {
+            alert(
+              "You've passed your final exam.\nThis exam is no longer available to you. Congratulations on completing your learning path and demonstrating your expertise."
+            );
+            return;
+          }
+          if (questions.length === 0) return;
+
+          document.getElementById("exam-intro").classList.add("hidden");
+          document.getElementById("exam-section").classList.remove("hidden");
+
+          userAnswers = questions.map((q) => ({
+            question_id: q.id,
+            selected_answer: null,
+          }));
+          currentIndex = 0;
+          renderQuestion();
+          startTimer(10); // ⏱ short for demo
+        });
+
+      function renderQuestion() {
+        if (questions.length === 0) {
+          document.getElementById("question-text").textContent =
+            "No questions available.";
+          return;
+        }
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex >= questions.length)
+          currentIndex = questions.length - 1;
+
+        const questionObj = questions[currentIndex];
+        const container = document.getElementById("question-container");
+        container.innerHTML = "";
+
+        const questionTextElem = document.createElement("h3");
+        questionTextElem.textContent = questionObj.question_text;
+        container.appendChild(questionTextElem);
+
+        ["option_a", "option_b", "option_c", "option_d"].forEach(
+          (optionKey) => {
+            const label = document.createElement("label");
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = "answer";
+            radio.value = optionKey.slice(-1).toUpperCase();
+
+            if (userAnswers[currentIndex].selected_answer === radio.value) {
+              radio.checked = true;
+            }
+
+            radio.addEventListener("change", () => {
+              userAnswers[currentIndex].selected_answer = radio.value;
+            });
+
+            label.appendChild(radio);
+            label.appendChild(
+              document.createTextNode(" " + questionObj[optionKey])
+            );
+            container.appendChild(label);
+            container.appendChild(document.createElement("br"));
+          }
+        );
+
+        document.getElementById("prev-btn").disabled = currentIndex === 0;
+        document.getElementById("next-btn").disabled =
+          currentIndex === questions.length - 1;
+      }
+
+      document.getElementById("next-btn").addEventListener("click", () => {
+        if (currentIndex < questions.length - 1) {
+          currentIndex++;
+          renderQuestion();
+        }
+      });
+
+      document.getElementById("prev-btn").addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          renderQuestion();
+        }
+      });
+
+      document.getElementById("submit-btn").addEventListener("click", () => {
+        if (isAutoSubmitting) {
+          submitExam();
+          return;
+        }
+
+        const unanswered = userAnswers.filter((q) => !q.selected_answer);
+        if (unanswered.length > 0) {
+          alert(
+            `Please answer all ${questions.length} questions before submitting.`
+          );
+          return;
+        }
+
+        submitExam();
+      });
+
+      function startTimer(secondsLeft) {
+        const timerElem = document.getElementById("timer");
+        const timeUpMsgElem = document.getElementById("time-up-message");
+
+        function updateTimer() {
+          if (secondsLeft <= 0) {
+            clearInterval(timerInterval);
+            setTimeout(() => {
+              if (!examSubmitted) {
+                timeUpMsgElem.classList.remove("hidden");
+                timeUpMsgElem.textContent = "Time's up! Submitting...";
+                isAutoSubmitting = true;
+                submitExam();
+              }
+            }, 10); // defer so examSubmitted reflects updated state
+            return;
+          }
+
+          const minutes = Math.floor(secondsLeft / 60);
+          const seconds = secondsLeft % 60;
+          timerElem.textContent = `${minutes}:${
+            seconds < 10 ? "0" : ""
+          }${seconds}`;
+          secondsLeft--;
+        }
+
+        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
+      }
+
+      async function submitExam() {
+        if (examSubmitted) return; // ✅ prevent duplicate submission
+        examSubmitted = true; // mark it as submitted
+
+        clearInterval(timerInterval);
+
+        try {
+          const res = await fetch("/api/submit-exam", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ answers: userAnswers }),
+          });
+
+          if (!res.ok) {
+            const errData = await res.json();
+            showResultsUI(0, false, errData.error || "Exam submission failed.");
+            return;
+          }
+
+          const data = await res.json();
+          const { scorePercent, passed, passMessage, certificateUrl } = data;
+          showResultsUI(scorePercent, passed, passMessage, certificateUrl);
+        } catch (err) {
+          console.error("Error submitting exam:", err);
+          showResultsUI(0, false, "Server error. Please try again later.");
+        }
+      }
+
+      function showResultsUI(
+        scorePercent,
+        passed,
+        messageHTML,
+        certificateUrl = null
+      ) {
+        document.getElementById("exam-section").classList.add("hidden");
+        document.getElementById("exam-intro").classList.add("hidden");
+        document.getElementById("results-section").classList.remove("hidden");
+
+        document.getElementById("score-text").textContent =
+          "You scored " + scorePercent.toFixed(1) + "%";
+        document.getElementById("pass-fail-text").innerHTML = messageHTML;
+
+        if (passed && certificateUrl) {
+          const certLink = document.createElement("a");
+          certLink.href = `/${certificateUrl}`;
+          certLink.textContent = "🎓 Download Your Certificate";
+          certLink.target = "_blank";
+          certLink.className = "cert-download-link";
+
+          document
+            .getElementById("pass-fail-text")
+            .appendChild(document.createElement("br"));
+          document.getElementById("pass-fail-text").appendChild(certLink);
+
+          const certImage = document.createElement("img");
+          certImage.src = `/${certificateUrl}`;
+          certImage.alt = "Your Certificate";
+          certImage.style.maxWidth = "600px";
+          certImage.style.display = "block";
+          certImage.style.marginTop = "1em";
+
+          document.getElementById("pass-fail-text").appendChild(certImage);
+        }
+      }
+
+      window.submitExam = submitExam;
+      window.examSubmitted = examSubmitted;
+      window.questions = questions;
+      window.userAnswers = userAnswers;
+      window.currentIndex = currentIndex;
+      window.renderQuestion = renderQuestion;
+    </script>
+  </body>
+</html>

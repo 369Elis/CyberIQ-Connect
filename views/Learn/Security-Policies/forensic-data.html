@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Acquisition in Digital Forensics</title>
+</head>
+<body>
+    <h1>How to Handle Data Acquisition in Digital Forensics</h1>
+    <p>As cybercrime continues to rise, the need for digital forensic investigations has never been greater. Businesses, law enforcement agencies, and cybersecurity professionals must be equipped to gather, preserve, and analyze digital evidence to track cybercriminals and ensure the integrity of digital investigations.</p>
+    
+    <h2>Understanding Cybercrime Investigations</h2>
+    <p>Cybercrime refers to criminal activities conducted through digital means, such as hacking, data theft, financial fraud, and ransomware attacks. A cybercrime investigation typically involves two key objectives:</p>
+    <ul>
+        <li>Identifying and prosecuting the perpetrator</li>
+        <li>Recovering stolen data and restoring affected systems</li>
+    </ul>
+    
+    <h2>What Is Data Acquisition in Digital Forensics?</h2>
+    <p>Data acquisition is the process of collecting and preserving electronic evidence from digital devices, including:</p>
+    <ul>
+        <li>Hard drives and solid-state drives (SSDs)</li>
+        <li>Cloud storage and virtual environments</li>
+        <li>Mobile devices and IoT devices</li>
+        <li>Servers and network logs</li>
+        <li>USB drives and external storage</li>
+    </ul>
+    
+    <h2>Commonly Used Data Acquisition Methods</h2>
+    <h3>1. Bit-Stream Disk-to-Image File</h3>
+    <ul>
+        <li>Creates a forensic image (exact replica) of an entire disk or drive.</li>
+        <li>Preserves all data, including deleted files and system metadata.</li>
+        <li>Common tools: FTK Imager, EnCase, ProDiscover, SMART.</li>
+    </ul>
+    
+    <h3>2. Bit-Stream Disk-to-Disk Copy</h3>
+    <ul>
+        <li>Copies one entire disk to another without creating an image file.</li>
+        <li>Used when storage limitations prevent creating an image file.</li>
+        <li>Common tools: dd (Linux), Clonezilla, FTK Imager.</li>
+    </ul>
+    
+    <h3>3. Logical Acquisition</h3>
+    <ul>
+        <li>Extracts specific files and folders relevant to an investigation.</li>
+        <li>Common tools: X-Ways, FTK, Autopsy.</li>
+    </ul>
+    
+    <h2>Best Practices for Digital Forensic Data Acquisition</h2>
+    <h3>1. Preserve the Integrity of Evidence</h3>
+    <ul>
+        <li>Use write blockers to prevent accidental modifications.</li>
+        <li>Maintain a forensic image of the original data.</li>
+        <li>Store evidence in secure, tamper-proof locations.</li>
+    </ul>
+    
+    <h3>2. Follow a Strict Chain of Custody</h3>
+    <ul>
+        <li>Document who accessed the evidence and when.</li>
+        <li>Ensure only authorized personnel handle digital evidence.</li>
+        <li>Keep detailed logs of all forensic actions taken.</li>
+    </ul>
+    
+    <h3>3. Choose the Right Acquisition Method</h3>
+    <ul>
+        <li>Full disk imaging is ideal for thorough investigations.</li>
+        <li>Logical acquisition is better for targeted data collection.</li>
+        <li>Live acquisition may be necessary when evidence is stored in volatile memory (RAM).</li>
+    </ul>
+    
+    <h3>4. Validate and Verify the Data</h3>
+    <ul>
+        <li>Use hashing techniques (MD5, SHA-256) to confirm data integrity.</li>
+        <li>Compare the hash of the original data with the forensic copy.</li>
+    </ul>
+    
+    <h3>5. Stay Compliant with Legal and Ethical Standards</h3>
+    <ul>
+        <li>Adhere to laws like GDPR, CCPA, and national cybersecurity regulations.</li>
+        <li>Obtain proper authorization before accessing digital evidence.</li>
+        <li>Document all forensic actions for legal compliance.</li>
+    </ul>
+    
+    <h2>Why Every IT Professional Should Understand Data Acquisition</h2>
+    <ul>
+        <li><strong>Cybersecurity professionals:</strong> Preserve logs and evidence after a cyberattack.</li>
+        <li><strong>Ethical hackers & penetration testers:</strong> Must understand forensic procedures.</li>
+        <li><strong>IT administrators:</strong> Follow proper procedures when handling security incidents.</li>
+        <li><strong>Legal & compliance teams:</strong> Need awareness of digital evidence handling.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "forensic data";
+        const NEXT_PAGE_URL = "/Learn/Security-Policies/forensic-data-use.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

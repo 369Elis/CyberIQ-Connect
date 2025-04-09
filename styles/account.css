@@ -1,0 +1,509 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0a1f44, #2e538b);
+  color: white;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Top Bar */
+.top-bar {
+  height: 70px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Center content horizontally */
+  height: 60px; /* Add horizontal padding */
+  background-color: (135deg, #001f33, #2e538b);
+  padding: 0 20px;
+}
+
+/* Website Logo */
+.logo {
+  height: 60px; /* Larger website logo */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Spacing between logo and links */
+}
+
+/* Navigation Icon Styling */
+.nav-icon {
+  height: 35px; /* Larger icon size */
+  width: auto; /* Maintain aspect ratio */
+  margin-left: -15px;
+  vertical-align: middle; /* Align icons with text */
+}
+
+/* Navigation Link Styling */
+.nav-link {
+  font-size: 20px; /* Slightly larger font size */
+  margin-left: 30px; /* Add spacing between links */
+  color: rgb(238, 238, 238);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #00aaff; /* Bright blue text on hover */
+  text-decoration: underline; /* Underline for emphasis */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.center-section {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.account-settings {
+  font-size: 24px;
+  color: white;
+  margin: 0;
+}
+
+/* Main Content */
+.main-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar-section,
+.settings-section {
+  width: 80%;
+  max-width: 800px;
+  background: #284174;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid white;
+}
+
+.avatar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.choose-avatar-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.choose-avatar-btn:hover {
+  background-color: #0056b3; /* Darker blue */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-list li {
+  margin: 10px 0;
+  margin-bottom: 15px;
+}
+
+.settings-list a {
+  text-decoration: none;
+  color: #00d1b2;
+}
+
+.settings-list a:hover {
+  text-decoration: underline;
+}
+
+.danger-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 450px;
+}
+
+.danger-btn:hover {
+  background-color: #e60000; /* Brighter red */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.logout-btn {
+  background-color: #f0ad4e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #d9831f; /* Darker orange */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Personal Info Section */
+form {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start; /* Align all elements to the start (left) */
+  gap: 15px; /* Space between form elements */
+}
+
+form label {
+  font-size: 16px;
+  color: white;
+  text-align: left;
+  margin-bottom: 5px; /* Add spacing between label and input */
+}
+
+form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%; /* Adjust width to container */
+  max-width: 300px; /* Limit maximum width */
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-left: 0; /* Align button with inputs */
+
+  /* Align the button to the very left */
+}
+
+form input:focus {
+  border-color: #00aaff;
+  outline: none;
+  box-shadow: 0 0 5px #00aaff;
+}
+
+form .full-width {
+  grid-column: span 2; /* Span across both columns */
+}
+
+form p {
+  font-size: 14px;
+  color: #bbb;
+  text-align: center;
+  grid-column: span 2;
+}
+
+form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #1a2b4c;
+  color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 60%;
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.modal-content p {
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+/* Modal Buttons */
+.danger-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.danger-btn:hover {
+  background-color: #e60000; /* Brighter red */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.cancel-btn {
+  background-color: #f0ad4e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #d9831f;
+}
+
+.small-warning {
+  font-size: 0.85rem;
+  color: #d10303;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.update-info-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.update-btn {
+  margin-right: 10px;
+}
+
+.update-note {
+  font-size: 0.85rem;
+  color: #f8f2f2;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #1a2b4c;
+  color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.close-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #0056b3;
+}
+
+/* changepassword.html */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0a1f44, #2e538b);
+  color: white;
+}
+
+.top-bar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #001f33;
+  padding: 0 20px;
+}
+
+.nav-link {
+  font-size: 20px;
+  color: rgb(238, 238, 238);
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav-link:hover {
+  color: #00aaff;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.nav-icon {
+  height: 35px;
+  width: auto;
+  margin-left: -15px;
+  vertical-align: middle;
+}
+
+.change-password-section {
+  width: 80%; /* Maintain responsive width */
+  max-width: 400px; /* Reduce the maximum width to make it smaller */
+  background: #284174;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Add spacing between sections */
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  padding: 20px;
+  gap: 20px; /* Add space between stacked items */
+}
+
+.return-btn {
+  display: inline-block;
+  background-color: #d9831f; /* Same blue as other buttons */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+  background-color: #995405; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+h2 {
+  margin-top: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form label {
+  font-size: 16px;
+  color: white;
+}
+
+form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 14px;
+}
+
+.success-message {
+  color: #00d1b2;
+  font-size: 14px;
+}
+
+.password-requirements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.password-requirements li {
+  margin: 5px 0;
+}
+
+.password-requirements li.valid {
+  color: #00d1b2;
+}
+
+.password-requirements li.invalid {
+  color: #ff4d4d;
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cyber IQ Connect</title>
+
+    <!-- Minimal inline styles for overlay -->
+    <style>
+      #wizard-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: none; /* hidden by default */
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      #wizard-container {
+        background: #fff;
+        color: #000;
+        padding: 2rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        width: 400px;
+        max-width: 90%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="../styles/Home-Page.css" />
+  </head>
+  <body>
+    <!-- ========================= 3-STEP WIZARD OVERLAY ========================= -->
+    <div id="wizard-overlay">
+      <div id="wizard-container">
+        <!-- Step 1: Choose Level -->
+        <div id="step1">
+          <h2>Let's Build Your Cybersecurity Journey!</h2>
+          <p>
+            Are you just starting out, brushing up on your skills, or mastering
+            advanced techniques? Choose your level, and we’ll guide you with the
+            right content!
+          </p>
+          <button class="wizard-level-btn" data-level="beginner">
+            Beginner
+          </button>
+          <button class="wizard-level-btn" data-level="intermediate">
+            Intermediate
+          </button>
+          <button class="wizard-level-btn" data-level="advanced">
+            Advanced
+          </button>
+        </div>
+
+        <!-- Step 2: First & Last Name -->
+        <div id="step2" style="display: none">
+          <h2>Before We Begin, Tell Us Who You Are</h2>
+          <p>
+            Please enter your <strong>real first and last name</strong>. This is
+            important as it will appear on your official certificates. You can
+            only change your name once, so make sure it's correct.
+          </p>
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            id="first-name"
+            placeholder="Your first name"
+            required
+          />
+
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            id="last-name"
+            placeholder="Your last name"
+            required
+          />
+
+          <button id="wizard-name-next-btn">Continue</button>
+        </div>
+
+        <!-- Step 3: Daily Goal -->
+        <div id="step3" style="display: none">
+          <h2>What's your daily learning goal?</h2>
+          <button class="wizard-goal-btn" data-goal="5 min">5 min</button>
+          <button class="wizard-goal-btn" data-goal="10 min">10 min</button>
+          <button class="wizard-goal-btn" data-goal="15 min">15 min</button>
+          <button class="wizard-goal-btn" data-goal="20 min">20 min</button>
+        </div>
+
+        <!-- Step 4: You're All Set -->
+        <div id="step4" style="display: none">
+          <h2>You're All Set!</h2>
+          <p>
+            We've tailored your learning path based on your selection. Get ready
+            to explore, challenge yourself, and grow your cybersecurity
+            expertise. Let’s begin!
+          </p>
+          <button id="wizard-finish-btn">Finish</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================= END WIZARD OVERLAY ======================= -->
+
+    <!-- Top Right Buttons -->
+    <div class="top-right-buttons">
+      <!-- Profile Container -->
+      <div class="profile-container" id="profile-container">
+        <img src="../assets/pfp.JPG" alt="Profile" class="profile-icon" />
+        <div class="dropdown-menu">
+          <button onclick="location.href='/account.html';">Account</button>
+          <form action="/logout" method="POST" style="margin: 0">
+            <button type="submit">Log Out</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Login Button -->
+      <a href="/login.html" class="login-btn" id="login-btn">Login</a>
+    </div>
+
+    <script>
+      // Tracks login status & user level
+      let isUserLoggedIn = false;
+      let userLevel = null; // Will store user_level from DB
+    </script>
+
+    <div class="layout-container">
+      <header class="header">
+        <div class="logo-container">
+          <img
+            src="../assets/logo.home.png"
+            alt="Cyber IQ Logo"
+            class="header-logo"
+          />
+        </div>
+        <div class="hero-content">
+          <h1>
+            Cybersecurity Education
+            <br />
+            <span class="highlight">Empower &amp; Protect</span>
+          </h1>
+          <p class="subheading">
+            A streamlined approach to cybersecurity training that equips you
+            with the skills to confidently anticipate and prevent cyber threats,
+            enhancing your personal resilience and security.
+          </p>
+        </div>
+      </header>
+
+      <!-- Main Buttons -->
+      <section class="button-container">
+        <a href="/learn.html"><button class="main-btn">Learn</button></a>
+        <a href="/GetCertified/get-certified-home.html">
+          <button class="main-btn">Get Certified</button>
+        </a>
+        <button class="main-btn">Questions</button>
+        <a href="Research/research.html"
+          ><button class="main-btn">Research</button></a
+        >
+        <a href="Entertaiment/entertaiment.html"
+          ><button class="main-btn">Entertainment</button></a
+        >
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>© 2024 CyberSec Edu. All Rights Reserved.</footer>
+
+    <script>
+      // 1) Update UI for login
+      function updateUI(isLoggedIn) {
+        const loginBtn = document.getElementById("login-btn");
+        const profileContainer = document.getElementById("profile-container");
+        if (isLoggedIn) {
+          loginBtn.style.display = "none";
+          profileContainer.style.display = "inline-block";
+        } else {
+          loginBtn.style.display = "inline-block";
+          profileContainer.style.display = "none";
+        }
+      }
+
+      // 2) Check login state and user_level
+      fetch("/api/user-info")
+        .then((res) => res.json())
+        .then((data) => {
+          isUserLoggedIn = data.isLoggedIn;
+          updateUI(data.isLoggedIn);
+
+          // if logged in, check if user_level is null => show wizard
+          if (isUserLoggedIn) {
+            if (data.userLevel === null || data.userLevel === undefined) {
+              userLevel = null;
+              document.getElementById("wizard-overlay").style.display = "flex";
+            } else {
+              userLevel = data.userLevel; // e.g. "beginner"
+            }
+          }
+        })
+        .catch((err) => console.error("Error checking user login state:", err));
+
+      // 3) Optional: Handle logout explicitly
+      const logoutForm = document.querySelector("form[action='/logout']");
+      logoutForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch("/logout", { method: "POST" })
+          .then(() => {
+            isUserLoggedIn = false;
+            updateUI(false);
+          })
+          .catch((error) => console.error("Error logging out:", error));
+      });
+    </script>
+
+    <script>
+      // ============ Multi-Step Wizard Logic ============
+      let chosenLevel = null;
+      let chosenGoal = null; // Not saved to DB
+      let firstName = "";
+      let lastName = "";
+
+      // Step 1: Choose Level
+      document.querySelectorAll(".wizard-level-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          chosenLevel = btn.dataset.level;
+          document.getElementById("step1").style.display = "none";
+          document.getElementById("step2").style.display = "block";
+        });
+      });
+
+      // Step 2: Enter Name
+      document
+        .getElementById("wizard-name-next-btn")
+        .addEventListener("click", () => {
+          firstName = document.getElementById("first-name").value.trim();
+          lastName = document.getElementById("last-name").value.trim();
+
+          if (!firstName || !lastName) {
+            alert("Please enter both your first and last name.");
+            return;
+          }
+
+          document.getElementById("step2").style.display = "none";
+          document.getElementById("step3").style.display = "block";
+        });
+
+      // Step 3: Choose Daily Goal
+      document.querySelectorAll(".wizard-goal-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          chosenGoal = btn.dataset.goal;
+          document.getElementById("step3").style.display = "none";
+          document.getElementById("step4").style.display = "block";
+        });
+      });
+
+      // Step 4: Finish
+      document
+        .getElementById("wizard-finish-btn")
+        .addEventListener("click", async () => {
+          document.getElementById("wizard-overlay").style.display = "none";
+
+          if (isUserLoggedIn) {
+            try {
+              const res = await fetch("/api/save-wizard-choices", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  level: chosenLevel,
+                  firstName,
+                  lastName,
+                }),
+              });
+              if (!res.ok) {
+                console.error("Failed to save wizard choices in DB");
+              } else {
+                console.log("Wizard choices saved successfully");
+              }
+            } catch (error) {
+              console.error("Error saving wizard choices:", error);
+            }
+          }
+        });
+    </script>
+
+    <script>
+      // On DOM loaded, optionally fetch user avatar
+      document.addEventListener("DOMContentLoaded", () => {
+        const profileIcon = document.querySelector(".profile-icon");
+        fetch("/api/user-info")
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.isLoggedIn && data.avatarUrl) {
+              profileIcon.src = data.avatarUrl;
+            }
+          })
+          .catch((error) => console.error("Error fetching user info:", error));
+      });
+    </script>
+  </body>
+</html>

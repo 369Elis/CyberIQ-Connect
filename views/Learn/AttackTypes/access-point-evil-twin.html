@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evil Twin Attack</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="evil-twin-page">
+
+    <header>
+        <h1>Evil Twin Attack: The Dangers of Fake WiFi Networks and How to Stay Safe</h1>
+    </header>
+
+    <section class="intro">
+        <h2>What Is an Evil Twin Attack?</h2>
+        <p>An Evil Twin attack is a cyber threat where a hacker sets up a fake WiFi hotspot that looks identical to a legitimate public network. Once users unknowingly connect to this fraudulent network, the attacker can monitor their online activity, intercept sensitive data, and even manipulate transactions.</p>
+        <p>These attacks are particularly dangerous because anyone can execute them, even without advanced hacking skills. With tools like a WiFi Pineapple, attackers can quickly create rogue access points that mimic trusted networks in places like coffee shops, airports, hotels, and libraries.</p>
+    </section>
+
+    <section class="evil-twin-how">
+        <h2>How an Evil Twin Attack Works (Step by Step)</h2>
+        <ul>
+            <li>🔹 <strong>Step 1: Creating the Fake WiFi Access Point</strong> – The attacker identifies a popular public WiFi network and copies its name (SSID). Using specialized hardware, they broadcast the cloned network, making it indistinguishable from the legitimate one.</li>
+            <li>🔹 <strong>Step 2: Deploying a Fake Login Page (Captive Portal)</strong> – Many public WiFi networks require users to log in through a captive portal. The attacker replicates this login page to steal credentials, email addresses, and passwords.</li>
+            <li>🔹 <strong>Step 3: Tricking Users into Connecting</strong> – The fake WiFi is often stronger than the real one, making it the preferred choice for new connections. To force users off the real network, the attacker can launch a DDoS attack, pushing victims onto the fake network.</li>
+            <li>🔹 <strong>Step 4: Intercepting and Manipulating Data</strong> – Since all traffic passes through the hacker's device, they can:
+                <ul>
+                    <li>Monitor browsing activity.</li>
+                    <li>Steal login credentials for banking, email, and social media.</li>
+                    <li>Modify transactions (e.g., altering payment details).</li>
+                    <li>Inject malware into users’ devices.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Many users remain unaware of the attack, believing they are connected to a safe network when, in reality, their sensitive data is being exposed.</p>
+    </section>
+
+    <section class="evil-twin-examples">
+        <h2>Real-World Evil Twin Attack Scenarios</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🏦</span>
+                <h3>Banking Fraud at a Coffee Shop</h3>
+                <p>1️⃣ A hacker sets up a fake WiFi network in a coffee shop.</p>
+                <p>2️⃣ A customer connects to the rogue WiFi and logs into their online banking account.</p>
+                <p>3️⃣ The hacker modifies the transaction details, redirecting funds to their own account.</p>
+                <p>4️⃣ The customer receives a fake confirmation receipt, unaware that their money has been stolen.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔑</span>
+                <h3>Credential Theft via Phishing</h3>
+                <p>1️⃣ A hacker creates an Evil Twin network and redirects users to a fake login page.</p>
+                <p>2️⃣ A victim tries to access a well-known service like Facebook or Google, but the page is actually controlled by the hacker.</p>
+                <p>3️⃣ The victim enters their username and password, which are immediately captured and stored by the attacker.</p>
+                <p>4️⃣ The hacker sells these stolen credentials on the dark web or uses them for identity theft.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="evil-twin-prevention">
+        <h2>How to Protect Yourself from Evil Twin Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔐</span>
+                <h3>Use a Virtual Private Network (VPN)</h3>
+                <p>A VPN encrypts all your internet traffic, making it unreadable to hackers. Even if you connect to a compromised network, your data remains protected.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📶</span>
+                <h3>Disable Automatic WiFi Connections</h3>
+                <p>Many devices automatically reconnect to familiar WiFi networks. Turn off this feature to prevent your device from accidentally connecting to a rogue access point.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">❌</span>
+                <h3>Avoid Entering Sensitive Information on Public WiFi</h3>
+                <p>Never log into banking websites, work servers, or confidential accounts on public WiFi. If you must browse, stick to general websites and avoid entering passwords.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔍</span>
+                <h3>Verify Network Authenticity</h3>
+                <p>Ask staff for the correct WiFi name (SSID) before connecting. If two networks have identical names, it’s a red flag.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📲</span>
+                <h3>Enable Two-Factor Authentication (2FA)</h3>
+                <p>Even if an attacker steals your login credentials, 2FA prevents them from accessing your accounts.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📡</span>
+                <h3>Use Mobile Data Instead of Public WiFi</h3>
+                <p>If possible, rely on your phone’s cellular connection rather than public hotspots. A personal hotspot (tethering) is safer than connecting to an unknown WiFi network.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⚠️</span>
+                <h3>Pay Attention to Security Warnings</h3>
+                <p>If your browser warns of an insecure connection, don’t ignore it. Legitimate websites should always have HTTPS encryption (look for the padlock icon).</p>
+            </div>
+        </div>
+    </section>
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "acces point & evil twin";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/rfid-nfc-attack.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

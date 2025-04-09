@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireless Network Security: WEP, WPA, WPA2 & WPA3</title>
+</head>
+<body>
+    <header>
+        <h1>Wireless Network Security: WEP, WPA, WPA2 & WPA3</h1>
+    </header>
+    
+    <section>
+        <h2>Understanding Wireless Network Security</h2>
+        <p>Wireless network security encompasses the measures and techniques used to protect wireless networks from unauthorized access, cyber threats, and data breaches. Ensuring secure communication channels is crucial to maintaining data integrity and privacy.</p>
+        <p>Security strategies employ encryption protocols, authentication mechanisms, and intrusion detection systems to counteract threats like interception, data manipulation, and denial-of-service attacks.</p>
+    </section>
+    
+    <section>
+        <h2>How Wireless Security Functions</h2>
+        <ul>
+            <li><strong>Data Encryption:</strong> Protects transmitted data by converting it into an unreadable format for unauthorized users.</li>
+            <li><strong>Authentication:</strong> Verifies users and devices before allowing access.</li>
+            <li><strong>Access Control:</strong> Establishes user permissions based on roles and security policies.</li>
+            <li><strong>Device Protection:</strong> Ensures all connected devices meet security requirements.</li>
+            <li><strong>Intrusion Monitoring:</strong> Detects and responds to suspicious network activities.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Wireless Security Protocols</h2>
+        
+        <h3>1. Wired Equivalent Privacy (WEP)</h3>
+        <p>Introduced in 1997, WEP was the first attempt at securing wireless networks. However, its weak RC4 encryption and flawed key management rendered it highly vulnerable to attacks.</p>
+        
+        <h3>2. Wi-Fi Protected Access (WPA)</h3>
+        <p>Released in 2003 as an improvement over WEP, WPA implemented Temporal Key Integrity Protocol (TKIP). It has two modes:</p>
+        <ul>
+            <li><strong>WPA-Personal:</strong> Uses a pre-shared key for home networks.</li>
+            <li><strong>WPA-Enterprise:</strong> Utilizes RADIUS authentication for businesses.</li>
+        </ul>
+        
+        <h3>3. Wi-Fi Protected Access II (WPA2)</h3>
+        <p>Launched in 2004, WPA2 became the standard for wireless security, employing Advanced Encryption Standard (AES) encryption. It improved security but remained susceptible to threats like Key Reinstallation Attack (KRACK).</p>
+        
+        <h3>4. Wi-Fi Protected Access III (WPA3)</h3>
+        <p>Introduced in 2018, WPA3 strengthens network security with robust encryption. It includes:</p>
+        <ul>
+            <li><strong>WPA3-Personal:</strong> Uses Simultaneous Authentication of Equals (SAE) for better password security.</li>
+            <li><strong>WPA3-Enterprise:</strong> Implements 192-bit encryption for corporate networks.</li>
+            <li><strong>Wi-Fi Enhanced Open:</strong> Encrypts data on open networks without requiring passwords.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Enhancing Wireless Network Security</h2>
+        <ul>
+            <li>Use WPA2 or WPA3 encryption.</li>
+            <li>Enable firewalls to block malicious activity.</li>
+            <li>Avoid using identifiable personal details in SSIDs.</li>
+            <li>Use VPNs for encrypted data transmission.</li>
+            <li>Deploy security software for network monitoring.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Wireless Security in Different Environments</h2>
+        <h3>Home Wi-Fi Protection</h3>
+        <ul>
+            <li>Set unique, strong Wi-Fi passwords.</li>
+            <li>Monitor connected devices for unauthorized access.</li>
+            <li>Update router firmware and modify default credentials.</li>
+            <li>Position routers strategically to minimize signal reach.</li>
+        </ul>
+        
+        <h3>Enterprise Wireless Security</h3>
+        <ul>
+            <li>Limit password sharing among employees.</li>
+            <li>Upgrade outdated encryption methods to WPA2/WPA3.</li>
+            <li>Separate guest and business networks.</li>
+            <li>Implement firewalls and restrict DHCP access.</li>
+        </ul>
+        
+        <h3>Public Wi-Fi Safety</h3>
+        <ul>
+            <li>Avoid accessing sensitive accounts on public Wi-Fi.</li>
+            <li>Use VPNs to encrypt network traffic.</li>
+            <li>Disable automatic connection to open networks.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Authentication Mechanisms for Wireless Networks</h2>
+        <ul>
+            <li><strong>Multi-Factor Authentication (MFA):</strong> Uses multiple verification factors.</li>
+            <li><strong>Single Sign-On (SSO):</strong> Grants access to multiple systems with one login.</li>
+            <li><strong>Password Authentication:</strong> Requires a username-password combination.</li>
+            <li><strong>Passwordless Authentication:</strong> Uses biometric data or security tokens.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Wi-Fi Security Tools and Technologies</h2>
+        <ul>
+            <li><strong>Network Scanners:</strong> Identify unauthorized devices.</li>
+            <li><strong>Performance Monitoring:</strong> Tracks network speed.</li>
+            <li><strong>Security Compliance:</strong> Ensures adherence to security policies.</li>
+            <li><strong>Firewalls & Antivirus:</strong> Block malware and unauthorized access.</li>
+            <li><strong>Intrusion Detection Systems (IDS):</strong> Monitor traffic for suspicious activity.</li>
+            <li><strong>Penetration Testing Tools:</strong> Identify security weaknesses.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Common Wireless Security Threats</h2>
+        <ul>
+            <li><strong>DNS Cache Poisoning:</strong> Redirects users to fake websites.</li>
+            <li><strong>Evil Twin Attacks:</strong> Creates rogue Wi-Fi hotspots to capture data.</li>
+            <li><strong>IP Spoofing:</strong> Impersonates legitimate devices.</li>
+            <li><strong>Piggybacking:</strong> Exploits weak network security.</li>
+            <li><strong>Shoulder Surfing:</strong> Steals data by observing users in public places.</li>
+        </ul>
+    </section>
+
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>  
+        const MODULE_NAME = "wireless security";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/certificate-formats.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enforcing Account Policies for Security</title>
+</head>
+<body>
+    <h1>Enforcing Account Policies for Security</h1>
+    <p>Once user accounts are set up, ensuring they remain secure is crucial. This involves managing credentials, configuring security policies, and enforcing authentication rules.</p>
+    
+    <h2>Credential Security</h2>
+    <p>Login credentials are the primary defense against unauthorized access, making it essential to protect them. Applications must securely store these credentials on the server, preventing them from being stored on the client side or transmitted in an unencrypted format. Security professionals frequently audit authentication processes to ensure they meet best practices.</p>
+    
+    <h2>Group Policy Management</h2>
+    <p>In large organizations, enforcing security policies can be challenging. Windows provides tools like Group Policy Management, which allows administrators to implement security settings and restrictions across multiple systems.</p>
+    <p>Unlike NTFS permissions, which control access to files and folders, Group Policy settings affect system-wide configurations. These policies integrate with Active Directory, enabling administrators to manage users, groups, and organizational units (OUs) effectively.</p>
+    
+    <h2>Controlling User Access</h2>
+    <p>Administrators use Group Policy settings to regulate user activity within the operating system. They can restrict access to certain applications, block software installations, or enforce security requirements such as smart card authentication. Other security policies may define password complexity requirements, enforce session timeouts, or establish login restrictions.</p>
+    
+    <h2>Strengthening Passwords and Reducing Attacks</h2>
+    <p>To prevent brute-force attacks, strong passwords should be used. Instead of simple words, a mix of uppercase and lowercase letters, numbers, and special characters is recommended. Some systems allow passphrases, making passwords both complex and memorable.</p>
+    <p>Organizations often require periodic password changes, typically every 30 to 60 days, to mitigate unauthorized access in case of a credential leak. Many systems also store password history, preventing users from reusing old passwords.</p>
+    
+    <h2>Handling Account Lockouts and Recovery</h2>
+    <p>To counter unauthorized access attempts, account lockout mechanisms disable an account after multiple failed login attempts. This security measure applies to both user accounts and service accounts, helping to prevent automated brute-force attacks.</p>
+    <p>However, password recovery must be secure to prevent social engineering attacks. Organizations should verify a user's identity before allowing password resets.</p>
+    
+    <h2>Disabling vs. Deleting Accounts</h2>
+    <p>Rather than permanently deleting inactive accounts, disabling them is a safer approach. Disabled accounts retain associated data, such as encryption keys, ensuring that important information remains accessible if needed.</p>
+    
+    <p>By implementing these policies, organizations can enhance security, reduce risks, and ensure that account management aligns with best practices.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "account enforcement policy";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+
+</body>
+</html>

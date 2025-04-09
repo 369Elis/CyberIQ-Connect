@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replay Attack</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="replay-page">
+
+    <header>
+        <h1>What Is a Replay Attack?</h1>
+    </header>
+
+    <section class="intro">
+        <p>A replay attack is a security breach in which an attacker intercepts a valid network communication and retransmits it to trick the recipient into accepting it as an authentic request. This type of attack can be dangerous because the hacker does not need to decrypt or modify the message—simply resending it in its original form is enough to cause harm.</p>
+        <p>Replay attacks are commonly used to bypass authentication, execute fraudulent transactions, or gain unauthorized access to systems. They can occur in various scenarios, including online banking, authentication protocols, and encrypted data exchanges.</p>
+    </section>
+
+    <section class="replay-how">
+        <h2>How a Replay Attack Works</h2>
+        <p>To better understand replay attacks, let’s look at an example:</p>
+        <ul>
+            <li>An employee of a company sends an encrypted request to the finance department to authorize a payment.</li>
+            <li>A hacker eavesdrops on the communication and captures the encrypted message.</li>
+            <li>Instead of attempting to decrypt it, the attacker simply resends (replays) the exact same message to the finance department.</li>
+            <li>Since the message appears legitimate, the finance team processes the payment again, unknowingly transferring money to the attacker's account.</li>
+        </ul>
+        <p>The attack is successful because the system is unable to differentiate between the original request and the replayed message. This lack of verification allows the hacker to manipulate the transaction without ever needing to decrypt or modify the data.</p>
+    </section>
+
+    <section class="replay-techniques">
+        <h2>Techniques Used in Replay Attacks</h2>
+        <ul>
+            <li>🔹 <strong>Network Eavesdropping</strong> – Attackers use tools like packet sniffers to capture network traffic and extract secure messages.</li>
+            <li>🔹 <strong>Session Hijacking</strong> – Hackers steal an authenticated session token and use it to gain unauthorized access.</li>
+            <li>🔹 <strong>Man-in-the-Middle (MITM) Attacks</strong> – The attacker intercepts communication and selectively replays messages to manipulate transactions.</li>
+            <li>🔹 <strong>Authentication Token Reuse</strong> – If a system uses a static token for authentication, an attacker can capture and replay it to log in as a legitimate user.</li>
+        </ul>
+    </section>
+
+    <section class="replay-prevention">
+        <h2>How to Prevent Replay Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔑</span>
+                <h3>Implement Session-Based Encryption Keys</h3>
+                <p>Instead of using a static encryption key, systems should generate a unique session key for each transaction. Even if an attacker captures a message, the key will already be expired, making the replayed message invalid.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⏳</span>
+                <h3>Use Timestamps in Messages</h3>
+                <p>Messages should include a timestamp indicating when they were sent. The recipient system should reject messages that are older than a certain time limit (e.g., 30 seconds).</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔢</span>
+                <h3>Implement Nonces (One-Time Random Values)</h3>
+                <p>A nonce is a unique, randomly generated number that is included in each request. If an attacker attempts to resend a message with the same nonce, the system will detect it and reject the request.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📲</span>
+                <h3>Use One-Time Passwords (OTPs) for Authentication</h3>
+                <p>OTPs ensure that each authentication request is valid only once. If a hacker tries to reuse an intercepted OTP, it will already be expired or invalid.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔒</span>
+                <h3>Secure Communication with TLS and HTTPS</h3>
+                <p>Using secure communication protocols like TLS (Transport Layer Security) and HTTPS ensures that data transmissions are encrypted and protected against interception.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛡️</span>
+                <h3>Use Token-Based Authentication with Expiration</h3>
+                <p>Implement JWT (JSON Web Tokens) or OAuth tokens that expire quickly and cannot be reused.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🚨</span>
+                <h3>Implement Rate Limiting and Intrusion Detection</h3>
+                <p>Rate limiting helps detect repeated requests coming from the same source. Intrusion detection systems (IDS) can monitor network traffic and block suspicious activity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="replay-examples">
+        <h2>Real-World Examples of Replay Attacks</h2>
+        <ul>
+            <li>🔹 <strong>Biometric Authentication Replay Attack</strong> – If a system does not properly secure fingerprint or facial recognition data, an attacker could capture and replay the authentication request to gain unauthorized access.</li>
+            <li>🔹 <strong>Smart Card Attacks</strong> – Some payment systems use static authentication data stored on smart cards. If an attacker captures a transaction request, they could replay it multiple times to make fraudulent purchases.</li>
+            <li>🔹 <strong>Session Hijacking in Web Applications</strong> – If a web service does not properly expire session tokens, a hacker could capture a token and reuse it to impersonate a legitimate user.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <!-- JavaScript -->
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "replay-attacks";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/client-hijacking.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

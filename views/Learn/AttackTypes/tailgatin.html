@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailgating Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tailgating Attacks: A Social Engineering Threat</h1>
+      
+      <h2>What is a Tailgating Attack?</h2>
+      <p>
+        A tailgating attack occurs when an unauthorized individual gains access to a restricted area by taking advantage of someone else’s entry. This form of social engineering can lead to security breaches, theft of sensitive data, physical damage, or even unauthorized installation of malicious software.
+      </p>
+      
+      <p>
+        A related method, piggybacking, differs in that the intruder is knowingly granted access by a deceived employee. While tailgating relies on unnoticed entry, piggybacking often involves an attacker posing as a delivery worker, contractor, or another seemingly legitimate visitor.
+      </p>
+      
+      <h2>Who is at Risk of Tailgating?</h2>
+      <p>
+        Certain workplaces are particularly susceptible to tailgating incidents, including those that:
+      </p>
+      <ul>
+        <li>Have a large workforce with employees frequently entering and exiting the building.</li>
+        <li>Feature multiple entry points, making unauthorized access easier to achieve.</li>
+        <li>Regularly receive deliveries of packages, food, or documents.</li>
+        <li>Employ subcontractors or third-party workers, increasing the likelihood of unfamiliar faces on-site.</li>
+        <li>Lack sufficient training in physical and cybersecurity protocols, making employees unaware of potential threats.</li>
+      </ul>
+      <p>
+        Even businesses with strict security systems, such as access control badges and biometric scanners, can still fall victim to a well-executed social engineering attack.
+      </p>
+      
+      <h2>Common Tailgating Tactics</h2>
+      <p>
+        Attackers use various strategies to manipulate employees into granting access, such as:
+      </p>
+      <ul>
+        <li>Walking in immediately behind someone, relying on politeness to hold the door open.</li>
+        <li>Impersonating a courier, maintenance worker, or technician to appear legitimate.</li>
+        <li>Carrying items that occupy their hands, encouraging employees to assist by opening the door.</li>
+        <li>Claiming to have forgotten or lost their access badge, hoping for leniency from security or staff.</li>
+      </ul>
+      
+      <h2>How to Prevent Tailgating Attacks</h2>
+      
+      <h3>1. Educate Employees on Physical Security</h3>
+      <p>
+        Many companies focus heavily on digital security while overlooking physical threats. Employees should be trained to recognize and report tailgating attempts. Security policies should clearly state that no one should enter without proper identification—even if they appear to belong there.
+      </p>
+      <p>
+        Periodic security refresher courses and updates ensure that all employees stay informed about the latest threats.
+      </p>
+      
+      <h3>2. Implement Access Control Measures</h3>
+      <p>
+        Using smart ID badges and access cards ensures that only authorized personnel can enter secure areas. Businesses with large premises should also consider having a dedicated security team at reception to monitor entry points.
+      </p>
+      
+      <h3>3. Introduce Biometric Authentication</h3>
+      <p>
+        Advanced security systems utilize biometric verification to confirm identities before granting access. Some widely used biometric methods include:
+      </p>
+      <ul>
+        <li>Fingerprint scanning</li>
+        <li>Facial recognition</li>
+        <li>Iris scanning</li>
+        <li>Voice authentication</li>
+        <li>Heart rate sensors</li>
+      </ul>
+      <p>
+        Since biometric data is unique to each individual, these systems add an extra layer of security and prevent unauthorized users from gaining entry.
+      </p>
+      
+      <h3>4. Increase Awareness of Social Engineering Risks</h3>
+      <p>
+        Lack of knowledge about social engineering techniques makes employees vulnerable to both physical and digital attacks. Organizations should educate staff on common manipulation tactics used by attackers.
+      </p>
+      <p>
+        Using simulated security drills, including fake tailgating attempts and phishing tests, can help reinforce security policies and ensure employees remain vigilant.
+      </p>
+      
+      <h3>5. Enhance Surveillance with AI-Powered Monitoring</h3>
+      <p>
+        For businesses with multiple entry points, video surveillance systems provide an additional layer of security. AI-powered monitoring tools can detect unauthorized individuals and compare their facial features against a database of approved personnel.
+      </p>
+    </div>
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "tailgating";
+      const NEXT_PAGE_URL = "/learn.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+  </body>
+</html>

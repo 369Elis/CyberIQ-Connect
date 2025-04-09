@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Device Management (MDM) Overview</title>
+</head>
+<body>
+    <h1>Mobile Device Management (MDM) Overview</h1>
+    
+    <h2>What is Mobile Device Management?</h2>
+    <p>Mobile Device Management (MDM) is a security framework that enables organizations to remotely control, monitor, and enforce security policies on employee devices. By leveraging built-in device management capabilities, MDM solutions help ensure compliance, secure corporate data, and enhance operational efficiency across various platforms and operating systems.</p>
+    
+    <p>MDM integrates applications, infrastructure services, and device management tools to provide a centralized approach to handling enterprise devices, whether they are corporate-owned or part of a Bring Your Own Device (BYOD) policy.</p>
+    
+    <h2>Why Implement MDM?</h2>
+    <p>MDM is designed to streamline the management of enterprise devices by offering functionalities such as:</p>
+    <ul>
+        <li><strong>Device Enrollment</strong> – Seamless registration and management of devices.</li>
+        <li><strong>Configuration Control</strong> – Enforcing security settings and network policies.</li>
+        <li><strong>Data Protection</strong> – Secure encryption, remote data wipe capabilities, and access control.</li>
+        <li><strong>Compliance Monitoring</strong> – Tracking device status and identifying potential security violations.</li>
+        <li><strong>Application Management</strong> – Regulating the installation and use of enterprise-approved applications.</li>
+    </ul>
+    <p>Since MDM solutions operate over the internet, they enable secure device management from any location, facilitating remote work while maintaining security standards.</p>
+    
+    <h2>Key Use Cases of MDM:</h2>
+    <ul>
+        <li>Enforcing security policies such as VPN usage.</li>
+        <li>Remotely locking or wiping devices in case of loss or theft.</li>
+        <li>Monitoring device compliance to detect outdated software or unauthorized modifications.</li>
+        <li>Securing MDM itself, as it acts as a gateway to sensitive enterprise data and systems.</li>
+    </ul>
+    
+    <h2>Considerations Before Choosing an MDM Solution</h2>
+    
+    <h3>Deployment Options</h3>
+    <p>MDM solutions are available as on-premises or cloud-based services. Some providers offer both options, while others specialize in one model.</p>
+    <ul>
+        <li><strong>Cloud-Based MDM:</strong> These solutions offer ease of deployment and faster updates but require a thorough security assessment before implementation.</li>
+        <li><strong>On-Premises MDM:</strong> Provides greater control over security and data storage but may require additional resources for maintenance and upgrades.</li>
+    </ul>
+    <p>If opting for cloud MDM, organizations should reference security guidelines to assess the risks and suitability of the service. For on-premises deployments, the decision to place the MDM system inside or outside the network firewall should be carefully considered, balancing security and remote access needs.</p>
+    
+    <h3>Device Compatibility and Feature Support</h3>
+    <p>Each MDM solution varies in its support for different device types, security features, and management capabilities. Key features to evaluate include:</p>
+    <ul>
+        <li><strong>Enrollment Options:</strong> Organizations with fully managed devices should prioritize platforms that support zero-touch enrollment, reducing manual setup efforts. For BYOD environments, authentication methods like multi-factor authentication (MFA) should be assessed.</li>
+        <li><strong>Device Configuration Policies:</strong> The chosen MDM should align with the organization’s security policies, such as enforcing password requirements, restricting access to certain applications, and managing network settings.</li>
+        <li><strong>Compliance and Monitoring:</strong> Monitoring capabilities should include software update tracking, jailbreak detection, and compliance reporting. Advanced features like device attestation provide stronger verification of device security status.</li>
+    </ul>
+    
+    <h2>Application Management and Data Security</h2>
+    <p>Some MDM solutions provide an enterprise app store to ensure employees install only authorized applications. This is particularly beneficial for corporately managed devices, where IT teams need to monitor app installations and updates.</p>
+    
+    <p>For BYOD environments, full device control may not be feasible. In such cases, integrating MDM with Mobile Application Management (MAM) can help create secure containers for business data, preventing data leakage while allowing personal use of the device.</p>
+    
+    <h2>Best Practices for MDM Implementation</h2>
+    <ul>
+        <li><strong>Align MDM policies with security frameworks</strong> to protect enterprise data and ensure compliance.</li>
+        <li><strong>Use automation for device enrollment and policy enforcement</strong> to streamline security management.</li>
+        <li><strong>Monitor and update configurations regularly</strong> to adapt to evolving security threats.</li>
+        <li><strong>Educate employees on security best practices</strong> to reduce risks associated with personal and corporate device usage.</li>
+    </ul>
+    
+    <p>By implementing a robust MDM strategy, organizations can secure their mobile workforce while maintaining flexibility and operational efficiency.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "model device enforcement";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/command-line-security-tools.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

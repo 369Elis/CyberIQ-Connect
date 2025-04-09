@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Handle Sensitive Information Securely</title>
+</head>
+<body>
+    <h1>How to Handle Sensitive Information Securely</h1>
+    <p>In an era where digital workspaces and remote access are the norm, protecting sensitive information has become more important than ever. Mishandling confidential data can lead to identity theft, fraud, financial loss, and legal penalties. Businesses and individuals alike must adopt secure data-handling practices to prevent breaches and maintain compliance with strict regulations.</p>
+    
+    <h2>What is Sensitive Information?</h2>
+    <p>Sensitive information refers to any data that must be protected to prevent unauthorized access, identity theft, or security breaches. It falls into three main categories:</p>
+    <ul>
+        <li><strong>Personally Identifiable Information (PII):</strong> Social security numbers, medical records, passport numbers, bank account information, biometric data.</li>
+        <li><strong>Business-Sensitive Information:</strong> Trade secrets, financial records, employee data, intellectual property, and confidential business strategies.</li>
+        <li><strong>Classified Information:</strong> Government and military data categorized as confidential, secret, or top secret.</li>
+    </ul>
+    
+    <h2>Why Secure Handling of Sensitive Information Matters</h2>
+    <h3>Legal and Regulatory Compliance</h3>
+    <p>Strict data protection laws such as GDPR, HIPAA, and PCI DSS impose penalties for mishandling sensitive data. Businesses that fail to comply can face massive fines and legal action.</p>
+    
+    <h3>Protecting Business Interests</h3>
+    <p>Data breaches can expose trade secrets, financial data, and damage reputation.</p>
+    
+    <h3>Preventing Cybercrime</h3>
+    <p>Cybercriminals exploit stolen personal and financial data. Mishandling data can lead to fraud, financial theft, or ransomware attacks.</p>
+    
+    <h2>Five Core Principles for Handling Sensitive Information</h2>
+    <h3>1. Keep Track of Your Data</h3>
+    <p>Regularly audit data storage locations and eliminate unnecessary information.</p>
+    
+    <h3>2. Minimize Data Storage</h3>
+    <p>Store only necessary data and dispose of unneeded records securely.</p>
+    
+    <h3>3. Restrict Access</h3>
+    <p>Implement role-based access controls (RBAC) to limit exposure.</p>
+    
+    <h3>4. Secure Data Disposal</h3>
+    <p>Use data-wiping tools and shred or incinerate physical documents.</p>
+    
+    <h3>5. Prepare for Security Breaches</h3>
+    <p>Have an incident response plan in place to mitigate risks.</p>
+    
+    <h2>Practical Security Measures for Protecting Sensitive Data</h2>
+    <h3>1. Physical Security</h3>
+    <ul>
+        <li>Store paper records in locked cabinets.</li>
+        <li>Use access-controlled areas with keycards or biometrics.</li>
+        <li>Secure laptops with cable locks.</li>
+    </ul>
+    
+    <h3>2. Secure Digital Storage</h3>
+    <ul>
+        <li>Encrypt data at rest and in transit.</li>
+        <li>Use secure cloud storage with encryption.</li>
+        <li>Keep software and systems updated.</li>
+    </ul>
+    
+    <h3>3. Strong Password Practices</h3>
+    <ul>
+        <li>Require complex passwords with a mix of characters.</li>
+        <li>Implement passphrase-based passwords.</li>
+        <li>Use multi-factor authentication (MFA).</li>
+    </ul>
+    
+    <h3>4. Limiting USB and External Device Use</h3>
+    <ul>
+        <li>Restrict USB drive use to prevent data leaks.</li>
+        <li>Disable USB ports unless necessary.</li>
+        <li>Require removable drive security scans.</li>
+    </ul>
+    
+    <h3>5. Safe Handling of Emails and Online Communication</h3>
+    <ul>
+        <li>Never send sensitive data via email without encryption.</li>
+        <li>Verify unexpected information requests directly.</li>
+        <li>Train employees to recognize phishing scams.</li>
+    </ul>
+    
+    <h3>6. Monitoring and Access Logs</h3>
+    <ul>
+        <li>Use access control systems to track file modifications.</li>
+        <li>Implement audit logs to flag suspicious behavior.</li>
+    </ul>
+    
+    <h3>7. Secure Data Erasing and Disposal</h3>
+    <ul>
+        <li>Use secure wiping tools instead of simple deletion.</li>
+        <li>Physically destroy old hardware if needed.</li>
+        <li>Shred or incinerate paper documents.</li>
+    </ul>
+    
+    <h3>8. Cybersecurity Awareness and Training</h3>
+    <ul>
+        <li>Regularly train employees on data security best practices.</li>
+        <li>Conduct phishing awareness exercises.</li>
+        <li>Require confidentiality agreements for sensitive data handlers.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "handle sensitive data";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federated Identity and Its Supporting Technologies</title>
+</head>
+<body>
+    <header>
+        <h1>Federated Identity and Its Supporting Technologies</h1>
+    </header>
+    
+    <section>
+        <h2>What is Federated Identity?</h2>
+        <p>Federated Identity Management (FIM) is a system that allows users to authenticate once and gain access to multiple platforms, services, or applications without needing separate credentials for each one. This system enhances both security and convenience by establishing a trusted connection between Identity Providers (IdPs) and Service Providers (SPs).</p>
+    </section>
+    
+    <section>
+        <h2>Core Technologies Behind Federated Identity</h2>
+        
+        <h3>Security Assertion Markup Language (SAML)</h3>
+        <p>SAML is an XML-based authentication and authorization protocol that enables users to sign in once and access multiple services without needing separate logins.</p>
+        <ul>
+            <li>It allows Identity Providers (IdPs) to verify user credentials and pass that verification to Service Providers (SPs).</li>
+            <li>By using SAML authentication, users can securely access multiple platforms with a single set of credentials, reducing the need for repeated logins.</li>
+            <li>This protocol is particularly beneficial for organizations managing access to multiple cloud-based applications.</li>
+        </ul>
+        
+        <h3>OAuth (Open Authorization)</h3>
+        <p>OAuth is a token-based authorization framework that enables secure data sharing between applications without exposing passwords.</p>
+        <ul>
+            <li>Instead of handing over login credentials, users grant permissions to third-party services through access tokens.</li>
+            <li>For example, when linking a social media account to a third-party app, OAuth facilitates the connection without requiring users to share their actual password.</li>
+            <li>OAuth ensures that sensitive authentication details remain with the original platform while allowing authorized interactions between different services.</li>
+        </ul>
+        
+        <h3>OpenID Connect (OIDC)</h3>
+        <p>OIDC extends OAuth 2.0 by adding an identity verification layer, making it a more robust authentication solution.</p>
+        <ul>
+            <li>Unlike SAML, which focuses on authentication and authorization within enterprise systems, OIDC is better suited for web and mobile applications.</li>
+            <li>It allows a user to verify their identity with one login across multiple applications and services.</li>
+            <li>OIDC is increasingly favored due to its flexibility and compatibility with modern consumer applications.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>How Federated Identity Works in Practice</h2>
+        <p>Federated identity enables users to log into multiple services using credentials from a trusted provider. Common real-world examples include:</p>
+        <ul>
+            <li>✔ <strong>Google Federation</strong> – Users can access YouTube, Waze, or Blogger with their Google account without needing separate logins.</li>
+            <li>✔ <strong>Facebook Federation</strong> – Services like Instagram, Netflix, and Disney+ allow users to authenticate using their Facebook credentials.</li>
+        </ul>
+        <p>By forming trust-based authentication agreements, platforms can seamlessly verify identities without requiring users to manage multiple passwords.</p>
+    </section>
+    
+    <section>
+        <h2>Security Benefits of Federated Identity</h2>
+        <p>One of the biggest advantages of federated identity is that users never directly provide credentials to third-party services. Instead, an IdP handles authentication, confirming the user's identity before granting access.</p>
+        <p>This approach significantly reduces the risk of credential theft, phishing attacks, and password leaks since authentication data is only exchanged between trusted entities.</p>
+    </section>
+    
+    <section>
+        <h2>Federated Identity vs. Single Sign-On (SSO)</h2>
+        <p>While FIM and SSO share similarities, they differ in scope:</p>
+        <ul>
+            <li>🔹 <strong>Single Sign-On (SSO):</strong> Grants users access to multiple applications within the same organization or domain using a single login.</li>
+            <li>🔹 <strong>Federated Identity:</strong> Extends authentication across multiple domains or organizations, allowing seamless access across independent systems.</li>
+        </ul>
+        <p>In short, SSO is a component of federated identity, but implementing SSO does not automatically create a federated identity system.</p>
+    </section>
+    
+    <section>
+        <h2>Key Advantages of Federated Identity</h2>
+        <ul>
+            <li>🔹 <strong>Enhanced Security:</strong> By reducing the number of authentication points, federated identity minimizes attack surfaces, lowering the risk of password-based breaches.</li>
+            <li>🔹 <strong>Better User Experience:</strong> Users sign in once and gain access to multiple services, eliminating the frustration of remembering multiple passwords.</li>
+            <li>🔹 <strong>Simplified Access Management:</strong> Organizations can centrally manage user credentials, making it easier to grant or revoke access for employees, contractors, and external partners.</li>
+            <li>🔹 <strong>Efficient Resource Sharing:</strong> Organizations within a federated system can securely exchange data and services without requiring multiple authentication processes.</li>
+            <li>🔹 <strong>Reduced IT Costs:</strong> By eliminating the need for multiple authentication systems, businesses save on identity management infrastructure and administrative overhead.</li>
+        </ul>
+    </section>
+
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "federated identity";
+        const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/RBAC-ABAC.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

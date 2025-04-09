@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Authentication Protocols</title>
+</head>
+<body>
+    <h1>Understanding Authentication Protocols: LDAP, Kerberos, OAuth2, SAML, and RADIUS</h1>
+    
+    <h2>Introduction</h2>
+    <p>User authentication is a major challenge in modern IT environments, as individuals often require access to multiple systems across networks. To address this complexity, authentication protocols are typically open standards that facilitate secure identity verification.</p>
+    
+    <p>Understanding the different authentication methods can be confusing, especially for those new to identity management. In this guide, we’ll break down five widely used authentication protocols—LDAP, Kerberos, OAuth2, SAML, and RADIUS—and explain how each works, along with its key advantages.</p>
+    
+    <h2>1. LDAP (Lightweight Directory Access Protocol)</h2>
+    <p>LDAP is a protocol that helps locate and retrieve organizational data such as users, devices, and files on a network. It plays a vital role in directory services and is commonly used within corporate networks and enterprise systems.</p>
+    
+    <h3>How LDAP Works</h3>
+    <ol>
+        <li>The client application sends a request to authenticate a user.</li>
+        <li>The LDAP server processes the request by checking its directory.</li>
+        <li>If authentication is successful, the client is granted access.</li>
+        <li>Once authentication is complete, the connection is closed.</li>
+    </ol>
+    
+    <h3>Why Use LDAP?</h3>
+    <ul>
+        <li>✅ Scalability – Supports large enterprise networks.</li>
+        <li>✅ Integration with Active Directory – Forms the backbone of Microsoft’s Active Directory (AD).</li>
+        <li>✅ Standardized Protocol – Works across various platforms and cloud directories.</li>
+    </ul>
+    
+    <h2>2. Kerberos: Secure Authentication for Networks</h2>
+    <p>Kerberos is a network authentication protocol that employs strong encryption to ensure that credentials are securely exchanged between clients and servers. It’s widely used in enterprise and government environments.</p>
+    
+    <h3>How Kerberos Authentication Works</h3>
+    <ol>
+        <li>The user requests an authentication ticket (TGT) from the Key Distribution Center (KDC).</li>
+        <li>The KDC verifies credentials and provides an encrypted ticket.</li>
+        <li>The client uses the ticket to request access to a specific service.</li>
+        <li>The KDC issues a service ticket.</li>
+        <li>The user presents the service ticket, and authentication is confirmed.</li>
+    </ol>
+    
+    <h3>Advantages of Kerberos</h3>
+    <ul>
+        <li>🔹 Stronger Security – Uses ticket-based authentication instead of sending passwords.</li>
+        <li>🔹 Prevents Credential Theft – Passwords are never directly transmitted over the network.</li>
+        <li>🔹 Mutual Authentication – Ensures both client and server trust each other.</li>
+    </ul>
+    
+    <h2>3. OAuth 2.0: Token-Based Authorization</h2>
+    <p>OAuth 2.0 is an authorization framework designed to enable secure access to APIs and web services without exposing user passwords. It is commonly used by platforms like Google, Facebook, and GitHub for authentication.</p>
+    
+    <h3>How OAuth 2.0 Works</h3>
+    <ol>
+        <li>The user grants permission for an application to access their data.</li>
+        <li>The application receives an authorization grant.</li>
+        <li>The application exchanges the grant for an access token from an authorization server.</li>
+        <li>The access token is then used to request protected resources from an API.</li>
+        <li>The API validates the token and provides access to the requested resource.</li>
+    </ol>
+    
+    <h3>Why Use OAuth 2.0?</h3>
+    <ul>
+        <li>✔ No Need to Store User Passwords – Applications can authenticate users without direct credential storage.</li>
+        <li>✔ Supports Third-Party Integrations – Widely used for social logins and API authentication.</li>
+        <li>✔ Enhances Security – Uses access tokens instead of passwords.</li>
+    </ul>
+    
+    <h2>4. SAML (Security Assertion Markup Language)</h2>
+    <p>SAML is an XML-based authentication protocol that allows identity providers (IdPs) and service providers (SPs) to exchange authentication data securely. It is widely used in enterprise SSO solutions.</p>
+    
+    <h3>How SAML Authentication Works</h3>
+    <ol>
+        <li>A user attempts to access a web application.</li>
+        <li>The application redirects the user to the identity provider (IdP) for authentication.</li>
+        <li>The user either logs in or is recognized via an active session.</li>
+        <li>The IdP generates an authentication response and signs it with a certificate.</li>
+        <li>The service provider (SP) verifies the response and grants the user access.</li>
+    </ol>
+    
+    <h3>Benefits of SAML</h3>
+    <ul>
+        <li>🔹 Single Sign-On (SSO) Support – Reduces login fatigue for users.</li>
+        <li>🔹 Secure & Encrypted Authentication – Uses signed XML assertions to prevent attacks.</li>
+        <li>🔹 Widely Adopted in Enterprises – Compatible with services like JumpCloud and Okta.</li>
+    </ul>
+    
+    <h2>5. RADIUS (Remote Authentication Dial-In User Service)</h2>
+    <p>RADIUS is a network authentication protocol designed to provide centralized Authentication, Authorization, and Accounting (AAA) for users accessing a network. It is commonly used in Wi-Fi authentication, VPNs, and enterprise networks.</p>
+    
+    <h3>How RADIUS Works</h3>
+    <ol>
+        <li>The user requests access through a network device (e.g., a router or VPN).</li>
+        <li>The Remote Access Server (RAS) sends credentials to a RADIUS server.</li>
+        <li>The RADIUS server verifies the credentials against a directory service (such as Active Directory).</li>
+        <li>Based on the validation result, access is granted, challenged, or denied.</li>
+    </ol>
+    
+    <h3>Advantages of RADIUS</h3>
+    <ul>
+        <li>✔ Centralized Authentication Management – Streamlines user access across multiple devices.</li>
+        <li>✔ Supports Multi-Factor Authentication (MFA) – Can work with OTP and smart cards.</li>
+        <li>✔ Enhances Network Security – Protects Wi-Fi and VPN connections.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "advanced authentication protocols";
+        const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/identity-goverance-administration.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

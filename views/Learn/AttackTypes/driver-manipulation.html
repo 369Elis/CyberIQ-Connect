@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Manipulation</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="driver-page">
+
+    <header>
+        <h1>Understanding Driver Manipulation: How It Works and How to Stay Protected</h1>
+    </header>
+
+    <section class="intro">
+        <h2>What Is Driver Manipulation?</h2>
+        <p>Driver manipulation is a cyberattack technique that targets device drivers—the software responsible for facilitating communication between an operating system and hardware components like printers, graphics cards, and audio systems. Since operating systems place a high level of trust in drivers, attackers exploit this trust to bypass security controls, escalate privileges, and gain unauthorized system access.</p>
+        <p>By altering or injecting malicious code into drivers, attackers can compromise system integrity, steal sensitive information, or even take full control of a device. This makes driver manipulation a powerful method for executing advanced cyberattacks.</p>
+    </section>
+
+    <section class="driver-how">
+        <h2>How Driver Manipulation Works</h2>
+        <p>Driver manipulation techniques allow attackers to modify, replace, or inject malicious code into drivers to execute unauthorized actions. The two primary methods used in these attacks are:</p>
+
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🛠️</span>
+                <h3>Shimming</h3>
+                <p>Shimming involves inserting a small intermediary library that sits between the operating system and a legitimate driver. This shim intercepts API calls and modifies the communication process, allowing attackers to:</p>
+                <ul>
+                    <li>🔹 Alter how the OS interacts with hardware, potentially bypassing security restrictions.</li>
+                    <li>🔹 Inject malicious instructions that modify system behavior.</li>
+                    <li>🔹 Exploit compatibility features to run unsigned or outdated drivers with known vulnerabilities.</li>
+                </ul>
+                <p><strong>Example:</strong> Attackers have used Windows Application Compatibility Shims to bypass User Account Control (UAC) and elevate privileges without triggering security alerts.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔄</span>
+                <h3>Refactoring</h3>
+                <p>Refactoring involves modifying a driver’s code to introduce new functions or vulnerabilities. Unlike shimming, which intercepts communication, refactoring changes the driver itself, making malicious alterations harder to detect.</p>
+                <ul>
+                    <li>🔹 Attackers alter existing drivers to create malware variants that evade detection.</li>
+                    <li>🔹 They modify the way drivers handle system requests, potentially granting unauthorized access.</li>
+                    <li>🔹 Refactored drivers can be digitally signed, tricking the system into trusting them.</li>
+                </ul>
+                <p><strong>Example:</strong> Some malware campaigns have used signed but altered drivers to deploy rootkits, allowing deep-level system access while remaining undetected by security software.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="driver-examples">
+        <h2>Examples of Driver Manipulation Attacks</h2>
+        <ul>
+            <li>🔹 <strong>HP Audio Driver Keylogger (2016):</strong> A debugging feature in HP’s audio drivers contained a hidden keylogger, capable of recording keystrokes. If exploited, this vulnerability could have exposed users to password theft and data breaches.</li>
+            <li>🔹 <strong>Windows Compatibility Mode Exploitation (2015):</strong> Cybercriminals leveraged Windows’ Application Compatibility Shim Cache to bypass security features like UAC and gain unauthorized access.</li>
+            <li>🔹 <strong>Malicious Kernel Drivers:</strong> Hackers have used compromised drivers to bypass antivirus protection by injecting malicious kernel-mode code. This technique is frequently seen in rootkits and advanced persistent threats (APTs).</li>
+        </ul>
+    </section>
+
+    <section class="driver-risks">
+        <h2>Risks Associated with Driver Manipulation</h2>
+        <ul>
+            <li>🚨 <strong>Unauthorized Access:</strong> Attackers can use compromised drivers to steal sensitive data and infiltrate secure environments.</li>
+            <li>🚨 <strong>System Instability:</strong> Modified drivers often introduce bugs or vulnerabilities, leading to frequent crashes, blue screens, or performance issues.</li>
+            <li>🚨 <strong>Privilege Escalation:</strong> A manipulated driver can grant an attacker administrator or kernel-level access, allowing them to take full control of the system.</li>
+            <li>🚨 <strong>Backdoor for Further Attacks:</strong> Once a driver is compromised, it can be used as an entry point for installing additional malware or executing ransomware attacks.</li>
+            <li>🚨 <strong>Bypassing Security Features:</strong> Manipulated drivers can disable antivirus tools, firewall protections, or monitoring systems, making it easier for attackers to operate undetected.</li>
+        </ul>
+    </section>
+
+    <section class="driver-prevention">
+        <h2>How to Protect Against Driver Manipulation</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🕵️</span>
+                <h3>Regular Driver Audits</h3>
+                <p>Periodically review installed drivers to ensure they are genuine and up-to-date. Remove or replace outdated, unverified, or unnecessary drivers to reduce attack surfaces.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔍</span>
+                <h3>Download Drivers from Trusted Sources</h3>
+                <p>Only install drivers from official manufacturer websites or trusted repositories. Avoid using third-party driver installation tools.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔏</span>
+                <h3>Enable Driver Signing Enforcement</h3>
+                <p>Configure your system to allow only digitally signed drivers. This prevents the installation of unverified or maliciously altered drivers.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛡️</span>
+                <h3>Use Advanced Security Software</h3>
+                <p>Employ antivirus and anti-malware tools that monitor driver integrity. Enable features like heuristic analysis to detect unusual driver behavior.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📊</span>
+                <h3>Monitor System Behavior for Anomalies</h3>
+                <p>Look for signs of unauthorized driver modifications, such as unexpected API call interceptions, system crashes, or sudden privilege escalation.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔧</span>
+                <h3>Secure Operating System Configurations</h3>
+                <p>Enable kernel-level protection features like Microsoft Defender’s Kernel Attack Protection. Configure security policies to restrict non-essential drivers.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔄</span>
+                <h3>Patch and Update Systems Regularly</h3>
+                <p>Keep your operating system and firmware updated to protect against vulnerabilities. Apply security patches for known driver-related exploits.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "driver manipulation";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/spoofing.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+</body>
+</html>

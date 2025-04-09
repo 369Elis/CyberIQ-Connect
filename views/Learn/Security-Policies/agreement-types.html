@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Agreements in Software Development</title>
+    <link rel="stylesheet" href="/styles/BusinessContracts/styles.css">
+</head>
+<body class="agreements-page">
+
+    <header>
+        <h1>Key Agreements in Software Development: NDA, SLA, MSA, and SOW</h1>
+    </header>
+
+    <section class="intro">
+        <p>When working with a software house, several agreements are commonly used to define the terms of cooperation, project scope, responsibilities, and confidentiality. While not all of them are mandatory, they are frequently included in large and complex projects to protect both parties and ensure smooth execution.</p>
+    </section>
+
+    <section class="agreement">
+        <h2>1. Non-Disclosure Agreement (NDA)</h2>
+        <p>An NDA (Non-Disclosure Agreement) is a confidentiality contract that ensures sensitive information shared during the project remains protected.</p>
+        <ul>
+            <li>✔ Typically signed before the project starts, often during the discovery phase.</li>
+            <li>✔ Covers proprietary business data, strategies, trade secrets, and customer information.</li>
+            <li>✔ Prevents unauthorized disclosure or misuse of confidential data by contractors or third parties.</li>
+        </ul>
+        <p><strong>Why It Matters:</strong> An NDA safeguards intellectual property and ensures that any proprietary business details remain private and secure.</p>
+    </section>
+
+    <section class="agreement">
+        <h2>2. Service Level Agreement (SLA)</h2>
+        <p>An SLA (Service Level Agreement) defines the level of service quality a software house must provide.</p>
+        <ul>
+            <li>✔ Often used in B2B agreements, ensuring performance standards are met.</li>
+            <li>✔ Specifies response times, uptime guarantees, support availability, and maintenance commitments.</li>
+            <li>✔ Typically included as part of a broader service contract.</li>
+        </ul>
+        <p><strong>Why It Matters:</strong> For projects that are critical to business operations, an SLA ensures that services remain reliable and efficient, reducing downtime and performance issues.</p>
+    </section>
+
+    <section class="agreement">
+        <h2>3. Master Service Agreement (MSA)</h2>
+        <p>An MSA (Master Service Agreement) is a contract that defines the overall framework for cooperation between a company and a software house.</p>
+        <ul>
+            <li>✔ Covers payment terms, service warranties, intellectual property rights, confidentiality, and dispute resolution.</li>
+            <li>✔ Ensures that both parties understand their legal and financial obligations.</li>
+            <li>✔ Reduces the need for renegotiation for each new project, as the foundational terms are already in place.</li>
+        </ul>
+        <p><strong>Why It Matters:</strong> An MSA provides long-term clarity and stability, streamlining ongoing cooperation between businesses and software providers.</p>
+    </section>
+
+    <section class="agreement">
+        <h2>4. Statement of Work (SOW)</h2>
+        <p>A SOW (Statement of Work) is a detailed project document that outlines:</p>
+        <ul>
+            <li>✔ Project scope and deliverables</li>
+            <li>✔ Key milestones and deadlines</li>
+            <li>✔ Roles and responsibilities of each party</li>
+            <li>✔ Technical specifications and expectations</li>
+        </ul>
+        <p><strong>Why It Matters:</strong> A well-prepared SOW eliminates misunderstandings by setting clear expectations and allowing businesses to evaluate potential suppliers effectively.</p>
+    </section>
+
+    <section class="agreement-benefits">
+        <h2>Why These Agreements Are Essential</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔏</span>
+                <h3>NDA</h3>
+                <p>✔ Protects sensitive data from leaks or misuse.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⚖</span>
+                <h3>SLA</h3>
+                <p>✔ Defines service quality and expectations.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📜</span>
+                <h3>MSA</h3>
+                <p>✔ Establishes the legal foundation for long-term partnerships.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📑</span>
+                <h3>SOW</h3>
+                <p>✔ Provides clear project guidelines to ensure smooth execution.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "agreement types";
+        const NEXT_PAGE_URL = "/Learn/Security-Policies/role-based-awarness.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

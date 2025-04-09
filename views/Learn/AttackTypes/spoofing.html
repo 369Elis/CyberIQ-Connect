@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoofing Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="spoofing-page">
+
+    <header>
+        <h1>What Is Spoofing?</h1>
+    </header>
+
+    <section class="intro">
+        <p>Spoofing is a deceptive cyber technique where attackers impersonate a trusted entity or system to manipulate individuals into revealing sensitive data, transferring money, or installing malware. It is often combined with social engineering tactics to exploit human psychology, such as fear, urgency, or lack of technical knowledge.</p>
+        <p>Spoofing can occur across various communication channels, including email, phone calls, websites, network protocols, and even biometric authentication systems. The objective is to trick victims into trusting a fraudulent identity, leading to unauthorized access, financial fraud, or data theft.</p>
+    </section>
+
+    <section class="spoofing-how">
+        <h2>How Does Spoofing Work?</h2>
+        <p>Spoofing attacks rely on two key components:</p>
+        <ul>
+            <li>1️⃣ <strong>The Fake Identity</strong> – This could be a spoofed email, fake website, or manipulated phone number that appears trustworthy.</li>
+            <li>2️⃣ <strong>The Social Engineering Tactic</strong> – The attacker pressures, deceives, or manipulates the victim into taking an action that benefits the hacker.</li>
+        </ul>
+        <p><strong>Example:</strong> An employee might receive an email appearing to be from their CEO, urgently requesting a bank transfer. The email looks authentic, but it was actually sent by a hacker using email spoofing techniques.</p>
+        <p>Once successful, spoofing attacks can lead to financial loss, stolen credentials, malware infections, or unauthorized access to systems.</p>
+    </section>
+
+    <section class="spoofing-types">
+        <h2>Types of Spoofing Attacks and How to Prevent Them</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">📧</span>
+                <h3>Email Spoofing</h3>
+                <p>Attackers forge email headers so that messages appear to come from a trusted sender.</p>
+                <p><strong>Prevention:</strong> Use spam filters, inspect email headers, and enable authentication protocols (SPF, DKIM, DMARC).</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🌐</span>
+                <h3>IP Spoofing</h3>
+                <p>Attackers fake the source IP address of network packets to bypass security controls or execute DDoS attacks.</p>
+                <p><strong>Prevention:</strong> Monitor traffic, use packet filtering, and secure remote access with VPNs and MFA.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔗</span>
+                <h3>Website Spoofing (Phishing Sites)</h3>
+                <p>Attackers clone legitimate websites to trick victims into entering credentials or downloading malware.</p>
+                <p><strong>Prevention:</strong> Check URLs for typos, avoid clicking suspicious links, and use password managers.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📞</span>
+                <h3>Caller ID & Phone Spoofing</h3>
+                <p>Attackers fake caller IDs to impersonate banks, government agencies, or trusted contacts.</p>
+                <p><strong>Prevention:</strong> Don’t answer unknown calls, verify claims by calling official numbers, and enable spam filters.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📲</span>
+                <h3>Text Message (SMS) Spoofing</h3>
+                <p>Attackers manipulate sender IDs in text messages, often for SMS phishing (smishing) scams.</p>
+                <p><strong>Prevention:</strong> Avoid clicking on unknown SMS links, verify messages, and use 2FA app-based authenticators.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🖧</span>
+                <h3>ARP Spoofing (Network Spoofing)</h3>
+                <p>Attackers manipulate ARP tables to redirect network traffic for MITM attacks.</p>
+                <p><strong>Prevention:</strong> Use VPNs, encrypted connections, and network monitoring tools.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛜</span>
+                <h3>DNS Spoofing (Cache Poisoning)</h3>
+                <p>Attackers alter DNS records to redirect victims to malicious websites.</p>
+                <p><strong>Prevention:</strong> Use DNSSEC, flush DNS cache, and use secure DNS services.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📍</span>
+                <h3>GPS Spoofing</h3>
+                <p>Attackers fake GPS signals to alter location-based services.</p>
+                <p><strong>Prevention:</strong> Use GPS anomaly detection, disable GPS when unnecessary, and verify navigation routes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="spoofing-prevention">
+        <h2>How to Stay Safe from Spoofing Attacks</h2>
+        <ul>
+            <li>✔ Avoid clicking on unverified links or downloading unknown attachments.</li>
+            <li>✔ Don’t answer unsolicited emails, texts, or calls from unknown sources.</li>
+            <li>✔ Enable multi-factor authentication (MFA) for all accounts.</li>
+            <li>✔ Use strong, unique passwords and a password manager.</li>
+            <li>✔ Keep your operating system and security software up to date.</li>
+            <li>✔ Regularly review online privacy settings and be cautious about sharing personal information.</li>
+            <li>✔ Only visit secure websites (HTTPS) and avoid entering sensitive details on unverified sites.</li>
+        </ul>
+    </section>
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "spoofing";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/access-point-evil-twin.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+</body>
+</html>

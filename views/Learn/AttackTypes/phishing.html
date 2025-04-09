@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phishing Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Phishing Attacks</h1>
+      <p>
+        Phishing is one of the most common and effective cyber threats, designed
+        to deceive individuals into revealing sensitive information such as
+        login credentials, financial details, or personal data. Cybercriminals
+        use various phishing techniques to exploit trust and manipulate victims
+        into taking harmful actions.
+      </p>
+
+      <h2>Types of Phishing Attacks</h2>
+
+      <h2>Email Phishing</h2>
+      <p>
+        Attackers send deceptive emails pretending to be from reputable sources,
+        attempting to trick recipients into clicking on malicious links or
+        downloading malware.
+      </p>
+
+      <h3>Spear Phishing</h3>
+      <p>
+        A highly targeted phishing attack where cybercriminals research their
+        victims to make fraudulent emails appear more convincing.
+      </p>
+
+      <h3>Whaling</h3>
+      <p>
+        A phishing attack that specifically targets high-profile executives or
+        officials, often involving fraudulent requests for money transfers or
+        sensitive business information.
+      </p>
+
+      <h2>Clone Phishing</h2>
+      <p>
+        Attackers duplicate legitimate emails from a trusted sender but replace
+        original links or attachments with malicious versions to deceive
+        recipients into interacting with them.
+      </p>
+
+      <h2>Vishing (Voice Phishing)</h2>
+      <p>
+        Scammers use phone calls and voice messages to impersonate banks,
+        businesses, or government agencies, manipulating victims into revealing
+        confidential details.
+      </p>
+
+      <h2>Smishing (SMS Phishing)</h2>
+      <p>
+        A form of phishing conducted through text messages, directing victims to
+        fake websites or installing malware on their mobile devices.
+      </p>
+
+      <h2>Pharming</h2>
+      <p>
+        A cyber attack that redirects users from legitimate websites to
+        counterfeit versions, tricking them into entering personal information.
+      </p>
+
+      <h2>Business Email Compromise (BEC)</h2>
+      <p>
+        Attackers impersonate executives, partners, or trusted individuals
+        within an organization to manipulate employees into transferring funds
+        or sharing confidential data.
+      </p>
+
+      <h2>How to Protect Yourself from Phishing Attacks</h2>
+      <ul>
+        <li>
+          Be cautious with unexpected emails, especially those requesting
+          sensitive information.
+        </li>
+        <li>
+          Verify links before clicking and check for unusual domain names.
+        </li>
+        <li>Enable two-factor authentication (2FA) to enhance security.</li>
+        <li>Keep your operating system and security software updated.</li>
+        <li>
+          Avoid responding to urgent requests for financial transactions via
+          email or phone.
+        </li>
+      </ul>
+    </div>
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+
+    <div class="module-navigation">
+      <button id="completeNextBtn">✅ Complete & Next</button>
+      <button id="skipNextBtn">⏭ Skip</button>
+    </div>
+  </div>
+
+  <script src="/scripts/progress.js"></script>
+
+  <script>
+    const MODULE_NAME = "phishing";
+    const NEXT_PAGE_URL = "/Learn/AttackTypes/password-attack.html";
+
+    async function updateProgress() {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+      });
+
+      if (response.ok) {
+        window.location.href = NEXT_PAGE_URL;
+      } else {
+        alert("Failed to update progress.");
+      }
+    }
+
+    document
+      .getElementById("completeNextBtn")
+      .addEventListener("click", updateProgress);
+
+    document.getElementById("skipNextBtn").addEventListener("click", () => {
+      window.location.href = NEXT_PAGE_URL;
+    });
+  </script>
+
+
+  </body>
+</html>

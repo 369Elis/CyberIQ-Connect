@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Injection Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css" />
+  </head>
+  <body class="sql-page">
+    <header>
+      <h1>What is SQL Injection?</h1>
+    </header>
+
+    <section class="intro">
+      <p>
+        SQL Injection (SQLi) is a cyberattack technique where malicious SQL code
+        is used to manipulate a database, often gaining unauthorized access to
+        sensitive information. This attack can expose private customer records,
+        internal company data, or even grant an attacker administrative control
+        over the database.
+      </p>
+      <p>
+        The impact of SQL injection can be severe, leading to data breaches,
+        deletion of records, and significant financial losses. Additionally,
+        compromised personal data, such as addresses, credit card details, and
+        contact information, can erode customer trust, further damaging a
+        business’s reputation.
+      </p>
+      <p>
+        While any system using SQL databases can be targeted, web applications
+        are the most frequent victims of SQLi attacks.
+      </p>
+    </section>
+
+    <section class="understanding-sql">
+      <h2>Understanding SQL Queries</h2>
+      <p>
+        SQL (Structured Query Language) is the standard language used to manage
+        and manipulate relational databases. SQL queries allow users to interact
+        with the database by retrieving, updating, inserting, or deleting data.
+      </p>
+      <p>
+        One of the most common SQL queries is the SELECT statement, which
+        retrieves data based on specific conditions.
+      </p>
+      <pre><code>
+SELECT CustomerName, Email
+FROM Customers
+WHERE CustomerID = 123;
+        </code></pre>
+      <p>
+        This query fetches the name and email of a customer with CustomerID =
+        123 from the Customers table.
+      </p>
+    </section>
+
+    <section class="sql-web-apps">
+      <h2>SQL in Web Applications</h2>
+      <p>
+        Web applications dynamically build SQL queries based on user inputs. For
+        example, if a user visits:
+      </p>
+      <pre><code>http://www.mystore.com/customers/profile.asp?customerid=123</code></pre>
+      <p>The application might generate the following SQL statement:</p>
+      <pre><code>
+sql_query = "
+SELECT CustomerName, Email
+FROM Customers
+WHERE CustomerID = " & Request.QueryString("customerid")
+        </code></pre>
+      <p>
+        Since SQL queries often use user input, security measures like input
+        validation and prepared statements are essential to prevent SQL
+        injection attacks.
+      </p>
+    </section>
+
+    <section class="sql-types">
+      <h2>Types of SQL Injection Attacks</h2>
+      <div class="mitm-grid">
+        <div class="mitm-card">
+          <span class="icon">💥</span>
+          <h3>In-Band SQL Injection</h3>
+          <p>
+            The most common method where attackers execute queries and retrieve
+            results using the same channel.
+          </p>
+          <ul>
+            <li>
+              <strong>Error-Based SQLi</strong> – Extracts database information
+              through error messages.
+            </li>
+            <li>
+              <strong>Union-Based SQLi</strong> – Uses the UNION SQL operator to
+              merge query results.
+            </li>
+          </ul>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">🔍</span>
+          <h3>Inferential SQL Injection (Blind SQLi)</h3>
+          <p>
+            Attackers analyze system behavior instead of getting direct database
+            responses.
+          </p>
+          <ul>
+            <li>
+              <strong>Boolean-Based SQLi</strong> – Alters queries to get
+              different system responses.
+            </li>
+            <li>
+              <strong>Time-Based SQLi</strong> – Uses delays in responses to
+              extract data.
+            </li>
+          </ul>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">🌍</span>
+          <h3>Out-of-Band SQL Injection</h3>
+          <p>
+            When direct response-based attacks fail, attackers use database
+            functionalities to send data via DNS or HTTP requests.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sql-prevention">
+      <h2>Preventing SQL Injection Attacks</h2>
+      <ul>
+        <li>
+          🔹 <strong>Input Validation & Parameterized Queries</strong> –
+          Validate user input and use prepared statements.
+        </li>
+        <li>
+          🔹 <strong>Web Application Firewalls (WAFs)</strong> – Deploy a
+          firewall to detect and block SQL injection attempts.
+        </li>
+        <li>
+          🔹 <strong>Least Privilege Principle</strong> – Restrict database
+          permissions to necessary access levels.
+        </li>
+        <li>
+          🔹 <strong>Error Handling & Suppression</strong> – Hide detailed SQL
+          error messages to prevent attackers from gathering insights.
+        </li>
+        <li>
+          🔹 <strong>Regular Security Audits & Penetration Testing</strong> –
+          Conduct frequent assessments to detect vulnerabilities.
+        </li>
+      </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "SQL injection";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/cross-side-scripting.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+  </body>
+</html>

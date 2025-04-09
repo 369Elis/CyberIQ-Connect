@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Zero Trust Security</title>
+</head>
+<body>
+    <h1>Introduction to Zero Trust Security</h1>
+    
+    <h2>What is Zero Trust?</h2>
+    <p>Zero Trust is a cybersecurity framework that eliminates implicit trust in networks, devices, and users. Instead of assuming everything inside a network is safe, every access request is verified based on strict security policies.</p>
+    
+    <p>This approach relies on continuous authentication, authorization, and security monitoring to protect sensitive data and systems. It is a proactive defense strategy that prevents unauthorized access, reduces attack surfaces, and enhances threat detection.</p>
+    
+    <h2>Key Principles of Zero Trust</h2>
+    <h3>1. Treat All Networks as Hostile</h3>
+    <ul>
+        <li>Assume the network is compromised and never trust it by default.</li>
+        <li>Even internal users and devices must be verified before accessing resources.</li>
+        <li>Every connection request must go through strict authentication and authorization.</li>
+    </ul>
+    
+    <h3>2. Continuous Verification and Monitoring</h3>
+    <ul>
+        <li>Trust is not permanent—users and devices must be continuously verified.</li>
+        <li>Identity, device health, location, and behavior are analyzed in real-time.</li>
+        <li>If security posture changes, access may be revoked immediately.</li>
+    </ul>
+    
+    <h3>3. Enforce Least Privilege Access</h3>
+    <ul>
+        <li>Users and systems only get minimum access necessary for their tasks.</li>
+        <li>Limits exposure by restricting lateral movement within the network.</li>
+        <li>Reduces the risk of data breaches and insider threats.</li>
+    </ul>
+    
+    <h3>4. Use Strong Access Policies</h3>
+    <ul>
+        <li>Access is granted based on strict policies rather than network location.</li>
+        <li>Policies are tailored according to risk levels, user roles, and device security.</li>
+        <li>Higher-value data requires stricter authentication and device health checks.</li>
+    </ul>
+    
+    <h3>5. Secure All Devices and Services</h3>
+    <ul>
+        <li>Devices must meet security standards (patched, encrypted, compliant).</li>
+        <li>Services interacting with each other must also be authenticated and verified.</li>
+        <li>Prevent unauthorized devices from connecting to critical assets.</li>
+    </ul>
+    
+    <h3>6. Continuous Risk Assessment and Threat Detection</h3>
+    <ul>
+        <li>Real-time monitoring of user behavior, device health, and network activity.</li>
+        <li>Identifies anomalies (e.g., unusual login locations, unauthorized data access).</li>
+        <li>Triggers additional authentication or security actions if risks are detected.</li>
+    </ul>
+    
+    <h2>Core Components of Zero Trust Architecture</h2>
+    <p>Zero Trust relies on a combination of security technologies and policies to authenticate, authorize, and monitor access across networks, devices, and services.</p>
+    
+    <h3>1. Access Policy Engine</h3>
+    <ul>
+        <li>Central decision-making system that verifies each access request.</li>
+        <li>Uses multiple signals (identity, location, device status) to approve or deny access.</li>
+    </ul>
+    
+    <h3>2. Policy Enforcement Point (PEP)</h3>
+    <ul>
+        <li>Acts as a gatekeeper, blocking unauthorized access.</li>
+        <li>Mediates requests and enforces policies before granting connections.</li>
+    </ul>
+    
+    <h3>3. Device and User Health Verification</h3>
+    <ul>
+        <li>Ensures devices are secure, patched, and compliant.</li>
+        <li>Monitors user activity to detect suspicious behavior.</li>
+    </ul>
+    
+    <h3>4. Strong Authentication Mechanisms</h3>
+    <ul>
+        <li>Uses Multi-Factor Authentication (MFA) to verify users.</li>
+        <li>Supports passwordless authentication for enhanced security.</li>
+    </ul>
+    
+    <h3>5. Secure Communication & Encryption</h3>
+    <ul>
+        <li>All communications are encrypted using TLS, VPN, and secure protocols.</li>
+        <li>Prevents man-in-the-middle attacks and data interception.</li>
+    </ul>
+    
+    <h2>Implementing Zero Trust in Your Organization</h2>
+    <h3>Step 1: Identify and Classify Assets</h3>
+    <ul>
+        <li>Map out users, devices, applications, and data.</li>
+        <li>Identify sensitive data and define who should access what.</li>
+    </ul>
+    
+    <h3>Step 2: Define and Enforce Access Policies</h3>
+    <ul>
+        <li>Create strict identity-based access controls.</li>
+        <li>Use dynamic policies that consider risk factors and user context.</li>
+    </ul>
+    
+    <h3>Step 3: Implement Multi-Factor Authentication (MFA)</h3>
+    <ul>
+        <li>Require multiple authentication factors to reduce the risk of credential theft.</li>
+        <li>Implement passwordless authentication where possible.</li>
+    </ul>
+    
+    <h3>Step 4: Monitor and Respond to Threats in Real-Time</h3>
+    <ul>
+        <li>Continuously monitor user behavior and detect anomalies.</li>
+        <li>Use security automation to respond to suspicious activity instantly.</li>
+    </ul>
+    
+    <h3>Step 5: Secure Network and Infrastructure</h3>
+    <ul>
+        <li>Encrypt traffic using TLS and Zero Trust Network Access (ZTNA).</li>
+        <li>Implement micro-segmentation to prevent lateral movement of attackers.</li>
+    </ul>
+    
+    <h2>Benefits of Zero Trust Security</h2>
+    <ul>
+        <li><strong>Reduces Cybersecurity Risks</strong> – Prevents unauthorized access and minimizes attack surfaces.</li>
+        <li><strong>Protects Against Data Breaches</strong> – Ensures sensitive data is only accessed by authorized users.</li>
+        <li><strong>Enhances Compliance</strong> – Helps meet regulatory requirements (GDPR, NIST, ISO 27001).</li>
+        <li><strong>Improves Threat Detection</strong> – Monitors activity continuously to detect and block attacks.</li>
+        <li><strong>Adapts to Modern IT Environments</strong> – Works with cloud, remote work, and hybrid infrastructures.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "zero trust";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

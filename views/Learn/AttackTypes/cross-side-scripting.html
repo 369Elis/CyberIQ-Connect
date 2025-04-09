@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Site Scripting (XSS) Attack</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="xss-page">
+
+    <header>
+        <h1>How XSS Works: Client-Side Code Exploitation</h1>
+    </header>
+
+    <section class="intro">
+        <p>Client-side code, primarily written in JavaScript, executes directly within a user's web browser, enabling dynamic website interactions. Unlike server-side code, which runs on the website's backend, client-side scripts can access cookies, session data, and even device permissions.</p>
+        <p>Since most modern websites heavily depend on client-side scripting, XSS vulnerabilities have been frequently exploited across popular platforms, including social networks, e-commerce sites, and online banking services.</p>
+    </section>
+
+    <section class="xss-example">
+        <h2>Example of an XSS Attack</h2>
+        <p>A common example of an XSS exploit occurs in online comment sections that lack proper security measures. Attackers can post a comment containing harmful script tags like:</p>
+        <pre><code>
+&lt;script&gt;maliciousCode()&lt;/script&gt;
+        </code></pre>
+        <p>If the website does not properly validate or filter this input, the script executes whenever another user visits the page, leading to session hijacking, account takeovers, or theft of personal data.</p>
+    </section>
+
+    <section class="xss-exploitation">
+        <h2>How Attackers Exploit XSS Vulnerabilities</h2>
+        <ul>
+            <li>🔹 <strong>Stealing Session Cookies</strong> – Attackers hijack session data to impersonate users.</li>
+            <li>🔹 <strong>Exploiting Browser APIs</strong> – Malicious scripts may access webcams, microphones, or location data.</li>
+            <li>🔹 <strong>Manipulating Form Inputs</strong> – Attackers alter authentication tokens or inject actions on behalf of users.</li>
+        </ul>
+    </section>
+
+    <section class="xss-types">
+        <h2>Types of Cross-Site Scripting Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔗</span>
+                <h3>Reflected XSS</h3>
+                <p>Malicious scripts are embedded in URLs and executed when a user clicks an infected link.</p>
+                <pre><code>
+http://legit-bank.com/index.php?user=&lt;script&gt;stealData()&lt;/script&gt;
+                </code></pre>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">💾</span>
+                <h3>Persistent XSS</h3>
+                <p>Malicious scripts are permanently stored in databases (e.g., forum posts, comments).</p>
+                <pre><code>
+"Hi, I love traveling! &lt;script&gt;stealUserInfo()&lt;/script&gt;"
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="xss-prevention">
+        <h2>How to Prevent Cross-Site Scripting</h2>
+        <ul>
+            <li>🔹 <strong>Restrict HTML & JavaScript in User Inputs</strong> – Disable direct HTML input to prevent script execution.</li>
+            <li>🔹 <strong>Input Validation & Sanitization</strong> – Escape special characters like <, >, ", ' to block injection.</li>
+            <li>🔹 <strong>Secure Cookie Management</strong> – Use HTTP-only cookies and implement session expiration rules.</li>
+            <li>🔹 <strong>Deploy Web Application Firewalls (WAFs)</strong> – Cloud-based WAFs like Cloudflare detect and block XSS attacks in real-time.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "cross site scripting";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/Cross-Site-Request-Forgery.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privilege Escalation Attack</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="privilege-page">
+
+    <header>
+        <h1>Privilege Escalation: A Serious Cybersecurity Risk</h1>
+    </header>
+
+    <section class="intro">
+        <h2>What is Privilege Escalation?</h2>
+        <p>Privilege escalation happens when an attacker gains higher-level access within a system, often by exploiting security flaws. With increased privileges, they can modify system settings, steal sensitive data, install malware, or even take complete control of the system.</p>
+        <p>Computer systems assign different levels of access to users. Regular users typically have limited permissions, while administrators and superusers have full control over critical system functions. If an attacker successfully escalates their privileges, they can bypass security restrictions, disable defenses, and carry out dangerous activities without detection.</p>
+    </section>
+
+    <section class="privilege-types">
+        <h2>Types of Privilege Escalation Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">⬆️</span>
+                <h3>Vertical Privilege Escalation</h3>
+                <p>This occurs when an attacker moves from a low-level user account to a higher-privileged account such as an administrator.</p>
+                <h4>How it happens:</h4>
+                <ul>
+                    <li>Exploiting security flaws in software to gain admin or root access.</li>
+                    <li>Using phishing to steal administrator login credentials.</li>
+                    <li>Exploiting misconfigured security settings that grant excessive privileges to standard users.</li>
+                </ul>
+                <h4>Why it’s dangerous:</h4>
+                <p>Attackers gain complete system control, allowing them to modify settings, disable security tools, steal sensitive data, or install backdoors.</p>
+                <h4>Example:</h4>
+                <p>A hacker finds a flaw in an outdated application and gains administrator rights, allowing them to install malware and disable firewalls.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔄</span>
+                <h3>Horizontal Privilege Escalation</h3>
+                <p>In this attack, the attacker stays at the same privilege level but gains access to another user’s account.</p>
+                <h4>How it happens:</h4>
+                <ul>
+                    <li>Stealing passwords or session cookies to impersonate other users.</li>
+                    <li>Exploiting vulnerabilities to access another user’s private data.</li>
+                    <li>Hijacking an active session to take over a logged-in user’s account.</li>
+                </ul>
+                <h4>Why it’s dangerous:</h4>
+                <p>Attackers can access confidential files, financial data, or personal user information without triggering suspicion.</p>
+                <h4>Example:</h4>
+                <p>A hacker steals an employee’s login session token and accesses confidential company documents without needing a password.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="privilege-process">
+        <h2>How Privilege Escalation Attacks Work</h2>
+        <p>Attackers take advantage of weak security measures, outdated software, or human error to escalate their access. Here’s how the process typically unfolds:</p>
+        <h3>Initial Access:</h3>
+        <p>The attacker gains entry through phishing, malware, or exploiting system weaknesses.</p>
+        <h3>Privilege Escalation Techniques:</h3>
+        <ul>
+            <li><strong>Vertical:</strong> Exploiting vulnerabilities to gain admin-level control.</li>
+            <li><strong>Horizontal:</strong> Taking over another user’s account to access their private information.</li>
+        </ul>
+        <h3>Establishing Persistence:</h3>
+        <p>The attacker installs backdoors, creates new administrator accounts, or disables security software to maintain control.</p>
+        <h3>Exploitation:</h3>
+        <p>They now have access to steal data, spread malware, modify system settings, or cause operational damage.</p>
+        <p>Privilege escalation can happen locally (inside an organization) or remotely (through external cyberattacks), making it a difficult threat to detect.</p>
+    </section>
+
+    <section class="privilege-prevention">
+        <h2>How to Prevent Privilege Escalation</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔄</span>
+                <h3>Keep Systems Updated</h3>
+                <p>Regularly install security patches and software updates to fix vulnerabilities. Enable automatic patching to prevent exploitation of outdated software.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔑</span>
+                <h3>Strengthen Authentication Security</h3>
+                <p>Use multi-factor authentication (MFA) to prevent unauthorized access. Implement strict password policies requiring long, complex passwords that are changed regularly.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">👀</span>
+                <h3>Monitor User Activity</h3>
+                <p>Track suspicious login attempts and privilege changes. Set up alerts for unusual account behavior, such as an employee suddenly gaining administrator rights.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛡️</span>
+                <h3>Apply the Principle of Least Privilege (PoLP)</h3>
+                <p>Users should only have the minimum level of access necessary for their job. Restrict administrator privileges to only essential personnel.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">💻</span>
+                <h3>Secure Sudo & Root Access (Linux Systems)</h3>
+                <p>Regularly review sudo privileges to prevent unauthorized command execution. Limit root access and require extra authentication for critical commands.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "privilege escalation";
+      const NEXT_PAGE_URL = "/learn.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+</body>
+</html>

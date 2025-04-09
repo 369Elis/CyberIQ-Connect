@@ -1,0 +1,75 @@
+/* entertainment.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.details {
+  padding: 20px;
+}
+
+.details h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #f0c674;
+}
+
+.details p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.details .desc {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.back-button {
+  display: inline-block;
+  margin: 20px 40px;
+  padding: 10px 20px;
+  background-color: #f0c674;
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #d4aa3a;
+}

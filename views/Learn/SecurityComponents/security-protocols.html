@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Essential Network Security Protocols</title>
+</head>
+<body>
+    <h1>6 Essential Network Security Protocols</h1>
+    
+    <h2>What Are Network Security Protocols?</h2>
+    <p>Network security protocols safeguard data integrity and confidentiality during transmission. These protocols define security measures to protect networks from unauthorized access and cyber threats.</p>
+    
+    <h2>The OSI Network Model</h2>
+    <p>The OSI model outlines how applications communicate over networks, from the physical layer to the application layer. It helps security teams identify vulnerabilities and apply the appropriate security measures at each layer.</p>
+    
+    <h2>6 Key Network Security Protocols</h2>
+    
+    <h3>1. Internet Protocol Security (IPsec) – OSI Layer 3</h3>
+    <ul>
+        <li>Secures data transmission over public networks by encrypting and authenticating packets.</li>
+        <li>Includes ESP for encryption, AH for integrity, and IKE for secure key exchange.</li>
+        <li>Often used in VPNs for secure communication.</li>
+    </ul>
+    
+    <h3>2. SSL and TLS – OSI Layer 5</h3>
+    <ul>
+        <li>Encrypts and authenticates data transfers between clients and servers.</li>
+        <li>Uses X.509 certificates for authentication and AES or Triple DES for encryption.</li>
+        <li>TLS is the modern, more secure version of SSL.</li>
+    </ul>
+    
+    <h3>3. Datagram Transport Layer Security (DTLS) – OSI Layer 5</h3>
+    <ul>
+        <li>Provides TLS-based security for datagram-based applications.</li>
+        <li>Reduces latency while maintaining encryption and authentication.</li>
+        <li>Commonly used in VoIP and streaming applications.</li>
+    </ul>
+    
+    <h3>4. Kerberos – OSI Layer 7</h3>
+    <ul>
+        <li>Authenticates users and devices in untrusted networks.</li>
+        <li>Used in Windows Active Directory and secure service requests.</li>
+        <li>Relies on a Key Distribution Center (KDC) for ticket-based authentication.</li>
+    </ul>
+    
+    <h3>5. Simple Network Management Protocol (SNMP) – OSI Layer 7</h3>
+    <ul>
+        <li>Monitors and manages network devices such as routers and servers.</li>
+        <li>SNMPv3 introduces encryption, authentication, and integrity checks.</li>
+        <li>Uses a manager-agent architecture to collect and analyze network data.</li>
+    </ul>
+    
+    <h3>6. HTTP and HTTPS – OSI Layer 7</h3>
+    <ul>
+        <li>HTTP governs web communication, while HTTPS adds encryption using SSL/TLS.</li>
+        <li>Prevents man-in-the-middle attacks and secures login credentials and financial transactions.</li>
+        <li>HTTPS operates on port 443, ensuring encrypted communication between browsers and websites.</li>
+    </ul>
+    
+    <p>These protocols are fundamental to securing network communications, mitigating cyber threats, and ensuring data integrity.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "security protocols";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/router-swich.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

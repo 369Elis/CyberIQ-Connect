@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Retention Policy: Best Practices</title>
+</head>
+<body>
+    <h1>Data Retention Policy: Best Practices for Storing and Deleting Data Responsibly</h1>
+    <p>In today’s digital landscape, businesses generate and store vast amounts of data. But keeping data indefinitely isn't just impractical—it’s risky. A well-structured data retention policy helps organizations manage their data responsibly, ensuring compliance with legal requirements, enhancing security, and optimizing storage.</p>
+    
+    <h2>Why Data Retention Matters</h2>
+    
+    <h3>1. Compliance with Laws and Regulations</h3>
+    <ul>
+        <li><strong>GDPR:</strong> Governs personal data protection in the EU.</li>
+        <li><strong>HIPAA:</strong> Regulates medical records in the U.S.</li>
+        <li><strong>SOX:</strong> Ensures financial record integrity for U.S. companies.</li>
+    </ul>
+    <p><strong>Example:</strong> A healthcare provider must keep patient records for at least six years under HIPAA.</p>
+    
+    <h3>2. Protecting Data from Breaches</h3>
+    <ul>
+        <li>Encryption and secure storage methods protect retained data.</li>
+        <li>Regular audits ensure outdated data is safely removed.</li>
+    </ul>
+    
+    <h3>3. Reducing Storage Costs & Improving Efficiency</h3>
+    <ul>
+        <li>Deleting outdated records frees up space.</li>
+        <li>Automated data management tools improve efficiency.</li>
+    </ul>
+    
+    <h2>Best Practices for Data Retention</h2>
+    
+    <h3>1. Build a Cross-Departmental Data Retention Team</h3>
+    <ul>
+        <li>Legal & Compliance – Ensure regulatory adherence.</li>
+        <li>IT & Security – Implement secure storage and deletion.</li>
+        <li>Business Units – Identify essential operational data.</li>
+    </ul>
+    
+    <h3>2. Identify & Categorize Data</h3>
+    <ul>
+        <li>Financial records – Retained for 5–7 years.</li>
+        <li>Marketing data – Kept for 12–24 months.</li>
+        <li>Employee records – Varies based on labor laws.</li>
+    </ul>
+    
+    <h3>3. Define Clear Retention & Deletion Timelines</h3>
+    <ul>
+        <li>Balance compliance with business needs.</li>
+        <li>Automate deletion of outdated records.</li>
+    </ul>
+    
+    <h3>4. Implement Strong Access Controls</h3>
+    <ul>
+        <li>Use role-based access controls (RBAC).</li>
+        <li>Enable multi-factor authentication (MFA).</li>
+        <li>Monitor access logs.</li>
+    </ul>
+    
+    <h3>5. Automate Data Retention & Deletion</h3>
+    <ul>
+        <li>Automatically delete expired data.</li>
+        <li>Maintain audit logs.</li>
+    </ul>
+    
+    <h3>6. Establish Secure Backup & Disaster Recovery Plans</h3>
+    <ul>
+        <li>Store backups securely offsite or in the cloud.</li>
+        <li>Regularly test recovery plans.</li>
+    </ul>
+    
+    <h3>7. Train Employees on Data Retention Policies</h3>
+    <ul>
+        <li>Educate employees on secure data handling.</li>
+        <li>Provide training on secure deletion methods.</li>
+    </ul>
+    
+    <h3>8. Conduct Regular Data Audits</h3>
+    <ul>
+        <li>Identify outdated or redundant data.</li>
+        <li>Adjust retention schedules based on regulatory updates.</li>
+    </ul>
+    
+    <h3>9. Securely Delete Data When No Longer Needed</h3>
+    <ul>
+        <li>Use data wiping, degaussing, or physical destruction.</li>
+        <li>Maintain proof of deletion for compliance.</li>
+    </ul>
+    
+    <h3>10. Monitor & Update Policies Regularly</h3>
+    <ul>
+        <li>Stay up to date with changing regulations.</li>
+        <li>Adapt to new security threats.</li>
+    </ul>
+    
+    <h2>Common Data Retention Challenges & How to Overcome Them</h2>
+    <h3>1. Managing Large Data Volumes</h3>
+    <ul>
+        <li>Use scalable storage solutions and automated classification tools.</li>
+    </ul>
+    
+    <h3>2. Compliance Across Multiple Jurisdictions</h3>
+    <ul>
+        <li>Consult legal experts and track regulatory changes.</li>
+    </ul>
+    
+    <h3>3. Balancing Retention vs. Deletion</h3>
+    <ul>
+        <li>Define clear retention periods and automate deletion.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "data retention";
+        const NEXT_PAGE_URL = "/Learn/Security-Policies/forensic-data.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

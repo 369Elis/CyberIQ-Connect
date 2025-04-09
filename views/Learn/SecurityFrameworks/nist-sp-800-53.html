@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is NIST SP 800-53?</title>
+</head>
+<body>
+    <h1>What is NIST SP 800-53?</h1>
+    <p>NIST Special Publication (SP) 800-53 is a widely adopted framework developed by the National Institute of Standards and Technology (NIST). It outlines security and privacy controls designed to protect information systems, data, and individual privacy across various industries. Though originally created for U.S. federal agencies, it is used globally to strengthen cybersecurity measures.</p>
+    
+    <p>Organizations can customize and implement these controls to mitigate risks such as cyberattacks, human errors, system failures, and compliance challenges. The framework is referenced in multiple security standards, making it a foundation for regulatory compliance with laws such as HIPAA, FISMA, and SOX.</p>
+    
+    <h2>How NIST SP 800-53 Improves Security</h2>
+    <p>The framework applies to diverse computing environments, including cloud systems, IoT devices, mobile networks, and industrial control systems. It ensures both functionality (how security is implemented) and assurance (confidence in security effectiveness). Implementing SP 800-53, Rev. 5 helps organizations manage cyber risks and align security strategies with compliance requirements.</p>
+    
+    <h2>5 Key Control Families to Prioritize</h2>
+    <p>SP 800-53 includes 20 control families, but focusing on five key areas ensures effective security management:</p>
+    <ul>
+        <li><strong>Access Control</strong> – Defines user access permissions to prevent unauthorized data exposure.</li>
+        <li><strong>Awareness & Training</strong> – Educates employees on cybersecurity best practices and threats.</li>
+        <li><strong>Audit & Accountability</strong> – Ensures security logging, tracking, and auditing of system activity.</li>
+        <li><strong>Control Assessments</strong> – Establishes security policies and monitoring procedures.</li>
+        <li><strong>Configuration Management</strong> – Maintains secure system configurations to prevent vulnerabilities.</li>
+    </ul>
+    
+    <h2>Understanding Control Baselines (SP 800-53B)</h2>
+    <p>NIST SP 800-53B provides tailored security control baselines based on system impact levels:</p>
+    <ul>
+        <li><strong>Low-impact systems</strong> – Minimal risk to operations and assets.</li>
+        <li><strong>Moderate-impact systems</strong> – At least one moderate security risk, but no high risks.</li>
+        <li><strong>High-impact systems</strong> – At least one high security risk, requiring strong protections.</li>
+    </ul>
+    
+    <p>Organizations can adjust controls based on risk assessments, business needs, and compliance requirements. Tailoring controls includes selecting common controls, applying compensating measures, and aligning security strategies with industry regulations and best practices.</p>
+    
+    <h2>Implementing NIST SP 800-53</h2>
+    <p>To apply NIST SP 800-53 effectively:</p>
+    <ul>
+        <li>Assess risks and determine security requirements.</li>
+        <li>Select appropriate control baselines based on system impact.</li>
+        <li>Customize controls to meet specific operational needs.</li>
+        <li>Continuously monitor and update security measures.</li>
+    </ul>
+    
+    <p>By adopting NIST SP 800-53, organizations can build a strong cybersecurity framework, enhance data protection, and meet regulatory expectations in an evolving threat landscape.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "nist sp 800-53";
+        const NEXT_PAGE_URL = "/Learn/SecurityFrameworks/pci-dss.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

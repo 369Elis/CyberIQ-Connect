@@ -1,0 +1,179 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+/* Header Styling */
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(143, 16, 16, 0.7);
+  padding: 10px 20px;
+  text-align: left;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* Background Styling with New Colors */
+.background-overlay {
+  background-color: #0a1f44;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 90px 20px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.background-overlay::before {
+  content: "";
+  background: url("../assets/Lock.png") left center / contain no-repeat;
+  height: 100%;
+  width: 45%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.background-overlay::after {
+  content: "";
+  background: url("../assets/Lock.png") right center / contain no-repeat;
+  height: 100%;
+  width: 45%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.form-container {
+  background-color: #2e538b;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 40%;
+  margin-right: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* Input Group Styling */
+
+.input-group {
+  margin-bottom: 15px; /* Reduced spacing */
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  background-color: #222; /* Sleeker dark background */
+  border-radius: 4px; /* Slightly rounded edges */
+  padding: 8px; /* Reduced padding */
+}
+
+.input-group input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px; /* Smaller font size */
+  padding-left: 5px; /* Space inside the input */
+}
+
+.icon {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #aaa;
+}
+
+/* Button Styling */
+.login-btn,
+.sso-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+/* Footer Links */
+.footer-links {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* Unified Error and Success Message Styles */
+.error-message,
+.success-message {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.error-message {
+  background-color: transparent;
+  color: #e00;
+  border: #e00;
+}
+
+/* Password Requirements Styling */
+.password-requirements {
+  font-size: 0.9em;
+  margin-top: 10px;
+  padding: 10px;
+  list-style-type: none;
+
+  border-radius: 5px;
+  color: #d32f2f;
+}
+
+.password-requirements li.valid {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.password-requirements li.invalid {
+  color: #ff6f61;
+}

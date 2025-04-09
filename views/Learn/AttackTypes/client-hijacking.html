@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Hijacking</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="session-page">
+
+    <header>
+        <h1>What Is a Session?</h1>
+    </header>
+
+    <section class="intro">
+        <p>A session refers to the temporary interaction between a client (such as a user’s browser) and a server while using a web application. When a user logs in, the server assigns a unique session ID to track their activity. This session ID ensures the user can navigate the application without needing to log in repeatedly.</p>
+        <p>Since HTTP is stateless, meaning each request is independent, sessions help websites remember users by storing session IDs in cookies, URLs, or hidden form fields. However, this very mechanism can be exploited by cybercriminals through session hijacking attacks.</p>
+    </section>
+
+    <section class="session-hijacking">
+        <h2>What Is Session Hijacking?</h2>
+        <p>Session hijacking is a cyberattack in which an attacker steals a valid session ID to impersonate the legitimate user. By gaining control over a session, attackers can access private accounts, perform unauthorized transactions, or steal sensitive data without needing the actual login credentials.</p>
+        <p>A session ID is as valuable as a username and password—once stolen, an attacker can use it to bypass authentication. This makes session hijacking a major security risk for online applications.</p>
+    </section>
+
+    <section class="session-how">
+        <h2>How Session Hijacking Works</h2>
+        <p>Attackers can hijack a session using various techniques, including:</p>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔓</span>
+                <h3>Brute Force Attacks</h3>
+                <p>If session IDs are predictable or short, attackers can guess them by trying multiple combinations until they find a valid one.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔢</span>
+                <h3>Session ID Calculation</h3>
+                <p>If session IDs are generated in a predictable pattern, attackers can analyze previous session IDs and determine the next valid one.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🎭</span>
+                <h3>Session Theft (Sniffing, Fixation, XSS)</h3>
+                <ul>
+                    <li><strong>Session Sniffing (Sidejacking):</strong> Hackers use network sniffing tools to intercept unencrypted session IDs.</li>
+                    <li><strong>Cross-Site Scripting (XSS):</strong> Attackers inject malicious scripts that extract session cookies from users.</li>
+                    <li><strong>Session Fixation:</strong> The attacker forces a user to log in with a session ID that they control.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="session-techniques">
+        <h2>Common Session Hijacking Techniques</h2>
+        <ul>
+            <li>1️⃣ <strong>Session Sniffing (Sidejacking)</strong> – Attackers monitor network traffic to extract session cookies. Happens mostly on public Wi-Fi or unsecured HTTP connections.</li>
+            <li>2️⃣ <strong>Cross-Site Scripting (XSS)</strong> – Malicious scripts steal session cookies from users’ browsers. Attackers use phishing emails or compromised websites to execute the attack.</li>
+            <li>3️⃣ <strong>Session Fixation</strong> – Hackers trick users into logging in with an attacker-controlled session ID. Vulnerable applications accept session IDs in URLs, making them easy to manipulate.</li>
+        </ul>
+    </section>
+
+    <section class="session-prevention">
+        <h2>How to Prevent Session Hijacking</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">⏳</span>
+                <h3>Limit Session Duration</h3>
+                <p>Set session timeouts based on application sensitivity. Short session times for banking and healthcare apps, longer for social media.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🚪</span>
+                <h3>Ensure Secure Logout</h3>
+                <p>Provide a clear logout option that properly invalidates session IDs. If a session is terminated, it must be removed from both the browser and the server.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔄</span>
+                <h3>Regenerate Session IDs</h3>
+                <p>Always generate a new session ID after login and after performing sensitive actions (like changing passwords).</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔗</span>
+                <h3>Never Store Session IDs in URLs</h3>
+                <p>URLs can be logged, cached, or shared—making session IDs visible. Instead, store session IDs in cookies with proper security attributes.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔒</span>
+                <h3>Enforce HTTPS Everywhere</h3>
+                <p>Use TLS encryption (HTTPS) across the entire website—not just the login page. This prevents attackers from intercepting session data.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🍪</span>
+                <h3>Secure Session Cookies</h3>
+                <p>Use HttpOnly and Secure flags on cookies: HttpOnly prevents JavaScript access, and Secure ensures cookies are only sent over HTTPS.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔐</span>
+                <h3>Implement Multi-Factor Authentication (MFA)</h3>
+                <p>Even if a session ID is stolen, MFA adds an extra layer of authentication, preventing unauthorized access.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">👀</span>
+                <h3>Monitor for Suspicious Activity</h3>
+                <p>Track unusual login behaviors, such as multiple login attempts from different locations or session reuse from different IP addresses.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "client-hijacking";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/driver-manipulation.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

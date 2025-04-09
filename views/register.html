@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../styles/login.register.css" />
+    
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Huntress Labs</h1>
+    </header>
+    <div class="background-overlay">
+      <div class="form-container">
+        <h2>Create Your Account</h2>
+        <form id="registerForm">
+          <div class="input-group">
+            <label for="username">
+              <span class="icon" aria-label="username icon">👤</span>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                required
+              />
+            </label>
+            <div
+              id="usernameError"
+              class="error-message"
+              aria-live="polite"
+            ></div>
+          </div>
+          <div class="input-group">
+            <label for="email">
+              <span class="icon" aria-label="email icon">📧</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </label>
+            <div id="emailError" class="error-message" aria-live="polite"></div>
+          </div>
+          <div class="input-group">
+            <label for="password">
+              <span class="icon" aria-label="password icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+                aria-describedby="passwordRequirements"
+              />
+            </label>
+            <ul id="passwordRequirements" class="password-requirements">
+              <li class="req-length invalid">At least 8 characters</li>
+              <li class="req-upper invalid">At least one uppercase letter</li>
+              <li class="req-lower invalid">At least one lowercase letter</li>
+              <li class="req-digit invalid">At least one digit</li>
+              <li class="req-special invalid">
+                At least one special character
+              </li>
+            </ul>
+            <div
+              id="passwordError"
+              class="error-message"
+              aria-live="polite"
+            ></div>
+          </div>
+          <div class="input-group">
+            <label for="confirm_password">
+              <span class="icon" aria-label="confirm password icon">🔒</span>
+              <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                placeholder="Confirm your password"
+                required
+              />
+            </label>
+            <div
+              id="confirmPasswordError"
+              class="error-message"
+              aria-live="polite"
+            ></div>
+          </div>
+          <button type="submit" class="login-btn" id="signUpBtn">
+            Sign Up
+          </button>
+          <div id="formError" class="error-message" aria-live="polite"></div>
+          <div
+            id="formSuccess"
+            class="success-message"
+            aria-live="polite"
+          ></div>
+        </form>
+        <div class="footer-links">
+          <p>Already have an account? <a href="/login">Log in</a></p>
+        </div>
+      </div>
+    </div>
+    <footer class="footer"></footer>
+    <script>
+      const passwordInput = document.getElementById("password");
+      const confirmPasswordInput = document.getElementById("confirm_password");
+      const signUpBtn = document.getElementById("signUpBtn");
+      const form = document.getElementById("registerForm");
+      const formError = document.getElementById("formError");
+      const formSuccess = document.getElementById("formSuccess");
+
+      const reqLength = document.querySelector(".req-length");
+      const reqUpper = document.querySelector(".req-upper");
+      const reqLower = document.querySelector(".req-lower");
+      const reqDigit = document.querySelector(".req-digit");
+      const reqSpecial = document.querySelector(".req-special");
+
+      function validatePassword() {
+        const pwd = passwordInput.value;
+        // Validate each requirement
+        toggleValidity(reqLength, pwd.length >= 8);
+        toggleValidity(reqUpper, /[A-Z]/.test(pwd));
+        toggleValidity(reqLower, /[a-z]/.test(pwd));
+        toggleValidity(reqDigit, /\d/.test(pwd));
+        toggleValidity(reqSpecial, /[!@#$%^&*(),.?":{}|<>]/.test(pwd));
+      }
+
+      function toggleValidity(element, isValid) {
+        element.classList.toggle("valid", isValid);
+        element.classList.toggle("invalid", !isValid);
+      }
+
+      passwordInput.addEventListener("input", validatePassword);
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        formError.textContent = "";
+        formSuccess.textContent = "";
+
+        // Check password match
+        if (passwordInput.value !== confirmPasswordInput.value) {
+          document.getElementById("confirmPasswordError").textContent =
+            "Passwords do not match.";
+          return;
+        } else {
+          document.getElementById("confirmPasswordError").textContent = "";
+        }
+
+        // Check if all requirements are valid
+        const allValid =
+          document.querySelectorAll(".password-requirements li.invalid")
+            .length === 0;
+        if (!allValid) {
+          document.getElementById("passwordError").textContent =
+            "Please meet all password requirements.";
+          return;
+        } else {
+          document.getElementById("passwordError").textContent = "";
+        }
+
+        // Send data to the server via Fetch
+        const formData = new FormData(form);
+        const data = {
+          username: formData.get("username"),
+          email: formData.get("email"),
+          password: formData.get("password"),
+          confirm_password: formData.get("confirm_password"),
+        };
+
+        try {
+          const response = await fetch("/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          const result = await response.json();
+
+          if (!response.ok) {
+            // Display server-side error
+            formError.textContent = result.error || "Registration failed.";
+          } else {
+            formSuccess.textContent =
+              result.message || "Registration successful!";
+            // Optionally redirect to login after a delay
+            setTimeout(() => {
+              window.location.href = "/login";
+            }, 1500);
+          }
+        } catch (err) {
+          formError.textContent = "A network error occurred. Please try again.";
+        }
+      });
+    </script>
+  </body>
+</html>

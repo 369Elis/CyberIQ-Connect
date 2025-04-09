@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Critical Security Controls (CSC) Overview</title>
+</head>
+<body>
+    <h1>CIS Critical Security Controls (CSC) Overview</h1>
+    <p>The <strong>CIS Critical Security Controls (CSC)</strong> are a set of cybersecurity best practices developed by the <strong>Center for Internet Security (CIS)</strong> to help organizations strengthen their defenses against cyber threats. These controls are categorized into three implementation levels based on organizational size, resources, and expertise.</p>
+    
+    <h2>Why Implement CIS Controls?</h2>
+    <ul>
+        <li><strong>Proven Effectiveness</strong> – Studies show that applying the first six CIS Controls can mitigate up to <strong>85%</strong> of cyber threats, while full implementation significantly enhances security.</li>
+        <li><strong>Scalability</strong> – Suitable for organizations of all sizes, from small businesses to large enterprises.</li>
+        <li><strong>Compliance Alignment</strong> – Supports regulatory and industry security standards.</li>
+        <li><strong>Actionable Security Measures</strong> – Provides clear guidelines for improving cybersecurity posture.</li>
+    </ul>
+    
+    <h2>CIS Control Implementation Levels</h2>
+    <ol>
+        <li><strong>Basic Controls (1–6)</strong> – Foundational security measures essential for all organizations, including asset management, secure configurations, and continuous monitoring.</li>
+        <li><strong>Foundational Controls (7–16)</strong> – Enhanced security practices covering malware protection, network security, and controlled access.</li>
+        <li><strong>Organizational Controls (17–20)</strong> – Advanced strategies like security awareness training, incident response, and penetration testing.</li>
+    </ol>
+    
+    <h2>Key CIS Basic Controls</h2>
+    <ol>
+        <li><strong>Hardware & Software Inventory</strong> – Maintain a record of all devices and applications to prevent unauthorized access.</li>
+        <li><strong>Vulnerability Management</strong> – Regularly scan and patch system weaknesses.</li>
+        <li><strong>Administrative Privilege Control</strong> – Restrict and monitor access to sensitive accounts.</li>
+        <li><strong>Secure Configurations</strong> – Strengthen default system settings and enforce security best practices.</li>
+        <li><strong>Audit Logging & Monitoring</strong> – Continuously track network activity to detect anomalies.</li>
+        <li><strong>Data Protection & Backup</strong> – Secure sensitive data and implement reliable backup solutions.</li>
+    </ol>
+    
+    <h2>How to Implement CIS Controls</h2>
+    <ul>
+        <li>Conduct a security assessment to identify vulnerabilities.</li>
+        <li>Apply necessary security controls based on organizational risk levels.</li>
+        <li>Continuously monitor, update, and improve cybersecurity defenses.</li>
+    </ul>
+    
+    <p>By following <strong>CIS Controls</strong>, organizations can effectively reduce cyber risks, improve security resilience, and align with industry best practices for threat mitigation.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "cis controls";
+        const NEXT_PAGE_URL ="/Learn/SecurityFrameworks/ISO-introduction.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

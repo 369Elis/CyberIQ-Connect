@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Intrusion Detection and Prevention Systems (IDPS)</title>
+</head>
+<body>
+    <h1>Understanding Intrusion Detection and Prevention Systems (IDPS)</h1>
+    
+    <h2>What is an IDPS?</h2>
+    <p>An Intrusion Detection and Prevention System (IDPS) is a cybersecurity solution that monitors network activity to identify and mitigate potential threats. It serves as an automated security measure that detects unauthorized access, unusual behavior, and cyberattacks before they can compromise an organization’s data and systems.</p>
+    
+    <h2>How Does an IDPS Work?</h2>
+    <p>The functionality of an IDPS depends on its deployment model, configuration, and detection method. Organizations implement IDPS solutions to continuously scan traffic, compare activity against known threats, and take appropriate action to prevent security breaches.</p>
+    
+    <h2>Types of IDPS</h2>
+    
+    <h3>1. Network-Based IDPS (NIPS)</h3>
+    <p>Deployed at critical points in a network, NIPS monitors and analyzes traffic, blocking malicious activity based on predefined attack patterns.</p>
+    <ul>
+        <li><strong>Wireless Intrusion Prevention Systems (WIPS):</strong> Focuses on wireless networks, identifying rogue devices and unauthorized access points.</li>
+        <li><strong>Network Behavior Analysis (NBA):</strong> Detects anomalies in network activity, such as traffic spikes associated with DDoS attacks.</li>
+    </ul>
+    
+    <h3>2. Host-Based IDPS (HIPS)</h3>
+    <p>Installed directly on an individual device or server, HIPS observes local traffic, operating system logs, and application behavior to detect suspicious activity.</p>
+    
+    <h2>Threat Detection Techniques</h2>
+    <ul>
+        <li><strong>Signature-Based Detection:</strong> Compares activity against a database of known attack signatures. Effective against recognized threats but may miss new, unknown exploits.</li>
+        <li><strong>Anomaly-Based Detection:</strong> Uses machine learning or baseline comparisons to flag unusual activity. It helps detect emerging threats but may produce false positives.</li>
+        <li><strong>Policy-Based Detection:</strong> Blocks actions that violate predefined security policies, allowing organizations to enforce custom security rules.</li>
+    </ul>
+    
+    <h2>Preventative Measures Taken by an IDPS</h2>
+    <ul>
+        <li><strong>Alert Administrators:</strong> Generates notifications for security teams to assess and respond manually.</li>
+        <li><strong>Block Threat Sources:</strong> Restricts access from suspicious IP addresses, preventing further unauthorized attempts.</li>
+        <li><strong>Adjust Network Security Settings:</strong> Automatically modifies firewall rules or network configurations to limit exposure to potential threats.</li>
+        <li><strong>Sanitize Malicious Content:</strong> Removes harmful components from flagged emails or files to prevent malware infiltration.</li>
+    </ul>
+    
+    <h2>Advantages of Using an IDPS</h2>
+    <ul>
+        <li><strong>Automated Threat Mitigation:</strong> Reduces response time by acting on threats without requiring human intervention.</li>
+        <li><strong>Enhanced Detection Capabilities:</strong> Identifies both known and emerging cyber threats.</li>
+        <li><strong>Policy Enforcement:</strong> Ensures consistent application of security protocols across an organization.</li>
+        <li><strong>Regulatory Compliance:</strong> Helps meet data security requirements by minimizing human interaction with sensitive information.</li>
+    </ul>
+    
+    <p>Implementing an IDPS strengthens an organization’s cybersecurity posture, ensuring proactive defense against evolving cyber threats while streamlining security operations.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "idps";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/data-loss-prevention.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

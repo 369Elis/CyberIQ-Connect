@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steganography: Concealing Information and How It Functions</title>
+</head>
+<body>
+    <header>
+        <h1>Steganography: Concealing Information and How It Functions</h1>
+    </header>
+    
+    <section>
+        <h2>Understanding Steganography</h2>
+        <p>Steganography is the technique of embedding hidden messages, images, or data within seemingly ordinary files or objects to conceal their existence.</p>
+        <p>Even children unknowingly engage in steganography. For instance, using invisible ink to reveal secret messages or embedding coded notes within school assignments are basic examples of this technique. However, steganography isn’t just for fun—it has real-world applications, and unfortunately, cybercriminals also use it to disguise malicious activities.</p>
+    </section>
+    
+    <section>
+        <h2>How Steganography Operates</h2>
+        <p>Steganography involves various methods for embedding secret information. While the techniques may differ, they all rely on fundamental components:</p>
+        <ul>
+            <li><strong>Payload:</strong> The actual hidden message, image, or data being embedded.</li>
+            <li><strong>Carrier:</strong> The medium that conceals the payload, such as an image or document.</li>
+            <li><strong>Channel:</strong> The type of medium used to transmit the hidden message.</li>
+            <li><strong>Package:</strong> The final, modified version of the carrier containing the payload.</li>
+            <li><strong>Key:</strong> The method or algorithm used by the recipient to decode and extract the hidden information.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>The Evolution of Steganography</h2>
+        <p>Although modern technology has refined steganographic methods, the practice itself has existed for centuries. The term <strong>steganographia</strong> was introduced in 1499 in a book that was considered so sensitive it remained unpublished until 1606. However, civilizations had already been using creative ways to hide messages long before this.</p>
+        <h3>Some historical steganographic methods included:</h3>
+        <ul>
+            <li><strong>Wax Tablets:</strong> Secret messages were written beneath layers of wax that could later be melted away to reveal the text.</li>
+            <li><strong>Hidden Letters:</strong> Messages were crafted by stringing together specific letters from different words in a document.</li>
+            <li><strong>Symbolic Representation:</strong> Small pictorial elements, such as animals or leaves, were used to communicate alliances or secret meanings.</li>
+            <li><strong>Invisible Ink:</strong> Messages were inscribed on soldiers' bodies and could be revealed using certain liquids.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Common Uses of Steganography</h2>
+        <p>Steganography is widely used in various digital formats, including:</p>
+        <ul>
+            <li><strong>Images:</strong> Tiny pixel changes are made to encode information, often unnoticed by the naked eye but decipherable using a decryption key.</li>
+            <li><strong>Audio Files:</strong> Minor alterations in sound waves can embed data, which can later be extracted through spectrogram analysis.</li>
+            <li><strong>Social Media:</strong> Hidden messages can be inserted by tweaking video or image titles, deliberately misspelling words, or modifying metadata.</li>
+            <li><strong>Videos:</strong> An embedded image within a video may only be visible when played at a specific speed.</li>
+            <li><strong>Internet of Things (IoT) Devices:</strong> Manufacturers may insert hidden signatures within data exchanges to verify device authenticity and detect tampering.</li>
+        </ul>
+        <p>While encryption secures messages by transforming them into unreadable formats, steganography takes a different approach by hiding the fact that a message even exists, making it harder to detect.</p>
+    </section>
+    
+    <section>
+        <h2>How Hackers Leverage Steganography</h2>
+        <p>Steganography isn't just used for legitimate purposes—cybercriminals have adapted it to conceal malicious activities. Hackers often use one of the following techniques:</p>
+        <ul>
+            <li><strong>Least Significant Bit (LSB) Substitution:</strong> Identifying the least important bits in an image or file and replacing them with concealed code.</li>
+            <li><strong>Palette-Based Manipulation:</strong> Expanding the color palette of an image and embedding encrypted information within it.</li>
+            <li><strong>Secure Cover Selection:</strong> Matching an image’s data blocks to the concealed message, ensuring a seamless fit that’s difficult to detect.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Steganography-Based Attack Methods</h2>
+        <p>Hackers deploy hidden malicious content using several distribution methods:</p>
+        <ul>
+            <li><strong>Digital Media Files:</strong> Malware can be embedded within images, documents, or email signatures.</li>
+            <li><strong>Mimicry Attacks:</strong> Cybercriminals create fake versions of trusted websites that initiate malware downloads upon interaction.</li>
+            <li><strong>Ransomware Campaigns:</strong> Attackers send emails containing steganographic malware that activates when opened.</li>
+            <li><strong>Exploit Kits:</strong> Malicious code is embedded within website elements, such as banner ads, leading users to infected sites upon clicking.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>  
+        const MODULE_NAME = "steganography";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

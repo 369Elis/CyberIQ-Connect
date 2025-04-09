@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Routers and Network Security</title>
+</head>
+<body>
+    <h1>Understanding Routers and Network Security</h1>
+    
+    <h2>What is a Router?</h2>
+    <p>A router is a device that forwards traffic between different IP subnets. It is commonly found in homes as the device connecting users to the internet. In business environments, organizations often deploy multiple routers to manage traffic within their infrastructure.</p>
+    
+    <h2>Routers and OSI Layer 3</h2>
+    <p>Routers are considered Layer 3 devices, meaning they make routing decisions at the network layer of the OSI model. When routing functionality is integrated into a switch, these devices are often referred to as Layer 3 switches.</p>
+    
+    <h2>Routers and Network Types</h2>
+    <p>Routers not only connect different IP subnets but also different network types. For example, they may link an internal Ethernet network to an external wide area network (WAN). Routers can also route traffic between different physical mediums, such as copper and fiber networks.</p>
+    
+    <h2>Security Features in Routers</h2>
+    <p>Although routers are not inherently security devices, they include features that enhance security, such as Access Control Lists (ACLs). ACLs function similarly to packet filters in operating systems, allowing or denying traffic based on defined rules.</p>
+    
+    <h2>Access Control Lists (ACLs)</h2>
+    <p>ACLs can be configured on a router's ingress or egress interfaces to filter incoming and outgoing traffic. These lists evaluate criteria such as source and destination IP addresses, port numbers, and protocol types, functioning similarly to firewall rules.</p>
+    
+    <h2>Example Network Topology</h2>
+    <p>A typical network consists of users connected to a switch, which forwards traffic to a router. This router may connect to a WAN and route traffic to other subnetworks. ACLs can be applied at multiple points in this architecture to enhance security.</p>
+    
+    <h2>Preventing IP Spoofing with ACLs</h2>
+    <p>One security concern is IP spoofing, where attackers manipulate packet headers to impersonate legitimate users. Routers can filter out traffic from reserved IP address ranges (e.g., RFC 1918 internal addresses) using ACLs, preventing unauthorized routing.</p>
+    
+    <h2>Reverse Path Forwarding (RPF)</h2>
+    <p>RPF is a router security mechanism that ensures inbound traffic is responded to through the same interface it arrived on. This helps prevent IP spoofing attacks and mitigates man-in-the-middle and denial-of-service attacks.</p>
+    
+    <h2>Switches and OSI Layer 2</h2>
+    <p>Switches primarily operate at OSI Layer 2, forwarding traffic based on MAC addresses. They use an application-specific integrated circuit (ASIC) to bridge traffic efficiently at high speeds.</p>
+    
+    <h2>Network Security Inside an Organization</h2>
+    <p>Organizations typically deploy firewalls and intrusion prevention systems to secure external connections, but internal networks often lack these defenses. Threats such as unauthorized physical access to open switch ports or wireless connections remain concerns.</p>
+    
+    <h2>Port-Based Network Access Control (NAC)</h2>
+    <p>To secure switch interfaces, organizations implement IEEE 802.1X, a port-based NAC standard requiring users to authenticate before gaining access to the network.</p>
+    
+    <h2>Switch Port Security Best Practices</h2>
+    <ul>
+        <li>Disable unused switch ports to prevent unauthorized access.</li>
+        <li>Monitor duplicate MAC addresses to detect MAC spoofing attempts.</li>
+    </ul>
+    
+    <h2>Spanning Tree Protocol (STP)</h2>
+    <p>Switch loops occur when multiple redundant links cause data packets to circulate indefinitely. Spanning Tree Protocol (STP), defined in IEEE 802.1D, prevents these loops by automatically blocking redundant paths.</p>
+    
+    <h2>Example of STP in Action</h2>
+    <p>STP dynamically adjusts to network changes. If a primary link fails, STP recalculates the topology and enables backup links to restore connectivity while preventing loops.</p>
+    
+    <h2>Denial-of-Service (DoS) Attacks on Switch Networks</h2>
+    <p>Attackers can flood a switch with excessive MAC addresses, exhausting its table and causing it to fail open, sending all traffic to all ports. Organizations implement flood guards to mitigate these attacks.</p>
+    
+    <h2>Layer 3 Switches</h2>
+    <p>Layer 3 switches combine traditional switching capabilities with routing functions, forwarding traffic based on both MAC addresses (Layer 2) and IP addresses (Layer 3).</p>
+    
+    <p>By understanding router and switch security, organizations can better protect their networks from internal and external threats.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "router switch";
+      const NEXT_PAGE_URL = "/learn.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

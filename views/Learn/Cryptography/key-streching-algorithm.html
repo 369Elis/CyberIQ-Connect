@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Stretching: Strengthening Password Security</title>
+</head>
+<body>
+    <header>
+        <h1>Key Stretching: Strengthening Password Security</h1>
+    </header>
+    
+    <section>
+        <h2>What is Key Stretching?</h2>
+        <p>Key stretching is a method used to improve password security by making it harder for attackers to crack stored credentials. Rather than changing the password itself, this technique prolongs the hashing process, increasing the time required to test possible passwords and reducing the effectiveness of brute-force attacks.</p>
+    </section>
+    
+    <section>
+        <h2>Why Key Stretching is Important</h2>
+        <p>As computing power advances, attackers can guess weak passwords more quickly. Standard password hashing methods alone may not be enough to prevent breaches. Key stretching slows down password verification attempts, making large-scale attacks far more difficult and time-consuming.</p>
+    </section>
+    
+    <section>
+        <h2>How Key Stretching Functions</h2>
+        <p>Key stretching works by repeatedly processing a password through a hashing algorithm multiple times, introducing a delay to each attempt at cracking it. This extra computational work is minimal for users logging in normally but presents a significant obstacle for hackers attempting automated attacks.</p>
+    </section>
+    
+    <section>
+        <h2>Popular Key Stretching Techniques</h2>
+        <ul>
+            <li><strong>PBKDF2 (Password-Based Key Derivation Function 2):</strong> Uses repeated hashing combined with a unique random value, or salt, to increase complexity and resist precomputed attacks.</li>
+            <li><strong>Bcrypt:</strong> A hashing function based on the Blowfish cipher, known for its adjustable work factor, allowing security levels to be scaled as needed.</li>
+            <li><strong>Scrypt:</strong> Requires both high memory and processing power, making it resistant to hardware-accelerated attacks such as those using GPUs or ASICs.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Role of Key Stretching in Cybersecurity</h2>
+        <p>Key stretching plays an essential role in securing authentication processes and password storage. It increases the time and effort required to crack password hashes, strengthening system defenses against unauthorized access and data breaches.</p>
+    </section>
+    
+    <section>
+        <h2>Best Practices for Secure Password Protection</h2>
+        <p>While key stretching adds security, it should be combined with other protective measures, such as:</p>
+        <ul>
+            <li>Using strong and unique passwords</li>
+            <li>Implementing multi-factor authentication</li>
+            <li>Keeping software and security protocols updated</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>  
+        const MODULE_NAME = "key stretching algorithms";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/randomized-encryption.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- views/CyberSecurityGuide.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Security Guide</title>
+    <link rel="stylesheet" href="../styles/cyberguide.css" />
+  </head>
+  <body>
+    <header>
+      <h1>An Ultimate Guide to Cyber Security for Beginners</h1>
+    </header>
+
+   
+    <!-- Buttons -->
+   
+
+    <hr />
+
+    <section class="intro">
+      <h2>What is Cybersecurity?</h2>
+      <p><!-- content --></p>
+    </section>
+
+    <section class="content">
+      <h2>CIA Triad</h2>
+      <p><!-- content --></p>
+    </section>
+
+    <section class="specialties">
+      <h2>Specialties in Cybersecurity</h2>
+      <p><!-- content --></p>
+      <ul>
+        <!-- content -->
+      </ul>
+    </section>
+
+    <section class="terminologies">
+      <h2>Basic Terminologies</h2>
+      <ul>
+        <!-- content -->
+      </ul>
+    </section>
+
+    <section class="attacks">
+      <h2>Common Types of Attacks</h2>
+      <p>Click on the attack type to learn more:</p>
+      <ul>
+        <li>
+          <a href="ddos.html" class="futuristic-link"
+            >Distributed Denial of Service (DDoS)</a
+          >
+        </li>
+        <li>
+          <a href="man-in-the-middle.html" class="futuristic-link"
+            >Man in the Middle</a
+          >
+        </li>
+        <li>
+          <a href="email-attacks.html" class="futuristic-link">Email Attacks</a>
+        </li>
+        <li>
+          <a href="password-attacks.html" class="futuristic-link"
+            >Password Attacks</a
+          >
+        </li>
+        <li>
+          <a href="malware.html" class="futuristic-link">Malware Attack</a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© 2025 Cyber Security Guide. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Progress JS -->
+    <div class="module-navigation">
+      <button id="completeNextBtn">✅ Complete & Next</button>
+      <button id="skipNextBtn">⏭ Skip</button>
+    </div>
+  </div>
+
+
+  <script src="/scripts/progress.js"></script>
+
+  <script>
+    const MODULE_NAME = "Cybersecurity Platform";
+    const NEXT_PAGE_URL = "/learn.html";
+
+    async function updateProgress() {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+      });
+
+      if (response.ok) {
+        window.location.href = NEXT_PAGE_URL;
+      } else {
+        alert("Failed to update progress.");
+      }
+    }
+
+    document
+      .getElementById("completeNextBtn")
+      .addEventListener("click", updateProgress);
+
+    document.getElementById("skipNextBtn").addEventListener("click", () => {
+      window.location.href = NEXT_PAGE_URL;
+    });
+  </script>
+
+
+  </body>
+</html>

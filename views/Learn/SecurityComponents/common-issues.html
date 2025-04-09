@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Security Risks and Mitigation Strategies</title>
+</head>
+<body>
+    <h1>Key Security Risks and Mitigation Strategies</h1>
+    
+    <p>As cyber threats continue to evolve, organizations must remain vigilant against various security risks that can expose sensitive data and infrastructure. A recent security survey identified the most pressing concerns for IT professionals, including phishing attacks, ransomware, misconfigurations, weak passwords, delayed patching, orphaned accounts, and lost or stolen devices. Understanding these risks and implementing effective countermeasures is essential for strengthening cybersecurity defenses.</p>
+    
+    <h2>1. Phishing Attacks</h2>
+    <p>Phishing remains the most prevalent security concern, as attackers use deceptive emails and messages to trick individuals into disclosing confidential information. Spear phishing has become particularly effective, leveraging personalized content to deceive specific targets.</p>
+    <h3>Risk Mitigation:</h3>
+    <ul>
+        <li>Conduct regular phishing awareness training to help employees recognize malicious emails.</li>
+        <li>Use phishing simulations to test employee responses and reinforce best practices.</li>
+        <li>Implement email security filters and multi-factor authentication (MFA) to reduce phishing risks.</li>
+    </ul>
+    
+    <h2>2. Ransomware Threats</h2>
+    <p>Ransomware attacks have surged in frequency and sophistication, often paralyzing businesses by encrypting critical data and demanding ransom payments. Some cybercriminals even operate ransomware-as-a-service (RaaS), enabling widespread exploitation.</p>
+    <h3>Risk Mitigation:</h3>
+    <ul>
+        <li>Maintain frequent, secure backups stored offline or in a segregated network.</li>
+        <li>Use endpoint detection and response (EDR) solutions to identify and block ransomware activity.</li>
+        <li>Implement strict access controls and network segmentation to limit the spread of an attack.</li>
+    </ul>
+    
+    <h2>3. Configuration Errors</h2>
+    <p>Misconfigured security settings, particularly in cloud environments, are a leading cause of data breaches. Inadequate access restrictions and accidental exposure of critical resources can leave an organization vulnerable.</p>
+    <h3>Risk Mitigation:</h3>
+    <ul>
+        <li>Enforce the principle of least privilege (PoLP) to limit user access to necessary resources only.</li>
+        <li>Continuously monitor security configurations using automated tools to detect and remediate misconfigurations.</li>
+        <li>Utilize Security Information and Event Management (SIEM) solutions to track and log configuration changes.</li>
+    </ul>
+    
+    <h2>4. Weak Passwords</h2>
+    <p>Despite advancements in authentication technology, many users still rely on easily guessed or reused passwords, increasing the risk of unauthorized access.</p>
+    <h3>Risk Mitigation:</h3>
+    <ul>
+        <li>Enforce strong password policies requiring complexity and regular updates.</li>
+        <li>Implement password managers to store and generate secure passwords.</li>
+        <li>Transition to passwordless authentication or adopt multi-factor authentication (MFA) for added security.</li>
+    </ul>
+    
+    <h2>5. Unpatched Vulnerabilities</h2>
+    <p>Unpatched software remains a major security risk, as attackers quickly exploit known vulnerabilities. Many breaches stem from failure to apply security updates in a timely manner.</p>
+    <h3>Risk Mitigation:</h3>
+    <ul>
+        <li>Establish an automated patch management system to deploy updates as soon as they are available.</li>
+        <li>Conduct regular vulnerability scans to identify and remediate unpatched software.</li>
+        <li>Implement a risk-based approach to patching, prioritizing critical vulnerabilities first.</li>
+    </ul>
+    
+    <h2>6. Orphaned Accounts</h2>
+    <p>Dormant or inactive user accounts, particularly from former employees, pose a security risk if left unmanaged. Attackers can exploit these accounts to gain unauthorized access.</p>
+    <h3>Risk Mitigation:</h3>
+    <ul>
+        <li>Implement Identity Governance and Administration (IGA) solutions to automate account provisioning and deprovisioning.</li>
+        <li>Regularly audit and remove inactive accounts from the network.</li>
+        <li>Enforce role-based access controls (RBAC) to restrict user privileges based on job responsibilities.</li>
+    </ul>
+    
+    <h2>7. Device Loss and Theft</h2>
+    <p>The rise of remote work has increased the risk of lost or stolen company devices, potentially exposing sensitive information if not properly secured.</p>
+    <h3>Risk Mitigation:</h3>
+    <ul>
+        <li>Require device encryption to protect stored data from unauthorized access.</li>
+        <li>Enforce remote wipe capabilities for lost or stolen devices.</li>
+        <li>Implement endpoint security solutions that detect suspicious device activity and trigger alerts.</li>
+    </ul>
+    
+    <h2>Strengthening Security Posture</h2>
+    <p>Organizations can significantly reduce their exposure to cyber threats by implementing proactive security measures, conducting employee training, and leveraging advanced security technologies. By prioritizing continuous monitoring, strict access controls, and a culture of cybersecurity awareness, businesses can enhance their resilience against evolving digital threats.</p>
+
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "common security issues";
+      const NEXT_PAGE_URL = "/learn.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buffer Overflow Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Buffer Overflow Attacks: A Critical Security Threat</h1>
+      
+      <h2>Understanding Buffer Overflows</h2>
+      <p>
+        A buffer is a temporary storage space in memory that holds data while it is being processed or transferred. A buffer overflow happens when more data is placed into a buffer than it can accommodate, causing the excess data to spill into adjacent memory locations. This can lead to unpredictable behavior, including system crashes, data corruption, or security vulnerabilities.
+      </p>
+      <p>
+        For instance, if a program expects an 8-byte input for credentials but receives 10 bytes, the additional data may extend beyond the allocated space, potentially overwriting crucial system variables or execution commands. These vulnerabilities can affect any software that lacks proper memory handling, often stemming from insufficient validation of input data. When exploited, they can be leveraged by attackers to manipulate a program's functionality and execute arbitrary commands.
+      </p>
+      
+      <h2>How Attackers Exploit Buffer Overflows</h2>
+      <p>
+        A buffer overflow attack occurs when malicious actors deliberately exploit these memory handling flaws to overwrite key data structures. This can redirect a program's execution flow, allowing attackers to inject harmful code, gain unauthorized access, or crash a system.
+      </p>
+      <ul>
+        <li><strong>Alter system behavior:</strong> Attackers can insert malicious instructions that change program execution.</li>
+        <li><strong>Overwrite memory pointers:</strong> Redirecting execution flow to a malicious payload.</li>
+        <li><strong>Cause Denial of Service (DoS):</strong> Corrupting essential system functions to disrupt operations.</li>
+      </ul>
+      <p>
+        For example, an attacker may modify a pointer variable to force the program to execute unintended code, effectively hijacking the system's functionality.
+      </p>
+      
+      <h2>Types of Buffer Overflow Exploits</h2>
+      
+      <h3>Stack-Based Buffer Overflow</h3>
+      <p>
+        The stack is a temporary storage area for local function variables and execution details. This type of attack manipulates return addresses stored on the stack, allowing an attacker to force the program to execute arbitrary code. It is the most common buffer overflow attack due to the stack's structured and predictable nature.
+      </p>
+      
+      <h3>Heap-Based Buffer Overflow</h3>
+      <p>
+        The heap is a dynamically allocated memory space used during program execution. Attackers manipulate heap memory by overflowing buffers to overwrite function pointers or corrupt adjacent objects. While more complex, heap-based attacks can be potentially more damaging than stack-based attacks.
+      </p>
+      
+      <h2>Programming Languages Prone to Buffer Overflows</h2>
+      <p>
+        Certain programming languages are more vulnerable due to how they manage memory allocation.
+      </p>
+      <ul>
+        <li><strong>High risk:</strong> C and C++ – These languages lack built-in memory safety mechanisms, making them common targets.</li>
+        <li><strong>Lower risk:</strong> Java, JavaScript, C#, and Perl – These languages implement memory management features that reduce the chances of buffer overflows.</li>
+      </ul>
+      <p>
+        Since Windows, macOS, and Linux rely heavily on C and C++, buffer overflow vulnerabilities remain a key security concern.
+      </p>
+      
+      <h2>Preventing Buffer Overflow Attacks</h2>
+      <p>
+        Organizations can mitigate buffer overflow risks by using secure coding techniques, runtime protections, and proactive patch management.
+      </p>
+      
+      <h3>1. Secure Development Practices</h3>
+      <ul>
+        <li>Implement bounds checking to ensure input data does not exceed allocated memory.</li>
+        <li>Replace unsafe functions like <code>gets</code>, <code>strcpy</code>, and <code>sprintf</code> with safer alternatives.</li>
+        <li>Utilize compiler security features such as stack canaries to detect memory corruption.</li>
+      </ul>
+      
+      <h3>2. Operating System Safeguards</h3>
+      <ul>
+        <li><strong>Address Space Layout Randomization (ASLR):</strong> Randomizes memory address locations, making it harder for attackers to predict where executable code resides.</li>
+        <li><strong>Data Execution Prevention (DEP):</strong> Blocks execution of code in non-executable memory areas, preventing malicious payloads from running.</li>
+        <li><strong>Structured Exception Handler Overwrite Protection (SEHOP):</strong> Prevents attackers from hijacking structured exception handling processes to execute arbitrary code.</li>
+      </ul>
+      
+      <h3>3. Timely Security Updates</h3>
+      <ul>
+        <li>Regular patching and software updates help close known security gaps.</li>
+        <li>Continuous monitoring for suspicious activity can detect exploit attempts early.</li>
+        <li>Security audits and penetration testing ensure vulnerabilities are identified and mitigated proactively.</li>
+      </ul>
+    </div>
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "buffer overflow";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/sql-injection.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+  </body>
+</html>

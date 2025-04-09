@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is a Proxy Server? How Does It Work?</title>
+</head>
+<body>
+    <h1>What Is a Proxy Server? How Does It Work?</h1>
+    
+    <h2>Proxy Server Definition</h2>
+    <p>A proxy server acts as an intermediary between users and the internet, helping to enhance privacy and security. It masks IP addresses, filters content, and improves network performance by caching frequently accessed web pages. Proxies play a key role in preventing unauthorized access to private networks.</p>
+    
+    <h2>Proxy Servers and Network Security</h2>
+    <p>Proxies add an extra layer of security by functioning as a web filter or firewall, blocking malicious content and controlling internet traffic. Businesses use proxies to protect employees’ data, regulate website access, and optimize bandwidth usage.</p>
+    
+    <h2>How a Proxy Works</h2>
+    <p>A proxy assigns its own IP address to user requests, forwarding them to the web while masking the user’s actual location. This helps enhance anonymity and security. Proxies come in hardware and software forms, with cloud-based solutions offering greater flexibility and scalability.</p>
+    
+    <h2>How to Set Up a Proxy</h2>
+    <p>Configuring a proxy involves adjusting network settings on a device or system. This can be done through an automatic configuration script or manual entry of the proxy’s IP address and port settings.</p>
+    
+    <h2>Privacy and Data Protection</h2>
+    <p>Proxies act as a firewall, filtering traffic and encrypting data to prevent cyber threats. They ensure that only the proxy’s IP address is visible, protecting user identity and sensitive information from hackers.</p>
+    
+    <h2>Benefits of a Proxy Server</h2>
+    <ul>
+        <li><strong>Enhanced Security</strong> – Shields networks from unauthorized access and cyber threats.</li>
+        <li><strong>Private Browsing</strong> – Prevents tracking and unwanted ads.</li>
+        <li><strong>Access to Restricted Content</strong> – Allows bypassing of geo-restrictions.</li>
+        <li><strong>Workplace Control</strong> – Restricts access to non-work-related sites to improve productivity.</li>
+    </ul>
+    
+    <h2>Types of Proxy Servers</h2>
+    <ul>
+        <li><strong>Forward Proxy</strong> – Routes requests from users in a private network to the internet, useful for internal security.</li>
+        <li><strong>Transparent Proxy</strong> – Operates without user awareness, often used for content filtering.</li>
+        <li><strong>Anonymous Proxy</strong> – Hides the user’s identity while accessing online content.</li>
+        <li><strong>High Anonymity Proxy</strong> – Provides stronger anonymity by frequently changing IP addresses.</li>
+        <li><strong>Distorting Proxy</strong> – Alters the proxy’s identity while still appearing as a proxy.</li>
+        <li><strong>Data Center Proxy</strong> – Hosted in data centers for fast and cost-effective web scraping.</li>
+        <li><strong>Residential Proxy</strong> – Uses real device IPs for more legitimate browsing appearances.</li>
+        <li><strong>Public Proxy</strong> – Free but often slow and insecure due to high user traffic.</li>
+        <li><strong>Shared Proxy</strong> – Multiple users share the same IP address, offering low-cost anonymity.</li>
+        <li><strong>SSL Proxy</strong> – Encrypts traffic between users and websites for secure communication.</li>
+        <li><strong>Rotating Proxy</strong> – Assigns a new IP address for each connection request, ideal for web scraping.</li>
+        <li><strong>Reverse Proxy</strong> – Sits in front of web servers to distribute incoming traffic and enhance security.</li>
+    </ul>
+    
+    <p>Proxies are essential for online security, anonymity, and content accessibility. Choosing the right type depends on specific use cases, such as security, business efficiency, or bypassing geo-restrictions.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "proxy server";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/security-software.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Certificate Formats for Digital Security</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Certificate Formats for Digital Security</h1>
+    </header>
+    
+    <section>
+        <h2>Overview of Digital Certificate Formats</h2>
+        <p>Digital certificates play a crucial role in securing online communications, encrypting sensitive information, and verifying user identities. These certificates are essential for securing website connections, encrypting emails, and authenticating digital transactions.</p>
+        <p>Selecting the appropriate certificate format ensures compatibility with your system and provides the necessary security level for your data. Different certificate formats offer distinct advantages and are optimized for specific use cases.</p>
+    </section>
+    
+    <section>
+        <h2>Common Types of Digital Certificate Formats</h2>
+        <p>Several certificate formats exist, each with its unique features. The most widely used format is <strong>X.509</strong>, a standardized format employed for internet security. Other formats include <strong>PGP, OpenPGP,</strong> and <strong>S/MIME</strong>, each designed for different encryption and security needs.</p>
+        
+        <h3>X.509 Certificates</h3>
+        <p>X.509 is the most prevalent digital certificate format used for securing websites and encrypting emails. These certificates can be issued by trusted third parties (Certificate Authorities) or organizations managing their own security infrastructure.</p>
+        
+        <h3>PGP and OpenPGP Certificates</h3>
+        <p><strong>PGP (Pretty Good Privacy)</strong> and <strong>OpenPGP</strong> are encryption protocols used to secure emails and other forms of communication. PGP is a proprietary encryption method developed by Symantec, while OpenPGP is an open standard managed by the Internet Engineering Task Force (IETF).</p>
+        
+        <h3>S/MIME Certificates</h3>
+        <p><strong>S/MIME (Secure/Multipurpose Internet Mail Extensions)</strong> is commonly used for email encryption and authentication. It ensures the confidentiality and integrity of email communications by allowing senders to sign and encrypt their messages securely.</p>
+    </section>
+    
+    <section>
+        <h2>X.509 Certificate Encoding Formats and Extensions</h2>
+        <p>X.509 certificates come in multiple encoding formats, commonly seen with file extensions such as <strong>.pem, .crt, .p7b, .der,</strong> and <strong>.pfx</strong>. These formats serve different purposes and are chosen based on the application's encoding requirements.</p>
+        
+        <h3>PEM (Privacy Enhanced Mail)</h3>
+        <ul>
+            <li><strong>Description:</strong> The most common X.509 certificate format, predominantly used in Unix/Linux-based systems.</li>
+            <li><strong>Encoding:</strong> Base64-encoded DER certificate.</li>
+            <li><strong>Usage:</strong> Compatible with Apache, Microsoft IIS, and other web servers.</li>
+            <li><strong>File Extensions:</strong> .pem, .crt, .cer, .key.</li>
+            <li><strong>Features:</strong> Can contain server certificates, intermediate certificates, and private keys in a single file or separate files.</li>
+        </ul>
+        
+        <h3>DER (Distinguished Encoding Rules)</h3>
+        <ul>
+            <li><strong>Description:</strong> A binary format version of PEM.</li>
+            <li><strong>Encoding:</strong> Encoded in a binary format.</li>
+            <li><strong>Usage:</strong> Primarily used in Windows environments and Java-based web servers.</li>
+            <li><strong>File Extensions:</strong> .der.</li>
+            <li><strong>Features:</strong> Unlike PEM, DER files cannot be directly read with a text editor.</li>
+        </ul>
+        
+        <h3>P7B (PKCS#7)</h3>
+        <ul>
+            <li><strong>Description:</strong> A certificate format designed for storing certificate chains without private keys.</li>
+            <li><strong>Encoding:</strong> Base64 encoded.</li>
+            <li><strong>Usage:</strong> Compatible with Apache, Microsoft IIS, and other web servers.</li>
+            <li><strong>File Extensions:</strong> .p7b, .p7c.</li>
+            <li><strong>Features:</strong> Stores multiple chain certificates but does not contain a private key.</li>
+        </ul>
+        
+        <h3>PFX (PKCS#12)</h3>
+        <ul>
+            <li><strong>Description:</strong> A format used for storing private keys and certificates in a password-protected container.</li>
+            <li><strong>Encoding:</strong> Binary format.</li>
+            <li><strong>Usage:</strong> Commonly used with Apache, Microsoft IIS, and other web servers.</li>
+            <li><strong>File Extensions:</strong> .pfx, .p12.</li>
+            <li><strong>Features:</strong> Unlike P7B, PFX files include both private keys and certificates, making them ideal for secure key storage.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>  
+        const MODULE_NAME = "certificate formats";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/pki-components.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

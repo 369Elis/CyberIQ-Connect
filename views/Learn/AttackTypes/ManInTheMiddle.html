@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Types of Email Attacks</h1>
+      <p>
+        Email is a widely used communication tool, making it a major target for
+        cybercriminals. Various types of email attacks exploit vulnerabilities
+        to steal data, install malware, and conduct fraudulent activities. Below
+        are some common types of email-based cyber threats.
+      </p>
+
+      <h2>Phishing</h2>
+      <p>
+        Phishing attacks involve deceptive emails that impersonate trusted
+        entities to steal sensitive information like passwords and financial
+        data.
+      </p>
+
+      <h3>Spear Phishing</h3>
+      <p>
+        A highly targeted attack where cybercriminals research their victims to
+        make phishing emails appear more convincing.
+      </p>
+
+      <h3>Whaling</h3>
+      <p>
+        Targets high-profile executives or officials, often attempting to
+        manipulate them into authorizing fraudulent transactions.
+      </p>
+
+      <h2>Vishing (Voice Phishing)</h2>
+      <p>
+        Scammers use phone calls and voice messages to impersonate banks or
+        companies, tricking victims into revealing confidential details.
+      </p>
+
+      <h2>Smishing (SMS Phishing)</h2>
+      <p>
+        Similar to phishing but conducted through text messages, directing
+        victims to fraudulent websites or installing malware.
+      </p>
+
+      <h2>Pharming</h2>
+      <p>
+        Redirects users from legitimate websites to counterfeit versions,
+        tricking them into entering personal data.
+      </p>
+
+      <h2>Spyware & Adware</h2>
+      <p>
+        Spyware monitors user activity and collects sensitive information, while
+        adware displays intrusive advertisements and may carry malware.
+      </p>
+
+      <h2>Scareware</h2>
+      <p>
+        Fake warnings trick users into downloading malicious software by falsely
+        claiming their device is infected.
+      </p>
+
+      <h2>Spam & Email-Based Malware</h2>
+      <p>
+        Unsolicited bulk emails that distribute malware, phishing links, and
+        fraudulent schemes.
+      </p>
+
+      <h2>How to Protect Yourself from Email Attacks</h2>
+      <ul>
+        <li>Be cautious with emails from unknown sources.</li>
+        <li>
+          Verify links before clicking and check for unusual domain names.
+        </li>
+        <li>Enable two-factor authentication (2FA) for added security.</li>
+        <li>Keep your operating system and software updated.</li>
+        <li>Avoid urgent requests for personal information in emails.</li>
+      </ul>
+    </div>
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+
+    <div class="module-navigation">
+      <button id="completeNextBtn">✅ Complete & Next</button>
+      <button id="skipNextBtn">⏭ Skip</button>
+    </div>
+  </div>
+
+  <script src="/scripts/progress.js"></script>
+
+  <script>
+    const MODULE_NAME = "ManInTheMiddle Attack";
+    const NEXT_PAGE_URL = "/Learn/AttackTypes/phishing.html";
+
+    async function updateProgress() {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+      });
+
+      if (response.ok) {
+        window.location.href = NEXT_PAGE_URL;
+      } else {
+        alert("Failed to update progress.");
+      }
+    }
+
+    document
+      .getElementById("completeNextBtn")
+      .addEventListener("click", updateProgress);
+
+    document.getElementById("skipNextBtn").addEventListener("click", () => {
+      window.location.href = NEXT_PAGE_URL;
+    });
+  </script>
+
+  </body>
+</html>

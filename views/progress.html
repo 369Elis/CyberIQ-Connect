@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Progress</title>
+    <link rel="stylesheet" href="../styles/account.css" />
+    <style>
+      body {
+        background-color: #0f1e36;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      .progress-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #112244;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+      .category {
+        font-size: 1.4em;
+        margin-top: 30px;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 5px;
+      }
+      .progress-item {
+        margin-bottom: 15px;
+      }
+      .progress-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+      }
+      .progress-bar {
+        background: #1e3c5a;
+        border-radius: 6px;
+        overflow: hidden;
+        height: 18px;
+      }
+      .progress-fill {
+        background: #4caf50;
+        height: 100%;
+        transition: width 0.3s ease;
+      }
+      .status {
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+      .status.completed {
+        color: #00ff9c;
+      }
+      .status.inprogress {
+        color: #ffcc00;
+      }
+      .status[status="not started"] {
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="left-section">
+        <img src="../assets/logo.home1.png" alt="Website Logo" class="logo" />
+        <a href="Home-Page.html" class="nav-link">Home</a>
+        <a href="account.html" class="nav-link">Back to Account</a>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <h2>My Progress</h2>
+      <div id="progressList"></div>
+    </div>
+
+    <script>
+      const groupedModules = {
+        Malware: [
+          "Virus",
+          "Trojan",
+          "Worm",
+          "Ransomware",
+          "Botnet",
+          "Botnet Command and Control",
+          "Rootkit",
+          "Keylogger",
+          "Logic Bomb",
+          "Backdoor",
+          "Advanced Malware Analysis",
+          "Advanced Rootkit Analysis",
+          "AdwareSpyware",
+        ],
+        "Attack Types": [
+          "Zero-Day Attack",
+          "ManInTheMiddle Attack",
+          "passwrod attack",
+          "shoulder surfing",
+          "phishing",
+          "Denial of Service",
+          "tailgating",
+          "watering hole attack",
+          "buffer overflow",
+          "SQL injection",
+          "privilege escalation",
+          "replay-attacks",
+          "client-hijacking",
+          "spoofing",
+          "rfid-nfc attacks",
+          "cryptographic attacks",
+        ],
+        "Security Components": [
+          "firewall",
+          "vpn concentrator",
+          "access point",
+          "mail gateway",
+          "proxy server",
+          "security software",
+          "mobile device management",
+          "router switch",
+          "load balancer",
+          "network access control",
+          "idps",
+          "data loss prevention",
+          "mobile device conections",
+          "command line tools",
+          "security information & event management",
+          "zero trust network access",
+          "advanced data loss prevention",
+        ],
+        "Security Frameworks": [
+          "agreement types",
+          "risk management",
+          "it policy & procedures",
+          "forencis data use",
+          "iso vs nist",
+          "nist-framework",
+          "iso-intoduction",
+          "cis controls",
+          "nist sp 800-53",
+          "pdi dss",
+          "mmitre att&ck",
+          "rnist risk management",
+          "sabsa",
+          "account enforcement policy",
+          "identity governance & administration",
+          "owasp top 10",
+        ],
+        "Identity Access Management": [
+          "authentication protocols",
+          "aaa authentication",
+          "IAM",
+          "federated identity",
+          "rbac & abac",
+          "account management",
+          "PAM",
+          "advanced authentication protocols",
+        ],
+        "Security Policies": [
+          "incident response",
+          "disaster recovery",
+          "incident response lifecycle",
+          "data retention",
+          "business continuity",
+          "forensic data",
+          "data destruction",
+          "handle sensitive data",
+          "states of data",
+          "model device enforcement",
+        ],
+        Cryptography: [
+          "types of encryption",
+          "cryptography use cases",
+          "cryptography failures",
+          "types of certificates",
+          "PKI Concepts",
+          "symmetric - asymmetric",
+          "hashing",
+          "crptographic keys",
+          "certificate formats",
+          "compromised of PKI",
+          "steganography",
+          "perfect forward secrecy",
+          "randomized encryption",
+          "obfuscation",
+        ],
+        "Cybersecurity Guide": ["Cybersecurity Platform"],
+      };
+
+      async function loadProgress() {
+        const res = await fetch("/api/progress");
+        const progressList = document.getElementById("progressList");
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          progressList.innerHTML = "<p>No progress found.</p>";
+          return;
+        }
+
+        const grouped = {};
+        data.forEach((item) => {
+          const moduleName = item.module_name.toLowerCase().trim();
+
+          for (const category in groupedModules) {
+            if (
+              groupedModules[category].some(
+                (m) => m.toLowerCase().trim() === moduleName
+              )
+            ) {
+              if (!grouped[category]) grouped[category] = [];
+              grouped[category].push(item);
+              return;
+            }
+          }
+
+          if (!grouped["Other"]) grouped["Other"] = [];
+          grouped["Other"].push(item);
+        });
+
+        const orderedCategories = [
+          "Cybersecurity Guide",
+          "Malware",
+          "Attack Types",
+          "Security Components",
+          "Security Frameworks",
+          "Identity Access Management",
+          "Security Policies",
+          "Cryptography",
+        ];
+
+        for (const category of orderedCategories) {
+          if (!grouped[category]) continue;
+
+          const header = document.createElement("div");
+          header.className = "category";
+          header.textContent = category;
+          progressList.appendChild(header);
+
+          grouped[category].forEach((item) => {
+            const percent = Math.min(item.progress, 100);
+            const div = document.createElement("div");
+            div.className = "progress-item";
+            div.innerHTML = `
+      <div class="progress-header">
+        <span>${item.module_name}</span>
+        <span class="status ${item.status.replace(" ", "").toLowerCase()}">
+          ${item.status}
+        </span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${percent}%"></div>
+      </div>
+    `;
+            progressList.appendChild(div);
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadProgress);
+    </script>
+  </body>
+</html>

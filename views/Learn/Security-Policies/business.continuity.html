@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Continuity for Operations</title>
+</head>
+<body>
+    <h1>Business Continuity for Operations: A Practical Guide</h1>
+    <p>In today’s unpredictable world, organizations must be prepared to maintain critical operations despite disruptions. Whether it’s a natural disaster, cyberattack, or supply chain failure, a well-structured business continuity plan ensures that essential functions continue, minimizing financial losses and reputational damage.</p>
+    
+    <h2>What Is Business Continuity for Operations?</h2>
+    <p>Business continuity for operations is the ability of an organization to keep essential business functions running during and after a disruption. This is not just about having a backup plan—it’s about embedding resilience into every aspect of your operations, so your team can respond effectively when unexpected events occur.</p>
+    
+    <h2>Why Business Continuity Matters</h2>
+    <ul>
+        <li><strong>Financial losses:</strong> Lost revenue, penalties, and increased recovery costs.</li>
+        <li><strong>Reputational damage:</strong> Customers lose trust when a business is unprepared.</li>
+        <li><strong>Operational disruption:</strong> Delayed deliveries, service failures, and workforce disarray.</li>
+        <li><strong>Regulatory penalties:</strong> Non-compliance with legal or industry regulations.</li>
+    </ul>
+    
+    <h2>Key Components of Business Continuity Planning</h2>
+    <h3>1. Business Impact Analysis (BIA) – Identifying Priorities</h3>
+    <ul>
+        <li>Identify mission-critical operations that keep the business running.</li>
+        <li>Assess financial and operational risks of downtime.</li>
+        <li>Establish recovery time objectives (RTOs) for restoring services.</li>
+    </ul>
+    
+    <h3>2. Risk Assessment – Understanding Threats</h3>
+    <ul>
+        <li>Identify natural disasters, cyber threats, infrastructure failures, and supply chain vulnerabilities.</li>
+        <li>Analyze the impact of each risk on operations.</li>
+        <li>Develop mitigation strategies to reduce risks.</li>
+    </ul>
+    
+    <h3>3. Continuity Planning – Building a Resilient Framework</h3>
+    <ul>
+        <li>Define roles and responsibilities.</li>
+        <li>Establish alternate work arrangements.</li>
+        <li>Plan for data backup and recovery.</li>
+        <li>Maintain supply chain redundancy.</li>
+    </ul>
+    
+    <h3>4. Testing & Training – Making the Plan Work</h3>
+    <ul>
+        <li>Conduct tabletop exercises.</li>
+        <li>Perform live drills.</li>
+        <li>Train employees to follow crisis communication protocols.</li>
+    </ul>
+    
+    <h2>Key Areas of Operational Resilience</h2>
+    <h3>1. Leadership Succession – Keeping Decision-Making on Track</h3>
+    <ul>
+        <li>Define orders of succession for leadership.</li>
+        <li>Assign interim leaders to maintain stability.</li>
+        <li>Provide cross-training for key roles.</li>
+    </ul>
+    
+    <h3>2. Alternative Work Locations – Ensuring Operational Flexibility</h3>
+    <ul>
+        <li>Establish remote work capabilities.</li>
+        <li>Identify alternate facilities.</li>
+        <li>Reduce reliance on a single physical location.</li>
+    </ul>
+    
+    <h3>3. Emergency Communication Systems – Keeping Everyone Connected</h3>
+    <ul>
+        <li>Maintain emergency contact lists.</li>
+        <li>Use multiple communication channels.</li>
+        <li>Establish off-site data storage.</li>
+    </ul>
+    
+    <h2>The Role of Training & Continuous Improvement</h2>
+    <ul>
+        <li>Conduct regular review meetings.</li>
+        <li>Monitor real-world incidents for lessons learned.</li>
+        <li>Encourage a culture of resilience.</li>
+    </ul>
+    
+    <h2>Free Resources for Business Continuity Planning</h2>
+    <ul>
+        <li><strong>FEMA’s IS-1300:</strong> Introduction to Continuity of Operations.</li>
+        <li><strong>IS-120:</strong> An Introduction to Exercises.</li>
+        <li><strong>IS-130:</strong> How to Be an Exercise Evaluator.</li>
+    </ul>
+
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "business continuity";
+        const NEXT_PAGE_URL = "/Learn/Security-Policies/security-policies.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

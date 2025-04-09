@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Authentication, Authorization, and Accounting (AAA)</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Authentication, Authorization, and Accounting (AAA)</h1>
+    </header>
+    
+    <section>
+        <h2>Introduction</h2>
+        <p>Authentication, Authorization, and Accounting (AAA) form a crucial security model used to regulate access to digital systems, enforce security policies, and track user activity. These three components work together to ensure that only permitted individuals gain access to systems while monitoring their actions to enhance security and accountability.</p>
+    </section>
+    
+    <section>
+        <h2>Authentication</h2>
+        <p>Authentication is the process of verifying an individual’s identity before granting access to a system. It requires users to provide credentials, such as a username and password, which are validated against a database on a AAA server. This mechanism plays a vital role in Identity and Access Management (IAM).</p>
+        <p>There are three main authentication approaches:</p>
+        <ul>
+            <li><strong>Knowledge-based:</strong> Uses information only the user knows, such as passwords or security questions.</li>
+            <li><strong>Possession-based:</strong> Relies on physical items the user has, like a smart card, USB key, or authentication token.</li>
+            <li><strong>Biometric-based:</strong> Leverages unique personal characteristics, such as fingerprints, facial recognition, or iris scans.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Authorization</h2>
+        <p>Once authentication is complete, authorization dictates what a user can do within a system. It determines their level of access based on predefined security policies and administrative settings. These permissions are typically managed through a centralized database and can be updated as needed.</p>
+        <p>For example, an IT technician may initially lack the authority to modify company-wide VPN settings. However, a system administrator can adjust their privileges to grant them the ability to manage VPN configurations for individual employees.</p>
+    </section>
+    
+    <section>
+        <h2>Accounting</h2>
+        <p>Accounting focuses on tracking and logging user activity within a system or network. It records various details, including login times, session durations, accessed resources, data transfers, IP addresses, and requested services.</p>
+        <p>This information is valuable for monitoring user behavior, generating audit logs, and facilitating billing in environments that charge based on usage. For instance, in subscription-based or pay-as-you-go systems, accounting logs can be used to calculate usage costs based on session length and data consumption.</p>
+    </section>
+    
+    <section>
+        <h2>The Role of AAA in Network Security</h2>
+        <p>AAA plays a vital role in securing digital environments by controlling access and maintaining detailed logs of user activities. This helps in preventing unauthorized access, identifying potential threats, and conducting forensic investigations when needed.</p>
+    </section>
+    
+    <section>
+        <h2>AAA Implementation in Network Security</h2>
+        <p>AAA is commonly applied in two key areas:</p>
+        <ul>
+            <li><strong>Network Access Control:</strong> Determines whether a user or device can connect to a network by verifying their credentials. If authentication is successful, access is granted based on preset policies.</li>
+            <li><strong>Device Administration:</strong> Governs access to network infrastructure and administrative functions. Unlike general network access control, this focuses on defining which network devices or management tools a user can interact with, such as SSH access to routers and firewalls.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "aaa authentication";
+        const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/IAM.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

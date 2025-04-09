@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Protocols Explained: PAP, CHAP, MS-CHAP, and EAP</title>
+</head>
+<body>
+    <header>
+        <h1>Authentication Protocols Explained: PAP, CHAP, MS-CHAP, and EAP</h1>
+    </header>
+    
+    <section>
+        <h2>Introduction</h2>
+        <p>Selecting an authentication protocol is a crucial step in designing a RADIUS-based authentication system. Different protocols offer varying levels of security, compatibility, and flexibility, making it important to choose one that aligns with the organization's security needs and infrastructure.</p>
+        <p>When assessing authentication methods, key factors to consider include:</p>
+        <ul>
+            <li><strong>Security:</strong> How well does the protocol protect user credentials?</li>
+            <li><strong>Compatibility:</strong> Can it integrate with existing databases and password storage methods?</li>
+            <li><strong>MFA Support:</strong> Does it allow multi-factor authentication for enhanced protection?</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>PAP (Password Authentication Protocol)</h2>
+        <p>PAP is a straightforward authentication method where the client transmits user credentials in plaintext to the RADIUS server for validation. While the transmission itself is encrypted, the RADIUS server processes the password in an unencrypted form.</p>
+        <h3>Advantages:</h3>
+        <ul>
+            <li>✔ Works with all password storage mechanisms, including those using encryption.</li>
+            <li>✔ Compatible with LDAP authentication and various backend databases.</li>
+            <li>✔ Supports Multi-Factor Authentication (MFA), making it useful for secure authentication setups.</li>
+        </ul>
+        <h3>Security Considerations:</h3>
+        <p>The main risk with PAP is that the RADIUS server has access to raw user passwords. If the server is compromised, credentials could be exposed. However, this risk is manageable with strong security policies, such as using complex shared secrets between RADIUS clients and servers.</p>
+    </section>
+    
+    <section>
+        <h2>CHAP (Challenge Handshake Authentication Protocol)</h2>
+        <p>CHAP employs a challenge-response mechanism to authenticate users without transmitting plaintext passwords over the network. Instead, it hashes the password along with a random challenge value before sending it to the RADIUS server for verification.</p>
+        <h3>Advantages:</h3>
+        <ul>
+            <li>✔ Prevents passwords from being directly transmitted, reducing interception risks.</li>
+            <li>✔ Has a long history of reliable security with no major vulnerabilities detected.</li>
+        </ul>
+        <h3>Limitations:</h3>
+        <ul>
+            <li>🚩 Requires plaintext passwords in the authentication database, making it incompatible with encrypted password storage.</li>
+            <li>🚩 Does not work with Active Directory (AD) due to its password hashing policies.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>MS-CHAP (Microsoft Challenge Handshake Authentication Protocol)</h2>
+        <p>MS-CHAP is Microsoft's version of CHAP, but instead of MD5 hashing, it relies on MD4 and DES encryption. MS-CHAPv2 introduced some improvements but retained the fundamental weaknesses of the original protocol.</p>
+        <h3>Why MS-CHAP is Insecure:</h3>
+        <ul>
+            <li>🚩 Weak encryption: Both MD4 and DES are outdated and vulnerable to brute-force attacks.</li>
+            <li>🚩 Easily crackable: Security researchers have demonstrated how MS-CHAPv2 credentials can be decrypted using publicly available tools like ChapCrack.</li>
+            <li>🚩 Microsoft acknowledges its weaknesses, recommending organizations migrate to stronger authentication methods.</li>
+        </ul>
+        <h3>Best Practices:</h3>
+        <p>MS-CHAPv2 should only be used if no better alternative is available. If it must be implemented, it should be restricted to a secure, internal network to minimize risks.</p>
+    </section>
+    
+    <section>
+        <h2>EAP-MSCHAPv2 (Extensible Authentication Protocol with MS-CHAPv2)</h2>
+        <p>EAP-MSCHAPv2 is essentially MS-CHAPv2 encapsulated within the EAP framework. EAP itself is not an authentication method but a transport mechanism for carrying other authentication protocols.</p>
+        <h3>Problems with EAP-MSCHAPv2:</h3>
+        <ul>
+            <li>🚩 Same vulnerabilities as MS-CHAPv2 – Since it still relies on MD4 and DES, it remains susceptible to attacks.</li>
+            <li>🚩 Adds complexity – Requires additional protocol exchanges without improving security.</li>
+        </ul>
+        <h3>Recommendation:</h3>
+        <p>Since EAP-MSCHAPv2 does not enhance security over MS-CHAPv2 and is more complicated to implement, it is not recommended for secure authentication environments.</p>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "authentication protocols";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

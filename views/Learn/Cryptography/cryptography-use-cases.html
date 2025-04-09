@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cryptography Use Cases</title>
+  </head>
+  <body>
+    <header>
+      <h1>Cryptography Use Cases</h1>
+    </header>
+
+    <section>
+      <p>
+        Cryptography plays a vital role in securing digital communications,
+        safeguarding sensitive data, and verifying authenticity. Various
+        encryption methods and cryptographic protocols provide protection across
+        multiple use cases. Below are some key applications of cryptography.
+      </p>
+    </section>
+
+    <section>
+      <h2>Secure Communication</h2>
+      <p>
+        One of the most widespread uses of cryptography is ensuring private
+        communication over the internet. Secure protocols such as Transport
+        Layer Security (TLS) and Secure Sockets Layer (SSL) establish encrypted
+        connections between web servers and browsers, preventing unauthorized
+        access to transmitted data.
+      </p>
+      <p>
+        End-to-end encryption (E2EE) is also widely used in messaging platforms
+        like email and instant messaging apps to protect conversations. With
+        E2EE, only the intended sender and recipient can read the exchanged
+        messages, preventing third-party interception.
+      </p>
+    </section>
+
+    <section>
+      <h2>Data Encryption</h2>
+      <p>
+        Data encryption ensures sensitive information remains secure when stored
+        on devices such as computers, smartphones, and cloud services.
+        Algorithms like Advanced Encryption Standard (AES) transform readable
+        text into encrypted data, making it inaccessible without the proper
+        decryption key.
+      </p>
+      <p>
+        This protection ensures that even if an unauthorized entity gains access
+        to storage systems, they cannot decipher the information.
+      </p>
+    </section>
+
+    <section>
+      <h2>Ensuring Data Integrity</h2>
+      <p>
+        Cryptographic hash functions maintain data integrity by generating a
+        unique hash value for any given dataset. If even a minor change occurs
+        in the original data, the hash value alters significantly, making
+        tampering evident.
+      </p>
+      <p>
+        Hash functions are extensively used in verifying file integrity and
+        storing hashed passwords, ensuring security without exposing actual
+        credentials.
+      </p>
+    </section>
+
+    <section>
+      <h2>Authentication Through Digital Signatures</h2>
+      <p>
+        Digital signatures help confirm the authenticity of documents and
+        messages. Using asymmetric encryption, a sender can generate a unique
+        digital signature using their private key, and the recipient can verify
+        its authenticity with the sender’s public key.
+      </p>
+      <p>
+        This process ensures that the document has not been altered and confirms
+        the sender’s identity.
+      </p>
+    </section>
+
+    <section>
+      <h2>Non-Repudiation in Digital Transactions</h2>
+      <p>
+        Cryptographic non-repudiation prevents individuals from denying their
+        actions in digital transactions. Digital signatures, combined with
+        encryption, establish a verifiable proof that a sender authorized a
+        particular action, ensuring accountability in online contracts,
+        agreements, and financial transactions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Key Exchange for Secure Connections</h2>
+      <p>
+        Before encryption can be implemented, secure key exchange mechanisms
+        ensure encryption keys are safely shared between parties. The
+        Diffie-Hellman key exchange is a well-known cryptographic technique that
+        enables two parties to securely exchange keys over an unsecured channel,
+        preventing eavesdroppers from intercepting the keys.
+      </p>
+    </section>
+
+    <section>
+      <h2>Protecting API Communication</h2>
+      <p>
+        Application Programming Interfaces (APIs) facilitate data exchange
+        between different software applications. Cryptographic security
+        measures, such as API keys, tokens, and encryption, ensure that only
+        authorized systems can access and transmit data securely.
+      </p>
+      <p>
+        This is particularly crucial in financial services, cloud computing, and
+        enterprise software integrations.
+      </p>
+    </section>
+
+    <section>
+      <h2>Quantum Computing and Cryptographic Security</h2>
+      <p>
+        Advancements in quantum computing pose potential threats to existing
+        cryptographic algorithms. While conventional encryption methods are
+        designed to resist brute-force attacks from classical computers, quantum
+        computers could potentially break these encryption schemes much faster.
+      </p>
+      <p>
+        To counter this, researchers are developing quantum-resistant
+        cryptographic techniques to future-proof data security.
+      </p>
+    </section>
+
+    <section>
+      <h2>Blockchain and Cryptographic Security</h2>
+      <p>
+        Blockchain technology relies heavily on cryptographic techniques to
+        ensure secure and immutable transactions. Cryptographic hashing secures
+        blockchain records, while public-key cryptography enables secure digital
+        transactions.
+      </p>
+      <p>
+        Cryptocurrencies like Bitcoin use encryption for transaction
+        verification and digital asset security.
+      </p>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+      <p>
+        By leveraging cryptographic principles, businesses and individuals can
+        ensure data confidentiality, integrity, and authenticity across various
+        digital environments, minimizing security risks and unauthorized access.
+      </p>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "cryptography use cases";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/cryphtographic-failures.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Mobile Device Management (MDM)?</title>
+</head>
+<body>
+    <h1>What is Mobile Device Management (MDM)?</h1>
+    
+    <h2>Definition of MDM</h2>
+    <p>Mobile Device Management (MDM) is a system that enables organizations to secure, monitor, and manage mobile devices while ensuring workforce productivity. It allows IT teams to oversee corporate devices and protect sensitive data, regardless of the operating system.</p>
+    
+    <h2>Why MDM is Important</h2>
+    <p>As mobile devices become essential in business operations, they introduce security risks such as data breaches and unauthorized access. MDM ensures mobile security by provisioning, managing, and securing devices, helping IT departments mitigate risks while maintaining productivity.</p>
+    
+    <h2>How MDM Works</h2>
+    <p>MDM is a combination of software and security policies designed to manage and protect devices. Employees may use dedicated work devices or enroll personal devices, which are then configured with security measures such as VPN access, GPS tracking, password protection, and data encryption. Advanced MDM solutions incorporate AI-driven analytics to detect security threats and prevent breaches.</p>
+    
+    <h2>Key Features of MDM Tools</h2>
+    <ul>
+        <li><strong>Device Tracking</strong> – GPS tracking and real-time monitoring allow IT teams to troubleshoot, detect risks, and remotely wipe data if necessary.</li>
+        <li><strong>Mobile Management</strong> – Ensures devices are equipped with essential applications, security tools, and backup solutions.</li>
+        <li><strong>Application Security</strong> – Uses app wrapping and containerization to enforce security measures like authentication requirements and data access restrictions.</li>
+        <li><strong>Identity and Access Management (IAM)</strong> – Regulates user access with SSO, multifactor authentication, and role-based permissions.</li>
+        <li><strong>Endpoint Security</strong> – Protects all connected devices, including IoT and wearables, using antivirus, URL filtering, and network security measures.</li>
+    </ul>
+    
+    <h2>BYOD and MDM</h2>
+    <p><strong>Bring Your Own Device (BYOD)</strong> – Employees using personal devices for work can introduce security risks. MDM applies enterprise security controls to personal devices, balancing security with user convenience.</p>
+    
+    <p><strong>Enterprise Mobility Management (EMM)</strong> – Extends beyond MDM by managing applications, content, and endpoints. AI-powered EMM solutions provide real-time insights into user activities.</p>
+    
+    <p><strong>Unified Endpoint Management (UEM)</strong> – An evolution of MDM and EMM, UEM secures all devices, including desktops, IoT, and mobile devices, with AI-driven analytics for real-time security decisions.</p>
+    
+    <h2>Best Practices for MDM</h2>
+    <p>A strong MDM solution should enhance security and efficiency while simplifying device management. Best practices include:</p>
+    <ul>
+        <li><strong>Automated Reports</strong> – Consolidates device data into easy-to-read reports for better monitoring.</li>
+        <li><strong>Automatic Updates</strong> – Ensures security features remain up to date without manual intervention.</li>
+        <li><strong>Easy Search Functionality</strong> – Allows quick access to devices, applications, and secure documents.</li>
+    </ul>
+    
+    <p>With an effective MDM system, businesses can ensure security, streamline management, and maintain control over their mobile infrastructure.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "mobile device management";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/security-protocols.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the NIST Risk Management Framework (RMF)</title>
+</head>
+<body>
+    <h1>Understanding the NIST Risk Management Framework (RMF)</h1>
+    
+    <h2>What is NIST RMF?</h2>
+    <p>The NIST Risk Management Framework (RMF) is a structured process for managing cybersecurity risks. Originally created by the National Institute of Standards and Technology (NIST) for federal agencies, it has been widely adopted by businesses of all sizes to enhance security, ensure compliance, and reduce cyber threats.</p>
+    
+    <p>This framework provides a flexible, step-by-step approach to identifying, assessing, and mitigating risks, making it an essential tool for strengthening incident response and cybersecurity strategies.</p>
+    
+    <h2>Core Steps of NIST RMF</h2>
+    <p>NIST RMF follows six key steps to help organizations manage security risks effectively:</p>
+    <ul>
+        <li><strong>Categorization</strong> – Identify and classify information systems based on data sensitivity and risk impact.</li>
+        <li><strong>Control Selection</strong> – Choose appropriate security controls based on NIST guidelines to mitigate identified risks.</li>
+        <li><strong>Implementation</strong> – Apply the selected security measures across systems and operations.</li>
+        <li><strong>Assessment</strong> – Evaluate how well security controls are functioning through testing and audits.</li>
+        <li><strong>Authorization</strong> – Approve the system’s security status based on assessment results.</li>
+        <li><strong>Continuous Monitoring</strong> – Track system security, detect vulnerabilities, and respond to new threats.</li>
+    </ul>
+    
+    <h2>Why Adopt the NIST RMF?</h2>
+    <p>Organizations benefit from RMF as it provides a structured, adaptable, and compliance-driven approach to security. Its advantages include:</p>
+    <ul>
+        <li><strong>Customizability</strong> – Can be tailored to different industries and security needs.</li>
+        <li><strong>Regulatory Compliance</strong> – Aligns with frameworks such as FISMA, HIPAA, GDPR, and ISO 27001.</li>
+        <li><strong>Scalability</strong> – Suitable for businesses, government agencies, and critical infrastructure.</li>
+        <li><strong>Proactive Threat Management</strong> – Helps organizations identify, mitigate, and monitor risks before they escalate.</li>
+    </ul>
+    
+    <h2>Challenges to Consider</h2>
+    <p>While the NIST RMF is a powerful tool, organizations should be aware of potential challenges:</p>
+    <ul>
+        <li><strong>Implementation Complexity</strong> – Requires structured policies, staff training, and alignment with business goals.</li>
+        <li><strong>Resource Allocation</strong> – Needs dedicated personnel, security tools, and ongoing maintenance.</li>
+        <li><strong>Continuous Updates</strong> – Cyber threats evolve, requiring regular reassessments and control adjustments.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "rist risk management";
+        const NEXT_PAGE_URL = "/Learn/SecurityFrameworks/sabsa.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+      
+</body>
+</html>

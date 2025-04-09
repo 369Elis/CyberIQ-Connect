@@ -1,0 +1,104 @@
+/* ===== IMPORT FUTURISTIC FONT ===== */
+
+/* ===== FUTURISTIC CYBERSECURITY THEME ===== */
+
+/* Global Styles */
+body {
+  font-family: "Orbitron", sans-serif;
+  background: radial-gradient(circle at center, #0a001e 0%, #070014 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Main Container */
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header Styling */
+header h1 {
+  font-size: 2.5em;
+  color: #bb86fc;
+  text-shadow: 0px 0px 10px #bb86fc;
+}
+
+/* Back Button */
+.back-btn {
+  background: #bb86fc;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #9c67ff;
+  box-shadow: 0px 0px 15px rgba(187, 134, 252, 0.7);
+}
+
+/* Cyber Buttons */
+.learn-btn {
+  background: linear-gradient(135deg, #6a00f4, #a900ff);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 15px rgba(170, 0, 255, 0.5);
+}
+
+.learn-btn:hover {
+  background: linear-gradient(135deg, #a900ff, #6a00f4);
+  box-shadow: 0px 0px 25px rgba(170, 0, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* Dropdown Styling */
+.dropdown-content {
+  display: none;
+  background: rgba(20, 20, 30, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.dropdown-content a:hover {
+  background: #9c67ff;
+  border-radius: 5px;
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-content.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}

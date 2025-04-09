@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Block Cipher Modes of Operation</title>
+</head>
+<body>
+    <header>
+        <h1>Exploring Block Cipher Modes of Operation</h1>
+    </header>
+    
+    <section>
+        <h2>Introduction to Block Ciphers</h2>
+        <p>Encryption methods are typically categorized into two types: <strong>block ciphers</strong> and <strong>stream ciphers</strong>. A block cipher encrypts fixed-sized data chunks (e.g., 128-bit blocks), generating ciphertext of the same size. When data exceeds a single block, different <strong>modes of operation</strong> are applied to ensure secure encryption across multiple blocks.</p>
+    </section>
+    
+    <section>
+        <h2>Understanding Block Cipher Modes of Operation</h2>
+        <p>Block cipher modes define how encryption processes manage large datasets while maintaining security. These modes establish structured techniques for handling data blocks to prevent vulnerabilities such as pattern exposure. Various modes exist, each suited for different encryption needs.</p>
+    </section>
+    
+    <section>
+        <h2>Common Modes of Block Cipher Encryption</h2>
+        
+        <h3>Electronic Codebook (ECB)</h3>
+        <p>The <strong>Electronic Codebook (ECB)</strong> mode is the most straightforward encryption technique. It encrypts each block of plaintext separately, ensuring that identical plaintext blocks produce the same ciphertext.</p>
+        
+        <h4>Advantages of ECB:</h4>
+        <ul>
+            <li>Enables parallel processing, enhancing encryption speed.</li>
+            <li>Simple to implement due to its independent block encryption.</li>
+        </ul>
+        
+        <h4>Disadvantages of ECB:</h4>
+        <ul>
+            <li>Susceptible to cryptanalysis, as repeated plaintext patterns remain visible in ciphertext.</li>
+            <li>Unsuitable for securing large volumes of sensitive data due to lack of randomness.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Cipher Block Chaining (CBC)</h3>
+        <p><strong>Cipher Block Chaining (CBC)</strong> mode introduces interdependence between encrypted blocks. Before encryption, each plaintext block undergoes an XOR operation with the previous ciphertext block. The process starts with an <strong>Initialization Vector (IV)</strong> to add randomness.</p>
+        
+        <h4>Advantages of CBC:</h4>
+        <ul>
+            <li>Provides stronger security than ECB by preventing identical ciphertext outputs for the same plaintext.</li>
+            <li>Suitable for encrypting larger datasets.</li>
+            <li>Enhances message integrity by masking plaintext patterns.</li>
+        </ul>
+        
+        <h4>Disadvantages of CBC:</h4>
+        <ul>
+            <li>Requires the previous ciphertext block for encryption and decryption, making parallel processing challenging.</li>
+            <li>A single-bit error in one block can affect decryption of subsequent blocks.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Cipher Feedback Mode (CFB)</h3>
+        <p><strong>Cipher Feedback Mode (CFB)</strong> converts a block cipher into a self-synchronizing stream cipher. Encryption begins with an <strong>Initialization Vector (IV)</strong>, and ciphertext is produced in smaller segments (e.g., 8-bit or 64-bit). Each segment is then used as input for the next encryption operation.</p>
+        
+        <h4>Advantages of CFB:</h4>
+        <ul>
+            <li>Ideal for encrypting continuous data streams.</li>
+            <li>Enhances security by incorporating feedback into encryption.</li>
+            <li>Can handle varying data sizes without requiring full block encryption.</li>
+        </ul>
+        
+        <h4>Disadvantages of CFB:</h4>
+        <ul>
+            <li>Errors in ciphertext can propagate, corrupting subsequent data.</li>
+            <li>Encryption is sequential, preventing parallel processing and reducing efficiency for large datasets.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Final Thoughts</h2>
+        <p>Block cipher modes define how encryption algorithms operate on data to ensure confidentiality and integrity. <strong>ECB</strong> offers simplicity but lacks security due to pattern visibility. <strong>CBC</strong> enhances security through interdependent encryption but restricts parallel processing. <strong>CFB</strong> provides flexibility for streaming encryption but risks error propagation.</p>
+        <p>Choosing the right mode depends on security requirements, data structure, and processing needs. With continuous advancements in encryption, new modes continue to emerge, improving data protection across different applications.</p>
+    </section>
+
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "block cypers modes";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/cryptographic-keys.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

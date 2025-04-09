@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is an Access Point?</title>
+</head>
+<body>
+    <h1>What Is an Access Point?</h1>
+    <p>A wireless access point (WAP) enhances network connectivity by allowing wireless devices to connect to a wired network. It simplifies network expansion and improves wireless coverage.</p>
+    
+    <h2>What is a Wireless Access Point?</h2>
+    <p>A WAP is a device that enables wireless-capable devices to connect to an existing wired network. Instead of relying on cables, WAPs provide a flexible and scalable solution for connecting multiple devices.</p>
+    
+    <h2>Why Use a WAP for Wireless Networking?</h2>
+    <p>A WAP helps integrate wireless connectivity into a wired network, allowing mobile devices to access the network seamlessly. It also extends network coverage, eliminating dead zones in large spaces. With mesh extenders, you can further improve signal strength and provide uninterrupted connectivity.</p>
+    
+    <h2>Common Types of Access Point Configurations</h2>
+    <ul>
+        <li><strong>Root Access Point</strong> - Directly connects to a wired LAN, serving as the primary hub for wireless users. Multiple access points enable seamless roaming within a facility.</li>
+        <li><strong>Repeater Access Point</strong> - Extends wireless coverage by relaying signals between devices and the main network, helping overcome physical barriers that may obstruct communication.</li>
+        <li><strong>Bridges</strong> - Used to connect two networks wirelessly. A root access point establishes a link with a non-root bridge to facilitate data transfer between wired networks.</li>
+        <li><strong>Workgroup Bridge</strong> - Functions as a client device to provide network connectivity for Ethernet-connected devices, such as printers or workstations, through a wireless network.</li>
+        <li><strong>Central Unit in an All-Wireless Network</strong> - Acts as the core hub in a fully wireless setup, linking all wireless users and ensuring smooth communication without a wired backbone.</li>
+    </ul>
+    
+    <h2>Key Benefits of Upgrading to WAPs</h2>
+    <p>Using WAPs enhances network flexibility, security, and cost efficiency. A wireless network simplifies user management, making it easy to add new devices and offer guest access through secure authentication. Additionally, segmenting network users, including guests, helps protect sensitive business resources.</p>
+    
+    <p>WAPs provide a reliable and scalable solution for businesses looking to expand their wireless capabilities without the hassle of additional wiring.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "access point";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/mail-gateways.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

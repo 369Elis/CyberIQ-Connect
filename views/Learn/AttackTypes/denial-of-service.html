@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denial of Service (DoS) Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Denial of Service (DoS) Attacks</h1>
+      
+      <h2>Understanding DoS Attacks</h2>
+      <p>
+        A Denial of Service (DoS) attack is a cyber threat designed to flood a system, website, or network with excessive traffic, ultimately slowing it down or making it completely inaccessible. These attacks can lead to prolonged downtime, resulting in operational disruptions and financial loss as organizations work to identify, mitigate, and recover from the impact.
+      </p>
+      
+      <h2>What is a DDoS Attack?</h2>
+      <p>
+        A Distributed Denial of Service (DDoS) attack is a more complex version of a DoS attack, where multiple systems send overwhelming amounts of data to a target. Because the attack traffic originates from numerous sources, distinguishing between legitimate and malicious requests becomes significantly more difficult. This distributed approach increases the attack’s scale and effectiveness.
+      </p>
+      
+      <h2>Consequences of DoS Attacks</h2>
+      <p>
+        DoS attacks pose a substantial risk to organizations, affecting both internal operations and external services. The extent of damage depends on the attack's duration, the system’s ability to handle traffic, and the effectiveness of countermeasures. Some common consequences include:
+      </p>
+      <ul>
+        <li><strong>Network congestion:</strong> Excessive traffic can overwhelm a system’s bandwidth, reducing or completely cutting off access.</li>
+        <li><strong>Service disruptions:</strong> Websites, applications, and business-critical platforms may become unresponsive, leading to productivity losses.</li>
+        <li><strong>Financial and reputational impact:</strong> Customers may lose trust in a company if services are frequently unavailable, potentially resulting in lost revenue.</li>
+      </ul>
+      <p>
+        Even short-lived attacks can cause operational setbacks, making them a persistent concern for businesses that rely on digital infrastructure.
+      </p>
+      
+      <h2>Historical DoS Attacks</h2>
+      <p>
+        While earlier DoS attacks mainly exploited system vulnerabilities, modern attacks have evolved into more aggressive, large-scale DDoS operations. Some well-known examples include:
+      </p>
+      <ul>
+        <li><strong>Smurf Attack:</strong> This technique misuses a network’s broadcast functionality by sending spoofed packets, causing a flood of response traffic directed at the victim’s IP address.</li>
+        <li><strong>Ping Flood:</strong> By overwhelming a target with a high volume of ICMP (ping) requests, this attack can consume system resources and degrade performance.</li>
+        <li><strong>Ping of Death:</strong> Unlike a typical ping flood, this method involves sending oversized or malformed packets, which can crash or destabilize the target system.</li>
+      </ul>
+      
+      <h2>Signs of a DoS Attack</h2>
+      <p>
+        It can be challenging to differentiate a DoS attack from routine network slowdowns, but there are certain red flags to look out for:
+      </p>
+      <ul>
+        <li>Sluggish network performance (e.g., websites or applications taking unusually long to load).</li>
+        <li>Inability to access specific websites or online services.</li>
+        <li>Unexpected connectivity drops across multiple devices.</li>
+      </ul>
+      
+      <h2>DoS vs. DDoS – What’s the Difference?</h2>
+      <p>
+        The key distinction between these two attack types lies in their execution method:
+      </p>
+      <ul>
+        <li><strong>DoS Attacks:</strong> Originates from a single source, often using a single machine to overwhelm a target. Some techniques, like the Slowloris attack, use minimal traffic but still effectively disrupt a system.</li>
+        <li><strong>DDoS Attacks:</strong> Leverages multiple compromised devices (often a botnet) to generate an enormous volume of attack traffic, making it significantly harder to mitigate.</li>
+      </ul>
+    </div>
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+    <div class="module-navigation">
+      <button id="completeNextBtn">✅ Complete & Next</button>
+      <button id="skipNextBtn">⏭ Skip</button>
+    </div>
+  </div>
+
+  <script src="/scripts/progress.js"></script>
+
+  <script>
+    const MODULE_NAME = "Denial of Service";
+    const NEXT_PAGE_URL = "/Learn/AttackTypes/tailgatin.html";
+
+    async function updateProgress() {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+      });
+
+      if (response.ok) {
+        window.location.href = NEXT_PAGE_URL;
+      } else {
+        alert("Failed to update progress.");
+      }
+    }
+
+    document
+      .getElementById("completeNextBtn")
+      .addEventListener("click", updateProgress);
+
+    document.getElementById("skipNextBtn").addEventListener("click", () => {
+      window.location.href = NEXT_PAGE_URL;
+    });
+  </script>
+
+
+  </body>
+</html>

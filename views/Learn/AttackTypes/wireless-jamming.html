@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamming Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="jamming-page">
+
+    <header>
+        <h1>Jamming Attacks: How Wireless Networks Are Disrupted and How to Stay Protected</h1>
+    </header>
+
+    <section class="intro">
+        <h2>What Is a Jamming Attack?</h2>
+        <p>A jamming attack is a type of cyber threat that disrupts wireless communications by overwhelming a network with interference signals. These attacks can target Wi-Fi, Bluetooth, cellular networks, and GPS systems, preventing devices from connecting and functioning properly.</p>
+        <p>One alarming example occurred in Mexico in 2020, where 85% of cargo truck thefts reportedly involved GPS jamming, allowing criminals to hijack vehicles without detection.</p>
+        <p>While some jamming attacks are used in cybercrime and warfare, others can be more localized and disruptive, such as cutting off Wi-Fi signals at a party or disabling security cameras before a break-in.</p>
+    </section>
+
+    <section class="jamming-how">
+        <h2>How Jamming Attacks Work</h2>
+        <ul>
+            <li>🔹 <strong>Step 1: Identifying the Target Network</strong> – The attacker determines which network they want to disrupt. They research transmission frequencies and access points to choose the best interference method.</li>
+            <li>🔹 <strong>Step 2: Selecting the Jamming Technique</strong> – Attackers use different interference methods, such as constant noise, deceptive signals, or reactive interference (explained below).</li>
+            <li>🔹 <strong>Step 3: Deploying a Jamming Device</strong> – Specialized jamming devices broadcast strong signals on the same frequency as the target network. These devices can be purchased online or modified from standard Wi-Fi equipment.</li>
+            <li>🔹 <strong>Step 4: Blocking or Manipulating Communications</strong> – Once active, the jammer prevents legitimate connections, causing:
+                <ul>
+                    <li>Slow internet speeds or total signal loss.</li>
+                    <li>Failed GPS tracking or incorrect location data.</li>
+                    <li>Dropped phone calls and blocked text messages.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section class="jamming-types">
+        <h2>Types of Jamming Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">📡</span>
+                <h3>Constant Jamming</h3>
+                <p>✔ The attacker sends out a continuous interference signal, completely blocking network access.</p>
+                <p>✔ Often used against Wi-Fi networks and military communications.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🎭</span>
+                <h3>Deceptive Jamming</h3>
+                <p>✔ Instead of pure interference, the attacker mimics legitimate signals, tricking devices into connecting.</p>
+                <p>✔ Used in GPS spoofing, where a vehicle is misled into an incorrect location.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⚡</span>
+                <h3>Reactive Jamming</h3>
+                <p>✔ The jammer only activates when a real signal is detected, making it harder to notice.</p>
+                <p>✔ Common in man-in-the-middle (MitM) attacks, where hackers steal data from compromised connections.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="jamming-examples">
+        <h2>Real-World Examples of Jamming Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🚗</span>
+                <h3>GPS Jamming and Car Theft</h3>
+                <p>🚗 Criminals use jamming devices to disrupt GPS tracking on stolen cars and trucks.</p>
+                <p>🚗 This makes it impossible for law enforcement to track the vehicle.</p>
+                <p>🚗 Some thieves even jam electronic toll collection systems to avoid paying road fees.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔒</span>
+                <h3>Wi-Fi Jamming and Security Breaches</h3>
+                <p>🔒 Hackers jam wireless security cameras before breaking into buildings.</p>
+                <p>🔒 Businesses that rely on wireless payment systems can be shut down, leading to financial losses.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⚔</span>
+                <h3>Military and Cyber Warfare</h3>
+                <p>⚔ Countries have used jamming attacks to disrupt enemy communications and GPS navigation.</p>
+                <p>⚔ Reports indicate continuous GPS jamming in conflict zones like Eastern Ukraine since 2014.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="jamming-prevention">
+        <h2>How to Detect and Prevent Jamming Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔍</span>
+                <h3>Monitor Wireless Signal Strength</h3>
+                <p>📡 Set up a system to detect sudden drops in network performance, which could indicate interference.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛑</span>
+                <h3>Use an Intrusion Detection System (IDS)</h3>
+                <p>🛑 IDS tools can identify unusual network activity and automatically switch frequencies to avoid jamming.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📖</span>
+                <h3>Educate Employees and Users</h3>
+                <p>📖 Teach users to recognize suspicious network failures and avoid connecting to compromised Wi-Fi.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔐</span>
+                <h3>Use Strong Encryption and Secure Networks</h3>
+                <p>🔐 Wireless devices should always use encryption protocols like WPA3 for Wi-Fi and VPNs for internet connections.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛰</span>
+                <h3>Implement Signal Jamming Detection Tools</h3>
+                <p>🛰 GPS and Wi-Fi jamming detectors can alert administrators to interference attempts in real time.</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "wireless jamming";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/wireless-disassociation-attack.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

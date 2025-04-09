@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Authentication Protocols and Their Importance</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Authentication Protocols and Their Importance</h1>
+    </header>
+    
+    <section>
+        <h2>What Are Authentication Protocols?</h2>
+        <p>Authentication protocols are mechanisms that allow a system, such as a server, to confirm the identity of a user, device, or another system attempting to gain access. These protocols are widely used in computer networks to ensure that only authorized users can access sensitive data and resources.</p>
+        <p>As digital transactions increase and cyber threats become more sophisticated, authentication has become a critical component of cybersecurity. While no system can provide absolute security, strong authentication mechanisms significantly reduce the risk of unauthorized access.</p>
+    </section>
+    
+    <section>
+        <h2>Common Types of Authentication Protocols</h2>
+        <p>System administrators have numerous authentication protocols at their disposal, each with unique benefits and use cases. Here are some of the most widely used authentication protocols:</p>
+        
+        <h3>1. Kerberos</h3>
+        <p>Kerberos is a widely used authentication protocol, particularly in Windows environments. It operates using symmetric encryption and a central Key Distribution Center (KDC) to manage authentication keys securely.</p>
+        
+        <h3>2. Lightweight Directory Access Protocol (LDAP)</h3>
+        <p>LDAP is an open protocol designed for accessing and maintaining directory information, including usernames, passwords, email addresses, and organizational resources. It is frequently used in enterprise environments to manage user authentication across a network.</p>
+        
+        <h3>3. OAuth 2.0</h3>
+        <p>OAuth 2.0 allows users to log in to third-party applications using existing credentials from platforms like Google or Facebook. Instead of directly sharing login details, an application requests authentication from an external service provider.</p>
+        
+        <h3>4. Remote Authentication Dial-In User Service (RADIUS)</h3>
+        <p>RADIUS is a centralized authentication protocol that verifies a user’s credentials against a remote database. It is commonly used in corporate environments and network access control systems.</p>
+        
+        <h3>5. Security Assertion Markup Language (SAML)</h3>
+        <p>SAML is an XML-based protocol that facilitates the exchange of authentication data between an Identity Provider (IdP) and a Service Provider (SP). It is widely used in Single Sign-On (SSO) implementations for web applications.</p>
+    </section>
+    
+    <section>
+        <h2>Additional Authentication Protocols</h2>
+        <ul>
+            <li><strong>Challenge-Handshake Authentication Protocol (CHAP):</strong> This protocol continuously reauthenticates users during a session by issuing unique challenges.</li>
+            <li><strong>DIAMETER:</strong> An enhancement of RADIUS, DIAMETER offers improved security and a more flexible framework for authentication and accounting messages.</li>
+            <li><strong>Extensible Authentication Protocol (EAP):</strong> Frequently used in wireless networks, EAP supports multiple authentication methods, including password-based and certificate-based authentication.</li>
+            <li><strong>Password Authentication Protocol (PAP):</strong> A simple authentication mechanism where users provide a username and password, which the system verifies against a stored database.</li>
+            <li><strong>Terminal Access Controller Access-Control System (TACACS):</strong> Originally designed for IP-based authentication, TACACS has evolved to include encrypted authentication processes in later versions.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "authentication protocols";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/wireless-security.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

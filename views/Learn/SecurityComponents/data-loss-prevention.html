@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Guide to Data Loss Prevention (DLP)</title>
+</head>
+<body>
+    <h1>Comprehensive Guide to Data Loss Prevention (DLP)</h1>
+    
+    <h2>What is Data Loss Prevention?</h2>
+    <p>Data Loss Prevention (DLP) is a cybersecurity approach that safeguards sensitive data from being lost, misused, or accessed by unauthorized individuals. It monitors data movement across cloud environments, local storage, and endpoint devices to prevent leaks or breaches. DLP solutions also support regulatory compliance efforts, such as GDPR and HIPAA, ensuring organizations manage their data responsibly.</p>
+    
+    <p>For effective data security, organizations must integrate <strong>data protection</strong>—applying measures like encryption—and <strong>data governance</strong>, which establishes how data is stored, shared, and retained. This dual-layered approach strengthens overall security and minimizes risks.</p>
+    
+    <h2>Key Aspects of DLP</h2>
+    <ul>
+        <li><strong>Data Discovery & Classification</strong> – Identifies and categorizes sensitive data across systems.</li>
+        <li><strong>Access Controls & Encryption</strong> – Implements restrictions and encrypts confidential information.</li>
+        <li><strong>Leak Prevention</strong> – Mitigates risks of accidental or unauthorized data exposure.</li>
+        <li><strong>Regulatory Compliance</strong> – Aligns data handling with industry regulations.</li>
+    </ul>
+    
+    <h2>How DLP Operates</h2>
+    <p>DLP systems use a combination of automation, security policies, and artificial intelligence to analyze data usage patterns. These solutions detect anomalies, enforce security protocols, and prevent unauthorized data transfers. By continuously scanning networks, files, and user activities, DLP tools help organizations maintain control over their sensitive assets.</p>
+    
+    <h2>Common Threats to Data Security</h2>
+    <p>Organizations face a range of risks that can compromise the safety and confidentiality of their data:</p>
+    <ul>
+        <li><strong>Cyberattacks</strong> – Unauthorized attempts to breach networks, steal information, or disrupt operations.</li>
+        <li><strong>Malware Infections</strong> – Harmful software such as viruses, trojans, and spyware that infiltrate systems and expose data.</li>
+        <li><strong>Insider Risks</strong> – Employees, vendors, or contractors who mishandle or misuse confidential information.</li>
+        <li><strong>Unintentional Data Exposure</strong> – Human errors leading to unauthorized data sharing or system vulnerabilities.</li>
+        <li><strong>Phishing Schemes</strong> – Deceptive emails and messages designed to trick users into revealing personal or corporate credentials.</li>
+        <li><strong>Ransomware Attacks</strong> – Malicious software that encrypts critical data and demands payment for restoration.</li>
+    </ul>
+    
+    <h2>Why DLP Matters</h2>
+    <p>Implementing DLP safeguards an organization's critical assets by ensuring that only authorized personnel can access or share sensitive data. It also helps in protecting endpoints like workstations, mobile devices, and cloud applications from security threats.</p>
+    
+    <h2>Essential Components of Data Security</h2>
+    <ul>
+        <li><strong>Cloud & Network Protection</strong> – Prevents unauthorized data exposure in cloud and local environments.</li>
+        <li><strong>Encryption Techniques</strong> – Ensures only intended recipients can access sensitive files.</li>
+        <li><strong>Threat Response Mechanisms</strong> – Establishes security measures to detect, respond to, and neutralize breaches.</li>
+        <li><strong>Disaster Recovery Plans</strong> – Outlines strategies for data restoration following cyber incidents or system failures.</li>
+    </ul>
+    
+    <p>By integrating DLP solutions, organizations can enhance data protection, minimize security threats, and maintain regulatory compliance while fostering a secure and efficient operational environment.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "data loss prevention";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/mobile-device-conections.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

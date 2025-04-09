@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Comprehensive Guide to PKI Encryption: Understanding Certificate Types</title>
+</head>
+<body>
+    <header>
+        <h1>A Comprehensive Guide to PKI Encryption: Understanding Certificate Types</h1>
+    </header>
+    
+    <section>
+        <h2>Why Understanding Digital Certificates Matters</h2>
+        <p>Digital certificates authenticate individuals, devices, and software, ensuring secure communication. As an organization expands, managing certificates becomes more complex.</p>
+        <p>SSL/TLS certificates safeguard sensitive data during online transactions, while other types are used to sign code and protect IoT devices. Without proper oversight, weak certificate management poses serious cybersecurity threats.</p>
+    </section>
+    
+    <section>
+        <h2>Types of Digital Certificates</h2>
+        
+        <h3>SSL/TLS Certificates</h3>
+        <p>These certificates establish encrypted connections between web browsers and servers, preventing unauthorized data interception.</p>
+        <ul>
+            <li><strong>Single Domain SSL:</strong> Secures one domain, ideal for basic websites.</li>
+            <li><strong>Wildcard SSL:</strong> Covers a domain and its subdomains using a wildcard character (*).</li>
+            <li><strong>Multi-Domain SSL (SAN):</strong> Protects multiple domains within one certificate.</li>
+        </ul>
+        
+        <h4>SSL Validation Levels</h4>
+        <ul>
+            <li><strong>Domain Validation (DV):</strong> Confirms domain ownership but not business identity.</li>
+            <li><strong>Organization Validation (OV):</strong> Verifies domain ownership and business details.</li>
+            <li><strong>Extended Validation (EV):</strong> Provides the highest verification level for financial institutions.</li>
+        </ul>
+        
+        <h3>Code Signing Certificates</h3>
+        <p>These verify the integrity and authenticity of software, ensuring it hasn’t been tampered with.</p>
+        
+        <h3>Email Encryption and Signing Certificates</h3>
+        <p>These certificates secure email communication by encrypting messages and verifying the sender’s identity.</p>
+        
+        <h3>Client Authentication Certificates</h3>
+        <p>Used for verifying users before granting access to a server or network, providing an additional security layer beyond passwords.</p>
+        
+        <h3>Document Signing Certificates</h3>
+        <p>These digitally sign electronic documents, confirming authenticity and ensuring they haven’t been altered.</p>
+        
+        <h3>Verified Mark Certificates (VMCs)</h3>
+        <p>VMCs display a trusted mark in the browser bar alongside an SSL certificate, verifying website ownership.</p>
+        
+        <h3>IoT Security Certificates</h3>
+        <p>IoT devices rely on lightweight certificates to establish secure connections, preventing unauthorized access.</p>
+        
+        <h3>Ephemeral Certificates for DevOps</h3>
+        <p>Designed for short-term use, ephemeral certificates facilitate secure communication during frequent software deployments.</p>
+        
+        <h3>Certificate Authority (CA) Certificates</h3>
+        <p>CA certificates validate the identity of Certificate Authorities that issue digital certificates.</p>
+    </section>
+    
+    <section>
+        <h2>Managing the Certificate Lifecycle</h2>
+        <ul>
+            <li><strong>Regularly Renewing SSL/TLS Certificates:</strong> Industry standards recommend renewing certificates annually.</li>
+            <li><strong>Maintaining an Accurate Inventory:</strong> Tracking all active certificates prevents disruptions.</li>
+            <li><strong>Monitoring Root of Trust (RoT) and Encryption Keys:</strong> Ensuring security through certificate monitoring.</li>
+            <li><strong>Revoking Expired or Compromised Certificates:</strong> Decommissioning outdated certificates minimizes security risks.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "types of certificates";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/pki-concepts.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

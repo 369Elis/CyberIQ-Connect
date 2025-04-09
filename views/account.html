@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Page</title>
+    <link rel="stylesheet" href="../styles/account.css" />
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="left-section">
+        <!-- Website Logo -->
+        <img src="../assets/logo.home1.png" alt="Website Logo" class="logo" />
+        <!-- Home Link -->
+        <a href="Home-Page.html" class="nav-link">
+          <img src="../assets/home.logo.png" alt="Home" class="nav-icon" />
+          Home
+        </a>
+        <!-- Modules Link -->
+        <a href="/learn.html" class="nav-link">
+          <img src="../assets/module.1.png" alt="Modules" class="nav-icon" />
+          Modules
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+      <!-- Avatar Section -->
+      <div class="avatar-section">
+        <h2>Avatar</h2>
+        <hr />
+        <div class="avatar-content">
+          <!-- New Avatar Upload -->
+          <div class="new-avatar">
+            <p>Choose New Avatar:</p>
+            <form
+              id="avatar-upload-form"
+              action="/upload-avatar"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <input
+                type="file"
+                name="avatar"
+                id="avatar-input"
+                accept="image/*"
+                style="display: none"
+              />
+              <button
+                type="button"
+                id="choose-file-btn"
+                class="choose-avatar-btn"
+              >
+                Choose File
+              </button>
+            </form>
+          </div>
+
+          <!-- Current Avatar -->
+          <div class="current-avatar">
+            <p>Chosen Avatar:</p>
+            <img
+              id="current-avatar-image"
+              src="../assets/avatar/pfp.JPG"
+              alt="Current Avatar"
+              class="avatar-image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Section -->
+      <div class="settings-section">
+        <h2>Settings</h2>
+        <hr />
+        <ul class="settings-list">
+          <li><a href="personalinfo.html">Personal Info</a></li>
+          <li><a href="progress.html">My Progress</a></li>
+          <li><a href="#">Disable Sound Effects</a></li>
+          <li><a href="changepassword.html">Change Password</a></li>
+          <li>
+            <a href="#" id="downloadCertLink">Download My Certificate</a>
+          </li>
+          <li>
+            <form action="/logout" method="POST" style="display: inline">
+              <button type="submit" class="logout-btn">Logout</button>
+            </form>
+          </li>
+          <li>
+            <form action="/delete-account" method="POST" style="margin: 0">
+              <button type="submit" class="danger-btn">Delete Account</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hidden Change Password Form (optional if used on same page) -->
+      <div
+        id="changePasswordSection"
+        class="change-password-section"
+        style="display: none"
+      >
+        <h2>Change Password</h2>
+        <form id="changePasswordForm" action="/change-password" method="POST">
+          <div>
+            <label for="currentPassword">Current Password:</label>
+            <input
+              type="password"
+              id="currentPassword"
+              name="currentPassword"
+              required
+            />
+          </div>
+          <div>
+            <label for="newPassword">New Password:</label>
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              required
+            />
+          </div>
+          <div>
+            <label for="confirmPassword">Confirm New Password:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+            />
+          </div>
+          <button type="submit" class="choose-avatar-btn">
+            Change Password
+          </button>
+          <button type="button" id="cancelChangePasswordBtn" class="cancel-btn">
+            Cancel
+          </button>
+        </form>
+      </div>
+
+      <!-- Delete Account Confirmation Modal -->
+      <div id="deleteModal" class="modal">
+        <div class="modal-content">
+          <h2>Are you sure?</h2>
+          <p>
+            Deleting your account will permanently erase all your data and
+            progress. This action cannot be undone.
+          </p>
+          <button id="confirmDelete" class="danger-btn">Yes, Delete</button>
+          <button id="cancelDelete" class="cancel-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============= SCRIPTS ============= -->
+
+    <!-- 1) On page load, fetch /api/user-info to get the latest avatar -->
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const currentAvatarImage = document.getElementById(
+          "current-avatar-image"
+        );
+
+        try {
+          const res = await fetch("/api/user-info");
+          if (res.ok) {
+            const data = await res.json();
+            if (data.isLoggedIn && data.avatarUrl) {
+              // Set the img src to the user's avatar from DB
+              currentAvatarImage.src = data.avatarUrl;
+            } else {
+              // fallback to default
+              currentAvatarImage.src = "../assets/avatar/pfp.JPG";
+            }
+          } else {
+            // If 401 or error
+            currentAvatarImage.src = "../assets/avatar/pfp.JPG";
+          }
+        } catch (err) {
+          console.error("Error fetching user info:", err);
+          currentAvatarImage.src = "../assets/avatar/pfp.JPG";
+        }
+      });
+    </script>
+
+    <!-- 2) Upload new avatar immediately when a file is chosen -->
+    <script>
+      const avatarInput = document.getElementById("avatar-input");
+      const chooseFileBtn = document.getElementById("choose-file-btn");
+      const currentAvatarImage = document.getElementById(
+        "current-avatar-image"
+      );
+
+      chooseFileBtn.addEventListener("click", () => {
+        avatarInput.click(); // Programmatically open the file chooser
+      });
+
+      avatarInput.addEventListener("change", async () => {
+        if (avatarInput.files.length === 0) return; // user canceled
+
+        const formData = new FormData();
+        formData.append("avatar", avatarInput.files[0]);
+
+        try {
+          const response = await fetch("/upload-avatar", {
+            method: "POST",
+            body: formData,
+          });
+          const result = await response.json();
+
+          if (!response.ok || !result.success) {
+            console.error("Avatar upload failed:", result);
+            alert(result.message || "Failed to upload avatar.");
+            return;
+          }
+
+          // Use the EXACT path returned by the server
+          currentAvatarImage.src = result.newAvatarUrl;
+        } catch (error) {
+          console.error("Error uploading avatar:", error);
+          alert("Network error uploading avatar.");
+        }
+      });
+    </script>
+
+    <!-- 3) Delete Account Modal Logic -->
+    <script>
+      const deleteModal = document.getElementById("deleteModal");
+      const confirmDeleteBtn = document.getElementById("confirmDelete");
+      const cancelDeleteBtn = document.getElementById("cancelDelete");
+      const deleteForm = document.querySelector(
+        "form[action='/delete-account']"
+      );
+
+      // Show modal on click
+      deleteForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        deleteModal.style.display = "block";
+      });
+
+      // Confirm
+      confirmDeleteBtn.addEventListener("click", () => {
+        deleteForm.submit();
+      });
+
+      // Cancel
+      cancelDeleteBtn.addEventListener("click", () => {
+        deleteModal.style.display = "none";
+      });
+    </script>
+
+    <script>
+      document
+        .getElementById("downloadCertLink")
+        .addEventListener("click", async (e) => {
+          e.preventDefault();
+          try {
+            const res = await fetch("/api/certificate-url");
+            const data = await res.json();
+
+            if (!res.ok || !data.url) {
+              alert("Certificate not found.");
+              return;
+            }
+
+            window.open(data.url, "_blank");
+          } catch (err) {
+            console.error("Error fetching cert:", err);
+            alert("Could not download certificate.");
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Symmetric and Asymmetric Encryption</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Symmetric and Asymmetric Encryption</h1>
+    </header>
+    
+    <section>
+        <h2>What is Symmetric Encryption?</h2>
+        <p>Symmetric encryption is a cryptographic technique that uses a single key to both encrypt and decrypt data. It is generally faster and requires less computing power than asymmetric encryption, but its security depends on the confidentiality of the shared key.</p>
+        <p>Also referred to as <strong>secret-key encryption</strong>, this method generates a single key shared between the sender and receiver. The main weakness is the challenge of securely exchanging the key. To mitigate this risk, many organizations use a hybrid approach, leveraging asymmetric encryption for secure key exchange while relying on symmetric encryption for subsequent data transmission.</p>
+    </section>
+    
+    <section>
+        <h2>What is Asymmetric Encryption?</h2>
+        <p>Asymmetric encryption employs two mathematically linked keys—a <strong>public key</strong> for encryption and a <strong>private key</strong> for decryption. This method enhances security by eliminating the need for a shared secret key.</p>
+        <p>Unlike symmetric encryption, asymmetric encryption avoids the key exchange problem by using two keys: the <strong>public key</strong>, which encrypts the data and can be freely distributed, and the <strong>private key</strong>, which decrypts the data and must be kept confidential.</p>
+        <p>Although it is highly secure, asymmetric encryption requires more computational power, making it slower than symmetric encryption. Many security systems use a <strong>hybrid encryption</strong> approach, where asymmetric encryption secures key exchange, while symmetric encryption handles bulk data encryption.</p>
+    </section>
+    
+    <section>
+        <h2>Key Differences Between Symmetric and Asymmetric Encryption</h2>
+        <ul>
+            <li><strong>Key Usage:</strong> Symmetric encryption uses a single shared key, while asymmetric encryption uses a public-private key pair.</li>
+            <li><strong>Security:</strong> Symmetric encryption is more vulnerable due to key exchange risks, whereas asymmetric encryption significantly reduces this risk by keeping the private key confidential.</li>
+            <li><strong>Performance:</strong> Symmetric encryption is faster and more efficient for large data sets, while asymmetric encryption is more computationally intensive.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>How Does Symmetric Encryption Work?</h2>
+        <ol>
+            <li><strong>Key Generation:</strong> A unique encryption key is created and securely distributed.</li>
+            <li><strong>Encryption Process:</strong> The plaintext is transformed into ciphertext using a cryptographic algorithm.</li>
+            <li><strong>Transmission:</strong> The encrypted message is sent to the recipient.</li>
+            <li><strong>Decryption Process:</strong> The recipient uses the same key to convert the ciphertext back into plaintext.</li>
+        </ol>
+        <p>Types of symmetric encryption algorithms:</p>
+        <ul>
+            <li><strong>Block Ciphers (e.g., AES):</strong> Encrypt data in fixed-size blocks.</li>
+            <li><strong>Stream Ciphers (e.g., RC4):</strong> Encrypt data bit by bit, useful for real-time communication.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>How Does Asymmetric Encryption Work?</h2>
+        <ol>
+            <li><strong>Key Pair Generation:</strong> A public and private key are created using complex mathematical algorithms.</li>
+            <li><strong>Encryption Process:</strong> The sender encrypts the message using the recipient's public key.</li>
+            <li><strong>Transmission:</strong> The encrypted data is sent over the network.</li>
+            <li><strong>Decryption Process:</strong> The recipient uses their private key to decrypt the data.</li>
+        </ol>
+        <p>Because the private key is never shared, asymmetric encryption minimizes security risks associated with key exchange.</p>
+    </section>
+    
+    <section>
+        <h2>Integrating Symmetric and Asymmetric Encryption</h2>
+        <p>Many modern security systems combine both encryption methods to optimize security and efficiency. The hybrid approach typically follows these steps:</p>
+        <ol>
+            <li><strong>Asymmetric Key Exchange:</strong> A secure key exchange mechanism, such as RSA or Diffie-Hellman, establishes a symmetric session key.</li>
+            <li><strong>Symmetric Encryption for Data Transmission:</strong> The symmetric key encrypts large amounts of data quickly and efficiently.</li>
+            <li><strong>Authentication via Digital Certificates:</strong> A trusted third-party Certificate Authority (CA) verifies public keys to prevent impersonation attacks.</li>
+        </ol>
+        <p>For example, HTTPS secures website communications using <strong>SSL/TLS protocols</strong>, which rely on asymmetric encryption for key exchange and symmetric encryption for data transmission.</p>
+    </section>
+    
+    <section>
+        <h2>Common Asymmetric Encryption Algorithms</h2>
+        <ul>
+            <li><strong>RSA (Rivest-Shamir-Adleman):</strong> Uses large prime numbers to generate public and private keys.</li>
+            <li><strong>Elliptic Curve Cryptography (ECC):</strong> Offers high security with smaller key sizes, making it efficient for mobile and IoT applications.</li>
+            <li><strong>Diffie-Hellman (DH):</strong> Establishes secure key exchanges over insecure networks.</li>
+            <li><strong>Digital Signature Algorithm (DSA):</strong> Enables secure digital signatures for authentication and document verification.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Final Thoughts on Encryption Methods</h2>
+        <p>Encryption is a cornerstone of cybersecurity, safeguarding sensitive data from unauthorized access. While symmetric encryption excels in efficiency, asymmetric encryption offers higher security through key-pair authentication.</p>
+        <p>By combining both methods, organizations achieve a balance between performance and protection, ensuring secure digital communication and data integrity in an evolving threat landscape.</p>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "symmetric - asymmetric";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/hashing-algorithms.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

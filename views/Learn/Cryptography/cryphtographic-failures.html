@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Cryptographic Vulnerabilities and Their Consequences</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Cryptographic Vulnerabilities and Their Consequences</h1>
+    </header>
+    
+    <section>
+        <p>Encryption failures arise when security measures do not adequately protect sensitive data, resulting in unauthorized exposure. The OWASP Top 10 security risks recognize this as a major concern, ranking it among the most pressing vulnerabilities.</p>
+    </section>
+    
+    <section>
+        <h2>Why Do Cryptographic Failures Occur?</h2>
+        <p>Failures in cryptography often stem from flawed implementations or outdated encryption standards. Some common issues include:</p>
+        <ul>
+            <li><strong>Embedded Credentials in Code (CWE-259):</strong> Storing encryption keys or passwords in source code makes them easy targets for attackers.</li>
+            <li><strong>Weak or Deprecated Encryption Algorithms (CWE-327):</strong> Using obsolete or insecure encryption techniques weakens data protection.</li>
+            <li><strong>Predictable Key Generation (CWE-331):</strong> Insufficient randomness in key creation makes encrypted data susceptible to brute-force attacks.</li>
+        </ul>
+        <p>These weaknesses can compromise data integrity, leading to security breaches that impact both individuals and organizations.</p>
+    </section>
+    
+    <section>
+        <h2>Notable Cases of Cryptographic Failures</h2>
+        <ul>
+            <li><strong>Heartbleed Bug:</strong> A flaw in OpenSSL allowed attackers to extract sensitive data from system memory.</li>
+            <li><strong>Dual EC DRBG Exploit:</strong> A backdoor in a cryptographic algorithm raised concerns over intentional data exposure.</li>
+            <li><strong>WhatsApp Security Flaw:</strong> Vulnerabilities allowed attackers to install spyware through manipulated voice calls.</li>
+            <li><strong>Facebook Password Storage Incident:</strong> User credentials were stored in plaintext, making them accessible to employees.</li>
+        </ul>
+        <p>Such incidents highlight the importance of maintaining up-to-date encryption practices and continuously improving security measures.</p>
+    </section>
+    
+    <section>
+        <h2>The Risks Associated with Cryptographic Weaknesses</h2>
+        <p>Flaws in encryption put organizations at risk by enabling attackers to:</p>
+        <ul>
+            <li>Illicitly access sensitive data and credentials.</li>
+            <li>Carry out man-in-the-middle (MITM) attacks to intercept communications.</li>
+            <li>Exploit system vulnerabilities to infiltrate protected environments.</li>
+        </ul>
+        <p>Consequences range from financial losses and reputational damage to regulatory penalties and legal repercussions.</p>
+    </section>
+    
+    <section>
+        <h2>How to Assess Cryptographic Security in Applications</h2>
+        <p>To evaluate whether your application is vulnerable, ask the following questions:</p>
+        <ul>
+            <li>Is any data transmitted in an unencrypted format?</li>
+            <li>Does the system store sensitive data without encryption?</li>
+            <li>Are outdated encryption techniques in use?</li>
+            <li>Are cryptographic keys and settings left at their defaults?</li>
+            <li>Is key management handled securely?</li>
+            <li>Are secure communication protocols and certificates properly enforced?</li>
+        </ul>
+        <p>If the answer to any of these is “yes,” immediate security enhancements are needed.</p>
+    </section>
+    
+    <section>
+        <h2>Common Scenarios of Encryption Weaknesses</h2>
+        <h3>1. Weak Password Hashing Mechanisms</h3>
+        <p>If passwords are stored as simple unsalted hashes, attackers can exploit rainbow tables to crack them. Adding salts significantly strengthens password security.</p>
+        
+        <h3>2. Risks in Automated Database Encryption</h3>
+        <p>Many database systems offer automatic encryption features, such as Transparent Data Encryption (TDE). However, since data is decrypted when accessed, vulnerabilities still exist, particularly when combined with weak access controls.</p>
+        
+        <h3>3. Absence of TLS Protection</h3>
+        <p>Websites and applications that fail to implement TLS encryption expose network traffic to interception. Attackers can manipulate connections, downgrade HTTPS to HTTP, and capture transmitted data.</p>
+        
+        <h3>4. Poor Key Storage and Hardcoded Credentials</h3>
+        <p>Embedding passwords or API keys in publicly accessible code repositories creates a significant security risk. Exposed credentials can grant attackers unauthorized access to databases and services.</p>
+    </section>
+    
+    <section>
+        <h2>Mitigating Cryptographic Vulnerabilities</h2>
+        
+        <h3>1. Secure Key Management Strategies</h3>
+        <ul>
+            <li>Use cryptographically secure methods for generating keys.</li>
+            <li>Store keys in dedicated hardware security modules (HSMs) instead of plaintext files.</li>
+            <li>Regularly rotate encryption keys and revoke old ones when no longer needed.</li>
+        </ul>
+        
+        <h3>2. Strengthening Development Practices</h3>
+        <ul>
+            <li>Adhere to secure coding guidelines to ensure proper encryption implementation.</li>
+            <li>Integrate encryption at all necessary points within an application, not just at the external boundaries.</li>
+        </ul>
+        
+        <h3>3. Regular Security Audits and Testing</h3>
+        <ul>
+            <li>Conduct penetration testing to identify cryptographic flaws.</li>
+            <li>Simulate attacks to assess security defenses and fix vulnerabilities before exploitation occurs.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "cryptography failures";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/types-of-certificates.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

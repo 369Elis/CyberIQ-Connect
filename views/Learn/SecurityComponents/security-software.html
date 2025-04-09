@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active vs. Passive Monitoring: Key Differences</title>
+</head>
+<body>
+    <h1>Active vs. Passive Monitoring: Key Differences</h1>
+    
+    <p>Businesses continuously monitor IT infrastructure and applications to maintain seamless operations. Active and passive monitoring are two primary approaches used for performance monitoring, each with distinct methodologies.</p>
+    
+    <h2>What is Active Monitoring?</h2>
+    <p>Active monitoring involves proactively testing networks, applications, and infrastructure using synthetic data. By generating test packets, active monitoring simulates real-world performance to measure key parameters. This approach, also known as synthetic monitoring, helps predict potential issues by creating test scenarios that mimic user interactions.</p>
+    
+    <h3>Examples include:</h3>
+    <ul>
+        <li>Simulating network traffic to assess performance.</li>
+        <li>Creating synthetic user journeys in applications.</li>
+        <li>Generating test data to evaluate infrastructure reliability.</li>
+    </ul>
+    
+    <h2>What is Passive Monitoring?</h2>
+    <p>Passive monitoring, in contrast, relies on real-time data to analyze network and application performance. It captures actual user activity without generating additional traffic, offering a more comprehensive view of real-world performance.</p>
+    
+    <h3>Examples include:</h3>
+    <ul>
+        <li>Packet sniffers that analyze network traffic.</li>
+        <li>Periodic data collection techniques for real-time insights.</li>
+        <li>Monitoring user interactions without interference.</li>
+    </ul>
+    
+    <h2>Protocol Analyzers: Role in Monitoring</h2>
+    <p>A protocol analyzer is a tool that captures and deciphers data transmitted over communication channels. It helps engineers debug and analyze network behavior by converting raw data into readable protocol sequences.</p>
+    
+    <h3>Types of Protocol Analyzers:</h3>
+    <ul>
+        <li><strong>Hardware Protocol Analyzer</strong> – Uses dedicated hardware to capture and analyze data. Commonly used in debugging hardware interfaces such as UFS, eMMC, and PCIe.</li>
+        <li><strong>Software Protocol Analyzer</strong> – Software-based tools that analyze network traffic, often referred to as network analyzers. Used for monitoring LAN, Wi-Fi, and other communication channels.</li>
+    </ul>
+    
+    <h2>Choosing Between Active and Passive Monitoring</h2>
+    <ul>
+        <li><strong>Active Monitoring</strong> is useful for proactively identifying potential issues but may introduce artificial traffic.</li>
+        <li><strong>Passive Monitoring</strong> provides an accurate representation of real-world performance but requires more data processing.</li>
+    </ul>
+    
+    <p>Both methods complement each other and are often used together to provide a complete view of network and application health.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "security software";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/mobile-device-management.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

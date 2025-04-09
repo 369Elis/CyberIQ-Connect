@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Goals of a Disaster Recovery Plan</title>
+</head>
+<body>
+    <h1>Key Goals of a Disaster Recovery Plan</h1>
+    <p>A well-structured DRP revolves around three main objectives:</p>
+    <ul>
+        <li><strong>Prevention:</strong> Implementing proactive security measures like data backups, generators, and surge protectors to minimize risk.</li>
+        <li><strong>Detection:</strong> Regular system inspections to identify potential threats before they escalate.</li>
+        <li><strong>Correction:</strong> Restoring business operations quickly while learning from incidents to prevent future disruptions.</li>
+    </ul>
+    
+    <h2>What Should a Disaster Recovery Plan Include?</h2>
+    
+    <h3>1. Defining Recovery Objectives</h3>
+    <ul>
+        <li><strong>Recovery Time Objective (RTO):</strong> Maximum downtime allowed (e.g., 4 hours).</li>
+        <li><strong>Recovery Point Objective (RPO):</strong> Maximum acceptable data loss (e.g., 1-hour data loss).</li>
+    </ul>
+    
+    <h3>2. Assigning Roles & Responsibilities</h3>
+    <ul>
+        <li><strong>Disaster Recovery Team (DRT):</strong> Executes the DRP.</li>
+        <li><strong>IT Staff:</strong> Restores systems and troubleshoots issues.</li>
+        <li><strong>Communications Manager:</strong> Handles internal and external updates.</li>
+        <li><strong>Business Continuity Lead:</strong> Ensures ongoing non-IT operations.</li>
+    </ul>
+    
+    <h3>3. IT Asset Inventory & Risk Assessment</h3>
+    <ul>
+        <li><strong>Hardware:</strong> Servers, network infrastructure, storage devices.</li>
+        <li><strong>Software:</strong> Business applications, operating systems, cloud services.</li>
+        <li><strong>Data Assets:</strong> Sensitive files, databases, customer records.</li>
+        <li><strong>Cloud & Third-Party Services:</strong> Vendor dependencies, off-site storage solutions.</li>
+    </ul>
+    
+    <h3>4. Backup & Data Protection Strategy</h3>
+    <ul>
+        <li><strong>Backup Frequency:</strong> Hourly, daily, or weekly backups.</li>
+        <li><strong>Backup Locations:</strong> On-site, off-site, or cloud-based storage.</li>
+        <li><strong>Data Encryption:</strong> Protecting sensitive information.</li>
+        <li><strong>Testing & Validation:</strong> Regular verification of backup integrity.</li>
+    </ul>
+    
+    <h3>5. Disaster Recovery Procedures</h3>
+    <ul>
+        <li><strong>Emergency Response Plan:</strong> Immediate steps to minimize damage.</li>
+        <li><strong>Incident Containment:</strong> Isolating affected systems.</li>
+        <li><strong>System Restoration:</strong> Bringing critical applications back online.</li>
+        <li><strong>Damage Mitigation:</strong> Addressing cyber threats, power failures.</li>
+    </ul>
+    
+    <h3>6. Disaster Recovery Site (Failover Plan)</h3>
+    <ul>
+        <li><strong>Hot Site:</strong> Fully functional backup data center for immediate failover.</li>
+        <li><strong>Warm Site:</strong> Partially equipped recovery center requiring setup.</li>
+        <li><strong>Cold Site:</strong> Minimal infrastructure, requiring full setup before use.</li>
+    </ul>
+    
+    <h3>7. Restoration & Post-Recovery Process</h3>
+    <ul>
+        <li><strong>Detailed Restoration Steps:</strong> Document every action needed.</li>
+        <li><strong>Testing & Validation:</strong> Ensuring recovered data is functional.</li>
+        <li><strong>Post-Incident Review:</strong> Identifying gaps in the DRP for improvement.</li>
+    </ul>
+    
+    <h2>Benefits of a Disaster Recovery Plan</h2>
+    <ul>
+        <li>Minimized downtime & faster recovery.</li>
+        <li>Cost efficiency & prevention of legal penalties.</li>
+        <li>Regulatory compliance with HIPAA, GDPR, FINRA.</li>
+        <li>Customer trust & reputation protection.</li>
+        <li>Scalability to accommodate growing IT infrastructure.</li>
+    </ul>
+    
+    <h2>How to Develop a Disaster Recovery Plan</h2>
+    <ol>
+        <li>Conduct risk assessment & business impact analysis.</li>
+        <li>Evaluate critical needs & IT dependencies.</li>
+        <li>Define recovery objectives (RTO & RPO).</li>
+        <li>Document every procedure, role, and IT requirement.</li>
+        <li>Implement training & communication for employees.</li>
+        <li>Test & revise the plan regularly.</li>
+        <li>Keep the DRP updated with evolving business operations.</li>
+    </ol>
+
+     
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "disaster recovery";
+      const NEXT_PAGE_URL = "/Learn/Security-Policies/risk-management.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

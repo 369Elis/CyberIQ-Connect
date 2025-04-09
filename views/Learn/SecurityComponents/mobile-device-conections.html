@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Mobile Device Connections</title>
+</head>
+<body>
+    <h1>Types of Mobile Device Connections</h1>
+    
+    <p>In the digital era, mobile devices rely on multiple connection types to communicate, share data, and access the internet. These connectivity options enhance functionality, ensuring seamless interactions between devices and networks. Below are the key mobile connection types and their applications.</p>
+    
+    <h2>1. Wi-Fi (Wireless Fidelity)</h2>
+    <p>Wi-Fi is a standard technology enabling wireless internet access across various environments, such as homes, offices, and public hotspots.</p>
+    
+    <h3>How it Works:</h3>
+    <ul>
+        <li>Wireless routers transmit data via radio signals.</li>
+        <li>Mobile devices detect and connect to available networks.</li>
+        <li>Once connected, devices receive an IP address for data exchange.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <p>A user streams a video on their smartphone while connected to a café’s Wi-Fi network.</p>
+    
+    <h2>2. Cellular Networks</h2>
+    <p>Cellular connectivity enables mobile devices to make calls, send messages, and access the internet by connecting to carrier networks.</p>
+    
+    <h3>Generations of Cellular Networks:</h3>
+    <ul>
+        <li><strong>2G:</strong> Provided basic voice and SMS services.</li>
+        <li><strong>3G:</strong> Introduced mobile internet and video calling.</li>
+        <li><strong>4G LTE:</strong> Enabled high-speed data for HD streaming and gaming.</li>
+        <li><strong>5G:</strong> Delivers ultra-fast speeds and low latency for applications like augmented reality.</li>
+    </ul>
+    
+    <h3>How it Works:</h3>
+    <ul>
+        <li>Mobile devices link to nearby cell towers.</li>
+        <li>Towers relay data through the provider’s network.</li>
+        <li>Calls and internet traffic are managed via signal transmission.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <p>A person makes a video call over a 5G network with minimal lag.</p>
+    
+    <h2>3. Bluetooth</h2>
+    <p>Bluetooth is a short-range wireless technology used to connect devices like headphones, smartwatches, and keyboards.</p>
+    
+    <h3>How it Works:</h3>
+    <ul>
+        <li>Devices establish a secure personal area network (PAN).</li>
+        <li>Data is exchanged via low-power radio waves.</li>
+        <li>Pairing is required to ensure security.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <p>A user listens to music on wireless earbuds connected via Bluetooth.</p>
+    
+    <h2>4. NFC (Near Field Communication)</h2>
+    <p>NFC allows close-range communication between devices, often used for mobile payments and data transfers.</p>
+    
+    <h3>Modes of Operation:</h3>
+    <ul>
+        <li><strong>Card Emulation:</strong> Functions like a contactless credit card for payments.</li>
+        <li><strong>Peer-to-Peer:</strong> Transfers small amounts of data between two devices.</li>
+        <li><strong>Reader/Writer:</strong> Reads embedded information from NFC-enabled tags.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <p>Paying for groceries using a mobile wallet by tapping a smartphone on the payment terminal.</p>
+    
+    <h2>5. USB (Universal Serial Bus)</h2>
+    <p>USB connections facilitate data transfer and charging between mobile devices and computers or accessories.</p>
+    
+    <h3>Common USB Standards:</h3>
+    <ul>
+        <li><strong>USB 2.0:</strong> Basic file transfers and charging.</li>
+        <li><strong>USB 3.0 & 3.1:</strong> Higher data transfer speeds.</li>
+        <li><strong>USB-C:</strong> Reversible connector supporting faster charging and data exchange.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <p>A user transfers photos from their smartphone to a laptop using a USB-C cable.</p>
+    
+    <h2>6. Mobile Hotspots</h2>
+    <p>A mobile hotspot allows devices to share a smartphone’s cellular connection to access the internet.</p>
+    
+    <h3>How it Works:</h3>
+    <ul>
+        <li>The mobile device connects to the carrier’s network.</li>
+        <li>It creates a Wi-Fi signal for nearby devices.</li>
+        <li>Other devices join the hotspot to use mobile data.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <p>A traveler enables a mobile hotspot to provide internet access to their laptop while working remotely.</p>
+    
+    <h2>7. Infrared (IR) – Legacy Technology</h2>
+    <p>Infrared technology was previously used for data transfer and remote control functions but is now largely replaced by modern wireless options.</p>
+    
+    <h3>How it Works:</h3>
+    <ul>
+        <li>Devices send and receive data through infrared light signals.</li>
+        <li>Requires direct line-of-sight between connected devices.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <p>Older mobile phones used infrared to exchange contact information when placed close together.</p>
+    
+    <h2>Conclusion</h2>
+    <p>Mobile devices utilize various connection types to enable seamless communication and internet access. Each connectivity option serves different use cases, ensuring flexibility and efficiency in today’s interconnected world.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "mobile device conections";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/mobile-deployment-models.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

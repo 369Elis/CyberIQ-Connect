@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Essential Information Security Policies</title>
+</head>
+<body>
+    <h1>5 Essential Information Security Policies for Every Organization</h1>
+    <p>Ensuring the security of an organization’s data isn’t just about firewalls, encryption, and anti-malware software—it starts with people. Employees play a crucial role in cybersecurity, and without clear policies and procedures, even the most advanced security measures can fail.</p>
+    
+    <p>A single weak password, a misplaced USB drive, or a moment of carelessness on public Wi-Fi can result in a major security breach. That’s why organizations must establish strong security policies to guide employees in safeguarding sensitive information.</p>
+    
+    <h2>1. Remote Access Policy</h2>
+    <p>With remote and hybrid work becoming the norm, employees regularly access company systems outside the office—often from personal devices, shared networks, or public Wi-Fi. While this improves flexibility and productivity, it introduces security risks.</p>
+    <ul>
+        <li><strong>Public Wi-Fi Risks:</strong> Employees should avoid accessing company resources via unsecured networks without a VPN.</li>
+        <li><strong>Device Security:</strong> Work devices must be locked and stored securely when not in use.</li>
+        <li><strong>Access Controls:</strong> Strong multi-factor authentication (MFA) should be required for remote logins.</li>
+        <li><strong>Use of Personal Devices:</strong> Security guidelines should enforce encryption, antivirus protection, and data storage restrictions.</li>
+    </ul>
+    
+    <h2>2. Password Creation Policy</h2>
+    <p>Weak passwords remain one of the biggest security vulnerabilities in any organization. A strong password policy should enforce:</p>
+    <ul>
+        <li><strong>Minimum Length & Complexity:</strong> At least 12 characters with a mix of uppercase, lowercase, numbers, and symbols.</li>
+        <li><strong>No Common Passwords:</strong> Prohibit simple or easily guessed passwords.</li>
+        <li><strong>Mnemonic Approach:</strong> Encourage strong, memorable passphrases.</li>
+        <li><strong>Regular Updates:</strong> Require periodic password changes without reusing old passwords.</li>
+    </ul>
+    
+    <h2>3. Password Management Policy</h2>
+    <p>Even strong passwords become a liability if they are poorly managed. Organizations should implement:</p>
+    <ul>
+        <li><strong>No Password Sharing:</strong> Employees must never share credentials via unsecured methods.</li>
+        <li><strong>Use of Password Managers:</strong> Encourage tools like 1Password or LastPass.</li>
+        <li><strong>Disable ‘Remember Password’ Features:</strong> Prevent storing credentials in browsers.</li>
+        <li><strong>Multi-Factor Authentication (MFA):</strong> Add an extra layer of security for critical systems.</li>
+    </ul>
+    
+    <h2>4. Portable Media Policy</h2>
+    <p>USB drives and other external storage devices pose major security risks. A Portable Media Policy should include:</p>
+    <ul>
+        <li><strong>Restricting External Devices:</strong> Consider banning USB drives unless explicitly approved.</li>
+        <li><strong>Scanning Before Use:</strong> Require malware scans before accessing company systems.</li>
+        <li><strong>Encrypted Storage:</strong> Enforce encryption and password protection for removable media.</li>
+        <li><strong>Alternative Data Transfers:</strong> Encourage secure cloud storage over USB use.</li>
+    </ul>
+    
+    <h2>5. Acceptable Use Policy (AUP)</h2>
+    <p>Employees should be allowed reasonable personal use of company resources, but unrestricted access can pose risks. An Acceptable Use Policy should:</p>
+    <ul>
+        <li><strong>Define Safe & Unsafe Activities:</strong> Prohibit unauthorized downloads, torrenting, and high-risk website access.</li>
+        <li><strong>Monitor Network Traffic:</strong> Clearly state that internet activity may be monitored.</li>
+        <li><strong>Restrict Social Media & Email Use:</strong> Educate employees on phishing risks and data exposure.</li>
+        <li><strong>Specify Consequences for Violations:</strong> Outline disciplinary actions for non-compliance.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "essential security plolicies";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

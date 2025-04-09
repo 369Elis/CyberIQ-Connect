@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography</title>
+</head>
+<body>
+    <header>
+        <h1>Cryptography</h1>
+    </header>
+    
+    <section>
+        <p>Cryptography involves techniques for securing and verifying data by transforming it to maintain confidentiality, integrity, and authenticity.</p>
+        <p>IBM i cryptographic services play a crucial role in protecting sensitive information, ensuring data integrity, authenticating users, and preventing denial of message transmission.</p>
+    </section>
+    
+    <section>
+        <h2>Cryptographic Algorithms</h2>
+        <p>A cryptographic algorithm is a structured mathematical process designed to modify data, ensuring its security during transmission and storage.</p>
+    </section>
+    
+    <section>
+        <h3>Cipher Algorithms</h3>
+        <p>Cipher algorithms encode readable data (plaintext) into an unreadable format (ciphertext) and convert it back when needed. There are two primary types:</p>
+        
+        <h4>Symmetric Encryption</h4>
+        <p>This encryption method uses a single key for both encryption and decryption, making it efficient but requiring secure key distribution. A widely used example is the Advanced Encryption Standard (AES).</p>
+        
+        <h5>Types of symmetric encryption:</h5>
+        <ul>
+            <li><strong>Block Cipher:</strong> Encrypts data in fixed-size blocks, processing a specific number of bytes at a time.</li>
+            <li><strong>Stream Cipher:</strong> Encrypts data one bit or byte at a time, using a continuously generated keystream combined with the plaintext via XOR operations.</li>
+        </ul>
+        
+        <h4>Asymmetric Encryption</h4>
+        <p>Unlike symmetric encryption, asymmetric encryption uses two mathematically linked keys—a public key (shared openly) and a private key (kept secret). RSA is a commonly used asymmetric algorithm.</p>
+        <p>Although public-key encryption is more secure, it is significantly slower than symmetric encryption. Typically, asymmetric encryption is used to secure symmetric keys or create digital signatures.</p>
+        <p>Since algorithms are publicly available, data security relies on safeguarding encryption keys.</p>
+    </section>
+    
+    <section>
+        <h3>One-Way Hash Functions</h3>
+        <p>A cryptographic hash function generates a fixed-length output (digest) from an input string of any length. A good hash function has the following properties:</p>
+        <ul>
+            <li><strong>Collision Resistance:</strong> Even small modifications in data result in entirely different hash values.</li>
+            <li><strong>Irreversibility:</strong> It is computationally infeasible to reconstruct the original data from the hash.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Key Distribution Mechanisms</h3>
+        <p>For encrypted data to be deciphered elsewhere, secure key transmission is necessary. Several techniques facilitate this:</p>
+        <ul>
+            <li><strong>RSA Encryption:</strong> A public key encrypts a symmetric key before sending it, which is then decrypted using the corresponding private key.</li>
+            <li><strong>Diffie-Hellman Key Exchange:</strong> Both parties exchange specific parameters to generate matching symmetric keys independently.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Random Number Generation</h3>
+        <p>Random numbers are essential in encryption, password salting, and key generation. IBM i uses a FIPS-approved pseudorandom number generator (PRNG) for cryptographic operations.</p>
+        <p>In cryptographic processors, an electronic noise source supplies unpredictable values for randomness. A FIPS 140-1 certified PRNG ensures robust security.</p>
+    </section>
+    
+    <section>
+        <h3>Cryptographic Operations</h3>
+        <ul>
+            <li><strong>Message Authentication Code (MAC):</strong> Ensures message integrity by generating a unique code using a secret key and cipher algorithm.</li>
+            <li><strong>Encryption & Decryption:</strong> Converts plaintext into ciphertext and vice versa using encryption keys.</li>
+            <li><strong>HMAC (Hashed MAC):</strong> Uses a hash function combined with a secret key for authentication.</li>
+            <li><strong>Digital Signatures:</strong> Used for authentication and non-repudiation.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Data Security Layers</h3>
+        <ul>
+            <li><strong>Field-Level Encryption:</strong> The application manages key control and encryption operations.</li>
+            <li><strong>Session-Level Encryption:</strong> Encryption happens at the communication layer without application involvement.</li>
+            <li><strong>Link-Level Encryption:</strong> Data is encrypted at the lowest network layer.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Key Management</h3>
+        <p>Effective key management is critical for cryptographic security. This includes storage, encryption, distribution, and conversion.</p>
+        
+        <h4>Key Storage</h4>
+        <ul>
+            <li>Cryptographic Services Keystore</li>
+            <li>Cryptographic Coprocessors</li>
+            <li>Digital Certificate Manager (DCM) Stores</li>
+            <li>Java Cryptography Extension (JCE) Keystore</li>
+        </ul>
+        
+        <h4>Key Encryption & Conversion</h4>
+        <p>To prevent unauthorized access, cryptographic keys are stored and transmitted in an encrypted format.</p>
+    </section>
+    
+    <section>
+        <h3>Financial PIN Security</h3>
+        <p>Financial institutions use cryptography to generate and validate Personal Identification Numbers (PINs). PINs are securely assigned and processed using encryption techniques to verify user identity at ATMs and other financial platforms.</p>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "crptography concepts";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/types-of-encryption.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

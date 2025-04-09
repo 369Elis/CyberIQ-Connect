@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Zero Trust Network Access (ZTNA)</title>
+</head>
+<body>
+    <h1>Understanding Zero Trust Network Access (ZTNA)</h1>
+    
+    <h2>What Is ZTNA?</h2>
+    <p>Zero Trust Network Access (ZTNA) is a security framework that ensures users can only access specific applications and services based on predefined access policies. Unlike traditional VPNs, which grant full network access once a user is authenticated, ZTNA enforces a "default deny" approach, restricting access to only the necessary resources. As remote and hybrid work models expand, ZTNA provides organizations with a more secure and controlled way to manage remote connectivity.</p>
+    
+    <h2>How ZTNA Works</h2>
+    <p>ZTNA establishes secure access by verifying a user’s identity before allowing them to connect to an application. Once authenticated, the ZTNA system creates an encrypted connection between the user and the required service while keeping all other network assets hidden.</p>
+    
+    <p>Much like a Software-Defined Perimeter (SDP), ZTNA ensures that users cannot see or interact with applications unless explicitly authorized. This prevents attackers from scanning the network and moving laterally between systems in case of a compromised device or credential.</p>
+    
+    <h2>ZTNA vs. VPN: Key Differences</h2>
+    <p>Virtual Private Networks (VPNs) were originally designed to provide encrypted tunnels for remote workers, giving them full access to the corporate network. However, this broad access creates security risks, as users can interact with all network resources once connected.</p>
+    
+    <p>ZTNA takes a more refined approach by:</p>
+    <ul>
+        <li>Granting access only to specific applications instead of the entire network</li>
+        <li>Continuously validating users and devices throughout a session</li>
+        <li>Enforcing least-privilege access, reducing exposure to threats</li>
+    </ul>
+    <p>Unlike the "once verified, always trusted" model of VPNs, ZTNA operates under the "never trust, always verify" principle, providing dynamic security throughout each session.</p>
+    
+    <h2>Why Organizations Are Replacing VPNs with ZTNA</h2>
+    <p>Many businesses are shifting away from VPNs due to performance limitations, scalability challenges, and security gaps. Key reasons driving ZTNA adoption include:</p>
+    
+    <ul>
+        <li><strong>Hybrid Cloud Environments:</strong> As businesses move applications to a mix of on-premises, cloud, and multi-cloud environments, traditional VPNs that backhaul traffic to a centralized gateway create inefficiencies.</li>
+        <li><strong>Unmanaged Device Access:</strong> With bring-your-own-device (BYOD) policies increasing, organizations need a solution that secures access from both managed and unmanaged endpoints.</li>
+        <li><strong>Consistent Security Across Applications:</strong> ZTNA applies the same security policies to all applications, ensuring protection for private, SaaS, and cloud-native apps.</li>
+    </ul>
+    <p>VPNs were never designed for the modern, distributed workforce. ZTNA provides a scalable and performance-driven alternative that aligns with today’s security demands.</p>
+    
+    <h2>ZTNA Benefits</h2>
+    <p>ZTNA enhances security by using identity-based authentication rather than traditional IP-based access controls. This minimizes attack surfaces and prevents unauthorized access.</p>
+    
+    <h3>Key advantages of ZTNA include:</h3>
+    <ul>
+        <li><strong>Minimized Risk:</strong> Restricts user access to only approved applications, reducing exposure to potential breaches.</li>
+        <li><strong>Adaptive Security:</strong> Access permissions can be based on device status, location, or security posture, ensuring that unpatched or high-risk devices are blocked.</li>
+        <li><strong>Granular Access Control:</strong> Unlike VPNs, which provide network-wide access, ZTNA enables policy-based access at the application level.</li>
+        <li><strong>Enhanced Compliance:</strong> Enforces security policies consistently across all users, devices, and applications, helping organizations meet regulatory requirements.</li>
+    </ul>
+    <p>Some agent-based ZTNA solutions even conduct pre-authentication trust assessments, evaluating factors like device security posture, authentication status, and user behavior before granting access.</p>
+    
+    <h2>ZTNA 2.0: The Next Evolution</h2>
+    <p>Early ZTNA solutions, known as ZTNA 1.0, introduced fundamental security improvements over VPNs. However, as cyber threats evolve, ZTNA 2.0 has emerged to address gaps in first-generation implementations.</p>
+    
+    <h3>ZTNA 2.0 Enhancements</h3>
+    <ul>
+        <li><strong>True Least-Privilege Access:</strong> Uses Layer 7 application-based access control, allowing granular permissions beyond just IP or port-based restrictions.</li>
+        <li><strong>Continuous Trust Verification:</strong> Constantly evaluates user behavior, device security status, and application interactions to detect and respond to threats in real time.</li>
+        <li><strong>Deep Security Inspection:</strong> Goes beyond simple access control by analyzing all traffic, ensuring zero-day threats or compromised credentials don’t go undetected.</li>
+        <li><strong>Data Protection Across All Applications:</strong> Applies consistent security policies across on-premises, cloud, and SaaS applications, safeguarding sensitive data.</li>
+        <li><strong>Universal Application Security:</strong> Secures all applications, including modern cloud services, legacy applications, and dynamic-connection-based software.</li>
+    </ul>
+    
+    <h2>ZTNA 1.0 vs. ZTNA 2.0</h2>
+    <p>The shift to hybrid work models has expanded attack surfaces, requiring ZTNA 2.0 to provide more robust security measures. With cyberattacks growing in sophistication, organizations must implement continuous security validation, real-time threat monitoring, and deeper security inspection to prevent breaches.</p>
+    
+    <p>By adopting ZTNA 2.0, businesses can stay ahead of emerging threats, enhance remote workforce security, and replace outdated VPNs with a scalable, next-generation security model.</p>
+
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "zero trust network access";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/data-loss-prevention-advanced.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

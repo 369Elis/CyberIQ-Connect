@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Web Application Security Risks (2021)</title>
+</head>
+<body>
+    <h1>Top 10 Web Application Security Risks (2021)</h1>
+    <p>The <strong>2021 OWASP Top 10</strong> highlights key security vulnerabilities in web applications, with updates including new categories, revised definitions, and risk consolidations.</p>
+    
+    <h2>Updated OWASP Top 10 Risks</h2>
+    <ol>
+        <li><strong>Broken Access Control</strong> – Now the top risk, with 94% of tested applications showing issues. This includes improper user access restrictions and privilege escalation flaws.</li>
+        <li><strong>Cryptographic Failures</strong> – Previously “Sensitive Data Exposure,” this focuses on weak encryption practices leading to data breaches and system compromises.</li>
+        <li><strong>Injection Attacks</strong> – Still prevalent, with SQL injection, cross-site scripting (XSS), and command injection threats widely detected.</li>
+        <li><strong>Insecure Design</strong> – A new category addressing security flaws at the design level, emphasizing threat modeling and secure design principles.</li>
+        <li><strong>Security Misconfiguration</strong> – Includes outdated settings, mismanaged permissions, and improper cloud configurations. XML External Entities (XXE) issues are now merged into this category.</li>
+        <li><strong>Vulnerable & Outdated Components</strong> – Previously “Using Components with Known Vulnerabilities,” emphasizing risks from unpatched third-party libraries and outdated dependencies.</li>
+        <li><strong>Identification & Authentication Failures</strong> – Formerly “Broken Authentication,” now covering weak identity verification and session management flaws.</li>
+        <li><strong>Software & Data Integrity Failures</strong> – New category focusing on unverified software updates, insecure CI/CD pipelines, and data integrity risks. Includes Insecure Deserialization from 2017.</li>
+        <li><strong>Security Logging & Monitoring Failures</strong> – Previously “Insufficient Logging & Monitoring,” now expanded to cover broader detection and incident response gaps.</li>
+        <li><strong>Server-Side Request Forgery (SSRF)</strong> – Newly added based on community feedback, addressing risks where attackers manipulate server-side requests to access internal resources.</li>
+    </ol>
+    
+    <h2>Why These Risks Matter</h2>
+    <p>The <strong>OWASP Top 10</strong> helps organizations prioritize security efforts by identifying the most critical vulnerabilities. Addressing these risks reduces the likelihood of breaches, improves compliance, and enhances overall web application security.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "owasp top 10";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+</body>
+</html>

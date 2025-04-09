@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Site Request Forgery (CSRF) Attack</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="csrf-page">
+
+    <header>
+        <h1>Cross-Site Request Forgery (CSRF): A Silent Threat to Web Security</h1>
+    </header>
+
+    <section class="intro">
+        <h2>What is CSRF?</h2>
+        <p>Cross-Site Request Forgery (CSRF), also referred to as XSRF, Sea Surf, or Session Riding, is a type of cyberattack where a user's browser is tricked into making unauthorized requests on a web application where they are already authenticated.</p>
+        <p>Because the request originates from a legitimate, logged-in user, the system cannot differentiate between a valid request and a forged one, allowing attackers to manipulate user actions without their knowledge.</p>
+        <p>CSRF attacks can have serious consequences, including:</p>
+        <ul>
+            <li>Unauthorized transactions (e.g., money transfers from a victim’s bank account).</li>
+            <li>Compromised accounts through forced password changes.</li>
+            <li>Data theft, including stolen session cookies and private information.</li>
+            <li>Reputation damage for businesses due to fraudulent activity affecting users.</li>
+        </ul>
+    </section>
+
+    <section class="csrf-example">
+        <h2>How Does a CSRF Attack Work?</h2>
+        <p>CSRF attacks rely on social engineering techniques to deceive victims into unknowingly executing actions on a trusted web application. Attackers usually achieve this by embedding malicious requests within emails, fake links, or hidden forms that users unknowingly activate.</p>
+
+        <h3>Example: Forced Password Change</h3>
+        <pre><code>
+POST http://bankingportal.com/update-password HTTP/1.1  
+Host: bankingportal.com  
+Content-Type: application/x-www-form-urlencoded  
+Cookie: sessionID=xyz123  
+
+currentPassword=SecurePass123&newPassword=Hacked987  
+        </code></pre>
+
+        <p>An attacker could create a malicious website containing a hidden form that automatically submits this request as soon as a logged-in user visits the page.</p>
+
+        <pre><code>
+&lt;form action="http://bankingportal.com/update-password" method="POST"&gt;
+    &lt;input type="hidden" name="currentPassword" value="SecurePass123"&gt;
+    &lt;input type="hidden" name="newPassword" value="Hacked987"&gt;
+    &lt;input type="submit" value="Click Here for a Surprise!"&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <p>Alternatively, the attacker could use JavaScript to auto-submit the form without any user interaction:</p>
+
+        <pre><code>
+&lt;body onload="document.getElementById('csrfForm').submit();"&gt;
+    &lt;form id="csrfForm" action="http://bankingportal.com/update-password" method="POST"&gt;
+        &lt;input type="hidden" name="currentPassword" value="SecurePass123"&gt;
+        &lt;input type="hidden" name="newPassword" value="Hacked987"&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+        </code></pre>
+
+        <p>If the victim is already logged in to their banking site, the browser will automatically send their session cookie along with the request—allowing the attacker to successfully change the victim’s password.</p>
+    </section>
+
+    <section class="csrf-prevention">
+        <h2>How to Prevent CSRF Attacks</h2>
+        <p>Since CSRF attacks exploit authenticated user sessions, effective mitigation strategies focus on verifying the legitimacy of requests before executing them.</p>
+
+        <h3>For Users:</h3>
+        <ul>
+            <li>Log out of web applications after use to invalidate session cookies.</li>
+            <li>Use strong, unique passwords and avoid saving credentials in browsers.</li>
+            <li>Be cautious with clicking on links from untrusted emails or messages.</li>
+            <li>Avoid browsing suspicious sites while logged into sensitive accounts.</li>
+        </ul>
+
+        <h3>For Web Developers & Security Teams:</h3>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔑</span>
+                <h3>CSRF Tokens (Session-Based Token Validation)</h3>
+                <p>Each sensitive request should require a unique, unpredictable token (e.g., a cryptographically secure random string). The server verifies the token before processing the request. Requests without a valid token are automatically rejected.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🍪</span>
+                <h3>Double Submit Cookie Method</h3>
+                <p>A unique token is assigned to both a session cookie and a hidden form field or request parameter. The server compares both tokens to verify request authenticity.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛡️</span>
+                <h3>Same-Site Cookie Attribute</h3>
+                <p>Setting cookies with the SameSite flag (SameSite=Strict or SameSite=Lax) prevents them from being sent with cross-origin requests, blocking CSRF attempts.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔐</span>
+                <h3>User Authentication Safeguards</h3>
+                <p>Require re-authentication (e.g., entering a password) for high-risk actions like changing passwords or transferring funds. Implement multi-factor authentication (MFA) to prevent account hijacking if an attack succeeds.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🖥️</span>
+                <h3>Content Security Policy (CSP)</h3>
+                <p>Restrict JavaScript execution from unauthorized sources, reducing exposure to malicious scripts that could trigger CSRF.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "cross site request forgery";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/Privilege-Escalation.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+</body>
+</html>

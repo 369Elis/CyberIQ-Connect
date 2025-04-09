@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Info</title>
+    <link rel="stylesheet" href="../styles/account.css" />
+    <link rel="stylesheet" href="../styles/modal.css" />
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="left-section">
+        <a href="/home" class="nav-link">
+          <img src="../assets/logo.home1.png" alt="Website Logo" class="logo" />
+        </a>
+        <a href="Home-Page.html" class="nav-link">
+          <img src="../assets/home.logo.png" alt="Home" class="nav-icon" /> Home
+        </a>
+        <a href="/learn/learn.html" class="nav-link">
+          <img src="../assets/e-learning.png" alt="Modules" class="nav-icon" />
+          Modules
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+      <div class="avatar-section">
+        <h2>Personal Info</h2>
+        <hr />
+        <form id="personalInfoForm">
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name" required />
+
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" required />
+
+          <label for="age">Age:</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            required
+            min="1"
+            max="120"
+            step="1"
+          />
+
+          <p class="small-warning" id="warning-msg">
+            *You'll only be able to change your age once, so make sure you have
+            set the correct age.
+          </p>
+
+          <button type="submit">Update Personal Info</button>
+          <span class="update-note">
+            By clicking "Update personal info", I acknowledge that all
+            information submitted above is factually correct.
+          </span>
+        </form>
+      </div>
+
+      <div class="settings-section">
+        <h2>Settings</h2>
+        <hr />
+        <ul class="settings-list">
+          <li><a href="account.html">Avatar</a></li>
+          <li><a href="#">My Progress</a></li>
+          <li><a href="#">Disable Sound Effects</a></li>
+          <li><a href="changepassword.html">Change Password</a></li>
+          <li><button class="danger-btn">Delete Account</button></li>
+          <li><button class="logout-btn">Logout</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Modal for messages -->
+    <div id="messageModal" class="modal">
+      <div class="modal-content">
+        <p id="modalMessage"></p>
+        <button class="close-btn" id="closeModalBtn">OK</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const warningMsg = document.getElementById("warning-msg");
+        const form = document.getElementById("personalInfoForm");
+        const modal = document.getElementById("messageModal");
+        const modalMessage = document.getElementById("modalMessage");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const firstNameInput = document.getElementById("first-name");
+        const lastNameInput = document.getElementById("last-name");
+        const ageInput = document.getElementById("age");
+
+        // Fetch user info
+        fetch("/api/user-info")
+          .then((response) => response.json())
+          .then((data) => {
+            firstNameInput.value = data.firstName || "";
+            lastNameInput.value = data.lastName || "";
+            ageInput.value = data.age || "";
+
+            // Hide or show warning based on updates left
+            // personalInfoUpdates = 0 or 1: show warning
+            // personalInfoUpdates = 2: user can't update anymore
+            if (data.personalInfoUpdates >= 2) {
+              warningMsg.style.display = "none";
+              // Disable the form inputs since no more changes allowed
+              firstNameInput.disabled = true;
+              lastNameInput.disabled = true;
+              ageInput.disabled = true;
+              form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                // Show the error in a modal
+                modalMessage.textContent =
+                  "You have already changed your age once. Please write to support@bcyberiqconnect.org if you'd like to change it again.";
+                modal.style.display = "block";
+              });
+            }
+          })
+          .catch((error) =>
+            console.error("Error loading user information:", error)
+          );
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const data = {
+            "first-name": firstNameInput.value.trim(),
+            "last-name": lastNameInput.value.trim(),
+            age: ageInput.value.trim(),
+          };
+
+          fetch("/update-personal-info", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              modalMessage.textContent = data.message;
+              modal.style.display = "block";
+            })
+            .catch((err) => {
+              console.error("Error updating personal info:", err);
+              modalMessage.textContent = "An unexpected error occurred.";
+              modal.style.display = "block";
+            });
+        });
+
+        closeModalBtn.addEventListener("click", function () {
+          modal.style.display = "none";
+          location.reload();
+        });
+      });
+    </script>
+
+    <script>
+      const ageInput = document.getElementById("age");
+      ageInput.addEventListener("input", () => {
+        const value = ageInput.value.trim();
+        if (isNaN(value) || value === "") {
+          // Show a warning or prevent form submission
+        }
+      });
+    </script>
+  </body>
+</html>

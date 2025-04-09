@@ -1,0 +1,18 @@
+# Ignore environment variables
+database.env
+
+# Ignore Node.js modules
+node_modules/  
+
+# Ignore installation tools and binaries
+corepack
+install_tools
+node
+nodevars
+npm
+npx
+
+# Ignore log files
+*.log
+
+

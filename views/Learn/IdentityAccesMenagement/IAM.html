@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Identity and Access Management (IAM)?</title>
+</head>
+<body>
+    <header>
+        <h1>What is Identity and Access Management (IAM)?</h1>
+    </header>
+    
+    <section>
+        <h2>Introduction</h2>
+        <p>In today’s digital workplace, employees, contractors, and partners need secure access to company resources, whether working on-site or remotely. Traditionally, businesses kept resources behind firewalls, limiting access to office-based employees. However, with hybrid work becoming the norm, organizations need a system to control who can access what—this is where Identity and Access Management (IAM) comes in.</p>
+        <p>IAM ensures that only authorized individuals and devices can access critical systems, balancing security and efficiency. It helps IT teams regulate permissions, preventing unauthorized access while allowing legitimate users to work seamlessly.</p>
+    </section>
+    
+    <section>
+        <h2>How IAM Works</h2>
+        <p>IAM consists of two core components: identity management and access control.</p>
+        
+        <h3>Identity Management</h3>
+        <p>This process verifies users against a continuously updated database containing details such as job roles, departments, and security levels. When a user logs in, their credentials are checked to confirm authenticity.</p>
+        <p>For added security, many organizations implement Multi-Factor Authentication (MFA), requiring an additional verification step (e.g., a one-time passcode) to strengthen login protection.</p>
+        
+        <h3>Access Control</h3>
+        <p>Once verified, IAM determines which resources the user can access based on their role and permissions. This authorization process ensures employees can only use the tools they need while restricting access to sensitive data.</p>
+    </section>
+    
+    <section>
+        <h2>Why IAM is Essential for Cybersecurity</h2>
+        <p>IAM plays a key role in protecting digital assets by minimizing security risks. Cybercriminals often target employees through phishing and credential theft, making controlled access critical for preventing data breaches.</p>
+        <p>Many modern IAM systems use AI-driven monitoring to detect suspicious activity, blocking unauthorized access attempts in real time.</p>
+    </section>
+    
+    <section>
+        <h2>Key Benefits of IAM</h2>
+        <ul>
+            <li><strong>Role-Based Access Control (RBAC):</strong> Ensures users only access necessary resources, reducing security vulnerabilities.</li>
+            <li><strong>Improved Productivity:</strong> Single Sign-On (SSO) eliminates multiple logins, providing seamless access without compromising security.</li>
+            <li><strong>Stronger Protection Against Breaches:</strong> MFA and encryption prevent unauthorized access, even if credentials are compromised.</li>
+            <li><strong>Reduced IT Workload:</strong> Automates password resets and access management, freeing IT teams for strategic tasks.</li>
+            <li><strong>Regulatory Compliance:</strong> Helps meet legal requirements (e.g., GDPR, HIPAA, SOX) by tracking and managing user access efficiently.</li>
+        </ul>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "IAM";
+        const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/authentication-protocols.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding User Types and Privileged Accounts</title>
+</head>
+<body>
+    <h1>Understanding User Types and Privileged Accounts</h1>
+    <p>Organizations rely on various user roles to manage systems, collaborate on projects, and secure sensitive data. Understanding different user types and privileged accounts is critical for security, efficiency, and access management.</p>
+    <p>Users typically fall into categories based on their level of access, permissions, and responsibilities. These categories ensure the right individuals can interact with systems while preventing unauthorized actions.</p>
+    
+    <h2>User Roles and Access Levels</h2>
+    
+    <h3>Administrators</h3>
+    <p>Administrators, often referred to as "super users," have the highest level of control within a system. They can manage users, permissions, system settings, security policies, and billing configurations.</p>
+    <p>Organizations typically assign one or more administrators to oversee operations, ensuring that access control policies remain secure and efficient.</p>
+    
+    <h3>Standard Users</h3>
+    <p>Standard users are employees, team members, or collaborators who use the system for daily operations. They typically have access to shared resources, tools, and data but are restricted from making administrative changes.</p>
+    
+    <h4>1. Members</h4>
+    <p>Members have editing privileges, allowing them to:</p>
+    <ul>
+        <li>Create and modify projects, files, or databases.</li>
+        <li>Add or edit content within the system.</li>
+        <li>Share information with other users.</li>
+        <li>Access company-wide resources based on predefined permissions.</li>
+    </ul>
+    <p>The number of members an organization can invite depends on the access policies or licensing plans in place.</p>
+    
+    <h4>2. Viewers</h4>
+    <p>Viewers have read-only access to system resources. They can:</p>
+    <ul>
+        <li>View dashboards, files, or reports.</li>
+        <li>Access shared documents or resources.</li>
+        <li>Filter and search within the system.</li>
+    </ul>
+    <p>However, viewers cannot modify, delete, or create new content. They serve as passive participants, ensuring transparency without affecting operations.</p>
+    
+    <h3>Guest Users</h3>
+    <p>Guest users are external collaborators such as clients, vendors, freelancers, or consultants. Unlike internal users, guests have limited access and can only interact with specific shared resources.</p>
+    <p>To protect internal data, guests:</p>
+    <ul>
+        <li>Are restricted from accessing core systems.</li>
+        <li>Cannot view confidential or private content.</li>
+        <li>Are granted permissions only for designated projects or shared files.</li>
+    </ul>
+    <p>This controlled access approach allows organizations to work with external partners while maintaining security.</p>
+    
+    <h2>Privileged Accounts and Their Security Implications</h2>
+    <p>Privileged accounts have elevated permissions and can perform critical administrative tasks. These accounts, if mismanaged, pose security risks since they provide extensive system control.</p>
+    
+    <h3>1. Local Administrator Accounts</h3>
+    <p>These non-personal accounts allow IT staff to perform administrative tasks on individual systems, such as workstations, servers, and network devices.</p>
+    <p>A major risk with local admin accounts is password reuse across multiple devices, making them a prime target for cyber threats. Attackers exploiting a single compromised local admin password can escalate privileges across an entire system.</p>
+    
+    <h3>2. Privileged User Accounts</h3>
+    <p>These accounts belong to specific individuals who have been granted administrative access on selected systems. For example, IT professionals managing network settings, cybersecurity tools, or internal databases may have privileged access.</p>
+    <p>Since these accounts control critical infrastructure, organizations must:</p>
+    <ul>
+        <li>Implement strong password policies.</li>
+        <li>Monitor activity logs for suspicious behavior.</li>
+        <li>Restrict unnecessary privilege escalation.</li>
+    </ul>
+    
+    <h3>3. Domain Administrator Accounts</h3>
+    <p>These are highly privileged credentials that provide unrestricted access to all systems within a domain. Domain admins can:</p>
+    <ul>
+        <li>Modify security settings.</li>
+        <li>Control access across an entire organization.</li>
+        <li>Add or remove users from groups.</li>
+    </ul>
+    <p>A compromised domain admin account is one of the worst security breaches an organization can face. To mitigate risks, security teams must limit the number of domain admins, enforce multi-factor authentication (MFA), and regularly audit account activity.</p>
+    
+    <h3>4. Emergency Accounts ("Breakglass" Accounts)</h3>
+    <p>Emergency accounts, also known as firecall or breakglass accounts, provide temporary elevated access during critical situations, such as system failures or cyber incidents.</p>
+    <p>These accounts typically require:</p>
+    <ul>
+        <li>Managerial approval before activation.</li>
+        <li>Strict logging and auditing to track every action.</li>
+        <li>Automated deactivation once the emergency is resolved.</li>
+    </ul>
+    
+    <h3>5. Service Accounts</h3>
+    <p>Service accounts are used by applications, systems, or automated services to interact with operating systems or databases. They may have privileged access depending on the task they perform.</p>
+    <p>Managing service accounts is challenging because:</p>
+    <ul>
+        <li>Many organizations fail to rotate service account passwords.</li>
+        <li>Some applications require persistent administrative privileges.</li>
+        <li>Unauthorized access can lead to system-wide vulnerabilities.</li>
+    </ul>
+    
+    <h3>6. Active Directory (AD) or Domain Service Accounts</h3>
+    <p>These specialized service accounts manage authentication and directory services across multiple systems. Since AD accounts handle enterprise-wide authentication, compromised credentials can affect the entire organization.</p>
+    
+    <h3>7. Application Accounts</h3>
+    <p>Applications often require access to databases, APIs, or other software components. These accounts operate in the background and frequently store credentials in plaintext files, creating security risks.</p>
+    <p>A secure approach to managing application accounts includes:</p>
+    <ul>
+        <li>Encrypting stored credentials.</li>
+        <li>Using role-based access controls to limit permissions.</li>
+        <li>Regularly reviewing and updating security policies.</li>
+    </ul>
+    
+    <h2>Best Practices for Managing User and Privileged Accounts</h2>
+    <ul>
+        <li>✔ Enforce Least Privilege Access</li>
+        <li>✔ Implement Multi-Factor Authentication (MFA)</li>
+        <li>✔ Monitor and Audit Privileged Activity</li>
+        <li>✔ Rotate and Secure Passwords</li>
+        <li>✔ Limit the Number of High-Privilege Accounts</li>
+        <li>✔ Use Privileged Access Management (PAM) Solutions</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "account management";
+        const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/account-enforcement-policy.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+
+</body>
+</html>

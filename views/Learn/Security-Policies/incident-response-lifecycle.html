@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the Incident Response Lifecycle</title>
+</head>
+<body>
+    <h1>Understanding the Incident Response Lifecycle</h1>
+    <p>In the world of cybersecurity and IT operations, incidents aren’t one-time events—they are part of a continuous learning cycle. The most effective security teams don’t just react to threats; they analyze incidents, learn from them, and refine their strategies to improve future responses.</p>
+    
+    <p>Incident response is not just about fixing the problem and moving on—it’s about preventing similar issues from happening again. A well-structured incident response lifecycle ensures that every security event is addressed methodically, minimizing damage and improving organizational resilience.</p>
+    
+    <h2>What is an Incident Response Lifecycle?</h2>
+    <p>An incident response lifecycle is a structured process that organizations use to identify, respond to, and recover from IT security incidents. These incidents can range from cyberattacks and security breaches to system failures and downtime.</p>
+    
+    <h2>Key Incident Response Models</h2>
+    <ul>
+        <li><strong>The Atlassian Incident Response Model:</strong> A step-by-step operational guide for handling IT service incidents.</li>
+        <li><strong>The NIST Incident Response Lifecycle:</strong> A widely accepted framework established by the National Institute of Standards and Technology (NIST) for structured cybersecurity response.</li>
+    </ul>
+    
+    <h2>Atlassian’s Incident Response Lifecycle</h2>
+    <h3>1. Incident Detection</h3>
+    <ul>
+        <li>Automated monitoring tools help detect threats early.</li>
+        <li>A centralized alerting system prevents missed warnings.</li>
+        <li>Filtering alerts reduces noise and avoids unnecessary disruptions.</li>
+    </ul>
+    
+    <h3>2. Establish Communication Channels</h3>
+    <ul>
+        <li>Create dedicated Slack channels or video calls for real-time updates.</li>
+        <li>Use incident management tools to centralize discussions and actions.</li>
+        <li>Assign a lead communicator to avoid misinformation.</li>
+    </ul>
+    
+    <h3>3. Assess the Impact & Assign Severity</h3>
+    <ul>
+        <li>Evaluate business impact, downtime, and affected systems.</li>
+        <li>Assign a severity level to guide response urgency.</li>
+        <li>Notify internal and external stakeholders accordingly.</li>
+    </ul>
+    
+    <h3>4. External & Internal Communication</h3>
+    <ul>
+        <li>Notify affected customers as soon as possible.</li>
+        <li>Provide regular updates via email, website banners, or social media.</li>
+        <li>Use predefined response templates to ensure clarity and consistency.</li>
+    </ul>
+    
+    <h3>5. Escalate to the Right Teams</h3>
+    <ul>
+        <li>Assign relevant experts based on the incident type (network, cloud, application).</li>
+        <li>Use automated paging systems to notify the right responders.</li>
+        <li>Ensure documentation is updated for future reference.</li>
+    </ul>
+    
+    <h3>6. Delegate Roles & Responsibilities</h3>
+    <ul>
+        <li><strong>Incident Manager (IM):</strong> Oversees the response process and decision-making.</li>
+        <li><strong>Technical Lead (TL):</strong> Investigates the root cause and applies fixes.</li>
+        <li><strong>Communications Lead (CL):</strong> Manages stakeholder updates and public messaging.</li>
+    </ul>
+    
+    <h3>7. Resolve the Incident & Conduct a Postmortem</h3>
+    <ul>
+        <li>Ensure all services are restored to operational status.</li>
+        <li>Conduct a detailed post-incident analysis to identify weaknesses.</li>
+        <li>Implement long-term improvements to prevent future incidents.</li>
+    </ul>
+    
+    <h2>The NIST Incident Response Lifecycle</h2>
+    <h3>Phase 1: Preparation</h3>
+    <ul>
+        <li>Establish incident response policies and response teams.</li>
+        <li>Deploy threat detection and prevention tools.</li>
+        <li>Conduct regular security training for employees.</li>
+    </ul>
+    
+    <h3>Phase 2: Detection & Analysis</h3>
+    <ul>
+        <li>Use security monitoring tools to detect anomalies.</li>
+        <li>Analyze log files, network traffic, and system behavior.</li>
+        <li>Verify whether security controls were bypassed or failed.</li>
+    </ul>
+    
+    <h3>Phase 3: Containment, Eradication & Recovery</h3>
+    <ul>
+        <li>Isolate affected systems to prevent lateral movement.</li>
+        <li>Identify and eliminate the root cause (e.g., malware, compromised accounts).</li>
+        <li>Restore systems from clean backups if needed.</li>
+    </ul>
+    
+    <h3>Phase 4: Post-Event Review & Continuous Improvement</h3>
+    <ul>
+        <li>Conduct a retrospective analysis to understand what went wrong.</li>
+        <li>Identify process gaps and security weaknesses.</li>
+        <li>Implement security patches, updated policies, and system enhancements.</li>
+    </ul>
+    
+    <h2>Why an Incident Response Lifecycle Matters</h2>
+    <ul>
+        <li>Faster response times to cyberattacks and system outages.</li>
+        <li>Minimized damage to business operations and customer trust.</li>
+        <li>Compliance with regulations like GDPR, HIPAA, and ISO 27001.</li>
+        <li>Continuous learning that strengthens overall cybersecurity.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "incident response lifecycle";
+        const NEXT_PAGE_URL = "/Learn/Security-Policies/disaster-recovery.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

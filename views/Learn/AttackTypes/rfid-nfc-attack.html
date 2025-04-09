@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFID and NFC Security Threats</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="rfid-nfc-page">
+
+    <header>
+        <h1>Understanding RFID and NFC Security Threats</h1>
+    </header>
+
+    <section class="intro">
+        <p>Radio Frequency Identification (RFID) and Near Field Communication (NFC) are widely used for convenience in modern digital systems. From contactless payments to employee access control, these technologies streamline data transfer. However, their wireless nature also makes them vulnerable to security threats such as data theft, spoofing, and unauthorized access.</p>
+    </section>
+
+    <section class="rfid">
+        <h2>What Is RFID?</h2>
+        <p>RFID enables short-range communication between RFID-enabled chips and specialized readers. These chips are embedded in devices like credit cards, employee badges, and toll passes, while RFID readers process the transmitted information.</p>
+        <p>The technology is widely used in:</p>
+        <ul>
+            <li>Access control systems (ID badges, key cards)</li>
+            <li>Contactless payment cards</li>
+            <li>Inventory and supply chain tracking</li>
+            <li>Toll collection systems</li>
+            <li>Security applications</li>
+        </ul>
+        <p>Since RFID operates wirelessly, hackers have found ways to exploit these systems, leading to RFID hacking techniques such as cloning, eavesdropping, and reverse engineering.</p>
+    </section>
+
+    <section class="rfid-tags">
+        <h2>Types of RFID Tags</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔋</span>
+                <h3>Passive RFID Tags</h3>
+                <p>✔ Do not have a built-in power source.</p>
+                <p>✔ Require a reader’s signal to activate and transmit data.</p>
+                <p>✔ Limited range, commonly found in credit cards and door access badges.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⚡</span>
+                <h3>Active RFID Tags</h3>
+                <p>✔ Contain an internal battery, allowing them to transmit data independently.</p>
+                <p>✔ Longer communication range and greater data capacity.</p>
+                <p>✔ Used in toll collection systems and fleet tracking.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="rfid-attacks">
+        <h2>How Do RFID Attacks Work?</h2>
+        <p>RFID hacking is attractive to criminals because it can be done remotely, without physical contact. Attackers use specialized devices to intercept or manipulate data from RFID tags, allowing them to clone credentials, disrupt systems, or steal sensitive information.</p>
+
+        <h3>Common RFID Attack Techniques</h3>
+        <ul>
+            <li>🔹 <strong>Active Jamming</strong> – Hackers send stronger signals to disrupt RFID communication.</li>
+            <li>🔹 <strong>Copying Credentials</strong> – Attackers capture RFID data and clone it onto another chip.</li>
+            <li>🔹 <strong>Eavesdropping</strong> – Hackers use specialized antennas to intercept RFID communications.</li>
+            <li>🔹 <strong>Long-Distance Data Theft</strong> – Criminals build custom RFID scanners to steal credentials from passersby.</li>
+            <li>🔹 <strong>Reverse Engineering</strong> – Cybercriminals dismantle RFID chips to uncover security weaknesses.</li>
+            <li>🔹 <strong>Power Analysis Attacks</strong> – Attackers analyze energy patterns to predict valid access codes.</li>
+        </ul>
+    </section>
+
+    <section class="nfc">
+        <h2>Understanding NFC Technology and Its Security Risks</h2>
+        <p>Near Field Communication (NFC) is a short-range wireless communication technology that allows devices to exchange data simply by being in close proximity. It is commonly used for:</p>
+        <ul>
+            <li>Mobile payment systems (Apple Pay, Google Pay)</li>
+            <li>Public transportation cards</li>
+            <li>Smart home automation</li>
+            <li>Secure access control</li>
+        </ul>
+        <p>Despite its convenience, NFC is vulnerable to cybersecurity threats, including data interception, unauthorized access, and malicious code injection.</p>
+
+        <h3>NFC Security Risks</h3>
+        <ul>
+            <li>🔹 <strong>Eavesdropping Attacks</strong> – Cybercriminals intercept NFC signals to steal sensitive data.</li>
+            <li>🔹 <strong>Unauthorized Access</strong> – Attackers can bypass authentication and steal credit card details.</li>
+            <li>🔹 <strong>Malicious Code Injection</strong> – Hackers embed malware into NFC-enabled apps or devices.</li>
+        </ul>
+    </section>
+
+    <section class="rfid-nfc-prevention">
+        <h2>Preventing RFID and NFC Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">📴</span>
+                <h3>Keep RFID and NFC Disabled When Not in Use</h3>
+                <p>✔ Turn off Bluetooth, NFC, or RFID features on your device when not needed.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛡</span>
+                <h3>Use RFID-Blocking Sleeves or Wallets</h3>
+                <p>✔ Physical shields block radio signals, preventing attackers from scanning RFID cards.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔐</span>
+                <h3>Enable Strong Authentication Methods</h3>
+                <p>✔ Use PINs, biometrics, or two-factor authentication on NFC-based services.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔄</span>
+                <h3>Keep Devices and Software Updated</h3>
+                <p>✔ Regular updates patch known vulnerabilities that attackers might exploit.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⚠️</span>
+                <h3>Be Cautious with Public NFC Readers</h3>
+                <p>✔ Avoid tapping your card or phone on unfamiliar NFC terminals.</p>
+            </div>
+        </div>
+    </section>
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "rfid-nfc attacks";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/wireless-jamming.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+
+</body>
+</html>

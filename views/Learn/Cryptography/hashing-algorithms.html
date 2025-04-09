@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Hashing Algorithms and Their Applications</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Hashing Algorithms and Their Applications</h1>
+    </header>
+    
+    <section>
+        <h2>What Are Hashing Algorithms?</h2>
+        <p>Hashing algorithms are mathematical functions designed to transform data into a fixed-length string of characters, making the original information unreadable and difficult to reconstruct. These functions serve a crucial role in securing data, ensuring integrity, and verifying the authenticity of information.</p>
+        <p>For example, a hashing algorithm can generate a hash value that acts as a unique digital fingerprint. If the hash remains unchanged upon receipt, the file has not been altered during transmission.</p>
+    </section>
+    
+    <section>
+        <h2>How Hash Functions Work</h2>
+        <p>A hash function takes input data of any length and processes it through a mathematical transformation, producing a fixed-size output called a hash value. This value uniquely represents the original data but is nearly impossible to reverse-engineer back into its original form.</p>
+        <p>Even the slightest change in input results in a completely different hash value, a property known as the avalanche effect.</p>
+    </section>
+    
+    <section>
+        <h2>Properties of an Ideal Cryptographic Hash Function</h2>
+        <ul>
+            <li><strong>Fast Computation:</strong> It should generate a hash value quickly for any input.</li>
+            <li><strong>Irreversibility:</strong> The original data should be impossible to retrieve from its hash value.</li>
+            <li><strong>Collision Resistance:</strong> No two different inputs should produce the same hash.</li>
+            <li><strong>Small Changes Cause Large Differences:</strong> Even the smallest modification should result in a completely different hash.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Common Uses of Cryptographic Hash Functions</h2>
+        <ul>
+            <li><strong>Digital Signatures and Authentication:</strong> Verifies the integrity and authenticity of signed digital documents and certificates.</li>
+            <li><strong>Message Authentication Codes (MACs):</strong> Ensures secure communications by confirming message authenticity.</li>
+            <li><strong>Data Integrity Verification:</strong> Detects accidental or malicious modifications in stored or transmitted files.</li>
+            <li><strong>Password Storage:</strong> Websites store hashed versions of passwords to enhance security.</li>
+            <li><strong>Duplicate Detection:</strong> Helps identify duplicate files in large datasets or storage systems.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Notable Hashing Algorithms</h2>
+        <h3>MD5 (Message Digest Algorithm 5)</h3>
+        <p>Once widely used, MD5 has been rendered obsolete due to security vulnerabilities. Although it was originally designed for data integrity checks, modern computing power can easily generate collisions, making it unsuitable for security-sensitive applications.</p>
+        <p>MD5 is still used for non-security-critical tasks such as verifying file integrity after downloads.</p>
+        
+        <h3>SHA Family (Secure Hash Algorithm)</h3>
+        <p>Developed by the NSA, the SHA family includes multiple iterations:</p>
+        <ul>
+            <li><strong>SHA-0 (1993):</strong> Quickly deprecated due to cryptographic weaknesses.</li>
+            <li><strong>SHA-1 (1995):</strong> Produces 160-bit hash values but was compromised in 2005.</li>
+            <li><strong>SHA-2 (2001):</strong> Stronger alternative with variations such as SHA-224, SHA-256, SHA-384, and SHA-512.</li>
+            <li><strong>SHA-3 (2015):</strong> Advanced successor featuring enhanced resistance to collision attacks.</li>
+        </ul>
+        <p>SHA-2 remains the standard for most security applications, though organizations are transitioning to SHA-3 to future-proof encryption practices.</p>
+    </section>
+    
+    <section>
+        <h2>SHA-3: The Next Generation of Hashing Algorithms</h2>
+        <p>SHA-3 was officially adopted by NIST in 2015 and employs the Keccak algorithm, which enhances security and efficiency.</p>
+        <p>Keccak operates using a sponge construction mechanism, absorbing input data, processing it through multiple transformations, and extracting the final hash value.</p>
+        <p>Compared to SHA-2, Keccak offers increased resilience against emerging cryptographic threats and is significantly faster in some implementations.</p>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "perfect forward secrecy";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/block-cypher-modes.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

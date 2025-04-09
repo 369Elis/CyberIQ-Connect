@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privileged Access Management (PAM): A Critical Security Measure</title>
+</head>
+<body>
+    <h1>Privileged Access Management (PAM): A Critical Security Measure</h1>
+    
+    <h2>What Is Privileged Access Management?</h2>
+    <p>Privileged Access Management (PAM) is a cybersecurity framework that regulates, monitors, and secures access to critical IT systems. By controlling administrative privileges, PAM minimizes the risk of unauthorized access, insider threats, and cyberattacks.</p>
+    <p>This security approach ensures that only authorized personnel or systems have access to sensitive data and infrastructure. It also records all privileged activities, making it easier to detect suspicious actions and enforce security policies.</p>
+    
+    <h2>Why PAM Matters</h2>
+    <p>Privileged accounts have elevated permissions, which means if they are compromised, attackers can steal data, install malware, or take control of an entire network. PAM solutions help prevent such threats by:</p>
+    <ul>
+        <li>✔ Restricting access to essential personnel</li>
+        <li>✔ Requiring multi-factor authentication (MFA) for admins</li>
+        <li>✔ Monitoring privileged sessions for unusual activity</li>
+        <li>✔ Enforcing time-sensitive access to reduce risk exposure</li>
+    </ul>
+    <p>By integrating automated security controls, organizations can enhance their defenses while ensuring compliance with cybersecurity regulations and industry standards.</p>
+    
+    <h2>How PAM Functions</h2>
+    <p>A Privileged Access Management system is designed to identify which users, processes, and tools require elevated access and define strict policies governing their usage.</p>
+    <ul>
+        <li>🔹 Automated Privilege Management – Ensuring credentials are managed securely.</li>
+        <li>🔹 Multi-Factor Authentication (MFA) – Adding extra verification for privileged users.</li>
+        <li>🔹 Session Recording & Auditing – Tracking actions taken within privileged accounts.</li>
+        <li>🔹 Just-in-Time (JIT) Access – Granting admin rights temporarily instead of permanently.</li>
+    </ul>
+    
+    <h2>PAM Use Cases</h2>
+    <ul>
+        <li>Preventing Credential Theft</li>
+        <li>Regulatory Compliance</li>
+        <li>Managing Third-Party & Remote Access</li>
+        <li>Automating User Lifecycle Management</li>
+    </ul>
+    
+    <h2>Different Types of Privileged Accounts</h2>
+    <ul>
+        <li>🔹 Root or Super User Accounts</li>
+        <li>🔹 Domain Admin Accounts</li>
+        <li>🔹 Local Admin Accounts</li>
+        <li>🔹 Application Admin Accounts</li>
+        <li>🔹 Service Accounts</li>
+        <li>🔹 Business Privileged User Accounts</li>
+        <li>🔹 Emergency Access Accounts</li>
+    </ul>
+    
+    <h2>PAM vs. PIM: What’s the Difference?</h2>
+    <p>🔹 PAM restricts who can access privileged accounts and monitors their actions.</p>
+    <p>🔹 PIM enforces temporary and approval-based access to limit admin privileges over time.</p>
+    
+    <h2>Best Practices for PAM Implementation</h2>
+    <ul>
+        <li>✅ Use Multi-Factor Authentication (MFA)</li>
+        <li>✅ Automate Security Controls</li>
+        <li>✅ Minimize Administrative Access</li>
+        <li>✅ Audit Privileged Activity</li>
+        <li>✅ Apply Just-in-Time (JIT) Access</li>
+        <li>✅ Avoid Persistent Privileged Accounts</li>
+        <li>✅ Use Role-Based Access Control (RBAC)</li>
+    </ul>
+    
+    <h2>Why PAM Is Essential for Cybersecurity</h2>
+    <ul>
+        <li>🔹 Limits Attack Surface</li>
+        <li>🔹 Prevents Malware from Spreading</li>
+        <li>🔹 Enhances Compliance & Auditing</li>
+    </ul>
+    
+    <h2>Steps to Implement a PAM Solution</h2>
+    <ol>
+        <li>Identify All Privileged Accounts</li>
+        <li>Remove Unnecessary Privileges</li>
+        <li>Monitor & Audit Privileged Sessions</li>
+        <li>Automate Policy Enforcement</li>
+        <li>Integrate with SIEM Systems</li>
+    </ol>
+    
+    <h2>Final Thoughts</h2>
+    <p>Privileged Access Management (PAM) is an essential component of cybersecurity, protecting organizations from internal threats, credential theft, and unauthorized access.</p>
+    <p>By enforcing least privilege principles, implementing strong authentication methods, and monitoring admin accounts, businesses can reduce their attack surface and safeguard critical systems.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "PAM";
+        const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/advanced-authentication-protocols.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

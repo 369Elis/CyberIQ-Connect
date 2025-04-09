@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watering Hole Attacks</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Watering Hole Attacks: A Stealthy Cyber Threat</h1>
+      
+      <h2>What is a Watering Hole Attack?</h2>
+      <p>
+        A watering hole attack is a highly targeted cyber strategy that compromises websites frequently visited by specific individuals or industry groups. The primary objective is to infect these trusted sites with malware, which then spreads to unsuspecting users, ultimately providing attackers with access to an organization’s network. This method, also referred to as a strategic website compromise, relies on the likelihood that users will naturally visit the infected sites. Its effectiveness increases when attackers employ email notifications or messages to encourage visits.
+      </p>
+      
+      <h2>How Does a Watering Hole Attack Work?</h2>
+      <p>
+        The term originates from the behavior of predators in nature, who wait by watering holes for prey to arrive. Similarly, cybercriminals select websites that are frequently accessed by their intended victims, such as professional forums, industry-specific portals, or online communities related to a particular sector.
+      </p>
+      <p>
+        To execute the attack, threat actors identify a vulnerability on a targeted website, exploit it, and inject malicious code. Once the site is compromised, the attackers lie in wait for visitors. The infection often occurs through drive-by downloads, where a user’s device is silently compromised upon accessing the site without any visible signs of an attack.
+      </p>
+      <p>
+        In some cases, attackers increase their reach by leveraging automated email notifications from the compromised website. These emails, which appear legitimate since they originate from a trusted source, lure users into interacting with the infected site. Since these emails do not come directly from the attackers but from the compromised system itself, detection becomes more challenging.
+      </p>
+      <p>
+        Watering hole attacks have become increasingly prevalent, with motivations ranging from financial theft—such as stealing personally identifiable information (PII) or banking details—to political espionage. Websites associated with religious organizations, political groups, media outlets, and other high-profile entities have been targeted, impacting not only the organizations themselves but also unsuspecting users who visit these sites.
+      </p>
+      
+      <h2>How Can Organizations Defend Against Watering Hole Attacks?</h2>
+      <p>
+        To mitigate the risk of a watering hole attack, organizations should implement proactive security measures that protect both corporate infrastructure and employees.
+      </p>
+      
+      <h3>1. Web Security Measures</h3>
+      <ul>
+        <li>Deploy secure web gateways to block suspicious or compromised websites, preventing drive-by malware infections.</li>
+        <li>Utilize advanced threat detection that analyzes site behavior rather than just relying on blacklists of known malicious domains.</li>
+        <li>Regularly scan and patch vulnerabilities on company websites to prevent them from becoming attack vectors.</li>
+      </ul>
+      
+      <h3>2. Email Security & Link Protection</h3>
+      <ul>
+        <li>Implement email security solutions that scan incoming messages for embedded malicious links, both at the time of delivery and when a user clicks.</li>
+        <li>Train employees to recognize phishing attempts and unexpected email prompts directing them to external websites.</li>
+      </ul>
+      
+      <h3>3. Off-Network Protection</h3>
+      <ul>
+        <li>Ensure security measures extend beyond corporate networks, protecting users even when they browse from home or on public Wi-Fi.</li>
+        <li>Adopt cloud-based security solutions that provide real-time monitoring of user activity across cloud platforms such as Google Workspace and Microsoft 365.</li>
+      </ul>
+    </div>
+    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "watering hole attack";
+      const NEXT_PAGE_URL = "/Learn/AttackTypes/buffer-overflow.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+  </body>
+</html>

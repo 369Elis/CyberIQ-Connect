@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Key Infrastructure (PKI) Components</title>
+</head>
+<body>
+    <header>
+        <h1>Public Key Infrastructure (PKI) Components</h1>
+    </header>
+    
+    <section>
+        <h2>Understanding PKI Components</h2>
+        <p>Public Key Infrastructure (PKI) is a framework composed of various elements and processes designed to manage the generation, distribution, and authentication of public and private key pairs. A fully functional PKI relies on multiple key components that ensure secure communication and trust across digital platforms.</p>
+    </section>
+    
+    <section>
+        <h2>Essential Components of a PKI</h2>
+        <p>A PKI typically consists of several essential elements, each playing a critical role in maintaining security and trust within the infrastructure.</p>
+        
+        <h3>Certificate Authority (CA)</h3>
+        <p>The Certificate Authority is responsible for issuing digital certificates to entities. Acting as a trusted entity within a private PKI, the CA validates identities and ensures the authenticity of certificates. Entities that trust the CA inherently trust all certificates it issues.</p>
+        
+        <h3>Digital Certificate</h3>
+        <p>A digital certificate is an electronically signed document issued by a CA that verifies the ownership of a public key. It includes several attributes, such as:</p>
+        <ul>
+            <li>Public key associated with the certificate owner</li>
+            <li>Key usage (e.g., authentication, encryption, or digital signature)</li>
+            <li>Subject name (e.g., DNS name, IP address, or organization details)</li>
+            <li>Expiration date and validity period</li>
+        </ul>
+        <p>Digital certificates ensure secure communication and authentication in online transactions and encrypted data exchanges.</p>
+    </section>
+    
+    <section>
+        <h3>Registration Authority (RA)</h3>
+        <p>The Registration Authority serves as an intermediary between end entities and the CA. It verifies the identity of an entity requesting a certificate before forwarding the request to the CA for approval. This verification process is crucial in preventing unauthorized issuance of certificates and enhancing PKI security.</p>
+    </section>
+    
+    <section>
+        <h3>Validation Authority (VA)</h3>
+        <p>A Validation Authority is responsible for confirming the validity and revocation status of a certificate. Organizations operating a PKI often use an online validation service, such as:</p>
+        <ul>
+            <li><strong>Online Certificate Status Protocol (OCSP):</strong> Provides real-time verification of certificate status.</li>
+            <li><strong>Certificate Revocation List (CRL):</strong> Lists certificates that have been revoked and are no longer trustworthy.</li>
+        </ul>
+        <p>The VA ensures that compromised or expired certificates are not used in secure communications.</p>
+    </section>
+    
+    <section>
+        <h3>Secure Key Storage</h3>
+        <p>Protecting cryptographic keys from unauthorized access is essential for maintaining PKI integrity. Secure storage mechanisms, such as hardware security modules (HSMs), encrypted databases, or dedicated key vaults, help safeguard private keys used by both the CA and end entities.</p>
+    </section>
+    
+    <section>
+        <h3>Public and Private Key Pair</h3>
+        <p>A core aspect of PKI, a public-private key pair consists of:</p>
+        <ul>
+            <li><strong>Public Key:</strong> Can be shared openly and is used for encryption or digital signature verification.</li>
+            <li><strong>Private Key:</strong> Must be kept confidential and is used to decrypt data or generate digital signatures.</li>
+        </ul>
+        <p>The mathematical relationship between the key pair ensures that only the private key holder can decrypt messages encrypted with the corresponding public key, thereby enabling secure communications and authentication.</p>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>  
+        const MODULE_NAME = "compromised of PKI";
+        const NEXT_PAGE_URL = "/Learn/Cryptography/steganography.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

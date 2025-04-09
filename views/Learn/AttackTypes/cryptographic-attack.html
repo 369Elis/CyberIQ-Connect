@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Cryptography</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+</head>
+<body class="cryptography-page">
+
+    <header>
+        <h1>Understanding Cryptography: Securing Digital Communication</h1>
+    </header>
+
+    <section class="intro">
+        <p>Cryptography is the practice of securing communication and information through mathematical techniques, ensuring that only authorized individuals can access the data. It plays a fundamental role in protecting sensitive information by converting readable data into an encrypted format, known as ciphertext.</p>
+
+        <h3>Main Goals of Cryptography:</h3>
+        <ul>
+            <li>🔹 <strong>Confidentiality</strong> – Ensuring only intended recipients can access information.</li>
+            <li>🔹 <strong>Integrity</strong> – Preventing unauthorized alterations to data.</li>
+            <li>🔹 <strong>Authentication</strong> – Verifying the identity of users.</li>
+        </ul>
+        <p>Cryptographic techniques are used in online transactions, encrypted messaging, secure logins, and data protection to defend against cyber threats. As security challenges evolve, cryptographic methods must adapt to emerging risks.</p>
+    </section>
+
+    <section class="crypto-attacks">
+        <h2>What Are Cryptography Attacks?</h2>
+        <p>Cryptography attacks aim to compromise encryption mechanisms by exploiting weaknesses in algorithms, keys, or security implementations. Cybercriminals use various methods to break encryption, steal data, or manipulate systems.</p>
+        <p>These attacks threaten the confidentiality, integrity, and availability of encrypted data, making strong encryption and secure key management essential.</p>
+    </section>
+
+    <section class="crypto-types">
+        <h2>Types of Cryptography Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔢</span>
+                <h3>Brute Force Attack</h3>
+                <p>✔ Systematically tries all possible key combinations.</p>
+                <p>✔ Effective if encryption keys are weak or short.</p>
+                <p><strong>Prevention:</strong> Use long and complex encryption keys.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔑</span>
+                <h3>Cipher-Only Attack</h3>
+                <p>✔ Attacker only has ciphertext and attempts to decrypt it.</p>
+                <p><strong>Prevention:</strong> Use strong encryption algorithms.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📝</span>
+                <h3>Known Plaintext Attack</h3>
+                <p>✔ Uses plaintext-ciphertext pairs to break encryption.</p>
+                <p><strong>Prevention:</strong> Use randomized encryption methods.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📊</span>
+                <h3>Chosen Plaintext Attack</h3>
+                <p>✔ Observes encrypted output of chosen plaintexts.</p>
+                <p><strong>Prevention:</strong> Implement randomization in encryption.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">📥</span>
+                <h3>Chosen Ciphertext Attack</h3>
+                <p>✔ Modifies ciphertext to analyze decryption reactions.</p>
+                <p><strong>Prevention:</strong> Use strong, non-reusable keys.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">⚙</span>
+                <h3>Key & Algorithm Attacks</h3>
+                <p>✔ Exploits weaknesses in encryption design.</p>
+                <p><strong>Prevention:</strong> Use proven cryptographic algorithms.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔬</span>
+                <h3>Side-Channel Attacks</h3>
+                <p>✔ Uses power usage, timing, or electromagnetic leaks to steal keys.</p>
+                <p><strong>Prevention:</strong> Secure hardware to minimize leaks.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔁</span>
+                <h3>Replay Attacks</h3>
+                <p>✔ Replays old data packets to trick systems.</p>
+                <p><strong>Prevention:</strong> Use timestamps and unique session IDs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="crypto-prevention">
+        <h2>How to Prevent Cryptographic Attacks</h2>
+        <div class="mitm-grid">
+            <div class="mitm-card">
+                <span class="icon">🔐</span>
+                <h3>Use Strong Encryption Algorithms</h3>
+                <p>✔ Choose industry-standard encryption like AES (Advanced Encryption Standard).</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔄</span>
+                <h3>Regularly Update Systems</h3>
+                <p>✔ Patch software vulnerabilities that could be exploited.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🔑</span>
+                <h3>Secure Key Management</h3>
+                <p>✔ Use long, complex encryption keys.</p>
+                <p>✔ Store keys securely using hardware security modules (HSMs).</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🧂</span>
+                <h3>Employ Cryptographic Salting</h3>
+                <p>✔ Add random data (salts) to passwords before encryption to prevent dictionary attacks.</p>
+            </div>
+            <div class="mitm-card">
+                <span class="icon">🛑</span>
+                <h3>Monitor for Anomalies</h3>
+                <p>✔ Detect suspicious activity indicating cryptographic attacks.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+    <script src="/scripts/progress.js"></script>
+  
+    <script>
+      const MODULE_NAME = "cryptographic attacks";
+      const NEXT_PAGE_URL = "/learn.html";
+  
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+  
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+  
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+  
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

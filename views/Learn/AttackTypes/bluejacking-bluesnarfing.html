@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluejacking vs. Bluesnarfing</title>
+    <link rel="stylesheet" href="/styles/AttackTypes/styles.css" />
+  </head>
+  <body class="bluetooth-page">
+    <header>
+      <h1>Bluejacking vs. Bluesnarfing: Understanding Bluetooth Hacking</h1>
+    </header>
+
+    <section class="intro">
+      <h2>Bluetooth Hacking Explained</h2>
+      <p>
+        Bluetooth hacking is a growing concern, with two major
+        techniques—Bluejacking and Bluesnarfing—that exploit Bluetooth
+        vulnerabilities. While both involve unauthorized use of Bluetooth
+        connections, they differ in severity and intent.
+      </p>
+    </section>
+
+    <section class="bluejacking">
+      <h2>What Is Bluejacking?</h2>
+      <p>
+        Bluejacking is a relatively harmless Bluetooth exploit where attackers
+        send unsolicited messages to nearby devices. It does not involve
+        stealing personal data or taking control of the device. Instead, it is
+        often used as a prank or marketing tactic to send texts, images, or
+        sounds to unsuspecting users.
+      </p>
+      <p>
+        A hacker performing a Bluejacking attack first scans for active
+        Bluetooth devices within a short range, typically around 30 feet. Once
+        they find a device, they send an unsolicited message disguised as a
+        standard Bluetooth notification. The victim may receive what appears to
+        be a normal contact request or message, which can be confusing or
+        annoying.
+      </p>
+      <p>
+        However, since no personal data is stolen, the primary risk is
+        disruption and annoyance, rather than serious security threats.
+      </p>
+    </section>
+
+    <section class="bluesnarfing">
+      <h2>What Is Bluesnarfing?</h2>
+      <p>
+        Bluesnarfing, in contrast, is a serious cybersecurity attack that allows
+        hackers to steal sensitive data from a device through its Bluetooth
+        connection. Unlike Bluejacking, which only sends messages, Bluesnarfing
+        enables an attacker to access and copy personal files such as contact
+        lists, text messages, emails, and even private photos.
+      </p>
+      <p>
+        The attack works by scanning for discoverable Bluetooth devices and
+        exploiting security flaws in the protocol to bypass authentication. Once
+        the attacker gains unauthorized access, they can extract private data
+        without the victim noticing.
+      </p>
+      <p>
+        In some cases, advanced Bluesnarfing attacks even allow the hacker to
+        send messages or make phone calls from the victim’s device.
+      </p>
+    </section>
+
+    <section class="bluetooth-differences">
+      <h2>Differences Between Bluejacking and Bluesnarfing</h2>
+      <div class="mitm-grid">
+        <div class="mitm-card">
+          <span class="icon">📩</span>
+          <h3>Bluejacking</h3>
+          <p>✔ Involves sending unsolicited messages over Bluetooth.</p>
+          <p>✔ No personal data is stolen.</p>
+          <p>✔ Mainly used as a prank or for marketing.</p>
+          <p>✔ Victims see a pop-up message but no further impact.</p>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">🔓</span>
+          <h3>Bluesnarfing</h3>
+          <p>✔ A serious attack that allows hackers to steal private data.</p>
+          <p>
+            ✔ Exploits security flaws to access contacts, messages, emails, and
+            photos.
+          </p>
+          <p>✔ Can be used for identity theft, espionage, or fraud.</p>
+          <p>✔ Happens silently, so victims may not notice the attack.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bluetooth-prevention">
+      <h2>How to Protect Yourself from Bluejacking and Bluesnarfing</h2>
+      <div class="mitm-grid">
+        <div class="mitm-card">
+          <span class="icon">📴</span>
+          <h3>Disable Bluetooth When Not in Use</h3>
+          <p>
+            ✔ Turning off Bluetooth prevents attackers from discovering and
+            targeting your device.
+          </p>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">🚫</span>
+          <h3>Never Use "Discoverable" Mode</h3>
+          <p>
+            ✔ Keeping your Bluetooth in discoverable mode makes it easier for
+            hackers to find and exploit your connection.
+          </p>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">🔐</span>
+          <h3>Use Strong Authentication</h3>
+          <p>
+            ✔ Set up a unique PIN or passkey to ensure that only trusted devices
+            can connect.
+          </p>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">🔄</span>
+          <h3>Update Your Device Regularly</h3>
+          <p>
+            ✔ Manufacturers release patches to fix known Bluetooth security
+            vulnerabilities, so always keep your software updated.
+          </p>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">❌</span>
+          <h3>Ignore Unsolicited Bluetooth Messages</h3>
+          <p>
+            ✔ If you receive an unexpected Bluetooth message, do not accept or
+            open it—especially from unknown sources.
+          </p>
+        </div>
+        <div class="mitm-card">
+          <span class="icon">📵</span>
+          <h3>Be Cautious in Public Places</h3>
+          <p>
+            ✔ Avoid connecting to unsecured Bluetooth networks in crowded areas,
+            as they can be exploited for Bluesnarfing attacks.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="module-navigation">
+      <button id="completeNextBtn">✅ Complete & Next</button>
+      <button id="skipNextBtn">⏭ Skip</button>
+    </div>
+  </div>
+
+  <script src="/scripts/progress.js"></script>
+
+  <script>
+    const MODULE_NAME = "bluejacking & bluesnarfing";
+    const NEXT_PAGE_URL = "/Learn/AttackTypes/cryptographic-attack.html";
+
+    async function updateProgress() {
+      const response = await fetch("/api/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+      });
+
+      if (response.ok) {
+        window.location.href = NEXT_PAGE_URL;
+      } else {
+        alert("Failed to update progress.");
+      }
+    }
+
+    document
+      .getElementById("completeNextBtn")
+      .addEventListener("click", updateProgress);
+
+    document.getElementById("skipNextBtn").addEventListener("click", () => {
+      window.location.href = NEXT_PAGE_URL;
+    });
+  </script>
+
+  </body>
+</html>

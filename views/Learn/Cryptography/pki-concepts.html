@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Public Key Infrastructure (PKI) and Its Role in Security</title>
+</head>
+<body>
+    <header>
+        <h1>Understanding Public Key Infrastructure (PKI) and Its Role in Security</h1>
+    </header>
+    
+    <section>
+        <h2>What is PKI?</h2>
+        <p>Public Key Infrastructure (PKI) is a framework used to manage digital encryption keys, ensuring secure communication over the internet.</p>
+        <p>It encrypts data exchanges and verifies the authenticity of individuals, devices, and applications, making it a critical component of web security.</p>
+    </section>
+    
+    <section>
+        <h2>Why PKI Matters</h2>
+        <p>PKI provides encryption and authentication, preventing unauthorized access and data breaches. In enterprise environments, it ensures that connected devices communicate securely, reducing the risk of cyberattacks.</p>
+    </section>
+    
+    <section>
+        <h2>How PKI Functions</h2>
+        <p>PKI operates using two key components: encryption keys and certificates.</p>
+        <ul>
+            <li><strong>Public Key:</strong> Available to anyone, used to encrypt messages.</li>
+            <li><strong>Private Key:</strong> Kept secure by the recipient, used to decrypt messages.</li>
+        </ul>
+        <p>Certificates, issued by a Certificate Authority (CA), verify the authenticity of an entity.</p>
+    </section>
+    
+    <section>
+        <h2>Types of PKI Encryption</h2>
+        <h3>Symmetric Encryption</h3>
+        <p>Uses a single key for both encryption and decryption. While effective, it presents a risk if the key is intercepted.</p>
+        
+        <h3>Asymmetric Encryption</h3>
+        <p>Uses two distinct keys:</p>
+        <ul>
+            <li><strong>RSA (Rivest-Shamir-Adleman):</strong> Utilizes large prime numbers.</li>
+            <li><strong>Elliptic Curve Cryptography (ECC):</strong> Strong security with smaller key sizes.</li>
+            <li><strong>Diffie-Hellman:</strong> Enables secure key exchanges.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Preventing Data Exposure</h2>
+        <p>To safeguard data:</p>
+        <ul>
+            <li>Implement SSL/TLS certificates for encryption.</li>
+            <li>Use secure hashing functions for password storage.</li>
+            <li>Employ strong encryption protocols for data communication.</li>
+        </ul>
+        <p>Regulatory frameworks like GDPR mandate strict data protection policies.</p>
+    </section>
+    
+    <section>
+        <h2>What Are PKI Certificates?</h2>
+        <p>PKI certificates function like digital passports, enabling secure authentication between parties. They are issued by Certificate Authorities (CAs) and managed by a Registration Authority (RA).</p>
+        <p>Certificates are stored in:</p>
+        <ul>
+            <li>Certificate Databases</li>
+            <li>Certificate Stores on individual devices</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Common Uses of PKI Certificates</h2>
+        <ul>
+            <li><strong>Securing Websites with HTTPS:</strong> Prevents data interception.</li>
+            <li><strong>Secure Shell (SSH) Authentication:</strong> Ensures only authorized access.</li>
+            <li><strong>Email Encryption and Signing:</strong> Protects email content and sender identities.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h2>Obtaining a PKI Certificate</h2>
+        <ol>
+            <li><strong>Generating a Private Key:</strong> The owner creates an encryption key.</li>
+            <li><strong>Requesting a Certificate:</strong> The owner submits a Certificate Signing Request (CSR).</li>
+            <li><strong>Verification by the CA:</strong> The CA authenticates the request.</li>
+            <li><strong>Issuance of the Certificate:</strong> Once verified, the certificate is issued for secure communication.</li>
+        </ol>
+    </section>
+    
+    <section>
+        <h2>Why PKI is Essential for Email Security</h2>
+        <p>PKI ensures:</p>
+        <ul>
+            <li>Secure transmission through encryption.</li>
+            <li>Verification of sender and recipient identities.</li>
+            <li>Protection against email spoofing and tampering.</li>
+        </ul>
+    </section>
+
+    
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "PKI Concepts";
+        const NEXT_PAGE_URL = "/learn.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+
+</body>
+</html>

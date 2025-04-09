@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is a Secure Email Gateway (SEG)?</title>
+</head>
+<body>
+    <h1>What Is a Secure Email Gateway (SEG)?</h1>
+    
+    <h2>Definition</h2>
+    <p>A Secure Email Gateway (SEG) is a security solution that filters and monitors incoming and outgoing emails to protect organizations from threats like spam, phishing, and malware. Acting as a checkpoint, an SEG ensures that only legitimate emails reach users while blocking harmful content. It can also prevent sensitive data from being sent externally and apply encryption when needed. SEGs can be deployed as on-premises hardware/software or as a cloud-based service.</p>
+    
+    <h2>Risks of Free and Open-Source Security</h2>
+    <p>Using free or open-source email security solutions may seem cost-effective but comes with risks. These solutions often lack timely updates to counter evolving threats, making them ineffective against sophisticated cyberattacks. Attackers frequently test their malicious emails against widely available security software, increasing the likelihood of successful breaches. Investing in a robust SEG is essential to prevent costly security incidents.</p>
+    
+    <h2>Cloud vs. On-Premises SEG Deployment</h2>
+    <p>Organizations can implement SEGs as either on-premises solutions or cloud services. The choice depends on whether a business uses a cloud-based email system (e.g., Microsoft 365) or an on-premises email server (e.g., Exchange). On-premises solutions require maintenance, software updates, and connectivity management. In contrast, cloud-based SEGs offer scalability, reduced maintenance, and vendor-managed security updates.</p>
+    
+    <h2>Comparison of Secure Email Gateways</h2>
+    <p>While many email security gateways claim to offer similar features, their effectiveness varies. Businesses should assess solutions based on:</p>
+    
+    <ul>
+        <li><strong>Deployment Flexibility</strong> – Choose between on-premises or cloud-based SEG based on infrastructure needs.</li>
+        <li><strong>Spam and Malware Filtering</strong> – Evaluate how well a solution blocks spam and detects malware through real-world tests.</li>
+        <li><strong>Threat Intelligence</strong> – Advanced SEGs provide insights into attack methods, targeted users, and malicious trends.</li>
+        <li><strong>Outbound Content Protection</strong> – Prevents data leaks by scanning outgoing emails and applying encryption policies.</li>
+        <li><strong>Incident Response</strong> – Identifies and removes malicious emails from inboxes post-delivery, reducing infection risks.</li>
+    </ul>
+    
+    <p>Selecting the right SEG is critical for email security, ensuring protection against evolving threats while maintaining efficient email communication.</p>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+
+
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "mail gateway";
+      const NEXT_PAGE_URL = "/Learn/SecurityComponents/proxy-server.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
+
+
+
+</body>
+</html>

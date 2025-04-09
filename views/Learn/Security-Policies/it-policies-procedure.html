@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> IT Policies and Procedures</title>
+</head>
+<body>
+    <h1>Maximizing IT Value & Efficiency with Strong IT Policies and Procedures</h1>
+    <p>The IT landscape is constantly evolving. Security threats are on the rise, remote work has introduced new challenges, and organizations need clear guidelines to manage IT efficiently while maintaining security, compliance, and operational continuity.</p>
+    
+    <p>That’s where IT policies and procedures come in. These structured guidelines ensure that IT assets are used securely, responsibly, and effectively, helping businesses maintain consistency, security, and efficiency.</p>
+    
+    <h2>What Are IT Policies and Procedures?</h2>
+    <p>IT policies and procedures define how IT resources are used within an organization. They establish clear rules, responsibilities, and expectations for employees regarding IT security, governance, and operational processes.</p>
+    
+    <ul>
+        <li><strong>IT policies</strong> provide high-level guidelines on how IT should be managed.</li>
+        <li><strong>IT procedures</strong> break down these policies into step-by-step processes to ensure compliance and effectiveness.</li>
+    </ul>
+    
+    <h2>Why Are IT Policies and Procedures Important?</h2>
+    <ul>
+        <li><strong>Compliance with Regulations:</strong> Ensures adherence to GDPR, HIPAA, PCI-DSS, and other legal requirements.</li>
+        <li><strong>Improved Security & Risk Management:</strong> Protects against cyber threats like phishing, ransomware, and insider threats.</li>
+        <li><strong>Streamlined IT Operations:</strong> Enhances efficiency through standardized IT procedures.</li>
+        <li><strong>Business Continuity & Crisis Management:</strong> Minimizes downtime with backup strategies and incident response plans.</li>
+        <li><strong>Clear Expectations for Employees:</strong> Defines acceptable IT use, remote work security, and data protection measures.</li>
+    </ul>
+    
+    <h2>What Should an IT Policy Include?</h2>
+    <ul>
+        <li><strong>Purpose & Scope</strong> – Why the policy exists and who it applies to.</li>
+        <li><strong>Roles & Responsibilities</strong> – Defines accountability for IT security and maintenance.</li>
+        <li><strong>Security & Compliance Requirements</strong> – Covers data handling, encryption, and regulatory standards.</li>
+        <li><strong>Acceptable Use Guidelines</strong> – Specifies rules for software, networks, devices, and cloud storage.</li>
+        <li><strong>Incident Response & Reporting</strong> – Details steps for handling IT security breaches.</li>
+        <li><strong>Review & Update Procedures</strong> – Ensures regular assessments for policy relevance.</li>
+    </ul>
+    
+    <h2>Key IT Policies Every Organization Needs</h2>
+    <h3>1. IT Asset Management Policy</h3>
+    <ul>
+        <li>Manages company-owned hardware and software.</li>
+        <li>Defines personal device (BYOD) usage rules.</li>
+        <li>Ensures software licensing compliance.</li>
+    </ul>
+    
+    <h3>2. IT Security Policy</h3>
+    <ul>
+        <li>Mandates strong authentication and password policies.</li>
+        <li>Establishes access controls for sensitive data.</li>
+        <li>Enforces encryption and endpoint security measures.</li>
+    </ul>
+    
+    <h3>3. Remote Work & Mobile Device Policy</h3>
+    <ul>
+        <li>Requires VPNs and multi-factor authentication (MFA).</li>
+        <li>Defines home network security guidelines.</li>
+        <li>Restricts unauthorized application usage.</li>
+    </ul>
+    
+    <h3>4. Data Backup & Disaster Recovery Policy</h3>
+    <ul>
+        <li>Defines backup schedules and storage locations.</li>
+        <li>Outlines recovery plans for IT failures.</li>
+        <li>Assigns responsibility for backup maintenance.</li>
+    </ul>
+    
+    <h3>5. Software & Patch Management Policy</h3>
+    <ul>
+        <li>Ensures regular software updates and security patches.</li>
+        <li>Uses application whitelisting to prevent malware risks.</li>
+        <li>Automates patch deployment to reduce vulnerabilities.</li>
+    </ul>
+    
+    <h3>6. Incident Response Policy</h3>
+    <ul>
+        <li>Details steps for identifying and containing security threats.</li>
+        <li>Defines procedures for forensic analysis and reporting.</li>
+    </ul>
+    
+    <h3>7. Employee IT Usage & Access Policy</h3>
+    <ul>
+        <li>Specifies acceptable use of company networks and email.</li>
+        <li>Defines rules for file sharing and data storage.</li>
+        <li>Prohibits downloading unapproved software.</li>
+    </ul>
+    
+    <h2>Implementing & Enforcing IT Policies</h2>
+    <h3>1. Communicate Policies Clearly</h3>
+    <ul>
+        <li>Use clear, jargon-free language.</li>
+        <li>Require employees to acknowledge policy compliance.</li>
+    </ul>
+    
+    <h3>2. Provide Employee Training</h3>
+    <ul>
+        <li>Conduct regular security awareness sessions.</li>
+        <li>Train employees on phishing detection and data protection.</li>
+    </ul>
+    
+    <h3>3. Use Technology for Policy Enforcement</h3>
+    <ul>
+        <li>Implement monitoring tools for compliance tracking.</li>
+        <li>Enforce security controls like firewalls and encryption.</li>
+    </ul>
+    
+    <h3>4. Regularly Review & Update Policies</h3>
+    <ul>
+        <li>Conduct annual reviews to adapt to new threats.</li>
+        <li>Gather feedback from IT teams and employees.</li>
+    </ul>
+
+    <div class="module-navigation">
+        <button id="completeNextBtn">✅ Complete & Next</button>
+        <button id="skipNextBtn">⏭ Skip</button>
+      </div>
+    </div>
+  
+      <script src="/scripts/progress.js"></script>
+  
+      <script>
+        const MODULE_NAME = "it policy & procedures";
+        const NEXT_PAGE_URL = "/Learn/Security-Policies/geographic-considerations.html";
+  
+        async function updateProgress() {
+          const response = await fetch("/api/progress", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+          });
+  
+          if (response.ok) {
+            window.location.href = NEXT_PAGE_URL;
+          } else {
+            alert("Failed to update progress.");
+          }
+        }
+  
+        document
+          .getElementById("completeNextBtn")
+          .addEventListener("click", updateProgress);
+          
+        document.getElementById("skipNextBtn").addEventListener("click", () => {
+          window.location.href = NEXT_PAGE_URL;
+        });
+  
+      </script>
+
+</body>
+</html>
