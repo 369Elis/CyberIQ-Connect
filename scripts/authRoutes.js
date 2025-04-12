@@ -210,7 +210,8 @@ router.post("/register", async (req, res) => {
 
       // Insert WITHOUT setting user_level => defaults to NULL
       connection.query(
-        "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
+        `INSERT INTO users (username, email, password, first_name, last_name, age, personal_info_updates, avatar_url)
+         VALUES (?, ?, ?, NULL, NULL, 0, 0, '/assets/avatar/pfp.JPG')`,
         [username, email, hashedPassword],
         (insertErr) => {
           if (insertErr) {
