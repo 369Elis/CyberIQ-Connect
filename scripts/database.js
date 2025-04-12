@@ -1,7 +1,5 @@
-// config/database.js
-
-require("dotenv").config({ path: __dirname + "/../.env" });
-
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "../.env") });
 const mysql = require("mysql2");
 
 // Log current DB config (only for dev/testing)
