@@ -1,6 +1,7 @@
-const path = require("path");
-require("dotenv").config({ path: path.join(__dirname, "../.env") });
+require("dotenv").config(); // just this, no { path: ... }
 const mysql = require("mysql2");
+
+// Then process.env.MYSQLHOST etc. will be read correctly
 
 // Log current DB config (only for dev/testing)
 console.log("🔌 DB config:", {
