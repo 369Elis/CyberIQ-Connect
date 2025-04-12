@@ -1,32 +1,32 @@
-require("dotenv").config(); // just this, no { path: ... }
 const mysql = require("mysql2");
 
-// Then process.env.MYSQLHOST etc. will be read correctly
+// Use Railway's standard DB_* variables first
+const dbConfig = {
+  host: process.env.DB_HOST || process.env.MYSQLHOST,
+  user: process.env.DB_USER || process.env.MYSQLUSER,
+  password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD,
+  database: process.env.DB_NAME || process.env.MYSQLDATABASE,
+  port: process.env.DB_PORT || process.env.MYSQLPORT,
+};
 
-// Log current DB config (only for dev/testing)
-console.log("🔌 DB config:", {
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  database: process.env.MYSQLDATABASE,
-  port: process.env.MYSQLPORT,
-});
+console.log("🔌 Final DB Config:", dbConfig);
 
-// Setup MySQL connection using Railway-compatible env vars
-const connection = mysql.createConnection({
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-  port: process.env.MYSQLPORT,
-});
+// Validate configuration
+const required = ["host", "user", "password", "database", "port"];
+for (const field of required) {
+  if (!dbConfig[field]) {
+    throw new Error(`Missing database config for: ${field}`);
+  }
+}
 
-// Connect to the database
+const connection = mysql.createConnection(dbConfig);
+
 connection.connect((err) => {
   if (err) {
-    console.error(" Database connection failed:", err.stack);
-  } else {
-    console.log(" Connected to MySQL database.");
+    console.error("DATABASE CONNECTION FAILED:", err.message);
+    process.exit(1);
   }
+  console.log("✅ Connected to MySQL database");
 });
 
 module.exports = connection;
