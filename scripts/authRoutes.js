@@ -197,7 +197,11 @@ router.post("/register", async (req, res) => {
     "SELECT id FROM users WHERE email = ?",
     [email],
     async (err, results) => {
-      if (err) return res.status(500).json({ error: "Database error." });
+      if (err) {
+        console.error("SELECT error:", err);
+        return res.status(500).json({ error: "Database error." });
+      }
+
       if (results.length > 0) {
         return res.status(400).json({ error: "Email is already registered." });
       }
@@ -210,8 +214,10 @@ router.post("/register", async (req, res) => {
         [username, email, hashedPassword],
         (insertErr) => {
           if (insertErr) {
+            console.error("INSERT error:", insertErr);
             return res.status(500).json({ error: "Registration failed." });
           }
+
           res
             .status(200)
             .json({ message: "Registration successful. Please log in." });
