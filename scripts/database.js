@@ -1,10 +1,8 @@
 // config/database.js
-const mysql = require("mysql2");
 
-// Load .env variables only for local development
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config(); // Make sure .env is in the root of your project
-}
+require("dotenv").config({ path: __dirname + "/../.env" });
+
+const mysql = require("mysql2");
 
 // Log current DB config (only for dev/testing)
 console.log("🔌 DB config:", {
