@@ -401,6 +401,14 @@ router.post("/change-password", async (req, res) => {
       }
 
       const storedPassword = results[0].password;
+
+      const isSamePassword = await bcrypt.compare(newPassword, storedPassword);
+      if (isSamePassword) {
+        return res.status(400).json({
+          error: "New password must be different from the current password.",
+        });
+      }
+
       const isMatch = await bcrypt.compare(currentPassword, storedPassword);
 
       if (!isMatch) {

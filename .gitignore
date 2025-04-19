@@ -1,10 +1,10 @@
-# Ignore environment variables
+# This ignores environment variables
 database.env
 
-# Ignore Node.js modules
+#  This ignores Node.js modules
 node_modules/  
 
-# Ignore installation tools and binaries
+# This ignores installation tools and binaries
 corepack
 install_tools
 node
@@ -12,7 +12,9 @@ nodevars
 npm
 npx
 
-# Ignore log files
+# This ignores log files
 *.log
 
 
+certificates/
+assets/avatar/
