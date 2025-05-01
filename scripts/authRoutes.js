@@ -5,8 +5,22 @@ const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
 const connection = require("./database");
+const rateLimit = require("express-rate-limit");
+const { body, validationResult } = require("express-validator");
 
 const router = express.Router();
+
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 min
+  max: 3000,
+  message: "Too many login attempts. Please try again in 15 minutes.",
+});
+
+const registerLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10, // more lenient than login
+  message: "Too many registrations from this IP. Try again in 15 minutes.",
+});
 
 // Password validation function
 function isValidPassword(password) {
@@ -146,29 +160,46 @@ router.get("/personalinfo.html", (req, res) => {
 // ======================================================
 // Route: POST /login -> Process login
 // ======================================================
-router.post("/login", (req, res) => {
-  const { email, password } = req.body;
 
-  connection.query(
-    "SELECT * FROM users WHERE email = ?",
-    [email],
-    async (err, results) => {
-      if (err || results.length === 0) {
-        return res.redirect("/login?error=Invalid email or password");
-      }
-
-      const user = results[0];
-      const isPasswordMatch = await bcrypt.compare(password, user.password);
-
-      if (isPasswordMatch) {
-        req.session.userId = user.id;
-        return res.redirect("/account.html");
-      } else {
-        return res.redirect("/login?error=Invalid email or password");
-      }
+router.post(
+  "/login",
+  authLimiter,
+  [
+    body("email")
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("Please enter a valid email."),
+    body("password").isLength({ min: 6 }).withMessage("Password is required."),
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.redirect("/login?error=Invalid email or password");
     }
-  );
-});
+
+    const { email, password } = req.body;
+
+    connection.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email],
+      async (err, results) => {
+        if (err || results.length === 0) {
+          return res.redirect("/login?error=Invalid email or password");
+        }
+
+        const user = results[0];
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+        if (isPasswordMatch) {
+          req.session.userId = user.id;
+          return res.redirect("/account.html");
+        } else {
+          return res.redirect("/login?error=Invalid email or password");
+        }
+      }
+    );
+  }
+);
 
 // ======================================================
 // Route: GET /register -> Show register.html
@@ -180,53 +211,75 @@ router.get("/register", (req, res) => {
 // ======================================================
 // Route: POST /register -> Create new user
 // ======================================================
-router.post("/register", async (req, res) => {
-  const { username, email, password, confirm_password } = req.body;
-
-  if (password !== confirm_password) {
-    return res.status(400).json({ error: "Passwords do not match." });
-  }
-  if (!isValidPassword(password)) {
-    return res.status(400).json({
-      error:
-        "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.",
-    });
-  }
-
-  connection.query(
-    "SELECT id FROM users WHERE email = ?",
-    [email],
-    async (err, results) => {
-      if (err) {
-        console.error("SELECT error:", err);
-        return res.status(500).json({ error: "Database error." });
+router.post(
+  "/register",
+  registerLimiter,
+  [
+    body("username")
+      .trim()
+      .escape()
+      .isLength({ min: 3 })
+      .withMessage("Username must be at least 3 characters."),
+    body("email")
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("Please enter a valid email."),
+    body("password")
+      .isStrongPassword()
+      .withMessage(
+        "Password must be at least 8 characters and include uppercase, lowercase, number, and special character."
+      ),
+    body("confirm_password").custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Passwords do not match.");
       }
-
-      if (results.length > 0) {
-        return res.status(400).json({ error: "Email is already registered." });
-      }
-
-      const hashedPassword = await bcrypt.hash(password, 10);
-
-      // Insert WITHOUT setting user_level => defaults to NULL
-      connection.query(
-        `INSERT INTO users (username, email, password, first_name, last_name, age, personal_info_updates, avatar_url)
-         VALUES (?, ?, ?, NULL, NULL, 0, 0, '/assets/avatar/pfp.JPG')`,
-        [username, email, hashedPassword],
-        (insertErr) => {
-          if (insertErr) {
-            console.error("INSERT error:", insertErr);
-            return res.status(500).json({ error: "Registration failed." });
-          }
-
-          res
-            .status(200)
-            .json({ message: "Registration successful. Please log in." });
-        }
-      );
+      return true;
+    }),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-  );
-});
+
+    const { username, email, password } = req.body;
+
+    connection.query(
+      "SELECT id FROM users WHERE email = ?",
+      [email],
+      async (err, results) => {
+        if (err) {
+          console.error("SELECT error:", err);
+          return res.status(500).json({ error: "Database error." });
+        }
+
+        if (results.length > 0) {
+          return res
+            .status(400)
+            .json({ error: "Email is already registered." });
+        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        connection.query(
+          `INSERT INTO users (username, email, password, first_name, last_name, age, personal_info_updates, avatar_url)
+           VALUES (?, ?, ?, NULL, NULL, 0, 0, '/assets/avatar/pfp.JPG')`,
+          [username, email, hashedPassword],
+          (insertErr) => {
+            if (insertErr) {
+              console.error("INSERT error:", insertErr);
+              return res.status(500).json({ error: "Registration failed." });
+            }
+
+            res
+              .status(200)
+              .json({ message: "Registration successful. Please log in." });
+          }
+        );
+      }
+    );
+  }
+);
 
 // ======================================================
 // Route: POST /logout

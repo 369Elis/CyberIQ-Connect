@@ -1,12 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
     <link rel="stylesheet" href="../styles/login.register.css" />
-    
-    </style>
   </head>
   <body>
     <header>
@@ -16,6 +13,7 @@
       <div class="form-container">
         <h2>Create Your Account</h2>
         <form id="registerForm">
+          <input type="hidden" id="csrfHidden" name="_csrf" />
           <div class="input-group">
             <label for="username">
               <span class="icon" aria-label="username icon">👤</span>
@@ -120,14 +118,22 @@
       const reqDigit = document.querySelector(".req-digit");
       const reqSpecial = document.querySelector(".req-special");
 
+      let csrfToken = "";
+
+      fetch("/csrf-token")
+        .then((r) => r.json())
+        .then((d) => {
+          csrfToken = d.csrfToken;
+          document.getElementById("csrfHidden").value = csrfToken;
+        });
+
       function validatePassword() {
         const pwd = passwordInput.value;
-        // Validate each requirement
         toggleValidity(reqLength, pwd.length >= 8);
         toggleValidity(reqUpper, /[A-Z]/.test(pwd));
         toggleValidity(reqLower, /[a-z]/.test(pwd));
         toggleValidity(reqDigit, /\d/.test(pwd));
-        toggleValidity(reqSpecial, /[!@#$%^&*(),.?":{}|<>]/.test(pwd));
+        toggleValidity(reqSpecial, /[!@#$%^&*(),.?\":{}|<>]/.test(pwd));
       }
 
       function toggleValidity(element, isValid) {
@@ -142,7 +148,6 @@
         formError.textContent = "";
         formSuccess.textContent = "";
 
-        // Check password match
         if (passwordInput.value !== confirmPasswordInput.value) {
           document.getElementById("confirmPasswordError").textContent =
             "Passwords do not match.";
@@ -151,7 +156,6 @@
           document.getElementById("confirmPasswordError").textContent = "";
         }
 
-        // Check if all requirements are valid
         const allValid =
           document.querySelectorAll(".password-requirements li.invalid")
             .length === 0;
@@ -163,7 +167,6 @@
           document.getElementById("passwordError").textContent = "";
         }
 
-        // Send data to the server via Fetch
         const formData = new FormData(form);
         const data = {
           username: formData.get("username"),
@@ -175,19 +178,20 @@
         try {
           const response = await fetch("/register", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              "csrf-token": csrfToken,
+            },
             body: JSON.stringify(data),
           });
 
           const result = await response.json();
 
           if (!response.ok) {
-            // Display server-side error
             formError.textContent = result.error || "Registration failed.";
           } else {
             formSuccess.textContent =
               result.message || "Registration successful!";
-            // Optionally redirect to login after a delay
             setTimeout(() => {
               window.location.href = "/login";
             }, 1500);

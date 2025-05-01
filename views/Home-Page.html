@@ -157,7 +157,7 @@
         <a href="/GetCertified/get-certified-home.html">
           <button class="main-btn">Get Certified</button>
         </a>
-
+        <button class="main-btn">Questions</button>
         <a href="Research/research.html"
           ><button class="main-btn">Research</button></a
         >
@@ -168,9 +168,18 @@
     </div>
 
     <!-- Footer -->
-    <footer>© 2024 CyberSec Edu. All Rights Reserved.</footer>
-
     <script>
+      // Add CSRF token handling at the top
+      let csrfToken = "";
+
+      // Fetch CSRF token when page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("/csrf-token")
+          .then((res) => res.json())
+          .then((data) => (csrfToken = data.csrfToken))
+          .catch((err) => console.error("Failed to get CSRF token:", err));
+      });
+
       // 1) Update UI for login
       function updateUI(isLoggedIn) {
         const loginBtn = document.getElementById("login-btn");
@@ -191,23 +200,25 @@
           isUserLoggedIn = data.isLoggedIn;
           updateUI(data.isLoggedIn);
 
-          // if logged in, check if user_level is null => show wizard
           if (isUserLoggedIn) {
             if (data.userLevel === null || data.userLevel === undefined) {
               userLevel = null;
               document.getElementById("wizard-overlay").style.display = "flex";
             } else {
-              userLevel = data.userLevel; // e.g. "beginner"
+              userLevel = data.userLevel;
             }
           }
         })
         .catch((err) => console.error("Error checking user login state:", err));
 
-      // 3) Optional: Handle logout explicitly
+      // 3) Handle logout
       const logoutForm = document.querySelector("form[action='/logout']");
       logoutForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        fetch("/logout", { method: "POST" })
+        fetch("/logout", {
+          method: "POST",
+          headers: { "X-CSRF-Token": csrfToken },
+        })
           .then(() => {
             isUserLoggedIn = false;
             updateUI(false);
@@ -219,11 +230,10 @@
     <script>
       // ============ Multi-Step Wizard Logic ============
       let chosenLevel = null;
-      let chosenGoal = null; // Not saved to DB
+      let chosenGoal = null;
       let firstName = "";
       let lastName = "";
 
-      // Step 1: Choose Level
       document.querySelectorAll(".wizard-level-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           chosenLevel = btn.dataset.level;
@@ -232,7 +242,6 @@
         });
       });
 
-      // Step 2: Enter Name
       document
         .getElementById("wizard-name-next-btn")
         .addEventListener("click", () => {
@@ -248,7 +257,6 @@
           document.getElementById("step3").style.display = "block";
         });
 
-      // Step 3: Choose Daily Goal
       document.querySelectorAll(".wizard-goal-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           chosenGoal = btn.dataset.goal;
@@ -257,37 +265,54 @@
         });
       });
 
-      // Step 4: Finish
       document
         .getElementById("wizard-finish-btn")
         .addEventListener("click", async () => {
-          document.getElementById("wizard-overlay").style.display = "none";
-
-          if (isUserLoggedIn) {
-            try {
-              const res = await fetch("/api/save-wizard-choices", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  level: chosenLevel,
-                  firstName,
-                  lastName,
-                }),
-              });
-              if (!res.ok) {
-                console.error("Failed to save wizard choices in DB");
-              } else {
-                console.log("Wizard choices saved successfully");
-              }
-            } catch (error) {
-              console.error("Error saving wizard choices:", error);
+          try {
+            if (!csrfToken) {
+              throw new Error("CSRF token not loaded");
             }
+
+            const res = await fetch("/api/save-wizard-choices", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": csrfToken,
+              },
+              body: JSON.stringify({
+                level: chosenLevel,
+                firstName: firstName.trim(),
+                lastName: lastName.trim(),
+              }),
+            });
+
+            const result = await res.json();
+
+            if (!res.ok || !result.success) {
+              const errorMsg = result.error || "Unknown error occurred";
+              const details = result.details ? `: ${result.details}` : "";
+              alert(`Failed to save progress${details}`);
+              return;
+            }
+
+            document.getElementById("wizard-overlay").style.display = "none";
+            const userData = await fetch("/api/user-info").then((r) =>
+              r.json()
+            );
+            userLevel = userData.userLevel;
+          } catch (error) {
+            console.error("Save failed:", error);
+            alert(
+              error.message.includes("CSRF")
+                ? "Security error. Please refresh the page."
+                : "Network error. Please check your connection."
+            );
           }
         });
     </script>
 
     <script>
-      // On DOM loaded, optionally fetch user avatar
+      // Avatar handling
       document.addEventListener("DOMContentLoaded", () => {
         const profileIcon = document.querySelector(".profile-icon");
         fetch("/api/user-info")

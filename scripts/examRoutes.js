@@ -22,6 +22,10 @@ function requireLogin(req, res, next) {
   next();
 }
 
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 /**
  * GET /api/get-questions
  */
@@ -229,49 +233,54 @@ router.get("/api/get-correct-answers", requireLogin, async (req, res) => {
  */
 router.post("/api/save-wizard-choices", requireLogin, async (req, res) => {
   let { level, firstName, lastName } = req.body;
-  if (!level) level = "beginner";
-  level = level.toLowerCase().trim();
+
+  // Validate and normalize level
+  level = level?.toLowerCase().trim() || "beginner";
   if (!["beginner", "intermediate", "advanced"].includes(level)) {
     level = "beginner";
   }
 
-  if (firstName) firstName = firstName.trim();
-  if (lastName) lastName = lastName.trim();
-
   try {
+    // Get current user data
     const [user] = await queryPromise(
       "SELECT first_name, last_name FROM users WHERE id = ?",
       [req.session.userId]
     );
 
-    const updateFields = ["user_level = ?"];
-    const values = [level];
+    // Prepare updates
+    const updates = {
+      user_level: level, // Always update level
+    };
 
-    // Only overwrite if DB has not set them yet
-    if (firstName && !user.first_name) {
-      updateFields.push("first_name = ?");
-      values.push(firstName);
+    // Only set names if they're not already set in DB
+    if (firstName && (!user.first_name || user.first_name === "NULL")) {
+      updates.first_name = firstName.trim();
     }
-    if (lastName && !user.last_name) {
-      updateFields.push("last_name = ?");
-      values.push(lastName);
+    if (lastName && (!user.last_name || user.last_name === "NULL")) {
+      updates.last_name = lastName.trim();
     }
 
-    values.push(req.session.userId);
+    // Perform update
+    await queryPromise("UPDATE users SET ? WHERE id = ?", [
+      updates,
+      req.session.userId,
+    ]);
 
-    const sql = `UPDATE users SET ${updateFields.join(", ")} WHERE id = ?`;
-    await queryPromise(sql, values);
-
-    return res.json({ message: "Wizard setup saved", newLevel: level });
+    // Send success response
+    res.json({
+      success: true,
+      newLevel: level,
+      firstName: updates.first_name || user.first_name,
+      lastName: updates.last_name || user.last_name,
+    });
   } catch (err) {
-    console.error("Failed to save wizard data:", err);
-    return res.status(500).json({ error: "Database error" });
+    console.error("Save failed:", err);
+    res.status(500).json({
+      success: false,
+      error: "Database update failed",
+      details: err.message,
+    });
   }
 });
-
-function capitalize(str) {
-  if (!str || typeof str !== "string") return "";
-  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-}
 
 module.exports = router;

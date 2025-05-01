@@ -84,13 +84,35 @@
           </li>
           <li>
             <form action="/logout" method="POST" style="display: inline">
+              <input type="hidden" name="_csrf" id="logoutCsrfToken" />
               <button type="submit" class="logout-btn">Logout</button>
             </form>
+
+            <script>
+              fetch("/csrf-token")
+                .then((res) => res.json())
+                .then((data) => {
+                  const input = document.getElementById("logoutCsrfToken");
+                  if (input) input.value = data.csrfToken;
+                })
+                .catch((err) => console.error("CSRF fetch failed:", err));
+            </script>
           </li>
           <li>
             <form action="/delete-account" method="POST" style="margin: 0">
+              <input type="hidden" name="_csrf" id="deleteCsrfToken" />
               <button type="submit" class="danger-btn">Delete Account</button>
             </form>
+
+            <script>
+              fetch("/csrf-token")
+                .then((res) => res.json())
+                .then((data) => {
+                  const delToken = document.getElementById("deleteCsrfToken");
+                  if (delToken) delToken.value = data.csrfToken;
+                })
+                .catch((err) => console.error("CSRF fetch failed:", err));
+            </script>
           </li>
         </ul>
       </div>

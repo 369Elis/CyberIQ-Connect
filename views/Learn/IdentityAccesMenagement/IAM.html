@@ -50,8 +50,16 @@
         <button id="skipNextBtn">⏭ Skip</button>
       </div>
     </div>
-  
+
+    
       <script src="/scripts/progress.js"></script>
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
   
       <script>
         const MODULE_NAME = "IAM";
@@ -61,6 +69,7 @@
           const response = await fetch("/api/progress", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
+            credentials: "include",
             body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
           });
   
