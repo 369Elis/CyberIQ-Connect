@@ -1,0 +1,11 @@
+:root {
+  --color-bg-1: #0f0c29;
+  --color-bg-2: #302b63;
+  --color-bg-3: #24243e;
+  --color-text: #ffffff;
+  --color-accent: #ff00cc;
+  --color-gradient-text: linear-gradient(90deg, #ff00cc, #3333ff);
+  --color-button: linear-gradient(to right, #00f2fe, #4facfe);
+  --glow-shadow: 0 0 10px rgba(79, 172, 254, 0.8),
+    0 0 20px rgba(0, 242, 254, 0.6);
+}

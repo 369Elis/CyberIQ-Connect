@@ -1,0 +1,13 @@
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.logo-container {
+  margin-bottom: 1rem;
+}
+
+.header-logo {
+  width: 180px;
+  height: auto;
+}
