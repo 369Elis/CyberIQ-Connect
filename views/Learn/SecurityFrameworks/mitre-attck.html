@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MITRE ATT&CK Framework: Understanding Cyber Threats</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
+
     <h1>MITRE ATT&CK Framework: Understanding Cyber Threats</h1>
     
     <h2>What is MITRE ATT&CK?</h2>
@@ -22,30 +40,30 @@
     <h2>How MITRE ATT&CK is Structured</h2>
     <p>MITRE ATT&CK organizes cyberattack techniques into three primary matrices, covering different digital environments:</p>
     <ul>
-        <li><strong>Enterprise Matrix</strong> – Covers attacks on IT infrastructure (Windows, Linux, MacOS, cloud, networks, and containers).</li>
-        <li><strong>Mobile Matrix</strong> – Focuses on threats targeting iOS and Android devices.</li>
-        <li><strong>ICS Matrix</strong> – Addresses cyber threats in industrial control systems (factories, utilities, and transportation).</li>
+        <li><strong>Enterprise Matrix</strong> Covers attacks on IT infrastructure (Windows, Linux, MacOS, cloud, networks, and containers).</li>
+        <li><strong>Mobile Matrix</strong> Focuses on threats targeting iOS and Android devices.</li>
+        <li><strong>ICS Matrix</strong> Addresses cyber threats in industrial control systems (factories, utilities, and transportation).</li>
     </ul>
     
     <h2>MITRE ATT&CK Tactics & Techniques</h2>
     <h3>Tactics: What Attackers Aim to Do</h3>
     <p>Each cyberattack progresses through various tactics, representing the adversary’s objectives. Some key tactics include:</p>
     <ul>
-        <li><strong>Reconnaissance</strong> – Collecting information on a target.</li>
-        <li><strong>Initial Access</strong> – Gaining entry through phishing, exploits, or credentials.</li>
-        <li><strong>Execution</strong> – Running malicious code on the system.</li>
-        <li><strong>Privilege Escalation</strong> – Gaining higher-level access (e.g., from user to admin).</li>
-        <li><strong>Lateral Movement</strong> – Spreading within the network to access critical resources.</li>
-        <li><strong>Exfiltration</strong> – Stealing or transferring sensitive data.</li>
-        <li><strong>Impact</strong> – Destroying or corrupting data and systems.</li>
+        <li><strong>Reconnaissance</strong> Collecting information on a target.</li>
+        <li><strong>Initial Access</strong> Gaining entry through phishing, exploits, or credentials.</li>
+        <li><strong>Execution</strong> Running malicious code on the system.</li>
+        <li><strong>Privilege Escalation</strong> Gaining higher-level access (e.g., from user to admin).</li>
+        <li><strong>Lateral Movement</strong> Spreading within the network to access critical resources.</li>
+        <li><strong>Exfiltration</strong> Stealing or transferring sensitive data.</li>
+        <li><strong>Impact</strong> Destroying or corrupting data and systems.</li>
     </ul>
     
     <h3>Techniques: How Attackers Achieve Their Goals</h3>
     <p>Techniques define specific methods used to execute tactics. Examples include:</p>
     <ul>
-        <li><strong>Spear Phishing (Initial Access)</strong> – Sending targeted emails with malicious links.</li>
-        <li><strong>Process Injection (Defense Evasion)</strong> – Hiding malware in legitimate processes.</li>
-        <li><strong>Brute Force (Credential Access)</strong> – Cracking passwords through repeated login attempts.</li>
+        <li><strong>Spear Phishing (Initial Access)</strong> Sending targeted emails with malicious links.</li>
+        <li><strong>Process Injection (Defense Evasion)</strong> Hiding malware in legitimate processes.</li>
+        <li><strong>Brute Force (Credential Access)</strong> Cracking passwords through repeated login attempts.</li>
     </ul>
     <p>Each technique is linked to:</p>
     <ul>
@@ -57,11 +75,11 @@
     <h2>MITRE ATT&CK Use Cases</h2>
     <p>Organizations use ATT&CK for various security operations, including:</p>
     <ul>
-        <li><strong>Threat Detection & Incident Response</strong> – Helps security teams analyze alerts and prioritize threats.</li>
-        <li><strong>Threat Hunting</strong> – Guides proactive searches for hidden threats in the network.</li>
-        <li><strong>Red Teaming & Penetration Testing</strong> – Enables security professionals to simulate attacks and test defenses.</li>
-        <li><strong>Security Gap Analysis</strong> – Assesses weaknesses in cybersecurity defenses.</li>
-        <li><strong>SOC Maturity Assessments</strong> – Evaluates the efficiency of security operations centers.</li>
+        <li><strong>Threat Detection & Incident Response</strong> Helps security teams analyze alerts and prioritize threats.</li>
+        <li><strong>Threat Hunting</strong> Guides proactive searches for hidden threats in the network.</li>
+        <li><strong>Red Teaming & Penetration Testing</strong> Enables security professionals to simulate attacks and test defenses.</li>
+        <li><strong>Security Gap Analysis</strong> Assesses weaknesses in cybersecurity defenses.</li>
+        <li><strong>SOC Maturity Assessments</strong> Evaluates the efficiency of security operations centers.</li>
     </ul>
     
     <h2>MITRE ATT&CK vs. Cyber Kill Chain</h2>
@@ -75,7 +93,7 @@
         <li>Identifying defenses against specific attack methods.</li>
     </ul>
     <p>This tool can be accessed online or downloaded for local use.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>
@@ -86,7 +104,7 @@
   
       <script>
         const MODULE_NAME = "mmitre att&ck";
-        const NEXT_PAGE_URL = "/Learn/SecurityFrameworks/nist-riskmanagementt.html";
+        const NEXT_PAGE_URL = "/learn.html";
   
         async function updateProgress() {
           const response = await fetch("/api/progress", {

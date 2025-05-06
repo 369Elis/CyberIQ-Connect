@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding the NIST Cybersecurity Framework (CSF) 2.0</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Understanding the NIST Cybersecurity Framework (CSF) 2.0</h1>
     <p>The NIST Cybersecurity Framework (CSF) 2.0, released in February 2024, provides organizations with a structured approach to managing cybersecurity risks. It is designed for businesses, government agencies, and institutions of all sizes, helping them assess, prioritize, and improve their cybersecurity posture.</p>
     
@@ -41,7 +58,7 @@
         <li><strong>Alignment with Global Standards</strong> – Works alongside other cybersecurity frameworks and regulations.</li>
         <li><strong>Improved Communication</strong> – Provides a common language for executives, security teams, and stakeholders.</li>
     </ul>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

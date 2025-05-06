@@ -4,11 +4,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="../styles/login.register.css" />
+    <link rel="stylesheet" href="/styles/layout/navbar.css" />
   </head>
   <body>
-    <header>
-      <h1>Huntress Labs</h1>
+    <header class="navbar">
+      <!-- Include Font Awesome for icons -->
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      </nav>
     </header>
+
     <div class="background-overlay">
       <div class="form-container">
         <h2>Welcome, please login</h2>
@@ -58,8 +69,6 @@
           <button type="submit" class="login-btn">Login Now</button>
         </form>
         <div class="footer-links">
-          <a href="#">Forgot your password?</a>
-          <a href="#">Terms</a> | <a href="#">Privacy</a>
           <p>Don’t have an account? <a href="register/">Sign up</a></p>
         </div>
       </div>

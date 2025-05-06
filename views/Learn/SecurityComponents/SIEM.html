@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Security Information and Event Management (SIEM)</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Understanding Security Information and Event Management (SIEM)</h1>
     
     <h2>What is SIEM?</h2>
@@ -63,7 +80,7 @@
     <p>Maintaining compliance with security regulations can be complex, but SIEM simplifies the process by offering automated audit trails and real-time compliance reports. This reduces the time and effort needed for security assessments and regulatory reporting.</p>
     
     <p>By integrating SIEM into their cybersecurity strategy, organizations can enhance security visibility, detect threats faster, and improve overall risk management.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

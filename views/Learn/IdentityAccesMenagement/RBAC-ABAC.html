@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Role-Based Access Control (RBAC): Strengthening Access Management</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Role-Based Access Control (RBAC): Strengthening Access Management</h1>
-    </header>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     
     <section>
+      <h1>Role-Based Access Control (RBAC): Strengthening Access Management</h1>
         <h2>What is Role-Based Access Control?</h2>
         <p>Role-Based Access Control (RBAC) is a structured approach to managing user permissions by assigning access based on job roles rather than individual users. This method ensures that employees, contractors, and system users can only interact with data and systems relevant to their responsibilities, reducing the risk of unauthorized access.</p>
         <p>For example, in a hospital setting, doctors, nurses, and administrative staff each require different levels of access to patient information. RBAC ensures that each role is assigned the right permissions, preventing exposure to unnecessary or sensitive data.</p>
@@ -82,7 +97,7 @@
             <li>✔ <strong>Integrate Context-Aware Security Measures:</strong> Consider adding ABAC controls for greater flexibility and precision in access management.</li>
         </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

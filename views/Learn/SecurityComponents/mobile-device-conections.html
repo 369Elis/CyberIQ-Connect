@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Types of Mobile Device Connections</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+<div class="container"> 
     <h1>Types of Mobile Device Connections</h1>
     
     <p>In the digital era, mobile devices rely on multiple connection types to communicate, share data, and access the internet. These connectivity options enhance functionality, ensuring seamless interactions between devices and networks. Below are the key mobile connection types and their applications.</p>
@@ -110,7 +128,7 @@
     
     <h2>Conclusion</h2>
     <p>Mobile devices utilize various connection types to enable seamless communication and internet access. Each connectivity option serves different use cases, ensuring flexibility and efficiency in today’s interconnected world.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

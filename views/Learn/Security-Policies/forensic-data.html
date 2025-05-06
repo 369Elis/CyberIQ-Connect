@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Acquisition in Digital Forensics</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>How to Handle Data Acquisition in Digital Forensics</h1>
     <p>As cybercrime continues to rise, the need for digital forensic investigations has never been greater. Businesses, law enforcement agencies, and cybersecurity professionals must be equipped to gather, preserve, and analyze digital evidence to track cybercriminals and ensure the integrity of digital investigations.</p>
     
@@ -89,7 +106,7 @@
         <li><strong>IT administrators:</strong> Follow proper procedures when handling security incidents.</li>
         <li><strong>Legal & compliance teams:</strong> Need awareness of digital evidence handling.</li>
     </ul>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

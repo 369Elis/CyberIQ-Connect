@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Security Deployment Models</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Mobile Security Deployment Models</h1>
     
     <p>As mobile devices become essential in modern business environments, securing them effectively is critical. Various deployment models help organizations manage, secure, and integrate mobile devices while balancing security, flexibility, and user experience. Below are key mobile security deployment models and their applications.</p>
@@ -136,7 +153,7 @@
     </ul>
     
     <p>Implementing a well-structured mobile security deployment model ensures that businesses can operate securely while enabling employees to work efficiently, whether in an office or remotely.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

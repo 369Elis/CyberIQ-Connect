@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Obfuscation and Its Role in Cybersecurity</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Understanding Obfuscation and Its Role in Cybersecurity</h1>
-    </header>
-    
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section>
+      <h1>Understanding Obfuscation and Its Role in Cybersecurity</h1>
         <h2>What Is Obfuscation?</h2>
         <p>Obfuscation refers to the practice of making code more difficult to understand while maintaining its functionality. This technique is commonly used to protect intellectual property, trade secrets, and prevent reverse engineering of proprietary software. By obscuring the original intent and structure of code, obfuscation makes it more challenging for unauthorized users to analyze and manipulate the software.</p>
         <p>Developers use obfuscation to safeguard their applications, while cybercriminals leverage similar techniques to conceal malicious code from security tools. One notable example of obfuscation being used in a cyberattack was the SolarWinds breach in 2020, where attackers evaded detection for months using sophisticated obfuscation techniques.</p>
@@ -75,7 +89,7 @@
         <h2>Conclusion</h2>
         <p>Obfuscation is a powerful tool in software development and cybersecurity. While it provides crucial benefits in protecting intellectual property and securing applications, it also poses risks when used by malicious actors. Organizations must adopt a balanced approach—leveraging obfuscation for protection while implementing advanced security measures to detect and counteract obfuscation-based threats.</p>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

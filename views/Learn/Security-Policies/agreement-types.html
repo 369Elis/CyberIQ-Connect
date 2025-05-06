@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Agreements in Software Development</title>
-    <link rel="stylesheet" href="/styles/BusinessContracts/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="agreements-page">
 
-    <header>
-        <h1>Key Agreements in Software Development: NDA, SLA, MSA, and SOW</h1>
-    </header>
-
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section class="intro">
+        <h1>Key Agreements in Software Development: NDA, SLA, MSA, and SOW</h1>
         <p>When working with a software house, several agreements are commonly used to define the terms of cooperation, project scope, responsibilities, and confidentiality. While not all of them are mandatory, they are frequently included in large and complex projects to protect both parties and ensure smooth execution.</p>
     </section>
 
@@ -65,64 +78,62 @@
         <h2>Why These Agreements Are Essential</h2>
         <div class="mitm-grid">
             <div class="mitm-card">
-                <span class="icon">🔏</span>
+                <span class="icon"></span>
                 <h3>NDA</h3>
                 <p>✔ Protects sensitive data from leaks or misuse.</p>
             </div>
             <div class="mitm-card">
-                <span class="icon">⚖</span>
+                <span class="icon"></span>
                 <h3>SLA</h3>
                 <p>✔ Defines service quality and expectations.</p>
             </div>
             <div class="mitm-card">
-                <span class="icon">📜</span>
+                <span class="icon"></span>
                 <h3>MSA</h3>
                 <p>✔ Establishes the legal foundation for long-term partnerships.</p>
             </div>
             <div class="mitm-card">
-                <span class="icon">📑</span>
+                <span class="icon"></span>
                 <h3>SOW</h3>
                 <p>✔ Provides clear project guidelines to ensure smooth execution.</p>
             </div>
         </div>
     </section>
-
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>
       </div>
     </div>
   
-      <script src="/scripts/progress.js"></script>
-  
-      <script>
-        const MODULE_NAME = "agreement types";
-        const NEXT_PAGE_URL = "/Learn/Security-Policies/role-based-awarness.html";
-  
-        async function updateProgress() {
-          const response = await fetch("/api/progress", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
-          });
-  
-          if (response.ok) {
-            window.location.href = NEXT_PAGE_URL;
-          } else {
-            alert("Failed to update progress.");
-          }
-        }
-  
-        document
-          .getElementById("completeNextBtn")
-          .addEventListener("click", updateProgress);
-          
-        document.getElementById("skipNextBtn").addEventListener("click", () => {
-          window.location.href = NEXT_PAGE_URL;
-        });
-  
-      </script>
+    <script src="/scripts/progress.js"></script>
 
+    <script>
+       const MODULE_NAME = "agreement types";
+       const NEXT_PAGE_URL = "/Learn/Security-Policies/role-based-awarness.html";
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
 
 </body>
 </html>

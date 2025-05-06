@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Risk Management</title>
-    <link rel="stylesheet" href="/styles/BusinessContracts/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
+<header class="navbar">
+  <div class="navbar-brand">Cyber IQ Connect</div>
+  <nav class="navbar-links">
+    <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="/account.html"
+      ><i class="fa-solid fa-circle-user"></i> Account</a
+    >
+    <form action="/logout" method="POST" class="logout-form">
+      <button type="submit" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </form>
+  </nav>
+</header>
+<button class="back-button" onclick="history.back()">Back</button>
 <body>
+  <div class="container"> 
     <h1>Cyber Risk Management: Understanding and Mitigating Digital Threats</h1>
     <p>Cyber risk management is the strategic process of identifying, assessing, mitigating, and monitoring cybersecurity threats that could impact an organization’s operations, financial health, and reputation. In today's digital landscape, businesses rely heavily on technology, making them susceptible to cyberattacks, data breaches, system failures, and even natural disasters. Without a structured approach to cybersecurity risk management, companies face financial losses, regulatory penalties, and long-term reputational damage.</p>
     
@@ -49,7 +65,7 @@
     </ul>
     
     <h3>4. Continuous Monitoring and Adaptation</h3>
-    <p>Cyber risk management is not a one-time task—it requires continuous monitoring to ensure security measures remain effective. Organizations should:</p>
+    <p>Cyber risk management is not a one-time taskit requires continuous monitoring to ensure security measures remain effective. Organizations should:</p>
     
     <ul>
         <li>Track new vulnerabilities and emerging cyber threats.</li>
@@ -75,7 +91,7 @@
     <p>Cyber risk management enables companies to prioritize security investments wisely, ensuring they focus on the most pressing threats while maintaining operational efficiency.</p>
     
     <p>By implementing a structured, proactive approach, organizations can strengthen their cybersecurity posture and adapt to evolving cyber threats, ultimately securing their business continuity and digital assets.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cryptography</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Cryptography</h1>
-    </header>
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container">
+<h1>Cryptography</h1>
     
     <section>
         <p>Cryptography involves techniques for securing and verifying data by transforming it to maintain confidentiality, integrity, and authenticity.</p>
@@ -102,6 +117,7 @@
         <h3>Financial PIN Security</h3>
         <p>Financial institutions use cryptography to generate and validate Personal Identification Numbers (PINs). PINs are securely assigned and processed using encryption techniques to verify user identity at ATMs and other financial platforms.</p>
     </section>
+</div>
 
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>

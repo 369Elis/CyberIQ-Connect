@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spoofing Attacks</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="spoofing-page">
 
-    <header>
-        <h1>What Is Spoofing?</h1>
-    </header>
-
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section class="intro">
+        <h1>What Is Spoofing?</h1>
         <p>Spoofing is a deceptive cyber technique where attackers impersonate a trusted entity or system to manipulate individuals into revealing sensitive data, transferring money, or installing malware. It is often combined with social engineering tactics to exploit human psychology, such as fear, urgency, or lack of technical knowledge.</p>
         <p>Spoofing can occur across various communication channels, including email, phone calls, websites, network protocols, and even biometric authentication systems. The objective is to trick victims into trusting a fraudulent identity, leading to unauthorized access, financial fraud, or data theft.</p>
     </section>
@@ -94,6 +107,7 @@
             <li>✔ Only visit secure websites (HTTPS) and avoid entering sensitive details on unverified sites.</li>
         </ul>
     </section>
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

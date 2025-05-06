@@ -2,14 +2,17 @@
 
 /* ===== FUTURISTIC CYBERSECURITY THEME ===== */
 
-/* Global Styles */
 body {
-  font-family: "Orbitron", sans-serif;
-  background: radial-gradient(circle at center, #0a001e 0%, #070014 100%);
+  background: linear-gradient(135deg, #0f0c29, #302b63 40%, #24243e 100%);
   color: #ffffff;
+  font-family: "Orbitron", sans-serif;
   text-align: center;
-  padding: 20px;
+  padding: 0;
   margin: 0;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Main Container */
@@ -17,6 +20,7 @@ body {
   width: 80%;
   margin: auto;
   padding: 20px;
+  padding-bottom: 200px;
 }
 
 /* Header Styling */
@@ -45,45 +49,72 @@ header h1 {
 
 /* Cyber Buttons */
 .learn-btn {
-  background: linear-gradient(135deg, #6a00f4, #a900ff);
-  color: white;
+  background: linear-gradient(to right, #00f2fe, #4facfe);
   border: none;
-  padding: 15px;
-  font-size: 18px;
-  width: 100%;
-  margin: 10px 0;
-  border-radius: 30px;
+  border-radius: 50px;
+  color: #fff;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 0px 15px rgba(170, 0, 255, 0.5);
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.8), 0 0 20px rgba(0, 242, 254, 0.6);
 }
 
 .learn-btn:hover {
-  background: linear-gradient(135deg, #a900ff, #6a00f4);
-  box-shadow: 0px 0px 25px rgba(170, 0, 255, 0.8);
   transform: scale(1.05);
+  box-shadow: 0 0 15px #4facfe, 0 0 25px #00f2fe;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
 }
 
 /* Dropdown Styling */
+/* Dropdown Base */
 .dropdown-content {
   display: none;
-  background: rgba(20, 20, 30, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  flex-direction: column;
+  background: rgba(20, 20, 30, 0.95);
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0px 0px 20px rgba(170, 0, 255, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Dropdown Links */
 .dropdown-content a {
   display: block;
-  padding: 8px;
-  color: white;
+  padding: 10px 15px;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  transition: 0.2s ease-in-out;
 }
 
 .dropdown-content a:hover {
-  background: #9c67ff;
-  border-radius: 5px;
+  background: #6a00f4;
+  box-shadow: 0px 0px 8px #a900ff;
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Show Dropdown */
+.dropdown-content.show {
+  display: flex;
 }
 
 /* Dropdown Animation */
@@ -98,7 +129,184 @@ header h1 {
   }
 }
 
-.dropdown-content.show {
+.module-pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  margin-top: 50px; /* Push it further down */
+}
+
+.module-pyramid .learn-btn {
+  max-width: 500px;
+  width: 80%;
+  transition: width 0.3s ease;
+}
+
+/* Pyramid width shrinking by button index (odd = buttons) */
+.module-pyramid .learn-btn:nth-of-type(1) {
+  width: 20%;
+}
+.module-pyramid .learn-btn:nth-of-type(2) {
+  width: 25%;
+}
+.module-pyramid .learn-btn:nth-of-type(3) {
+  width: 30%;
+}
+.module-pyramid .learn-btn:nth-of-type(4) {
+  width: 60%;
+}
+.module-pyramid .learn-btn:nth-of-type(5) {
+  width: 50%;
+}
+.module-pyramid .learn-btn:nth-of-type(6) {
+  width: 30%;
+}
+.module-pyramid .learn-btn:nth-of-type(7) {
+  width: 25%;
+}
+.module-pyramid .learn-btn:nth-of-type(8) {
+  width: 20%;
+}
+.guide-btn {
+  background: linear-gradient(to right, #0177ad, #04a2aa);
+  color: rgb(255, 255, 255);
+  font-size: 0.85rem;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(23, 180, 228, 0.8), 0 0 30px rgba(12, 86, 172, 0.6);
+  margin: 200px auto 40px auto;
+  display: inline-block; /* Fixes huge clickable area */
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0; /* Remove excess spacing */
+
+  vertical-align: middle;
+}
+
+.guide-btn span {
   display: block;
-  animation: fadeIn 0.3s ease-in-out;
+  padding-top: 35%; /* centers text vertically inside circle */
+}
+
+.guide-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgb(0, 0, 0), 0 0 35px rgba(7, 169, 233, 0.9);
+}
+header.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links a,
+.logout-btn {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.logout-btn:hover,
+.navbar-links a:hover {
+  color: #bb86fc;
+}
+
+#guidePlaceholder {
+  height: 200px; /* Matches actual guide button height + margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#guidePlaceholder.hidden {
+  visibility: hidden;
+}
+@media (max-width: 768px) {
+  header.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .learn-btn {
+    width: 100% !important;
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+
+  .dropdown-content a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .guide-btn {
+    width: 90px;
+    height: 90px;
+    font-size: 0.7rem;
+    margin: 100px auto 30px auto;
+  }
+
+  .guide-btn span {
+    padding-top: 30%;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .learn-btn {
+    font-size: 0.9rem;
+  }
+
+  .dropdown-content {
+    max-width: 100%;
+  }
+
+  .navbar-links a,
+  .logout-btn {
+    font-size: 14px;
+  }
+
+  .guide-btn {
+    width: 75px;
+    height: 75px;
+    font-size: 0.65rem;
+  }
 }

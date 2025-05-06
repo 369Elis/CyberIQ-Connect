@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> IT Policies and Procedures</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Maximizing IT Value & Efficiency with Strong IT Policies and Procedures</h1>
     <p>The IT landscape is constantly evolving. Security threats are on the rise, remote work has introduced new challenges, and organizations need clear guidelines to manage IT efficiently while maintaining security, compliance, and operational continuity.</p>
     
@@ -30,12 +47,12 @@
     
     <h2>What Should an IT Policy Include?</h2>
     <ul>
-        <li><strong>Purpose & Scope</strong> – Why the policy exists and who it applies to.</li>
-        <li><strong>Roles & Responsibilities</strong> – Defines accountability for IT security and maintenance.</li>
-        <li><strong>Security & Compliance Requirements</strong> – Covers data handling, encryption, and regulatory standards.</li>
-        <li><strong>Acceptable Use Guidelines</strong> – Specifies rules for software, networks, devices, and cloud storage.</li>
-        <li><strong>Incident Response & Reporting</strong> – Details steps for handling IT security breaches.</li>
-        <li><strong>Review & Update Procedures</strong> – Ensures regular assessments for policy relevance.</li>
+        <li><strong>Purpose & Scope</strong> Why the policy exists and who it applies to.</li>
+        <li><strong>Roles & Responsibilities</strong> Defines accountability for IT security and maintenance.</li>
+        <li><strong>Security & Compliance Requirements</strong> Covers data handling, encryption, and regulatory standards.</li>
+        <li><strong>Acceptable Use Guidelines</strong> Specifies rules for software, networks, devices, and cloud storage.</li>
+        <li><strong>Incident Response & Reporting</strong> Details steps for handling IT security breaches.</li>
+        <li><strong>Review & Update Procedures</strong> Ensures regular assessments for policy relevance.</li>
     </ul>
     
     <h2>Key IT Policies Every Organization Needs</h2>
@@ -111,7 +128,7 @@
         <li>Conduct annual reviews to adapt to new threats.</li>
         <li>Gather feedback from IT teams and employees.</li>
     </ul>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

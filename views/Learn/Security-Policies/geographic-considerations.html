@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geographical Considerations in Data Management</title>
-</head>
+    <link rel="stylesheet" href="/styles/modules.css" />
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Geographical Considerations in Data Management</h1>
     <p>In today’s digital landscape, data moves across borders with ease, enabling businesses and individuals to share information instantly. However, the location of data storage and processing plays a critical role in compliance, security, and performance. Organizations must consider a range of geographical factors when managing data, from data privacy regulations to market forces and user expectations.</p>
     
@@ -59,7 +75,7 @@
         <li>Customers expect transparency in data handling.</li>
         <li>Data breaches or privacy concerns can damage a brand’s reputation.</li>
     </ul>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

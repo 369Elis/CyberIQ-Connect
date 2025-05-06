@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Hashing Algorithms and Their Applications</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Understanding Hashing Algorithms and Their Applications</h1>
-    </header>
-    
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section>
+      <h1>Understanding Hashing Algorithms and Their Applications</h1>
         <h2>What Are Hashing Algorithms?</h2>
         <p>Hashing algorithms are mathematical functions designed to transform data into a fixed-length string of characters, making the original information unreadable and difficult to reconstruct. These functions serve a crucial role in securing data, ensuring integrity, and verifying the authenticity of information.</p>
         <p>For example, a hashing algorithm can generate a hash value that acts as a unique digital fingerprint. If the hash remains unchanged upon receipt, the file has not been altered during transmission.</p>
@@ -66,7 +80,7 @@
         <p>Keccak operates using a sponge construction mechanism, absorbing input data, processing it through multiple transformations, and extracting the final hash value.</p>
         <p>Compared to SHA-2, Keccak offers increased resilience against emerging cryptographic threats and is significantly faster in some implementations.</p>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

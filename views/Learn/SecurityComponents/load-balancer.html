@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Load Balancers</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Understanding Load Balancers</h1>
     
     <h2>What is a Load Balancer?</h2>
@@ -16,45 +33,45 @@
     
     <h2>Key Advantages of Load Balancing</h2>
     <ul>
-        <li><strong>High Availability</strong> – Prevents outages by intelligently distributing traffic.</li>
-        <li><strong>Scalability</strong> – Adapts to varying workloads and demand spikes.</li>
-        <li><strong>Enhanced Security</strong> – Helps protect against cyber threats like DDoS attacks.</li>
-        <li><strong>Optimized Performance</strong> – Balances network load to maximize efficiency.</li>
+        <li><strong>High Availability</strong>  Prevents outages by intelligently distributing traffic.</li>
+        <li><strong>Scalability</strong>  Adapts to varying workloads and demand spikes.</li>
+        <li><strong>Enhanced Security</strong>  Helps protect against cyber threats like DDoS attacks.</li>
+        <li><strong>Optimized Performance</strong>  Balances network load to maximize efficiency.</li>
     </ul>
     
     <h2>Common Load Balancing Methods</h2>
     <ul>
-        <li><strong>Round Robin</strong> – Distributes requests sequentially among servers.</li>
-        <li><strong>Least Connections</strong> – Sends requests to the server handling the fewest connections.</li>
-        <li><strong>Least Response Time</strong> – Routes traffic based on server speed and active connections.</li>
-        <li><strong>Source IP Hashing</strong> – Assigns users to specific servers based on IP address.</li>
-        <li><strong>Consistent Hashing</strong> – Uses a hashing algorithm to ensure requests go to the same server.</li>
+        <li><strong>Round Robin</strong>  Distributes requests sequentially among servers.</li>
+        <li><strong>Least Connections</strong>  Sends requests to the server handling the fewest connections.</li>
+        <li><strong>Least Response Time</strong>  Routes traffic based on server speed and active connections.</li>
+        <li><strong>Source IP Hashing</strong>  Assigns users to specific servers based on IP address.</li>
+        <li><strong>Consistent Hashing</strong>  Uses a hashing algorithm to ensure requests go to the same server.</li>
     </ul>
     
     <h2>Types of Load Balancers</h2>
     <ul>
-        <li><strong>Layer 4 Load Balancers</strong> – Manage traffic based on transport protocols like TCP and UDP.</li>
-        <li><strong>Layer 7 Load Balancers</strong> – Route traffic using application-layer data like HTTP headers.</li>
-        <li><strong>Cloud Load Balancers</strong> – Adapt to demand by distributing traffic across cloud instances.</li>
-        <li><strong>DNS Load Balancing</strong> – Directs requests to geographically optimal servers.</li>
-        <li><strong>Hardware Load Balancers</strong> – Physical devices designed to manage high traffic volumes.</li>
-        <li><strong>Software Load Balancers</strong> – Virtual solutions offering flexible traffic management.</li>
+        <li><strong>Layer 4 Load Balancers</strong>  Manage traffic based on transport protocols like TCP and UDP.</li>
+        <li><strong>Layer 7 Load Balancers</strong>  Route traffic using application-layer data like HTTP headers.</li>
+        <li><strong>Cloud Load Balancers</strong>  Adapt to demand by distributing traffic across cloud instances.</li>
+        <li><strong>DNS Load Balancing</strong>  Directs requests to geographically optimal servers.</li>
+        <li><strong>Hardware Load Balancers</strong>  Physical devices designed to manage high traffic volumes.</li>
+        <li><strong>Software Load Balancers</strong>  Virtual solutions offering flexible traffic management.</li>
     </ul>
     
     <h2>Static vs. Dynamic Load Balancing</h2>
-    <p><strong>Static Load Balancing</strong> – Uses fixed rules for traffic allocation, ideal for predictable loads.</p>
-    <p><strong>Dynamic Load Balancing</strong> – Adjusts in real-time based on server conditions and demand.</p>
+    <p><strong>Static Load Balancing</strong>  Uses fixed rules for traffic allocation, ideal for predictable loads.</p>
+    <p><strong>Dynamic Load Balancing</strong>  Adjusts in real-time based on server conditions and demand.</p>
     
     <h2>Load Balancing in Action</h2>
     <ul>
-        <li><strong>Static Load Balancing</strong> – Suitable for sites with consistent visitor traffic.</li>
-        <li><strong>Dynamic Load Balancing</strong> – Effective for platforms with variable workloads, such as online retailers handling peak sales periods.</li>
+        <li><strong>Static Load Balancing</strong>  Suitable for sites with consistent visitor traffic.</li>
+        <li><strong>Dynamic Load Balancing</strong>  Effective for platforms with variable workloads, such as online retailers handling peak sales periods.</li>
     </ul>
     
     <h2>Choosing the Right Load Balancer</h2>
     <p>Selecting an appropriate load balancer ensures seamless operation and a secure, efficient digital experience. Businesses must evaluate traffic patterns, security needs, and scalability requirements when implementing a load balancing solution.</p>
    
-   
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

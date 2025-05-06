@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication Protocols Explained: PAP, CHAP, MS-CHAP, and EAP</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
+
 </head>
 <body>
-    <header>
-        <h1>Authentication Protocols Explained: PAP, CHAP, MS-CHAP, and EAP</h1>
-    </header>
-    
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container">   
     <section>
+      <h1>Authentication Protocols Explained: PAP, CHAP, MS-CHAP, and EAP</h1>
         <h2>Introduction</h2>
         <p>Selecting an authentication protocol is a crucial step in designing a RADIUS-based authentication system. Different protocols offer varying levels of security, compatibility, and flexibility, making it important to choose one that aligns with the organization's security needs and infrastructure.</p>
         <p>When assessing authentication methods, key factors to consider include:</p>
@@ -73,7 +88,7 @@
         <h3>Recommendation:</h3>
         <p>Since EAP-MSCHAPv2 does not enhance security over MS-CHAPv2 and is more complicated to implement, it is not recommended for secure authentication environments.</p>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross-Site Request Forgery (CSRF) Attack</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="csrf-page">
 
-    <header>
-        <h1>Cross-Site Request Forgery (CSRF): A Silent Threat to Web Security</h1>
-    </header>
-
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section class="intro">
+        <h1>Cross-Site Request Forgery (CSRF): A Silent Threat to Web Security</h1>
         <h2>What is CSRF?</h2>
         <p>Cross-Site Request Forgery (CSRF), also referred to as XSRF, Sea Surf, or Session Riding, is a type of cyberattack where a user's browser is tricked into making unauthorized requests on a web application where they are already authenticated.</p>
         <p>Because the request originates from a legitimate, logged-in user, the system cannot differentiate between a valid request and a forged one, allowing attackers to manipulate user actions without their knowledge.</p>
@@ -104,7 +117,7 @@ currentPassword=SecurePass123&newPassword=Hacked987
             </div>
         </div>
     </section>
-
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

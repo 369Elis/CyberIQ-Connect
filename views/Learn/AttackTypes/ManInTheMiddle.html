@@ -4,85 +4,87 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Email Attacks</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
+
   </head>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+  <button class="back-button" onclick="history.back()">Back</button>
   <body>
     <div class="container">
-      <h1>Types of Email Attacks</h1>
+      <h1>Understanding Man in the Middle (MITM) Attacks</h1>
+
       <p>
-        Email is a widely used communication tool, making it a major target for
-        cybercriminals. Various types of email attacks exploit vulnerabilities
-        to steal data, install malware, and conduct fraudulent activities. Below
-        are some common types of email-based cyber threats.
+        A Man in the Middle (MITM) attack occurs when a malicious actor intercepts communication between two parties, either to listen in or impersonate one side. This can give the illusion of a normal exchange while the attacker quietly siphons off sensitive information.
       </p>
 
-      <h2>Phishing</h2>
       <p>
-        Phishing attacks involve deceptive emails that impersonate trusted
-        entities to steal sensitive information like passwords and financial
-        data.
+        The intent behind MITM attacks is usually to gather credentials, banking data, or personal details. Typical targets include financial platforms, e-commerce systems, and login-protected services. Stolen data can be used for identity theft, unauthorized transactions, or to further penetrate secure environments.
       </p>
 
-      <h3>Spear Phishing</h3>
       <p>
-        A highly targeted attack where cybercriminals research their victims to
-        make phishing emails appear more convincing.
+        Think of it like someone opening your bank mail, reading your info, resealing the envelope, and placing it in your mailbox undetected.
       </p>
 
-      <h3>Whaling</h3>
+      <h2>MITM Attack Flow</h2>
       <p>
-        Targets high-profile executives or officials, often attempting to
-        manipulate them into authorizing fraudulent transactions.
+        These attacks typically unfold in two phases: <strong>interception</strong> and <strong>decryption</strong>.
       </p>
 
-      <h2>Vishing (Voice Phishing)</h2>
+      <h3>Interception Techniques</h3>
       <p>
-        Scammers use phone calls and voice messages to impersonate banks or
-        companies, tricking victims into revealing confidential details.
+        Attackers may intercept traffic using malicious public Wi-Fi hotspots or by manipulating network protocols. Here are common methods:
       </p>
-
-      <h2>Smishing (SMS Phishing)</h2>
-      <p>
-        Similar to phishing but conducted through text messages, directing
-        victims to fraudulent websites or installing malware.
-      </p>
-
-      <h2>Pharming</h2>
-      <p>
-        Redirects users from legitimate websites to counterfeit versions,
-        tricking them into entering personal data.
-      </p>
-
-      <h2>Spyware & Adware</h2>
-      <p>
-        Spyware monitors user activity and collects sensitive information, while
-        adware displays intrusive advertisements and may carry malware.
-      </p>
-
-      <h2>Scareware</h2>
-      <p>
-        Fake warnings trick users into downloading malicious software by falsely
-        claiming their device is infected.
-      </p>
-
-      <h2>Spam & Email-Based Malware</h2>
-      <p>
-        Unsolicited bulk emails that distribute malware, phishing links, and
-        fraudulent schemes.
-      </p>
-
-      <h2>How to Protect Yourself from Email Attacks</h2>
       <ul>
-        <li>Be cautious with emails from unknown sources.</li>
-        <li>
-          Verify links before clicking and check for unusual domain names.
-        </li>
-        <li>Enable two-factor authentication (2FA) for added security.</li>
-        <li>Keep your operating system and software updated.</li>
-        <li>Avoid urgent requests for personal information in emails.</li>
+        <li><strong>IP Spoofing:</strong> Faking IP addresses to reroute traffic to an attacker-controlled site.</li>
+        <li><strong>ARP Spoofing:</strong> Tricking a local network to associate the attacker's MAC address with a valid IP.</li>
+        <li><strong>DNS Spoofing:</strong> Tampering with DNS records to send users to fake websites.</li>
       </ul>
+
+      <h3>Decryption Techniques</h3>
+      <p>
+        Once traffic is intercepted, attackers try to read encrypted communication. Common tactics include:
+      </p>
+      <ul>
+        <li><strong>HTTPS Spoofing:</strong> Sending fake security certificates to trick users into trusting a malicious site.</li>
+        <li><strong>SSL BEAST:</strong> Exploiting older TLS versions to capture session cookies.</li>
+        <li><strong>SSL Hijacking:</strong> Forging authentication keys during handshake to monitor entire sessions.</li>
+        <li><strong>SSL Stripping:</strong> Downgrading HTTPS to unencrypted HTTP so attackers can view data.</li>
+      </ul>
+
+      <h2>Preventing MITM Attacks</h2>
+      <p>
+        Users and site owners can take several steps to defend against MITM threats:
+      </p>
+      <ul>
+        <li>Avoid public Wi-Fi networks that lack password protection.</li>
+        <li>Pay attention to browser warnings about insecure websites.</li>
+        <li>Log out of sensitive services when not in use.</li>
+        <li>Don’t perform financial tasks on public connections.</li>
+      </ul>
+
+      <p>
+        For websites and services, strong SSL/TLS configurations are critical. Encrypting all pages—not just login forms—helps prevent session hijacking. Features like HSTS (HTTP Strict Transport Security) further harden defenses.
+      </p>
+
+      <h2>How Tools like Imperva Help</h2>
+      <p>
+        Platforms like Imperva offer robust SSL/TLS management to prevent MITM exploits such as SSL stripping and weak cipher vulnerabilities. These services ensure encryption standards are current and automatically updated for compliance and protection against emerging threats.
+      </p>
     </div>
-    <div class="footer">Stay Safe Online | Cybersecurity Awareness</div>
+    
 
     <div class="module-navigation">
       <button id="completeNextBtn">✅ Complete & Next</button>

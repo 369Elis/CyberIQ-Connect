@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exploring Block Cipher Modes of Operation</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Exploring Block Cipher Modes of Operation</h1>
-    </header>
-    
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+  
+<div class="container"> 
     <section>
+      <h1>Exploring Block Cipher Modes of Operation</h1>
         <h2>Introduction to Block Ciphers</h2>
         <p>Encryption methods are typically categorized into two types: <strong>block ciphers</strong> and <strong>stream ciphers</strong>. A block cipher encrypts fixed-sized data chunks (e.g., 128-bit blocks), generating ciphertext of the same size. When data exceeds a single block, different <strong>modes of operation</strong> are applied to ensure secure encryption across multiple blocks.</p>
     </section>
@@ -80,7 +95,7 @@
         <p>Block cipher modes define how encryption algorithms operate on data to ensure confidentiality and integrity. <strong>ECB</strong> offers simplicity but lacks security due to pattern visibility. <strong>CBC</strong> enhances security through interdependent encryption but restricts parallel processing. <strong>CFB</strong> provides flexibility for streaming encryption but risks error propagation.</p>
         <p>Choosing the right mode depends on security requirements, data structure, and processing needs. With continuous advancements in encryption, new modes continue to emerge, improving data protection across different applications.</p>
     </section>
-
+  </div>
     
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>

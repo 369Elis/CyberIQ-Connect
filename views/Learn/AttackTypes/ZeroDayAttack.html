@@ -4,18 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Understanding Zero-Day Attacks</title>
-    <link rel="stylesheet" href="/styles/Malware/Ransomware.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
   </head>
   <body>
-    <header>
+    <header class="navbar">
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="/account.html"
+          ><i class="fa-solid fa-circle-user"></i> Account</a
+        >
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </form>
+      </nav>
+    </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+<div class="container"> 
+    <section id="what-is-zero-day">
       <h1>Understanding Zero-Day Attacks</h1>
       <p>
         Zero-day attacks exploit unknown vulnerabilities before developers can
         patch them, making them one of the most dangerous cybersecurity threats.
       </p>
-    </header>
-
-    <section id="what-is-zero-day">
       <h2>What is a Zero-Day Attack?</h2>
       <p>
         A <strong>zero-day attack</strong> is a cyber threat that exploits a
@@ -30,15 +44,15 @@
       </p>
       <ul>
         <li>
-          <strong>Zero-day vulnerability</strong> – A security flaw in software
+          <strong>Zero-day vulnerability</strong> A security flaw in software
           that is unknown to the vendor and has no available patch.
         </li>
         <li>
-          <strong>Zero-day exploit</strong> – The method attackers use to take
+          <strong>Zero-day exploit</strong> The method attackers use to take
           advantage of a zero-day vulnerability.
         </li>
         <li>
-          <strong>Zero-day attack</strong> – The act of using a zero-day exploit
+          <strong>Zero-day attack</strong> The act of using a zero-day exploit
           to infiltrate a system, steal data, or cause damage.
         </li>
       </ul>
@@ -87,19 +101,19 @@
       </p>
       <ul>
         <li>
-          🔹 <strong>Cybercriminals</strong> – Attackers seeking financial gain
+          🔹 <strong>Cybercriminals</strong> Attackers seeking financial gain
           through data theft, ransomware, or fraud.
         </li>
         <li>
-          🔹 <strong>Hacktivists</strong> – Groups targeting organizations for
+          🔹 <strong>Hacktivists</strong> Groups targeting organizations for
           political or social reasons.
         </li>
         <li>
-          🔹 <strong>Corporate Espionage</strong> – Attackers aiming to steal
+          🔹 <strong>Corporate Espionage</strong> Attackers aiming to steal
           trade secrets or intellectual property.
         </li>
         <li>
-          🔹 <strong>Nation-State Actors</strong> – Government-sponsored hackers
+          🔹 <strong>Nation-State Actors</strong> Government-sponsored hackers
           conducting cyber warfare and espionage.
         </li>
       </ul>
@@ -114,22 +128,22 @@
       <h3>🔹 Common Targets of Zero-Day Attacks:</h3>
       <ul>
         <li>
-          ✔ <strong>Operating Systems</strong> – Windows, macOS, Linux, and
+          ✔ <strong>Operating Systems</strong> Windows, macOS, Linux, and
           mobile OS platforms.
         </li>
         <li>
-          ✔ <strong>Web Browsers</strong> – Chrome, Firefox, Edge, and Safari.
+          ✔ <strong>Web Browsers</strong> Chrome, Firefox, Edge, and Safari.
         </li>
         <li>
-          ✔ <strong>Enterprise Applications</strong> – Office suites, email
+          ✔ <strong>Enterprise Applications</strong> Office suites, email
           clients, and financial software.
         </li>
         <li>
-          ✔ <strong>Cloud & Open-Source Services</strong> – Vulnerabilities in
+          ✔ <strong>Cloud & Open-Source Services</strong> Vulnerabilities in
           cloud platforms or widely used libraries.
         </li>
         <li>
-          ✔ <strong>IoT Devices & Firmware</strong> – Smart home devices,
+          ✔ <strong>IoT Devices & Firmware</strong> Smart home devices,
           routers, and embedded systems.
         </li>
       </ul>
@@ -145,19 +159,19 @@
       <h3>🔹 Zero-Day Detection Techniques:</h3>
       <ul>
         <li>
-          ✅ <strong>Anomaly-Based Monitoring</strong> – Detects irregular
+          ✅ <strong>Anomaly-Based Monitoring</strong> Detects irregular
           system behavior.
         </li>
         <li>
-          ✅ <strong>Behavioral Analysis</strong> – Examines file interactions
+          ✅ <strong>Behavioral Analysis</strong> Examines file interactions
           instead of known malware signatures.
         </li>
         <li>
-          ✅ <strong>Machine Learning & AI</strong> – Identifies patterns
+          ✅ <strong>Machine Learning & AI</strong> Identifies patterns
           associated with emerging threats.
         </li>
         <li>
-          ✅ <strong>Threat Intelligence Feeds</strong> – Monitors global
+          ✅ <strong>Threat Intelligence Feeds</strong> Monitors global
           cybersecurity databases for new exploits.
         </li>
       </ul>
@@ -172,23 +186,23 @@
       <h3>🔹 Best Practices for Zero-Day Protection:</h3>
       <ul>
         <li>
-          ✔ <strong>Keep Software Updated</strong> – Install patches and
+          ✔ <strong>Keep Software Updated</strong> Install patches and
           security updates immediately.
         </li>
         <li>
-          ✔ <strong>Use Advanced Threat Protection</strong> – Deploy AI-driven
+          ✔ <strong>Use Advanced Threat Protection</strong> Deploy AI-driven
           detection tools.
         </li>
         <li>
-          ✔ <strong>Enable Multi-Factor Authentication (MFA)</strong> – Prevent
+          ✔ <strong>Enable Multi-Factor Authentication (MFA)</strong> Prevent
           unauthorized access.
         </li>
         <li>
-          ✔ <strong>Monitor Network Traffic</strong> – Detect unusual data
+          ✔ <strong>Monitor Network Traffic</strong> Detect unusual data
           transfers or system behavior.
         </li>
         <li>
-          ✔ <strong>Train Employees on Phishing Awareness</strong> – Most
+          ✔ <strong>Train Employees on Phishing Awareness</strong> Most
           zero-day attacks begin with social engineering.
         </li>
       </ul>
@@ -233,6 +247,7 @@
         >
       </p>
     </section>
+  </div>
     <div class="module-navigation">
       <button id="completeNextBtn">✅ Complete & Next</button>
       <button id="skipNextBtn">⏭ Skip</button>

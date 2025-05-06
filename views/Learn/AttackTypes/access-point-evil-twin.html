@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evil Twin Attack</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="evil-twin-page">
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
 
-    <header>
-        <h1>Evil Twin Attack: The Dangers of Fake WiFi Networks and How to Stay Safe</h1>
-    </header>
-
+<div class="container"> 
     <section class="intro">
+        <h1>Evil Twin Attack: The Dangers of Fake WiFi Networks and How to Stay Safe</h1>
         <h2>What Is an Evil Twin Attack?</h2>
         <p>An Evil Twin attack is a cyber threat where a hacker sets up a fake WiFi hotspot that looks identical to a legitimate public network. Once users unknowingly connect to this fraudulent network, the attacker can monitor their online activity, intercept sensitive data, and even manipulate transactions.</p>
         <p>These attacks are particularly dangerous because anyone can execute them, even without advanced hacking skills. With tools like a WiFi Pineapple, attackers can quickly create rogue access points that mimic trusted networks in places like coffee shops, airports, hotels, and libraries.</p>
@@ -42,18 +55,18 @@
             <div class="mitm-card">
                 <span class="icon">🏦</span>
                 <h3>Banking Fraud at a Coffee Shop</h3>
-                <p>1️⃣ A hacker sets up a fake WiFi network in a coffee shop.</p>
-                <p>2️⃣ A customer connects to the rogue WiFi and logs into their online banking account.</p>
-                <p>3️⃣ The hacker modifies the transaction details, redirecting funds to their own account.</p>
-                <p>4️⃣ The customer receives a fake confirmation receipt, unaware that their money has been stolen.</p>
+                <p> A hacker sets up a fake WiFi network in a coffee shop.</p>
+                <p> A customer connects to the rogue WiFi and logs into their online banking account.</p>
+                <p> The hacker modifies the transaction details, redirecting funds to their own account.</p>
+                <p> The customer receives a fake confirmation receipt, unaware that their money has been stolen.</p>
             </div>
             <div class="mitm-card">
                 <span class="icon">🔑</span>
                 <h3>Credential Theft via Phishing</h3>
-                <p>1️⃣ A hacker creates an Evil Twin network and redirects users to a fake login page.</p>
-                <p>2️⃣ A victim tries to access a well-known service like Facebook or Google, but the page is actually controlled by the hacker.</p>
-                <p>3️⃣ The victim enters their username and password, which are immediately captured and stored by the attacker.</p>
-                <p>4️⃣ The hacker sells these stolen credentials on the dark web or uses them for identity theft.</p>
+                <p> A hacker creates an Evil Twin network and redirects users to a fake login page.</p>
+                <p> A victim tries to access a well-known service like Facebook or Google, but the page is actually controlled by the hacker.</p>
+                <p> The victim enters their username and password, which are immediately captured and stored by the attacker.</p>
+                <p> The hacker sells these stolen credentials on the dark web or uses them for identity theft.</p>
             </div>
         </div>
     </section>
@@ -103,7 +116,7 @@
         <button id="skipNextBtn">⏭ Skip</button>
       </div>
     </div>
-  
+</div>
     <script src="/scripts/progress.js"></script>
   
     <script>

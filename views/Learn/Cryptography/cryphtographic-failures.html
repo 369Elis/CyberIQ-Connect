@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Cryptographic Vulnerabilities and Their Consequences</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Understanding Cryptographic Vulnerabilities and Their Consequences</h1>
-    </header>
     
+ <header class="navbar">
+  <div class="navbar-brand">Cyber IQ Connect</div>
+  <nav class="navbar-links">
+    <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="/account.html"
+      ><i class="fa-solid fa-circle-user"></i> Account</a
+    >
+    <form action="/logout" method="POST" class="logout-form">
+      <button type="submit" class="logout-btn">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </form>
+  </nav>
+</header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+
+<div class="container"> </div>
+    <div class="container">    
     <section>
+      <h1>Understanding Cryptographic Vulnerabilities and Their Consequences</h1>
         <p>Encryption failures arise when security measures do not adequately protect sensitive data, resulting in unauthorized exposure. The OWASP Top 10 security risks recognize this as a major concern, ranking it among the most pressing vulnerabilities.</p>
     </section>
     
@@ -98,7 +116,7 @@
             <li>Simulate attacks to assess security defenses and fix vulnerabilities before exploitation occurs.</li>
         </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

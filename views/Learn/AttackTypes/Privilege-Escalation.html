@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privilege Escalation Attack</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="privilege-page">
 
-    <header>
-        <h1>Privilege Escalation: A Serious Cybersecurity Risk</h1>
-    </header>
-
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section class="intro">
+        <h1>Privilege Escalation: A Serious Cybersecurity Risk</h1>
         <h2>What is Privilege Escalation?</h2>
         <p>Privilege escalation happens when an attacker gains higher-level access within a system, often by exploiting security flaws. With increased privileges, they can modify system settings, steal sensitive data, install malware, or even take complete control of the system.</p>
         <p>Computer systems assign different levels of access to users. Regular users typically have limited permissions, while administrators and superusers have full control over critical system functions. If an attacker successfully escalates their privileges, they can bypass security restrictions, disable defenses, and carry out dangerous activities without detection.</p>
@@ -101,7 +114,7 @@
             </div>
         </div>
     </section>
-
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

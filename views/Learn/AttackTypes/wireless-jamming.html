@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jamming Attacks</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
+
 </head>
 <body class="jamming-page">
 
-    <header>
-        <h1>Jamming Attacks: How Wireless Networks Are Disrupted and How to Stay Protected</h1>
-    </header>
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
 
+<div class="container"> 
     <section class="intro">
+        <h1>Jamming Attacks: How Wireless Networks Are Disrupted and How to Stay Protected</h1>
         <h2>What Is a Jamming Attack?</h2>
         <p>A jamming attack is a type of cyber threat that disrupts wireless communications by overwhelming a network with interference signals. These attacks can target Wi-Fi, Bluetooth, cellular networks, and GPS systems, preventing devices from connecting and functioning properly.</p>
         <p>One alarming example occurred in Mexico in 2020, where 85% of cargo truck thefts reportedly involved GPS jamming, allowing criminals to hijack vehicles without detection.</p>
@@ -114,7 +129,7 @@
             </div>
         </div>
     </section>
-    
+</div> 
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

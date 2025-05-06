@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Session Hijacking</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="session-page">
 
-    <header>
-        <h1>What Is a Session?</h1>
-    </header>
-
+ 
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section class="intro">
+        <h1>What Is a Session?</h1>
         <p>A session refers to the temporary interaction between a client (such as a user’s browser) and a server while using a web application. When a user logs in, the server assigns a unique session ID to track their activity. This session ID ensures the user can navigate the application without needing to log in repeatedly.</p>
         <p>Since HTTP is stateless, meaning each request is independent, sessions help websites remember users by storing session IDs in cookies, URLs, or hidden form fields. However, this very mechanism can be exploited by cybercriminals through session hijacking attacks.</p>
     </section>
@@ -20,7 +34,7 @@
     <section class="session-hijacking">
         <h2>What Is Session Hijacking?</h2>
         <p>Session hijacking is a cyberattack in which an attacker steals a valid session ID to impersonate the legitimate user. By gaining control over a session, attackers can access private accounts, perform unauthorized transactions, or steal sensitive data without needing the actual login credentials.</p>
-        <p>A session ID is as valuable as a username and password—once stolen, an attacker can use it to bypass authentication. This makes session hijacking a major security risk for online applications.</p>
+        <p>A session ID is as valuable as a username and password once stolen, an attacker can use it to bypass authentication. This makes session hijacking a major security risk for online applications.</p>
     </section>
 
     <section class="session-how">
@@ -79,12 +93,12 @@
             <div class="mitm-card">
                 <span class="icon">🔗</span>
                 <h3>Never Store Session IDs in URLs</h3>
-                <p>URLs can be logged, cached, or shared—making session IDs visible. Instead, store session IDs in cookies with proper security attributes.</p>
+                <p>URLs can be logged, cached, or sharedmaking session IDs visible. Instead, store session IDs in cookies with proper security attributes.</p>
             </div>
             <div class="mitm-card">
                 <span class="icon">🔒</span>
                 <h3>Enforce HTTPS Everywhere</h3>
-                <p>Use TLS encryption (HTTPS) across the entire website—not just the login page. This prevents attackers from intercepting session data.</p>
+                <p>Use TLS encryption (HTTPS) across the entire websitenot just the login page. This prevents attackers from intercepting session data.</p>
             </div>
             <div class="mitm-card">
                 <span class="icon">🍪</span>
@@ -103,7 +117,7 @@
             </div>
         </div>
     </section>
-
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

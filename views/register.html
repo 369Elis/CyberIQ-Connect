@@ -3,12 +3,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
+
     <link rel="stylesheet" href="../styles/login.register.css" />
+    <link rel="stylesheet" href="/styles/layout/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
-    <header>
-      <h1>Huntress Labs</h1>
+    <header class="navbar">
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/" title="Home">
+          <i class="fa-solid fa-house"></i>
+        </a>
+      </nav>
     </header>
+
     <div class="background-overlay">
       <div class="form-container">
         <h2>Create Your Account</h2>
@@ -25,11 +37,6 @@
                 required
               />
             </label>
-            <div
-              id="usernameError"
-              class="error-message"
-              aria-live="polite"
-            ></div>
           </div>
           <div class="input-group">
             <label for="email">

@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfect Forward Secrecy (PFS) Explained</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
+  
+    
 </head>
 <body>
-    <h1>Perfect Forward Secrecy (PFS) Explained</h1>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
+   
     
     <h2>What is Perfect Forward Secrecy?</h2>
     <p>Perfect Forward Secrecy (PFS), also known as forward secrecy, is an encryption mechanism that enhances data security by generating temporary session keys for each communication session. This ensures that even if a private key is compromised in the future, past and future encrypted data remains inaccessible to attackers.</p>
@@ -59,7 +78,7 @@
         <li>Enable cipher suites that use DHE or ECDHE key exchange.</li>
         <li>Restart the web server to apply the changes.</li>
     </ol>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross-Site Scripting (XSS) Attack</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="xss-page">
 
-    <header>
-        <h1>How XSS Works: Client-Side Code Exploitation</h1>
-    </header>
-
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <section class="intro">
+      <h1>How XSS Works: Client-Side Code Exploitation</h1>
         <p>Client-side code, primarily written in JavaScript, executes directly within a user's web browser, enabling dynamic website interactions. Unlike server-side code, which runs on the website's backend, client-side scripts can access cookies, session data, and even device permissions.</p>
         <p>Since most modern websites heavily depend on client-side scripting, XSS vulnerabilities have been frequently exploited across popular platforms, including social networks, e-commerce sites, and online banking services.</p>
     </section>
@@ -39,7 +52,7 @@
         <h2>Types of Cross-Site Scripting Attacks</h2>
         <div class="mitm-grid">
             <div class="mitm-card">
-                <span class="icon">🔗</span>
+                <span class="icon"></span>
                 <h3>Reflected XSS</h3>
                 <p>Malicious scripts are embedded in URLs and executed when a user clicks an infected link.</p>
                 <pre><code>
@@ -47,7 +60,7 @@ http://legit-bank.com/index.php?user=&lt;script&gt;stealData()&lt;/script&gt;
                 </code></pre>
             </div>
             <div class="mitm-card">
-                <span class="icon">💾</span>
+                <span class="icon"></span>
                 <h3>Persistent XSS</h3>
                 <p>Malicious scripts are permanently stored in databases (e.g., forum posts, comments).</p>
                 <pre><code>
@@ -66,7 +79,7 @@ http://legit-bank.com/index.php?user=&lt;script&gt;stealData()&lt;/script&gt;
             <li>🔹 <strong>Deploy Web Application Firewalls (WAFs)</strong> – Cloud-based WAFs like Cloudflare detect and block XSS attacks in real-time.</li>
         </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

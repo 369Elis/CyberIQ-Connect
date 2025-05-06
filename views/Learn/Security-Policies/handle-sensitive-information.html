@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Handle Sensitive Information Securely</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container">
     <h1>How to Handle Sensitive Information Securely</h1>
     <p>In an era where digital workspaces and remote access are the norm, protecting sensitive information has become more important than ever. Mishandling confidential data can lead to identity theft, fraud, financial loss, and legal penalties. Businesses and individuals alike must adopt secure data-handling practices to prevent breaches and maintain compliance with strict regulations.</p>
     
@@ -98,7 +115,7 @@
         <li>Conduct phishing awareness exercises.</li>
         <li>Require confidentiality agreements for sensitive data handlers.</li>
     </ul>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

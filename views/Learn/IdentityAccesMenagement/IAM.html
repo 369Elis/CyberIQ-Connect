@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is Identity and Access Management (IAM)?</title>
+    <title>What is Identity and Access Management (IAM)</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
+
 </head>
 <body>
-    <header>
-        <h1>What is Identity and Access Management (IAM)?</h1>
-    </header>
-    
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container">  
     <section>
+      <h1>What is Identity and Access Management (IAM)?</h1>
         <h2>Introduction</h2>
         <p>In today’s digital workplace, employees, contractors, and partners need secure access to company resources, whether working on-site or remotely. Traditionally, businesses kept resources behind firewalls, limiting access to office-based employees. However, with hybrid work becoming the norm, organizations need a system to control who can access what—this is where Identity and Access Management (IAM) comes in.</p>
         <p>IAM ensures that only authorized individuals and devices can access critical systems, balancing security and efficiency. It helps IT teams regulate permissions, preventing unauthorized access while allowing legitimate users to work seamlessly.</p>
@@ -44,7 +59,7 @@
             <li><strong>Regulatory Compliance:</strong> Helps meet legal requirements (e.g., GDPR, HIPAA, SOX) by tracking and managing user access efficiently.</li>
         </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>
@@ -54,12 +69,7 @@
     
       <script src="/scripts/progress.js"></script>
 
-      async function updateProgress() {
-        const response = await fetch("/api/progress", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
-        });
+      
   
       <script>
         const MODULE_NAME = "IAM";

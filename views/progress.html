@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Progress</title>
     <link rel="stylesheet" href="../styles/account.css" />
+    <link rel="stylesheet" href="../styles/layout/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <style>
       body {
         background-color: #0f1e36;
@@ -22,7 +27,7 @@
       .category {
         font-size: 1.4em;
         margin-top: 30px;
-        border-bottom: 2px solid #4caf50;
+        border-bottom: 2px solid #00f2fe;
         padding-bottom: 5px;
       }
       .progress-item {
@@ -34,22 +39,26 @@
         margin-bottom: 5px;
       }
       .progress-bar {
-        background: #1e3c5a;
-        border-radius: 6px;
+        background: #0a1f44;
+        border-radius: 8px;
         overflow: hidden;
-        height: 18px;
+        height: 20px;
+        box-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
       }
+
       .progress-fill {
-        background: #4caf50;
+        background: linear-gradient(135deg, #00f2fe, #4facfe);
         height: 100%;
-        transition: width 0.3s ease;
+        transition: width 0.4s ease;
+        box-shadow: 0 0 12px rgba(0, 242, 254, 0.7);
       }
+
       .status {
         font-size: 0.9em;
         font-weight: bold;
       }
       .status.completed {
-        color: #00ff9c;
+        color: #9005e0;
       }
       .status.inprogress {
         color: #ffcc00;
@@ -60,15 +69,13 @@
     </style>
   </head>
   <body>
-    <div class="top-bar">
-      <div class="left-section">
-        <img src="../assets/logo.home1.png" alt="Website Logo" class="logo" />
-        <a href="Home-Page.html" class="nav-link">
-          <img src="../assets/home.logo.png" alt="Home" class="nav-icon" /> Home
-        </a>
-        <a href="account.html" class="nav-link">Back to Account</a>
-      </div>
-    </div>
+    <header class="navbar">
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/"><i class="fa-solid fa-house"></i></a>
+        <a href="/account.html"><i class="fa-solid fa-circle-user"></i></a>
+      </nav>
+    </header>
 
     <div class="progress-container">
       <h2>My Progress</h2>

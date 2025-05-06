@@ -172,3 +172,229 @@ footer {
   font-size: 0.9rem;
   margin-top: 4rem;
 }
+
+/* ================= WIZARD MODAL (first‑time overlay) ================= */
+/* ================= WIZARD MODAL (first‑time overlay) ================= */
+
+/* Overlay (hidden by default) */
+#wizard-overlay {
+  display: none !important; /* never show unless .active added */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Overlay when JS wants it visible */
+#wizard-overlay.active {
+  display: flex !important;
+}
+
+/* Modal “card” */
+#wizard-container {
+  background: rgba(27, 27, 47, 0.95);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+/* Headings & text inside wizard */
+#wizard-container h2 {
+  margin-top: 0;
+  font-size: 1.75rem;
+}
+#wizard-container p {
+  color: #ccc;
+  line-height: 1.5;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Text inputs (step 2) */
+#step2 input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  margin: 0.5rem 0 1.5rem;
+  background: #1b1b2f;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+}
+#step2 input:focus {
+  outline: none;
+  box-shadow: 0 0 5px #00f2fe;
+}
+
+/* All wizard buttons */
+.wizard-level-btn,
+#wizard-name-next-btn,
+.wizard-goal-btn,
+#wizard-finish-btn {
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  margin: 0.4rem;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.8), 0 0 20px rgba(0, 242, 254, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wizard-level-btn:hover,
+#wizard-name-next-btn:hover,
+.wizard-goal-btn:hover,
+#wizard-finish-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #4facfe, 0 0 25px #00f2fe;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #141428;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-content h2 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.modal-content p {
+  color: #ccc;
+  margin-bottom: 1.8rem;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-btn {
+  padding: 0.75rem 1rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.modal-btn:hover {
+  transform: scale(1.03);
+}
+
+.modal-btn:not(.secondary):not(.close-btn) {
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+  color: #fff;
+}
+
+.modal-btn.secondary {
+  background: #333;
+  color: #ccc;
+}
+
+.modal-btn.close-btn {
+  background: #222;
+  color: #aaa;
+}
+
+.modal-btn.close-btn:hover {
+  background: #333;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p.subheading {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .main-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+
+  .button-container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .header-logo {
+    width: 140px;
+  }
+
+  .top-right-buttons {
+    flex-direction: column;
+    top: 10px;
+    right: 10px;
+    gap: 10px;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .wizard-level-btn,
+  #wizard-name-next-btn,
+  .wizard-goal-btn,
+  #wizard-finish-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  #wizard-container {
+    padding: 1rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+}

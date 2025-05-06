@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What is PCI DSS?</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <h1>What is PCI DSS?</h1>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
+<h1>What is PCI DSS?</h1>
     <p>The Payment Card Industry Data Security Standard (PCI DSS) is a global framework designed to protect cardholder data and prevent fraud. It applies to all organizations that process, store, or transmit payment card information. Compliance with PCI DSS helps businesses secure transactions, maintain customer trust, and meet regulatory requirements.</p>
     
     <h2>Key PCI DSS Goals & Requirements</h2>
@@ -61,7 +78,7 @@
     
     <h2>Why PCI DSS Matters</h2>
     <p>Failure to comply can lead to data breaches, financial penalties, and loss of customer trust. By implementing PCI DSS, businesses safeguard sensitive data, reduce fraud risks, and strengthen their cybersecurity posture.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>
@@ -72,8 +89,8 @@
   
       <script>
         const MODULE_NAME = "pdi dss";
-        const NEXT_PAGE_URL = "/learn.html";
-  
+        const NEXT_PAGE_URL = "/Learn/SecurityFrameworks/mitre-attck.html";
+   
         async function updateProgress() {
           const response = await fetch("/api/progress", {
             method: "POST",

@@ -152,19 +152,17 @@ hr {
 }
 
 .logout-btn {
-  background-color: #f0ad4e;
-  color: white;
+  background-color: #c0910e !important;
+  color: white !important;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
-
 .logout-btn:hover {
-  background-color: #d9831f; /* Darker orange */
-  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: #d9831f !important;
+  transform: scale(1.05);
 }
-
 /* Personal Info Section */
 form {
   display: flex;
@@ -506,4 +504,75 @@ form button:hover {
 
 .password-requirements li.invalid {
   color: #ff4d4d;
+}
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .main-container {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .avatar-section,
+  .settings-section,
+  .change-password-section {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .avatar-content {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .avatar-image {
+    height: 80px;
+    width: 80px;
+  }
+
+  .choose-avatar-btn,
+  .danger-btn,
+  .logout-btn,
+  form button {
+    width: 100%;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  form input {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .account-settings {
+    font-size: 20px;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 1rem;
+  }
 }

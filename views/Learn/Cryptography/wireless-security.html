@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wireless Network Security: WEP, WPA, WPA2 & WPA3</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Wireless Network Security: WEP, WPA, WPA2 & WPA3</h1>
-    </header>
-    
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+
+<div class="container"> 
     <section>
+        <h1>Wireless Network Security: WEP, WPA, WPA2 & WPA3</h1>
         <h2>Understanding Wireless Network Security</h2>
         <p>Wireless network security encompasses the measures and techniques used to protect wireless networks from unauthorized access, cyber threats, and data breaches. Ensuring secure communication channels is crucial to maintaining data integrity and privacy.</p>
         <p>Security strategies employ encryption protocols, authentication mechanisms, and intrusion detection systems to counteract threats like interception, data manipulation, and denial-of-service attacks.</p>
@@ -121,7 +137,7 @@
             <li><strong>Shoulder Surfing:</strong> Steals data by observing users in public places.</li>
         </ul>
     </section>
-
+</div>
     
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>

@@ -214,3 +214,42 @@ button:hover {
     margin: 10px auto;
   }
 }
+a[target="_blank"] {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #0066cc;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+a[target=\"_blank\"]:hover {
+  color: #003366;
+  border-color: #003366;
+}
+@media (max-width: 430px) {
+  h1,
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  p,
+  ul {
+    font-size: 0.95rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .back-button,
+  button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  main section {
+    padding: 1.2rem;
+  }
+}

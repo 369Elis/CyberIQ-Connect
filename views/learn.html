@@ -6,686 +6,670 @@
     <title>Modules</title>
     <!-- Adjust this path as needed -->
     <link rel="stylesheet" href="../../styles/learn.css" />
+    <link rel="stylesheet" href="/styles/base/reset.css" />
+    <link rel="stylesheet" href="/styles/base/variables.css" />
+    <link rel="stylesheet" href="../styles/layout/navbar.css" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
-      <header>
-        <button
-          class="back-btn"
-          onclick="window.location.href='../Home-Page.html';"
-        >
-          Back
-        </button>
-        <h1>Cybersecurity Modules</h1>
+      <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
       </header>
-
+      <div id="guidePlaceholder">
       <a href="/Learn/CyberSecurityGuide.html" data-level="beginner" id="beginnerOnlyGuide">
-        <button class="learn-btn">Cyber Security Ultimate Guide</button>
+        <button class="learn-btn guide-btn">Cyber Security Guide</button>
       </a>
+    </div>
       
 
         <!-- Malware Dropdown -->
-        <button class="learn-btn" onclick="toggleDropdown('malwareDropdown')">
-          Malware
-        </button>
+        <div class="module-pyramid">
+          
+          <button class="learn-btn" onclick="toggleDropdown('malwareDropdown')">Malware</button>
         <div class="dropdown-content" id="malwareDropdown">
-          <!-- Beginner Malware -->
-          <a href="Learn/Malware/Virus.html" data-level="beginner">Virus</a>
-          <a href="Learn/Malware/Worm.html" data-level="beginner">Worm</a>
-          <a href="Learn/Malware/Trojan.html" data-level="beginner">Trojan</a>
-          <a href="Learn/Malware/Ransomware.html" data-level="intermediate">
-            Ransomware
-          </a>
+                  <!-- Beginner Malware -->
+                  <a href="Learn/Malware/Virus.html" data-level="beginner">Virus</a>
+                  <a href="Learn/Malware/Worm.html" data-level="beginner">Worm</a>
+                  <a href="Learn/Malware/Trojan.html" data-level="beginner">Trojan</a>
+                  <a href="Learn/Malware/Ransomware.html" data-level="intermediate">
+                    Ransomware
+                  </a>
+        
+                  <!-- Intermediate Malware -->
+                  <a href="Learn/Malware/Backdoor.html" data-level="intermediate">
+                    Backdoor
+                  </a>
+                  <a href="Learn/Malware/Keylogger.html" data-level="intermediate">
+                    Keylogger
+                  </a>
+                  <a href="Learn/Malware/AdwareSpyware.html" data-level="intermediate">
+                    Adware & Spyware
+                  </a>
+                  <a href="Learn/Malware/BotBotnet.html" data-level="intermediate">
+                    Botnet
+                  </a>
+                  <a href="Learn/Malware/Rootkit.html" data-level="intermediate">
+                    Rootkit
+                  </a>
+                  <a href="Learn/Malware/LogicBomb.html" data-level="advanced">
+                    Logic Bomb
+                  </a>
+        
+                  <!-- Advanced Malware -->
+                  <a
+                    href="Learn/Malware/AdvancedRootkitAnalysis.html"
+                    data-level="advanced"
+                  >
+                    Advanced Rootkit Analysis
+                  </a>
+                  <a
+                    href="Learn/Malware/BotnetCommandAndControl.html"
+                    data-level="advanced"
+                  >
+                    Botnet Command & Control
+                  </a>
+                  <a
+                    href="Learn/Malware/AdvancedMalwareAnalysis.html"
+                    data-level="advanced"
+                  >
+                    Advanced Malware Analysis
+                  </a>
+                </div>
+        
+          <button class="learn-btn" onclick="toggleDropdown('attackDropdown')">Attack Types</button>
+         <div class="dropdown-content" id="attackDropdown">
+                  <!-- Beginner Attack Types -->
+                  <a href="Learn/AttackTypes/ManInTheMiddle.html" data-level="beginner">
+                    Man-in-the-Middle
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/password-attack.html"
+                    data-level="beginner"
+                  >
+                    Password Attack
+                  </a>
+                  <a href="Learn/AttackTypes/phishing.html" data-level="beginner">
+                    Phishing
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/shoulder-surfing.html"
+                    data-level="beginner"
+                  >
+                    Shoulder Surfing
+                  </a>
+                  <a href="Learn/AttackTypes/tailgatin.html" data-level="beginner">
+                    Tailgating
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/denial-of-service.html"
+                    data-level="beginner"
+                  >
+                    Denial of Service (DoS)
+                  </a>
+        
+                  <!-- Intermediate Attack Types -->
+                  <a
+                    href="Learn/AttackTypes/watering-hole.html"
+                    data-level="intermediate"
+                  >
+                    Watering Hole Attacks
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/buffer-overflow.html"
+                    data-level="intermediate"
+                  >
+                    Buffer Overflow
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/sql-injection.html"
+                    data-level="intermediate"
+                  >
+                    SQL Injection
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/cross-side-scripting.html"
+                    data-level="intermediate"
+                  >
+                    Cross-Site Scripting (XSS)
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/Cross-Site-Request-Forgery.html"
+                    data-level="intermediate"
+                  >
+                    CSRF
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/Privilege-Escalation.html"
+                    data-level="intermediate"
+                  >
+                    Privilege Escalation
+                  </a>
+        
+                  <!-- Advanced Attack Types -->
+                  <a href="Learn/AttackTypes/ZeroDayAttack.html" data-level="advanced">
+                    Zero-Day Attacks
+                  </a>
+                  <a href="Learn/AttackTypes/replay-attacks.html" data-level="advanced">
+                    Replay Attack
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/client-hijacking.html"
+                    data-level="advanced"
+                  >
+                    Client Hijacking
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/driver-manipulation.html"
+                    data-level="advanced"
+                  >
+                    Driver Manipulation
+                  </a>
+                  <a href="Learn/AttackTypes/spoofing.html" data-level="advanced">
+                    IP/MAC Spoofing
+                  </a>
+                  
+                  <a
+                    href="Learn/AttackTypes/access-point-evil-twin.html"
+                    data-level="advanced"
+                  >
+                    Evil Twin Attack
+                  </a>
+                  
 
-          <!-- Intermediate Malware -->
-          <a href="Learn/Malware/Backdoor.html" data-level="intermediate">
-            Backdoor
-          </a>
-          <a href="Learn/Malware/Keylogger.html" data-level="intermediate">
-            Keylogger
-          </a>
-          <a href="Learn/Malware/AdwareSpyware.html" data-level="intermediate">
-            Adware & Spyware
-          </a>
-          <a href="Learn/Malware/BotBotnet.html" data-level="intermediate">
-            Botnet
-          </a>
-          <a href="Learn/Malware/Rootkit.html" data-level="intermediate">
-            Rootkit
-          </a>
-          <a href="Learn/Malware/LogicBomb.html" data-level="advanced">
-            Logic Bomb
-          </a>
-
-          <!-- Advanced Malware -->
-          <a
-            href="Learn/Malware/AdvancedRootkitAnalysis.html"
-            data-level="advanced"
-          >
-            Advanced Rootkit Analysis
-          </a>
-          <a
-            href="Learn/Malware/BotnetCommandAndControl.html"
-            data-level="advanced"
-          >
-            Botnet Command & Control
-          </a>
-          <a
-            href="Learn/Malware/AdvancedMalwareAnalysis.html"
-            data-level="advanced"
-          >
-            Advanced Malware Analysis
-          </a>
-        </div>
-
-        <!-- Attack Types Dropdown -->
-        <button class="learn-btn" onclick="toggleDropdown('attackDropdown')">
-          Attack Types
-        </button>
-        <div class="dropdown-content" id="attackDropdown">
-          <!-- Beginner Attack Types -->
-          <a href="Learn/AttackTypes/ManInTheMiddle.html" data-level="beginner">
-            Man-in-the-Middle
-          </a>
-          <a
-            href="Learn/AttackTypes/password-attack.html"
-            data-level="beginner"
-          >
-            Password Attack
-          </a>
-          <a href="Learn/AttackTypes/phishing.html" data-level="beginner">
-            Phishing
-          </a>
-          <a
-            href="Learn/AttackTypes/shoulder-surfing.html"
-            data-level="beginner"
-          >
-            Shoulder Surfing
-          </a>
-          <a href="Learn/AttackTypes/tailgatin.html" data-level="beginner">
-            Tailgating
-          </a>
-          <a
-            href="Learn/AttackTypes/denial-of-service.html"
-            data-level="beginner"
-          >
-            Denial of Service (DoS)
-          </a>
-
-          <!-- Intermediate Attack Types -->
-          <a
-            href="Learn/AttackTypes/watering-hole.html"
-            data-level="intermediate"
-          >
-            Watering Hole Attacks
-          </a>
-          <a
-            href="Learn/AttackTypes/buffer-overflow.html"
-            data-level="intermediate"
-          >
-            Buffer Overflow
-          </a>
-          <a
-            href="Learn/AttackTypes/sql-injection.html"
-            data-level="intermediate"
-          >
-            SQL Injection
-          </a>
-          <a
-            href="Learn/AttackTypes/cross-side-scripting.html"
-            data-level="intermediate"
-          >
-            Cross-Site Scripting (XSS)
-          </a>
-          <a
-            href="Learn/AttackTypes/Cross-Site-Request-Forgery.html"
-            data-level="intermediate"
-          >
-            CSRF
-          </a>
-          <a
-            href="Learn/AttackTypes/Privilege-Escalation.html"
-            data-level="intermediate"
-          >
-            Privilege Escalation
-          </a>
-
-          <!-- Advanced Attack Types -->
-          <a href="Learn/AttackTypes/ZeroDayAttack.html" data-level="advanced">
-            Zero-Day Attacks
-          </a>
-          <a href="Learn/AttackTypes/replay-attacks.html" data-level="advanced">
-            Replay Attack
-          </a>
-          <a
-            href="Learn/AttackTypes/client-hijacking.html"
-            data-level="advanced"
-          >
-            Client Hijacking
-          </a>
-          <a
-            href="Learn/AttackTypes/driver-manipulation.html"
-            data-level="advanced"
-          >
-            Driver Manipulation
-          </a>
-          <a href="Learn/AttackTypes/spoofing.html" data-level="advanced">
-            IP/MAC Spoofing
-          </a>
-          <a
-            href="Learn/AttackTypes/access-point-evil-twin.html"
-            data-level="advanced"
-          >
-            Evil Twin Attack
-          </a>
-          <a
-            href="Learn/AttackTypes/rfid-nfc-attack.html"
-            data-level="advanced"
-          >
-            RFID & NFC Attacks
-          </a>
-          <a
-            href="Learn/AttackTypes/wireless-jamming.html"
-            data-level="advanced"
-          >
-            Wireless Jamming
-          </a>
-          <a
-            href="Learn/AttackTypes/cryptographic-attack.html"
-            data-level="advanced"
-          >
-            Cryptographic Attacks
-          </a>
-        </div>
-
-        <!-- Security Components Dropdown -->
-        <button
-          class="learn-btn"
-          onclick="toggleDropdown('SecurityComponentsDropdown')"
-        >
-          Security Components
-        </button>
-        <div class="dropdown-content" id="SecurityComponentsDropdown">
-          <!-- Beginner Security Components -->
-          <a
-            href="/Learn/SecurityComponents/firewall.html"
-            data-level="beginner"
-          >
-            Firewall
-          </a>
-          <a
-            href="/Learn/SecurityComponents/VPN-concentrators.html"
-            data-level="beginner"
-          >
-            VPN
-          </a>
-          <a
-            href="/Learn/SecurityComponents/access-points.html"
-            data-level="beginner"
-          >
-            Access Points
-          </a>
-          <a
-            href="/Learn/SecurityComponents/mail-gateways.html"
-            data-level="beginner"
-          >
-            Mail Gateways
-          </a>
-          <a
-            href="/Learn/SecurityComponents/proxy-server.html"
-            data-level="beginner"
-          >
-            Proxy Servers
-          </a>
-          <a
-            href="/Learn/SecurityComponents/security-software.html"
-            data-level="beginner"
-          >
-            Network Analyzers & Security Software
-          </a>
-          <a
-            href="/Learn/SecurityComponents/mobile-device-management.html"
-            data-level="beginner"
-          >
-            Mobile Device Management 
-          </a>
-
-          <!-- Intermediate Security Components -->
-          <a
-            href="/Learn/SecurityComponents/load-balancer.html"
-            data-level="intermediate"
-          >
-            Load Balancer
-          </a>
-          <a
-            href="/Learn/SecurityComponents/network-access-controll.html"
-            data-level="intermediate"
-          >
-            Network Access Control (NAC)
-          </a>
-          <a
-            href="/Learn/SecurityComponents/IDPS.html"
-            data-level="intermediate"
-          >
-            Intrusion Detection & Prevention
-          </a>
-          <a
-            href="/Learn/SecurityComponents/data-loss-prevention-advanced.html"
-            data-level="intermediate"
-          >
-            Data Loss Prevention (DLP)
-          </a>
-          <a
-            href="/Learn/SecurityComponents/mobile-device-conections.html"
-            data-level="intermediate"
-          >
-            Mobile Security (Connection Methods)
-          </a>
-          <a
-            href="/Learn/SecurityComponents/mobile-deployment-models.html"
-            data-level="intermediate"
-          >
-            Mobile Deployment Models
-          </a>
-          <a
-            href="/Learn/SecurityComponents/mobile-device-enforcement.html"
-            data-level="intermediate"
-          >
-            Mobile Security Enforcement
-          </a>
-          <a
-            href="/Learn/SecurityComponents/command-line-security-tools.html"
-            data-level="intermediate"
-          >
-            Command-Line Security Tools
-          </a>
-          <a
-            href="/Learn/SecurityComponents/common-issues.html"
-            data-level="intermediate"
-          >
-            Common Security Issues
-          </a>
-
-          <!-- Advanced Security Components -->
-          <a href="/Learn/SecurityComponents/SIEM.html" data-level="advanced">
-            SIEM
-          </a>
-          <a href="/Learn/SecurityComponents/ZTNA.html" data-level="advanced">
-            Zero Trust Network Access
-          </a>
-          <a
-            href="/Learn/SecurityComponents/analyze-security-output.html"
-            data-level="advanced"
-          >
-            Advanced Security Analysis
-          </a>
-        </div>
-
-        <!-- Security Frameworks Dropdown -->
-        <button
-          class="learn-btn"
-          onclick="toggleDropdown('SecurityFrameworksDropdown')"
-        >
-          Security Frameworks
-        </button>
-        <div class="dropdown-content" id="SecurityFrameworksDropdown">
-          <!-- Beginner Frameworks -->
-          <a
-            href="/Learn/SecurityFrameworks/NIST-cybersecurity-framework.html"
-            data-level="beginner"
-          >
-            NIST CSF (Intro)
-          </a>
-          <a
-            href="/Learn/SecurityFrameworks/cis-controls.html"
-            data-level="beginner"
-          >
-            CIS Controls (Basic)
-          </a>
-          <a
-            href="/Learn/SecurityFrameworks/ISO-introduction.html"
-            data-level="beginner"
-          >
-            ISO 27001 (Intro)
-          </a>
-          <a
-            href="/Learn/SecurityFrameworks/owasp-top-10.html"
-            data-level="beginner"
-          >
-            OWASP Top 10
-          </a>
-
-          <!-- Intermediate Frameworks -->
-          <a
-            href="/Learn/SecurityFrameworks/ISO27001-vs-NIST-CSF.html"
-            data-level="intermediate"
-          >
-            ISO vs NIST
-          </a>
-          <a
-            href="/Learn/SecurityFrameworks/nist-sp-800-53.html"
-            data-level="intermediate"
-          >
-            NIST SP 800-53
-          </a>
-          <a
-            href="/Learn/SecurityFrameworks/pci-dss.html"
-            data-level="intermediate"
-          >
-            PCI DSS
-          </a>
-          <a
-            href="/Learn/SecurityFrameworks/mitre-attck.html"
-            data-level="intermediate"
-          >
-            MITRE ATT&CK
-          </a>
-
-          <!-- Advanced Frameworks -->
-          <a
-            href="/Learn/SecurityFrameworks/nist-riskmanagementt.html"
-            data-level="advanced"
-          >
-            NIST RMF
-          </a>
-          <a href="/Learn/SecurityFrameworks/sabsa.html" data-level="advanced">
-            SABSA
-          </a>
-          <a
-            href="/Learn/SecurityFrameworks/zero-trust.html"
-            data-level="advanced"
-          >
-            Zero Trust Architecture (Advanced)
-          </a>
-        </div>
-
-        <!-- Identity & Access Management Dropdown -->
-        <button
-          class="learn-btn"
-          onclick="toggleDropdown('IdentityAccesMenagementDropdown')"
-        >
-          Identity Access Management
-        </button>
-        <div class="dropdown-content" id="IdentityAccesMenagementDropdown">
-          <!-- Beginner IAM -->
-          <a
-            href="/Learn/IdentityAccesMenagement/AAAauthentication.html"
-            data-level="beginner"
-          >
-            AAA & Authentication Basics
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/IAM.html"
-            data-level="beginner"
-          >
-            Basic IAM Concepts
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/authentication-protocols.html"
-            data-level="beginner"
-          >
-            Authentication Protocols (PAP, CHAP)
-          </a>
-
-          <!-- Intermediate IAM -->
-          <a
-            href="/Learn/IdentityAccesMenagement/federated-identity.html"
-            data-level="intermediate"
-          >
-            Federated Identity Management (SAML)
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/RBAC-ABAC.html"
-            data-level="intermediate"
-          >
-            RBAC / ABAC
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/account-management.html"
-            data-level="intermediate"
-          >
-            Account Management (Lifecycle)
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/account-enforcement-policy.html"
-            data-level="intermediate"
-          >
-            Account Policy Enforcement
-          </a>
-
-          <!-- Advanced IAM -->
-          <a
-            href="/Learn/IdentityAccesMenagement/PAM.HTML"
-            data-level="advanced"
-          >
-            Privileged Access Management (PAM)
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/advanced-authentication-protocols.html"
-            data-level="advanced"
-          >
-            Advanced Authentication (Kerberos, OAuth2)
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/identity-goverance-administration.html"
-            data-level="advanced"
-          >
-            Identity Governance
-          </a>
-          <a
-            href="/Learn/IdentityAccesMenagement/zero-trust-architecture.html"
-            data-level="advanced"
-          >
-            Zero Trust Architecture
-          </a>
-        </div>
-
-        <!-- Security Policies Dropdown -->
-        <button
-          class="learn-btn"
-          onclick="toggleDropdown('Security-PoliciesDropdown')"
-        >
-          Security Policies
-        </button>
-        <div class="dropdown-content" id="Security-PoliciesDropdown">
-          <!-- Beginner Policies -->
-          <a
-            href="/Learn/Security-Policies/agreement-types.html"
-            data-level="beginner"
-          >
-            Agreement Types (NDA, SLA)
-          </a>
-          <a
-            href="/Learn/Security-Policies/role-based-awarness.html"
-            data-level="beginner"
-          >
-            Role-Based Awareness Training
-          </a>
-          <a
-            href="/Learn/Security-Policies/security-policies.html"
-            data-level="beginner"
-          >
-            Basic Security Policies
-          </a>
-          <a
-            href="/Learn/Security-Policies/incident-response.html"
-            data-level="beginner"
-          >
-            Incident Response (Basic)
-          </a>
-
-          <!-- Intermediate Policies -->
-          <a
-            href="/Learn/Security-Policies/incident-response-lifecycle.html"
-            data-level="intermediate"
-          >
-            Incident Response Lifecycle
-          </a>
-          <a
-            href="/Learn/Security-Policies/disaster-recovery.html"
-            data-level="intermediate"
-          >
-            Disaster Recovery
-          </a>
-          <a
-            href="/Learn/Security-Policies/risk-management.html"
-            data-level="intermediate"
-          >
-            Risk Management
-          </a>
-          <a
-            href="/Learn/Security-Policies/it-policies-procedure.html"
-            data-level="intermediate"
-          >
-            IT Policies & Procedures
-          </a>
-
-          <!-- Advanced Policies -->
-          <a
-            href="/Learn/Security-Policies/geographic-considerations.html"
-            data-level="advanced"
-          >
-            Geographical Data Management
-          </a>
-          <a
-            href="/Learn/Security-Policies/data-retention.html"
-            data-level="advanced"
-          >
-            Data Retention
-          </a>
-          <a
-            href="/Learn/Security-Policies/forensic-data-use.html"
-            data-level="advanced"
-          >
-            Forensic Data Gathering
-          </a>
-          <a
-            href="/Learn/Security-Policies/forensic-data.html"
-            data-level="advanced"
-          >
-            Forensic Data Use
-          </a>
-          <a
-            href="/Learn/Security-Policies/handle-sensitive-information.html"
-            data-level="advanced"
-          >
-            Handling Sensitive Data
-          </a>
-        </div>
-
-        <!-- Cryptography Dropdown -->
-        <button
-          class="learn-btn"
-          onclick="toggleDropdown('CryptographyDropdown')"
-        >
-          Cryptography
-        </button>
+                  <a
+                    href="Learn/AttackTypes/rfid-nfc-attack.html"
+                    data-level="advanced"
+                  >
+                    RFID & NFC Attacks
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/wireless-jamming.html"
+                    data-level="advanced"
+                  >
+                    Wireless Jamming
+                  </a>
+                  <a
+                    href="Learn/AttackTypes/cryptographic-attack.html"
+                    data-level="advanced"
+                  >
+                    Cryptographic Attacks
+                  </a>
+                </div>
+        <button class="learn-btn" onclick="toggleDropdown('CryptographyDropdown')">Cryptography</button>
         <div class="dropdown-content" id="CryptographyDropdown">
-          <!-- Beginner Cryptography -->
-          <a
-            href="/Learn/Cryptography/cryptography-concepts.html"
-            data-level="beginner"
-          >
-            Basic Cryptography Concepts
-          </a>
-          <a
-            href="/Learn/Cryptography/types-of-encryption.html"
-            data-level="beginner"
-          >
-            Types of Encryption (Sym/Asym)
-          </a>
-          <a
-            href="/Learn/Cryptography/states-of-data.html"
-            data-level="beginner"
-          >
-            Data States
-          </a>
-          <a
-            href="/Learn/Cryptography/cryptography-use-cases.html"
-            data-level="beginner"
-          >
-            Cryptographic Use Cases
-          </a>
-          <a
-            href="/Learn/Cryptography/cryphtographic-failures.html"
-            data-level="beginner"
-          >
-            Weak Encryption Risks
-          </a>
-
-          <!-- Intermediate Cryptography -->
-          <a
-            href="/Learn/Cryptography/hashing-algorithms.html"
-            data-level="intermediate"
-          >
-            Hashing (MD5, SHA)
-          </a>
-          <a
-            href="/Learn/Cryptography/block-cypher-modes.html"
-            data-level="intermediate"
-          >
-            Block Cipher Modes
-          </a>
-          <a
-            href="/Learn/Cryptography/cryptographic-keys.html"
-            data-level="intermediate"
-          >
-            Cryptographic Keys (RSA, ECC)
-          </a>
-          <a
-            href="/Learn/Cryptography/authentication-protocols.html"
-            data-level="intermediate"
-          >
-            TLS/SSL Protocols
-          </a>
-          <a
-            href="/Learn/Cryptography/wireless-security.html"
-            data-level="intermediate"
-          >
-            Wireless Security (WEP/WPA2)
-          </a>
-          <a
-            href="/Learn/Cryptography/certificate-formats.html"
-            data-level="intermediate"
-          >
-            Certificate Formats
-          </a>
-          <a
-            href="/Learn/Cryptography/pki-components.html"
-            data-level="intermediate"
-          >
-            PKI Components
-          </a>
-          <a
-            href="/Learn/Cryptography/steganography.html"
-            data-level="intermediate"
-          >
-            Steganography
-          </a>
-
-          <!-- Advanced Cryptography -->
-          <a
-            href="/Learn/Cryptography/perfect-foward.secrecy.html"
-            data-level="advanced"
-          >
-            Perfect Forward Secrecy
-          </a>
-          <a
-            href="/Learn/Cryptography/key-streching-algorithm.html"
-            data-level="advanced"
-          >
-            Key Stretching (PBKDF2, Argon2)
-          </a>
-          <a
-            href="/Learn/Cryptography/randomized-encryption.html"
-            data-level="advanced"
-          >
-            Randomizing Cryptography
-          </a>
-          <a href="/Learn/Cryptography/obfuscation.html" data-level="advanced">
-            Obfuscation Techniques
-          </a>
+                  <!-- Beginner Cryptography -->
+                  <a
+                    href="/Learn/Cryptography/cryptography-concepts.html"
+                    data-level="beginner"
+                  >
+                    Basic Cryptography Concepts
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/types-of-encryption.html"
+                    data-level="beginner"
+                  >
+                    Types of Encryption (Sym/Asym)
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/states-of-data.html"
+                    data-level="beginner"
+                  >
+                    Data States
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/cryptography-use-cases.html"
+                    data-level="beginner"
+                  >
+                    Cryptographic Use Cases
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/cryphtographic-failures.html"
+                    data-level="beginner"
+                  >
+                    Weak Encryption Risks
+                  </a>
+        
+                  <!-- Intermediate Cryptography -->
+                  <a
+                    href="/Learn/Cryptography/hashing-algorithms.html"
+                    data-level="intermediate"
+                  >
+                    Hashing (MD5, SHA)
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/block-cypher-modes.html"
+                    data-level="intermediate"
+                  >
+                    Block Cipher Modes
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/cryptographic-keys.html"
+                    data-level="intermediate"
+                  >
+                    Cryptographic Keys (RSA, ECC)
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/authentication-protocols.html"
+                    data-level="intermediate"
+                  >
+                    TLS/SSL Protocols
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/wireless-security.html"
+                    data-level="intermediate"
+                  >
+                    Wireless Security (WEP/WPA2)
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/certificate-formats.html"
+                    data-level="intermediate"
+                  >
+                    Certificate Formats
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/pki-components.html"
+                    data-level="intermediate"
+                  >
+                    PKI Components
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/steganography.html"
+                    data-level="intermediate"
+                  >
+                    Steganography
+                  </a>
+        
+                  <!-- Advanced Cryptography -->
+                  <a
+                    href="/Learn/Cryptography/perfect-foward.secrecy.html"
+                    data-level="advanced"
+                  >
+                    Perfect Forward Secrecy
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/key-streching-algorithm.html"
+                    data-level="advanced"
+                  >
+                    Key Stretching (PBKDF2, Argon2)
+                  </a>
+                  <a
+                    href="/Learn/Cryptography/randomized-encryption.html"
+                    data-level="advanced"
+                  >
+                    Randomizing Cryptography
+                  </a>
+                  <a href="/Learn/Cryptography/obfuscation.html" data-level="advanced">
+                    Obfuscation Techniques
+                  </a>
+                </div>
+        <button class="learn-btn" onclick="toggleDropdown('Security-PoliciesDropdown')">Security Policies</button>
+        <div class="dropdown-content" id="Security-PoliciesDropdown">
+                  <!-- Beginner Policies -->
+                  <a
+                    href="/Learn/Security-Policies/agreement-types.html"
+                    data-level="beginner"
+                  >
+                    Agreement Types (NDA, SLA)
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/role-based-awarness.html"
+                    data-level="beginner"
+                  >
+                    Role-Based Awareness Training
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/security-policies.html"
+                    data-level="beginner"
+                  >
+                    Basic Security Policies
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/incident-response.html"
+                    data-level="beginner"
+                  >
+                    Incident Response (Basic)
+                  </a>
+        
+                  <!-- Intermediate Policies -->
+                  <a
+                    href="/Learn/Security-Policies/incident-response-lifecycle.html"
+                    data-level="intermediate"
+                  >
+                    Incident Response Lifecycle
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/disaster-recovery.html"
+                    data-level="intermediate"
+                  >
+                    Disaster Recovery
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/risk-management.html"
+                    data-level="intermediate"
+                  >
+                    Risk Management
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/it-policies-procedure.html"
+                    data-level="intermediate"
+                  >
+                    IT Policies & Procedures
+                  </a>
+        
+                  <!-- Advanced Policies -->
+                  <a
+                    href="/Learn/Security-Policies/geographic-considerations.html"
+                    data-level="advanced"
+                  >
+                    Geographical Data Management
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/data-retention.html"
+                    data-level="advanced"
+                  >
+                    Data Retention
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/forensic-data-use.html"
+                    data-level="advanced"
+                  >
+                    Forensic Data Gathering
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/forensic-data.html"
+                    data-level="advanced"
+                  >
+                    Forensic Data Use
+                  </a>
+                  <a
+                    href="/Learn/Security-Policies/handle-sensitive-information.html"
+                    data-level="advanced"
+                  >
+                    Handling Sensitive Data
+                  </a>
+                </div>
+        
+        
+          <button class="learn-btn" onclick="toggleDropdown('SecurityComponentsDropdown')">Security Components</button>
+         <div class="dropdown-content" id="SecurityComponentsDropdown">
+                  <!-- Beginner Security Components -->
+                  <a
+                    href="/Learn/SecurityComponents/firewall.html"
+                    data-level="beginner"
+                  >
+                    Firewall
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/VPN-concentrators.html"
+                    data-level="beginner"
+                  >
+                    VPN
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/access-points.html"
+                    data-level="beginner"
+                  >
+                    Access Points
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/mail-gateways.html"
+                    data-level="beginner"
+                  >
+                    Mail Gateways
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/proxy-server.html"
+                    data-level="beginner"
+                  >
+                    Proxy Servers
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/security-software.html"
+                    data-level="beginner"
+                  >
+                    Network Analyzers & Security Software
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/mobile-device-management.html"
+                    data-level="beginner"
+                  >
+                    Mobile Device Management 
+                  </a>
+        
+                  <!-- Intermediate Security Components -->
+                  <a
+                    href="/Learn/SecurityComponents/load-balancer.html"
+                    data-level="intermediate"
+                  >
+                    Load Balancer
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/network-access-controll.html"
+                    data-level="intermediate"
+                  >
+                    Network Access Control (NAC)
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/IDPS.html"
+                    data-level="intermediate"
+                  >
+                    Intrusion Detection & Prevention
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/data-loss-prevention-advanced.html"
+                    data-level="intermediate"
+                  >
+                    Data Loss Prevention (DLP)
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/mobile-device-conections.html"
+                    data-level="intermediate"
+                  >
+                    Mobile Security (Connection Methods)
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/mobile-deployment-models.html"
+                    data-level="intermediate"
+                  >
+                    Mobile Deployment Models
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/mobile-device-enforcement.html"
+                    data-level="intermediate"
+                  >
+                    Mobile Security Enforcement
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/command-line-security-tools.html"
+                    data-level="intermediate"
+                  >
+                    Command-Line Security Tools
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/common-issues.html"
+                    data-level="intermediate"
+                  >
+                    Common Security Issues
+                  </a>
+        
+                  <!-- Advanced Security Components -->
+                  <a href="/Learn/SecurityComponents/SIEM.html" data-level="advanced">
+                    SIEM
+                  </a>
+                  <a href="/Learn/SecurityComponents/ZTNA.html" data-level="advanced">
+                    Zero Trust Network Access
+                  </a>
+                  <a
+                    href="/Learn/SecurityComponents/analyze-security-output.html"
+                    data-level="advanced"
+                  >
+                    Advanced Security Analysis
+                  </a>
+                </div>
+        
+          <button class="learn-btn" onclick="toggleDropdown('SecurityFrameworksDropdown')">Security Frameworks</button>
+        <div class="dropdown-content" id="SecurityFrameworksDropdown">
+                  <!-- Beginner Frameworks -->
+                  <a
+                    href="/Learn/SecurityFrameworks/NIST-cybersecurity-framework.html"
+                    data-level="beginner"
+                  >
+                    NIST CSF (Intro)
+                  </a>
+                  <a
+                    href="/Learn/SecurityFrameworks/cis-controls.html"
+                    data-level="beginner"
+                  >
+                    CIS Controls (Basic)
+                  </a>
+                  <a
+                    href="/Learn/SecurityFrameworks/ISO-introduction.html"
+                    data-level="beginner"
+                  >
+                    ISO 27001 (Intro)
+                  </a>
+                  <a
+                    href="/Learn/SecurityFrameworks/owasp-top-10.html"
+                    data-level="beginner"
+                  >
+                    OWASP Top 10
+                  </a>
+        
+                  <!-- Intermediate Frameworks -->
+                  <a
+                    href="/Learn/SecurityFrameworks/ISO27001-vs-NIST-CSF.html"
+                    data-level="intermediate"
+                  >
+                    ISO vs NIST
+                  </a>
+                  <a
+                    href="/Learn/SecurityFrameworks/nist-sp-800-53.html"
+                    data-level="intermediate"
+                  >
+                    NIST SP 800-53
+                  </a>
+                  <a
+                    href="/Learn/SecurityFrameworks/pci-dss.html"
+                    data-level="intermediate"
+                  >
+                    PCI DSS
+                  </a>
+                  <a
+                    href="/Learn/SecurityFrameworks/mitre-attck.html"
+                    data-level="intermediate"
+                  >
+                    MITRE ATT&CK
+                  </a>
+        
+                  <!-- Advanced Frameworks -->
+                  <a
+                    href="/Learn/SecurityFrameworks/nist-riskmanagementt.html"
+                    data-level="advanced"
+                  >
+                    NIST RMF
+                  </a>
+                  <a href="/Learn/SecurityFrameworks/sabsa.html" data-level="advanced">
+                    SABSA
+                  </a>
+                  <a
+                    href="/Learn/SecurityFrameworks/zero-trust.html"
+                    data-level="advanced"
+                  >
+                    Zero Trust Architecture (Advanced)
+                  </a>
+                </div>
+        
+          <button class="learn-btn" onclick="toggleDropdown('IdentityAccesMenagementDropdown')">Identity Access Management</button>
+           <div class="dropdown-content" id="IdentityAccesMenagementDropdown">
+                  <!-- Beginner IAM -->
+                  <a
+                    href="/Learn/IdentityAccesMenagement/AAAauthentication.html"
+                    data-level="beginner"
+                  >
+                    AAA & Authentication Basics
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/IAM.html"
+                    data-level="beginner"
+                  >
+                    Basic IAM Concepts
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/authentication-protocols.html"
+                    data-level="beginner"
+                  >
+                    Authentication Protocols (PAP, CHAP)
+                  </a>
+        
+                  <!-- Intermediate IAM -->
+                  <a
+                    href="/Learn/IdentityAccesMenagement/federated-identity.html"
+                    data-level="intermediate"
+                  >
+                    Federated Identity Management (SAML)
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/RBAC-ABAC.html"
+                    data-level="intermediate"
+                  >
+                    RBAC / ABAC
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/account-management.html"
+                    data-level="intermediate"
+                  >
+                    Account Management (Lifecycle)
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/account-enforcement-policy.html"
+                    data-level="intermediate"
+                  >
+                    Account Policy Enforcement
+                  </a>
+        
+                  <!-- Advanced IAM -->
+                  <a
+                    href="/Learn/IdentityAccesMenagement/PAM.HTML"
+                    data-level="advanced"
+                  >
+                    Privileged Access Management (PAM)
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/advanced-authentication-protocols.html"
+                    data-level="advanced"
+                  >
+                    Advanced Authentication (Kerberos, OAuth2)
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/identity-goverance-administration.html"
+                    data-level="advanced"
+                  >
+                    Identity Governance
+                  </a>
+                  <a
+                    href="/Learn/IdentityAccesMenagement/zero-trust-architecture.html"
+                    data-level="advanced"
+                  >
+                    Zero Trust Architecture
+                  </a>
+                </div>
+          
         </div>
+        
       </div>
     </div>
 
@@ -693,10 +677,14 @@
     <script>
       function toggleDropdown(id) {
         const dropdown = document.getElementById(id);
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
+        dropdown.classList.toggle("show");
+    
+        if (dropdown.classList.contains("show")) {
+          setTimeout(() => dropdown.scrollIntoView({ behavior: "smooth", block: "end" }), 100);
+        }
       }
     </script>
+    
 
     <!-- IMPORTANT: Use an absolute path so it loads via Express static route -->
     <script src="/js/user-level.js"></script>

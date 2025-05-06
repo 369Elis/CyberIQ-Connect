@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enforcing Account Policies for Security</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
+
 </head>
+
+
+
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+  <button class="back-button" onclick="history.back()">Back</button>
+  
+<div class="container"> 
     <h1>Enforcing Account Policies for Security</h1>
     <p>Once user accounts are set up, ensuring they remain secure is crucial. This involves managing credentials, configuring security policies, and enforcing authentication rules.</p>
     
@@ -31,7 +53,7 @@
     <p>Rather than permanently deleting inactive accounts, disabling them is a safer approach. Disabled accounts retain associated data, such as encryption keys, ensuring that important information remains accessible if needed.</p>
     
     <p>By implementing these policies, organizations can enhance security, reduce risks, and ensure that account management aligns with best practices.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

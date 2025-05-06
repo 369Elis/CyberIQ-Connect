@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Security Risks and Mitigation Strategies</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Key Security Risks and Mitigation Strategies</h1>
     
     <p>As cyber threats continue to evolve, organizations must remain vigilant against various security risks that can expose sensitive data and infrastructure. A recent security survey identified the most pressing concerns for IT professionals, including phishing attacks, ransomware, misconfigurations, weak passwords, delayed patching, orphaned accounts, and lost or stolen devices. Understanding these risks and implementing effective countermeasures is essential for strengthening cybersecurity defenses.</p>
@@ -75,7 +92,7 @@
     
     <h2>Strengthening Security Posture</h2>
     <p>Organizations can significantly reduce their exposure to cyber threats by implementing proactive security measures, conducting employee training, and leveraging advanced security technologies. By prioritizing continuous monitoring, strict access controls, and a culture of cybersecurity awareness, businesses can enhance their resilience against evolving digital threats.</p>
-
+  </div>
     
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>

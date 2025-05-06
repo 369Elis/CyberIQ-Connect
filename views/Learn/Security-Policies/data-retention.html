@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Retention Policy: Best Practices</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+<div class="container"> 
+
     <h1>Data Retention Policy: Best Practices for Storing and Deleting Data Responsibly</h1>
     <p>In today’s digital landscape, businesses generate and store vast amounts of data. But keeping data indefinitely isn't just impractical—it’s risky. A well-structured data retention policy helps organizations manage their data responsibly, ensuring compliance with legal requirements, enhancing security, and optimizing storage.</p>
     
@@ -111,7 +130,7 @@
     <ul>
         <li>Define clear retention periods and automate deletion.</li>
     </ul>
-
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

@@ -4,9 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Watering Hole Attacks</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/Attacktypes.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
+
   </head>
   <body>
+    <header class="navbar">
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="/account.html"
+          ><i class="fa-solid fa-circle-user"></i> Account</a
+        >
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </form>
+      </nav>
+    </header>
+<button class="back-button" onclick="history.back()">Back</button>
     <div class="container">
       <h1>Watering Hole Attacks: A Stealthy Cyber Threat</h1>
       
@@ -26,7 +42,7 @@
         In some cases, attackers increase their reach by leveraging automated email notifications from the compromised website. These emails, which appear legitimate since they originate from a trusted source, lure users into interacting with the infected site. Since these emails do not come directly from the attackers but from the compromised system itself, detection becomes more challenging.
       </p>
       <p>
-        Watering hole attacks have become increasingly prevalent, with motivations ranging from financial theft—such as stealing personally identifiable information (PII) or banking details—to political espionage. Websites associated with religious organizations, political groups, media outlets, and other high-profile entities have been targeted, impacting not only the organizations themselves but also unsuspecting users who visit these sites.
+        Watering hole attacks have become increasingly prevalent, with motivations ranging from financial theftsuch as stealing personally identifiable information (PII) or banking detailsto political espionage. Websites associated with religious organizations, political groups, media outlets, and other high-profile entities have been targeted, impacting not only the organizations themselves but also unsuspecting users who visit these sites.
       </p>
       
       <h2>How Can Organizations Defend Against Watering Hole Attacks?</h2>

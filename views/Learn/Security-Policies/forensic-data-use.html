@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Digital Forensics Data Is Used</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+<div class="container"> 
     <h1>How Digital Forensics Data Is Used</h1>
     <p>Digital forensics plays a crucial role in investigations by recovering, analyzing, and preserving electronic evidence. Investigators can extract data from computers, mobile devices, cloud storage, and networks, helping to reconstruct past events and uncover key details. Whether for law enforcement, corporate security, or compliance audits, forensic data provides insights that can solve crimes, prevent fraud, and strengthen cybersecurity.</p>
     
@@ -60,7 +78,7 @@
         <li><strong>IoT & Smart Device Analysis:</strong> Investigating data from smart home systems, wearable tech, and connected cars.</li>
         <li><strong>Enhanced Mobile Forensics:</strong> Extracting and analyzing data from encrypted apps and cloud services.</li>
     </ul>
-
+  </div>
     
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>

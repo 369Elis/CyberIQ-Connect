@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Certificate Formats for Digital Security</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Understanding Certificate Formats for Digital Security</h1>
-    </header>
-    
+   <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container">
     <section>
+      <h1>Understanding Certificate Formats for Digital Security</h1>
         <h2>Overview of Digital Certificate Formats</h2>
         <p>Digital certificates play a crucial role in securing online communications, encrypting sensitive information, and verifying user identities. These certificates are essential for securing website connections, encrypting emails, and authenticating digital transactions.</p>
         <p>Selecting the appropriate certificate format ensures compatibility with your system and provides the necessary security level for your data. Different certificate formats offer distinct advantages and are optimized for specific use cases.</p>
@@ -70,7 +84,7 @@
             <li><strong>Features:</strong> Unlike P7B, PFX files include both private keys and certificates, making them ideal for secure key storage.</li>
         </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

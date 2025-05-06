@@ -5,113 +5,166 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cyber Security Guide</title>
-    <link rel="stylesheet" href="../styles/cyberguide.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
   </head>
   <body>
-    <header>
-      <h1>An Ultimate Guide to Cyber Security for Beginners</h1>
+    <header class="navbar">
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="/account.html"
+          ><i class="fa-solid fa-circle-user"></i> Account</a
+        >
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </form>
+      </nav>
     </header>
+    <button class="back-button" onclick="history.back()">Back</button>
 
-   
-    <!-- Buttons -->
-   
+    <div class="container">
+      <section class="intro">
+        <h1>An Ultimate Guide to Cyber Security for Beginners</h1>
+        <h2>What is Cybersecurity?</h2>
+        <p>
+          Cybersecurity refers to the practice of protecting systems, networks,
+          and programs from digital attacks. These cyberattacks are usually
+          aimed at accessing, changing, or destroying sensitive information;
+          extorting money from users; or interrupting normal business processes.
+        </p>
+      </section>
 
-    <hr />
+      <section class="content">
+        <h2>CIA Triad</h2>
+        <p>
+          The CIA Triad refers to the foundational model of cybersecurity,
+          emphasizing three key principles: Confidentiality, Integrity, and
+          Availability. These principles help guide policies for information
+          security within an organization.
+        </p>
+      </section>
 
-    <section class="intro">
-      <h2>What is Cybersecurity?</h2>
-      <p><!-- content --></p>
-    </section>
+      <section class="specialties">
+        <h2>Specialties in Cybersecurity</h2>
+        <p>
+          To pursue your career in cybersecurity, it is essential to know about
+          the areas of specialization in it, and this cyber security for
+          beginners tutorial will help you do just that. There are nine:
+        </p>
+        <ul>
+          <li>
+            <strong>Access control systems and methodology:</strong> Protects
+            critical system resources from unauthorized modification.
+          </li>
+          <li>
+            <strong>Telecommunications and network security:</strong> Covers
+            communications, protocols, and network vulnerabilities.
+          </li>
+          <li>
+            <strong>Security management practices:</strong> Handles disasters,
+            system failures, and service interruptions.
+          </li>
+          <li>
+            <strong>Security architecture and models:</strong> Focuses on policy
+            and procedure planning for security issues.
+          </li>
+          <li>
+            <strong>Law, investigation, and ethics:</strong> Covers legal
+            aspects of cybersecurity.
+          </li>
+          <li>
+            <strong>Application and system development security:</strong>
+            Involves securing databases and internal applications.
+          </li>
+          <li>
+            <strong>Cryptography:</strong> Teaches encryption principles and
+            appropriate usage.
+          </li>
+          <li>
+            <strong>Computer operations security:</strong> Protects systems
+            while they are running.
+          </li>
+          <li>
+            <strong>Physical security:</strong> Deals with physical access to
+            hardware and devices.
+          </li>
+        </ul>
+      </section>
 
-    <section class="content">
-      <h2>CIA Triad</h2>
-      <p><!-- content --></p>
-    </section>
-
-    <section class="specialties">
-      <h2>Specialties in Cybersecurity</h2>
-      <p><!-- content --></p>
-      <ul>
-        <!-- content -->
-      </ul>
-    </section>
-
-    <section class="terminologies">
-      <h2>Basic Terminologies</h2>
-      <ul>
-        <!-- content -->
-      </ul>
-    </section>
-
-    <section class="attacks">
-      <h2>Common Types of Attacks</h2>
-      <p>Click on the attack type to learn more:</p>
-      <ul>
-        <li>
-          <a href="ddos.html" class="futuristic-link"
-            >Distributed Denial of Service (DDoS)</a
-          >
-        </li>
-        <li>
-          <a href="man-in-the-middle.html" class="futuristic-link"
-            >Man in the Middle</a
-          >
-        </li>
-        <li>
-          <a href="email-attacks.html" class="futuristic-link">Email Attacks</a>
-        </li>
-        <li>
-          <a href="password-attacks.html" class="futuristic-link"
-            >Password Attacks</a
-          >
-        </li>
-        <li>
-          <a href="malware.html" class="futuristic-link">Malware Attack</a>
-        </li>
-      </ul>
-    </section>
-
-    <footer>
-      <p>© 2025 Cyber Security Guide. All Rights Reserved.</p>
-    </footer>
+      <section class="terminologies">
+        <h2>Basic Terminologies</h2>
+        <ul>
+          <li>
+            <strong>Network:</strong> A connection between two or more computers
+            that communicate. For example: (image placeholder).
+          </li>
+          <li>
+            <strong>Internet:</strong> Connects computers globally via routers
+            and servers.
+          </li>
+          <li>
+            <strong>IP Address:</strong> A numeric identifier for devices on a
+            network (e.g., 168.192.10.9).
+          </li>
+          <li>
+            <strong>MAC Address:</strong> Unique hardware identifier (e.g.,
+            D8-EC-52-H-A3-TO).
+          </li>
+          <li>
+            <strong>DNS (Domain Name Server):</strong> Acts like the internet's
+            phonebook, translating domain names into IP addresses.
+          </li>
+          <li>
+            <strong>DHCP:</strong> Automatically assigns IP addresses to devices
+            on a network.
+          </li>
+          <li>
+            <strong>Router:</strong> Directs data across networks to appropriate
+            destinations.
+          </li>
+          <li>
+            <strong>Bots:</strong> Programs that run automated tasks and can
+            control systems unknowingly.
+          </li>
+        </ul>
+      </section>
+    </div>
 
     <!-- Progress JS -->
     <div class="module-navigation">
       <button id="completeNextBtn">✅ Complete & Next</button>
       <button id="skipNextBtn">⏭ Skip</button>
     </div>
-  </div>
 
+    <script src="/scripts/progress.js"></script>
 
-  <script src="/scripts/progress.js"></script>
+    <script>
+      const MODULE_NAME = "Cybersecurity Platform";
+      const NEXT_PAGE_URL = "/learn.html";
 
-  <script>
-    const MODULE_NAME = "Cybersecurity Platform";
-    const NEXT_PAGE_URL = "/learn.html";
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
+        });
 
-    async function updateProgress() {
-      const response = await fetch("/api/progress", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
-      });
-
-      if (response.ok) {
-        window.location.href = NEXT_PAGE_URL;
-      } else {
-        alert("Failed to update progress.");
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
       }
-    }
 
-    document
-      .getElementById("completeNextBtn")
-      .addEventListener("click", updateProgress);
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
 
-    document.getElementById("skipNextBtn").addEventListener("click", () => {
-      window.location.href = NEXT_PAGE_URL;
-    });
-  </script>
-
-
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
   </body>
 </html>

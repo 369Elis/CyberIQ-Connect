@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Replay Attack</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="replay-page">
-
-    <header>
-        <h1>What Is a Replay Attack?</h1>
-    </header>
-
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
+  
     <section class="intro">
-        <p>A replay attack is a security breach in which an attacker intercepts a valid network communication and retransmits it to trick the recipient into accepting it as an authentic request. This type of attack can be dangerous because the hacker does not need to decrypt or modify the message—simply resending it in its original form is enough to cause harm.</p>
+        <h1>What Is a Replay Attack?</h1>
+        <p>A replay attack is a security breach in which an attacker intercepts a valid network communication and retransmits it to trick the recipient into accepting it as an authentic request. This type of attack can be dangerous because the hacker does not need to decrypt or modify the message simply resending it in its original form is enough to cause harm.</p>
         <p>Replay attacks are commonly used to bypass authentication, execute fraudulent transactions, or gain unauthorized access to systems. They can occur in various scenarios, including online banking, authentication protocols, and encrypted data exchanges.</p>
     </section>
 
@@ -88,7 +101,7 @@
             <li>🔹 <strong>Session Hijacking in Web Applications</strong> – If a web service does not properly expire session tokens, a hacker could capture a token and reuse it to impersonate a legitimate user.</li>
         </ul>
     </section>
-
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

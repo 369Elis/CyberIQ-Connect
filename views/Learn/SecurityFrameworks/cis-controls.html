@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIS Critical Security Controls (CSC) Overview</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
+
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+<div class="container"> 
     <h1>CIS Critical Security Controls (CSC) Overview</h1>
     <p>The <strong>CIS Critical Security Controls (CSC)</strong> are a set of cybersecurity best practices developed by the <strong>Center for Internet Security (CIS)</strong> to help organizations strengthen their defenses against cyber threats. These controls are categorized into three implementation levels based on organizational size, resources, and expertise.</p>
     
@@ -42,7 +61,7 @@
     </ul>
     
     <p>By following <strong>CIS Controls</strong>, organizations can effectively reduce cyber risks, improve security resilience, and align with industry best practices for threat mitigation.</p>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

@@ -4,13 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cryptography Use Cases</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
   </head>
   <body>
-    <header>
-      <h1>Cryptography Use Cases</h1>
+    <header class="navbar">
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="/account.html"
+          ><i class="fa-solid fa-circle-user"></i> Account</a
+        >
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </form>
+      </nav>
     </header>
+<button class="back-button" onclick="history.back()">Back</button>
 
+<div class="container">
     <section>
+      <h1>Cryptography Use Cases</h1>
       <p>
         Cryptography plays a vital role in securing digital communications,
         safeguarding sensitive data, and verifying authenticity. Various
@@ -152,7 +167,7 @@
         digital environments, minimizing security risks and unauthorized access.
       </p>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

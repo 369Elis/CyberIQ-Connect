@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Manipulation</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css">
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body class="driver-page">
 
-    <header>
-        <h1>Understanding Driver Manipulation: How It Works and How to Stay Protected</h1>
-    </header>
+    <header class="navbar">
+        <div class="navbar-brand">Cyber IQ Connect</div>
+        <nav class="navbar-links">
+          <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="/account.html"
+            ><i class="fa-solid fa-circle-user"></i> Account</a
+          >
+          <form action="/logout" method="POST" class="logout-form">
+            <button type="submit" class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        </nav>
+      </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
 
     <section class="intro">
+        <h1>Understanding Driver Manipulation: How It Works and How to Stay Protected</h1>
         <h2>What Is Driver Manipulation?</h2>
-        <p>Driver manipulation is a cyberattack technique that targets device drivers—the software responsible for facilitating communication between an operating system and hardware components like printers, graphics cards, and audio systems. Since operating systems place a high level of trust in drivers, attackers exploit this trust to bypass security controls, escalate privileges, and gain unauthorized system access.</p>
+        <p>Driver manipulation is a cyberattack technique that targets device drivers the software responsible for facilitating communication between an operating system and hardware components like printers, graphics cards, and audio systems. Since operating systems place a high level of trust in drivers, attackers exploit this trust to bypass security controls, escalate privileges, and gain unauthorized system access.</p>
         <p>By altering or injecting malicious code into drivers, attackers can compromise system integrity, steal sensitive information, or even take full control of a device. This makes driver manipulation a powerful method for executing advanced cyberattacks.</p>
     </section>
 
@@ -108,7 +122,7 @@
             </div>
         </div>
     </section>
-
+</div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

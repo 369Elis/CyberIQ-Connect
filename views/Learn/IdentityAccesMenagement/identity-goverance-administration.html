@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Identity Governance & Administration (IGA)</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
+
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container"> 
     <h1>Understanding Identity Governance & Administration (IGA)</h1>
     
     <h2>What Is Identity Governance & Administration?</h2>
@@ -66,42 +84,43 @@
         <li>🔹 User-Friendly</li>
         <li>🔹 Scalable & Cost-Effective</li>
     </ul>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>
       </div>
     </div>
   
-      <script src="/scripts/progress.js"></script>
-  
-      <script>
-        const MODULE_NAME = "identity governance & administration";
+    <script src="/scripts/progress.js"></script>
+
+    <script>
+      const MODULE_NAME = "identity governance & administration";
         const NEXT_PAGE_URL = "/Learn/IdentityAccesMenagement/zero-trust-architecture.html";
-  
-        async function updateProgress() {
-          const response = await fetch("/api/progress", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
-          });
-  
-          if (response.ok) {
-            window.location.href = NEXT_PAGE_URL;
-          } else {
-            alert("Failed to update progress.");
-          }
-        }
-  
-        document
-          .getElementById("completeNextBtn")
-          .addEventListener("click", updateProgress);
-          
-        document.getElementById("skipNextBtn").addEventListener("click", () => {
-          window.location.href = NEXT_PAGE_URL;
+
+
+
+      async function updateProgress() {
+        const response = await fetch("/api/progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ moduleName: MODULE_NAME, progress: 100 }),
         });
-  
-      </script>
+
+        if (response.ok) {
+          window.location.href = NEXT_PAGE_URL;
+        } else {
+          alert("Failed to update progress.");
+        }
+      }
+
+      document
+        .getElementById("completeNextBtn")
+        .addEventListener("click", updateProgress);
+
+      document.getElementById("skipNextBtn").addEventListener("click", () => {
+        window.location.href = NEXT_PAGE_URL;
+      });
+    </script>
 
 
 

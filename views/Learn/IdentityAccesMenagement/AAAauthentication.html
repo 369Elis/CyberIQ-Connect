@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Authentication, Authorization, and Accounting (AAA)</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
-    <header>
-        <h1>Understanding Authentication, Authorization, and Accounting (AAA)</h1>
-    </header>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+   
     
+<div class="container"> 
     <section>
+      <h1>Understanding Authentication, Authorization, and Accounting (AAA)</h1>
         <h2>Introduction</h2>
         <p>Authentication, Authorization, and Accounting (AAA) form a crucial security model used to regulate access to digital systems, enforce security policies, and track user activity. These three components work together to ensure that only permitted individuals gain access to systems while monitoring their actions to enhance security and accountability.</p>
     </section>
@@ -51,7 +68,7 @@
             <li><strong>Device Administration:</strong> Governs access to network infrastructure and administrative functions. Unlike general network access control, this focuses on defining which network devices or management tools a user can interact with, such as SSH access to routers and firewalls.</li>
         </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

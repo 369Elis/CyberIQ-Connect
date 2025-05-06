@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding the Incident Response Lifecycle</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
 </head>
 <body>
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+<div class="container">
     <h1>Understanding the Incident Response Lifecycle</h1>
-    <p>In the world of cybersecurity and IT operations, incidents aren’t one-time events—they are part of a continuous learning cycle. The most effective security teams don’t just react to threats; they analyze incidents, learn from them, and refine their strategies to improve future responses.</p>
+    <p>In the world of cybersecurity and IT operations, incidents aren’t one-time eventsthey are part of a continuous learning cycle. The most effective security teams don’t just react to threats; they analyze incidents, learn from them, and refine their strategies to improve future responses.</p>
     
-    <p>Incident response is not just about fixing the problem and moving on—it’s about preventing similar issues from happening again. A well-structured incident response lifecycle ensures that every security event is addressed methodically, minimizing damage and improving organizational resilience.</p>
+    <p>Incident response is not just about fixing the problem and moving onit’s about preventing similar issues from happening again. A well-structured incident response lifecycle ensures that every security event is addressed methodically, minimizing damage and improving organizational resilience.</p>
     
     <h2>What is an Incident Response Lifecycle?</h2>
     <p>An incident response lifecycle is a structured process that organizations use to identify, respond to, and recover from IT security incidents. These incidents can range from cyberattacks and security breaches to system failures and downtime.</p>
@@ -106,7 +123,7 @@
         <li>Compliance with regulations like GDPR, HIPAA, and ISO 27001.</li>
         <li>Continuous learning that strengthens overall cybersecurity.</li>
     </ul>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

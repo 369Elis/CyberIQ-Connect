@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steganography: Concealing Information and How It Functions</title>
+    <link rel="stylesheet" href="/styles/modules.css" />
+
 </head>
 <body>
-    <header>
-        <h1>Steganography: Concealing Information and How It Functions</h1>
-    </header>
-    
+  <header class="navbar">
+    <div class="navbar-brand">Cyber IQ Connect</div>
+    <nav class="navbar-links">
+      <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="/account.html"
+        ><i class="fa-solid fa-circle-user"></i> Account</a
+      >
+      <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </form>
+    </nav>
+  </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+<div class="container"> 
     <section>
+      <h1>Steganography: Concealing Information and How It Functions</h1>
         <h2>Understanding Steganography</h2>
         <p>Steganography is the technique of embedding hidden messages, images, or data within seemingly ordinary files or objects to conceal their existence.</p>
-        <p>Even children unknowingly engage in steganography. For instance, using invisible ink to reveal secret messages or embedding coded notes within school assignments are basic examples of this technique. However, steganography isn’t just for fun—it has real-world applications, and unfortunately, cybercriminals also use it to disguise malicious activities.</p>
+        <p>Even children unknowingly engage in steganography. For instance, using invisible ink to reveal secret messages or embedding coded notes within school assignments are basic examples of this technique. However, steganography isn’t just for funit has real-world applications, and unfortunately, cybercriminals also use it to disguise malicious activities.</p>
     </section>
     
     <section>
@@ -55,7 +71,7 @@
     
     <section>
         <h2>How Hackers Leverage Steganography</h2>
-        <p>Steganography isn't just used for legitimate purposes—cybercriminals have adapted it to conceal malicious activities. Hackers often use one of the following techniques:</p>
+        <p>Steganography isn't just used for legitimate purposescybercriminals have adapted it to conceal malicious activities. Hackers often use one of the following techniques:</p>
         <ul>
             <li><strong>Least Significant Bit (LSB) Substitution:</strong> Identifying the least important bits in an image or file and replacing them with concealed code.</li>
             <li><strong>Palette-Based Manipulation:</strong> Expanding the color palette of an image and embedding encrypted information within it.</li>
@@ -73,7 +89,7 @@
             <li><strong>Exploit Kits:</strong> Malicious code is embedded within website elements, such as banner ads, leading users to infected sites upon clicking.</li>
         </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>

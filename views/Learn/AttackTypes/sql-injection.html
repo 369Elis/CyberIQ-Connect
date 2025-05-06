@@ -4,14 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SQL Injection Attacks</title>
-    <link rel="stylesheet" href="/styles/AttackTypes/styles.css" />
+    <link rel="stylesheet" href="/styles/modules.css" />
   </head>
   <body class="sql-page">
-    <header>
-      <h1>What is SQL Injection?</h1>
+    <header class="navbar">
+      <div class="navbar-brand">Cyber IQ Connect</div>
+      <nav class="navbar-links">
+        <a href="/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="/account.html"
+          ><i class="fa-solid fa-circle-user"></i> Account</a
+        >
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit" class="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </form>
+      </nav>
     </header>
+<button class="back-button" onclick="history.back()">Back</button>
+
+<div class="container">  
 
     <section class="intro">
+      <h1>What is SQL Injection?</h1>
       <p>
         SQL Injection (SQLi) is a cyberattack technique where malicious SQL code
         is used to manipulate a database, often gaining unauthorized access to
@@ -79,7 +94,7 @@ WHERE CustomerID = " & Request.QueryString("customerid")
       <h2>Types of SQL Injection Attacks</h2>
       <div class="mitm-grid">
         <div class="mitm-card">
-          <span class="icon">💥</span>
+          <span class="icon"></span>
           <h3>In-Band SQL Injection</h3>
           <p>
             The most common method where attackers execute queries and retrieve
@@ -97,7 +112,7 @@ WHERE CustomerID = " & Request.QueryString("customerid")
           </ul>
         </div>
         <div class="mitm-card">
-          <span class="icon">🔍</span>
+          <span class="icon"></span>
           <h3>Inferential SQL Injection (Blind SQLi)</h3>
           <p>
             Attackers analyze system behavior instead of getting direct database
@@ -115,7 +130,7 @@ WHERE CustomerID = " & Request.QueryString("customerid")
           </ul>
         </div>
         <div class="mitm-card">
-          <span class="icon">🌍</span>
+          <span class="icon"></span>
           <h3>Out-of-Band SQL Injection</h3>
           <p>
             When direct response-based attacks fail, attackers use database
@@ -150,7 +165,7 @@ WHERE CustomerID = " & Request.QueryString("customerid")
         </li>
       </ul>
     </section>
-
+  </div>
     <div class="module-navigation">
         <button id="completeNextBtn">✅ Complete & Next</button>
         <button id="skipNextBtn">⏭ Skip</button>
