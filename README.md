@@ -17,19 +17,18 @@ Cyber IQ Connect is a secure, interactive platform that teaches cybersecurity fu
 
 ## 🛠️ Tech Stack
 
-| Layer    | Tech                           |
-| -------- | ------------------------------ |
-| Frontend | HTML, CSS,JavaScript (Vanilla) |
-| Backend  | Node.js, Express.js            |
-| Database | MySQL                          |
-| Security | bcrypt, express-session, csurf |
-| DevOps   | GitHub,                        |
-| Tools    | Postman, Figma, Canva          |
+| Layer      | Tech                          |
+|------------|-------------------------------|
+| Frontend   | HTML, CSS,JavaScript (Vanilla)|
+| Backend    | Node.js, Express.js           |
+| Database   | MySQL                         |
+| Security   | bcrypt, express-session, csurf|
+| DevOps     | GitHub,                       |
+| Tools      | Postman, Figma, Canva         |
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
 - Node.js (v18+)
 - MySQL
 - `.env` file with credentials
@@ -40,4 +39,3 @@ Cyber IQ Connect is a secure, interactive platform that teaches cybersecurity fu
 git clone https://github.com/369Elis/CyberIQ-Connect.git
 cd CyberIQ-Connect
 npm install
-```
