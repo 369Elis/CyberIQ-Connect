@@ -242,42 +242,56 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { username, email, password } = req.body;
+    try {
+      const { username, email, password } = req.body;
 
-    connection.query(
-      "SELECT id FROM users WHERE email = ?",
-      [email],
-      async (err, results) => {
-        if (err) {
-          console.error("SELECT error:", err);
-          return res.status(500).json({ error: "Database error." });
-        }
-
-        if (results.length > 0) {
-          return res
-            .status(400)
-            .json({ error: "Email is already registered." });
-        }
-
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        connection.query(
-          `INSERT INTO users (username, email, password, first_name, last_name, age, personal_info_updates, avatar_url)
-           VALUES (?, ?, ?, NULL, NULL, 0, 0, '/assets/avatar/pfp.JPG')`,
-          [username, email, hashedPassword],
-          (insertErr) => {
-            if (insertErr) {
-              console.error("INSERT error:", insertErr);
-              return res.status(500).json({ error: "Registration failed." });
-            }
-
-            res
-              .status(200)
-              .json({ message: "Registration successful. Please log in." });
+      connection.query(
+        "SELECT id FROM users WHERE email = ?",
+        [email],
+        async (err, results) => {
+          if (err) {
+            console.error("SELECT error:", err);
+            return res.status(500).json({ error: "Database error." });
           }
-        );
-      }
-    );
+
+          if (results.length > 0) {
+            return res
+              .status(400)
+              .json({ error: "Email is already registered." });
+          }
+
+          try {
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            connection.query(
+              `INSERT INTO users (username, email, password, first_name, last_name, age, personal_info_updates, avatar_url)
+               VALUES (?, ?, ?, NULL, NULL, 0, 0, '/assets/avatar/pfp.JPG')`,
+              [username, email, hashedPassword],
+              (insertErr) => {
+                if (insertErr) {
+                  console.error("INSERT error:", insertErr);
+                  return res
+                    .status(500)
+                    .json({ error: "Registration failed." });
+                }
+
+                return res.status(200).json({
+                  message: "Registration successful. Please log in.",
+                });
+              }
+            );
+          } catch (hashError) {
+            console.error("Hashing error:", hashError);
+            return res
+              .status(500)
+              .json({ error: "Password processing failed." });
+          }
+        }
+      );
+    } catch (err) {
+      console.error("Registration route error:", err);
+      return res.status(500).json({ error: "Internal server error." });
+    }
   }
 );
 
