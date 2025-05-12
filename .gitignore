@@ -1,8 +1,21 @@
 # This ignores environment variables
 database.env
 
+
+README.md
+
+
+
 #  This ignores Node.js modules
 node_modules/  
+
+
+*.bat
+*.cmd
+*.ps1
+*.exe
+
+
 
 # This ignores installation tools and binaries
 corepack
@@ -14,7 +27,9 @@ npx
 
 # This ignores log files
 *.log
-
+.vscode/
+.idea/
 
 certificates/
 assets/avatar/
+

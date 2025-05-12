@@ -58,9 +58,8 @@ const upload = multer({
   },
 });
 
-// ======================================================
 // Route: POST /upload-avatar
-// ======================================================
+
 router.post("/upload-avatar", upload.single("avatar"), (req, res) => {
   const userId = req.session.userId;
   if (!userId) {
@@ -109,16 +108,13 @@ router.post("/upload-avatar", upload.single("avatar"), (req, res) => {
   );
 });
 
-// ======================================================
 // Route: GET /api/user-info
-//  -> Now includes user_level
-// ======================================================
+
 router.get("/api/user-info", (req, res) => {
   if (!req.session.userId) {
     return res.status(401).json({ isLoggedIn: false });
   }
 
-  // Include user_level here:
   connection.query(
     `SELECT first_name, last_name, age, avatar_url, personal_info_updates, user_level
      FROM users
@@ -143,23 +139,19 @@ router.get("/api/user-info", (req, res) => {
   );
 });
 
-// ======================================================
 // Route: GET /login -> Show login.html
-// ======================================================
+
 router.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
-// ======================================================
 // Route: GET /personalinfo.html
-// ======================================================
+
 router.get("/personalinfo.html", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/personalinfo.html"));
 });
 
-// ======================================================
 // Route: POST /login -> Process login
-// ======================================================
 
 router.post(
   "/login",
@@ -174,7 +166,7 @@ router.post(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.redirect("/login?error=Invalid email or password");
+      return res.status(400).send("Invalid email or password");
     }
 
     const { email, password } = req.body;
@@ -184,7 +176,7 @@ router.post(
       [email],
       async (err, results) => {
         if (err || results.length === 0) {
-          return res.redirect("/login?error=Invalid email or password");
+          return res.status(401).send("Invalid email or password");
         }
 
         const user = results[0];
@@ -194,23 +186,21 @@ router.post(
           req.session.userId = user.id;
           return res.redirect("/account.html");
         } else {
-          return res.redirect("/login?error=Invalid email or password");
+          return res.status(401).send("Invalid email or password");
         }
       }
     );
   }
 );
 
-// ======================================================
 // Route: GET /register -> Show register.html
-// ======================================================
+
 router.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/register.html"));
 });
 
-// ======================================================
 // Route: POST /register -> Create new user
-// ======================================================
+
 router.post(
   "/register",
   registerLimiter,
@@ -295,9 +285,8 @@ router.post(
   }
 );
 
-// ======================================================
 // Route: POST /logout
-// ======================================================
+
 router.post("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -307,9 +296,8 @@ router.post("/logout", (req, res) => {
   });
 });
 
-// ======================================================
 // Route: POST /update-personal-info
-// ======================================================
+
 router.post("/update-personal-info", upload.none(), (req, res) => {
   const { "first-name": firstName, "last-name": lastName, age } = req.body;
   const userId = req.session.userId;
@@ -376,9 +364,8 @@ router.post("/update-personal-info", upload.none(), (req, res) => {
   );
 });
 
-// ======================================================
 // Route: POST /delete-account
-// ======================================================
+
 router.post("/delete-account", (req, res) => {
   const userId = req.session.userId;
 
@@ -419,9 +406,8 @@ router.post("/delete-account", (req, res) => {
   );
 });
 
-// ======================================================
 // Route: POST /change-password
-// ======================================================
+
 router.post("/change-password", async (req, res) => {
   const { currentPassword, newPassword, confirmPassword } = req.body;
 
@@ -502,9 +488,8 @@ router.post("/change-password", async (req, res) => {
   );
 });
 
-// ======================================================
 // Route: GET /api/certificate-url -> Get certificate URL for logged-in user
-// ======================================================
+
 router.get("/api/certificate-url", (req, res) => {
   if (!req.session.userId) {
     return res.status(401).json({ error: "Unauthorized" });

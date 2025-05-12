@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("/api/user-info", { credentials: "include" })
     .then((res) => {
       if (!res.ok) {
-        // user not logged in => optional
         applyModuleVisibility("notLoggedIn");
         return null;
       }
@@ -52,6 +51,6 @@ function levelToNumber(lvl) {
     case "advanced":
       return 3;
     default:
-      return 0; // not logged in or unknown
+      return 0;
   }
 }
