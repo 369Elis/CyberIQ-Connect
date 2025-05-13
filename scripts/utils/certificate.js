@@ -15,7 +15,6 @@ async function generateCertificate(userId, fullName, level, issueDate) {
   const outputDir = path.join(__dirname, "..", "..", "public", "certificates");
   const outputPath = path.join(outputDir, `${userId}-${level}.png`);
 
-  // Ensure output directory exists
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }

@@ -59,7 +59,6 @@ router.get("/api/get-questions", requireLogin, async (req, res) => {
       userLevel = "beginner";
     }
 
-    // e.g. block "certified" from retaking or do your custom logic
     if (userLevel === "certified") {
       return res.json({
         userLevel: "certified",
@@ -174,7 +173,7 @@ router.post("/api/submit-exam", requireLogin, async (req, res) => {
         userId,
       ]);
 
-      // 🔥 Generate certificate and store URL
+      //  Generate certificate and store URL
       certificateUrl = await generateCertificate(
         userId,
         fullName,

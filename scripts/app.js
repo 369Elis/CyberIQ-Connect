@@ -11,7 +11,7 @@ const rateLimit = require("express-rate-limit");
 const progressRoutes = require("./progressRoutes");
 const examRoutes = require("./examRoutes");
 const authRoutes = require("./authRoutes");
-const connection = require("./database"); // Remove if unused
+const connection = require("./database");
 
 // Initialize Express
 const app = express();
@@ -26,11 +26,11 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false, // ✅ don't create sessions unless needed
+    saveUninitialized: false,
     cookie: {
-      httpOnly: true, // ✅ block JS access
-      secure: false, // ✅ use HTTPS only in prod
-      sameSite: "Lax", // ✅ CSRF-resistant
+      httpOnly: true,
+      secure: false,
+      sameSite: "Lax",
     },
   })
 );
@@ -48,8 +48,8 @@ app.get("/csrf-token", csrfProtect, (req, res) => {
 
 // Protect auth routes: 5 requests per 15 minutes
 const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 3000,
+  windowMs: 15 * 60 * 1000,
+  max: 5,
   message: "Too many attempts. Please try again in 15 minutes.",
 });
 
