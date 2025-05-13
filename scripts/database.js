@@ -1,6 +1,6 @@
 // config/database.js
 const mysql = require("mysql2");
-require("dotenv").config({ path: "../database.env" }); // Load environment variables for database configuration
+require("dotenv").config({ path: "database.env" }); // Load environment variables for database configuration
 
 // Setup MySQL connection
 const connection = mysql.createConnection({
