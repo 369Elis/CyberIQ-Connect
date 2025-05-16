@@ -2,6 +2,11 @@
 
 Live Site : 🌐 https://cyberiq-connect.datawyse.ai/
 
+▶️ Watch the demo on YouTube :  🔗 https://www.youtube.com/watch?v=YourVideoID
+
+
+
+
 
 Cyber IQ Connect is a secure, interactive platform that teaches cybersecurity fundamentals through structured, gamified modules. Built for learners aged 16+, it combines self-paced content, real-world examples, and certification exams to make digital security education accessible and engaging.
 
