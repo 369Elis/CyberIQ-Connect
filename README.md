@@ -45,3 +45,35 @@ Cyber IQ Connect is a secure, interactive platform that teaches cybersecurity fu
 git clone https://github.com/369Elis/CyberIQ-Connect.git
 cd CyberIQ-Connect
 npm install
+
+📦 Dependencies
+Core Dependencies
+These packages are essential for the backend services and general functionality:
+
+express – Web framework for Node.js
+
+mysql2 – MySQL driver for Node.js
+
+dotenv – Load environment variables from .env
+
+bcrypt – Secure password hashing
+
+express-session – Session middleware
+
+csurf – CSRF protection
+
+helmet – Security-related HTTP headers
+
+cors – Cross-origin resource sharing
+
+body-parser – Request body parsing middleware
+
+express-validator – Input validation
+
+compression – GZIP compression
+
+redis, connect-redis, ioredis – Redis integration for sessions
+
+file-type – Detect file MIME types
+
+multer – File upload middleware
